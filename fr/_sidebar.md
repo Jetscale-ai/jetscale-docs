@@ -20,6 +20,7 @@
   - [ElastiCache](services/elasticache.md)
 
 - Référence
+  - [FAQ](faq.md)
   - [API](api-reference.md)
   - [Configuration](configuration.md)
   - [Déploiement](deployment.md)
