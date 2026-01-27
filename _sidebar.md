@@ -13,11 +13,12 @@
 
 **Supported Services**
 
-- AWS
-  - [RDS Optimization](services/rds.md)
-  - [EC2 Optimization](services/ec2.md)
-  - [EBS Optimization](services/ebs.md)
-  - [ElastiCache Optimization](services/elasticache.md)
+**AWS**
+
+- [RDS Optimization](services/rds.md)
+- [EC2 Optimization](services/ec2.md)
+- [EBS Optimization](services/ebs.md)
+- [ElastiCache Optimization](services/elasticache.md)
 
 **Integrations**
 

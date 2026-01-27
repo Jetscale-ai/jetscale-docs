@@ -14,11 +14,13 @@
   - [Bitbucket](integrations/bitbucket.md)
 
 - Services Supportés
-  - AWS
-    - [RDS](services/rds.md)
-    - [EC2](services/ec2.md)
-    - [EBS](services/ebs.md)
-    - [ElastiCache](services/elasticache.md)
+
+**AWS**
+
+- [RDS](services/rds.md)
+- [EC2](services/ec2.md)
+- [EBS](services/ebs.md)
+- [ElastiCache](services/elasticache.md)
 
 - Référence
   - [FAQ](faq.md)
