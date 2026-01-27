@@ -232,6 +232,13 @@ body {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
+.markdown-section .card-icon {
+  width: 48px;
+  height: 48px;
+  margin-bottom: 1rem;
+  display: block;
+}
+
 .markdown-section .doc-card:hover {
   border-color: var(--jetscale-primary);
   box-shadow: 0 4px 12px rgba(28, 132, 238, 0.15);
