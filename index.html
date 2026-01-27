@@ -14,10 +14,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Wix+Madefor+Text:ital,wght@0,400..800;1,400..800&display=swap" rel="stylesheet">
   <style>
     .lang-switcher {
-      position: fixed;
-      top: 15px;
-      right: 15px;
-      z-index: 1000;
+      padding: 15px 20px 10px 20px;
+      border-bottom: 1px solid #eee;
     }
     .lang-switcher select {
       padding: 6px 12px;
@@ -32,16 +30,28 @@
     .lang-switcher select:hover {
       border-color: #1c84ee;
     }
+    .sidebar .search {
+      position: relative;
+    }
   </style>
 </head>
 <body>
-  <div class="lang-switcher">
-    <select id="languageSelector" onchange="switchLanguage(this.value)">
-      <option value="en">English</option>
-      <option value="fr">Français</option>
-    </select>
-  </div>
   <div id="app"></div>
+  <script>
+    // Inject language switcher into sidebar after Docsify loads
+    window.addEventListener('load', function() {
+      setTimeout(function() {
+        const sidebar = document.querySelector('.sidebar');
+        if (sidebar) {
+          const langSwitcher = document.createElement('div');
+          langSwitcher.className = 'lang-switcher';
+          langSwitcher.innerHTML = '<select id="languageSelector" onchange="switchLanguage(this.value)"><option value="en">English</option><option value="fr">Français</option></select>';
+          sidebar.insertBefore(langSwitcher, sidebar.firstChild);
+          detectLanguage();
+        }
+      }, 100);
+    });
+  </script>
   <script>
     // Language switcher
     function switchLanguage(lang) {
