@@ -7,6 +7,7 @@
   - [GitHub](integrations/github)
   - [Jira](integrations/jira)
   - [Bitbucket](integrations/bitbucket)
+  - [MCP](integrations/mcp)
 
 - Services Supportés
   - AWS

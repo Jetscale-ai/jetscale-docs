@@ -7,6 +7,7 @@
   - [GitHub](integrations/github.md)
   - [Jira](integrations/jira.md)
   - [Bitbucket](integrations/bitbucket.md)
+  - [MCP](integrations/mcp.md)
 
 - Supported Services
   - AWS
