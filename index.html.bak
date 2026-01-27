@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-lang="en">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <title>JetScale Documentation</title>
@@ -12,69 +12,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Wix+Madefor+Text:ital,wght@0,400..800;1,400..800&display=swap" rel="stylesheet">
-  <style>
-    .lang-switcher {
-      position: fixed;
-      top: 15px;
-      right: 15px;
-      z-index: 1000;
-    }
-    .lang-switcher select {
-      padding: 6px 12px;
-      border: 1px solid #d8dfe7;
-      border-radius: 4px;
-      background: white;
-      color: #323a46;
-      font-family: "Wix Madefor Text", sans-serif;
-      font-size: 14px;
-      cursor: pointer;
-    }
-    .lang-switcher select:hover {
-      border-color: #1c84ee;
-    }
-  </style>
 </head>
 <body>
-  <div class="lang-switcher">
-    <select id="languageSelector" onchange="switchLanguage(this.value)">
-      <option value="en">English</option>
-      <option value="fr">Français</option>
-    </select>
-  </div>
   <div id="app"></div>
   <script>
-    // Language switcher
-    function switchLanguage(lang) {
-      const currentPath = location.hash.replace('#/', '');
-      if (lang === 'en') {
-        // Remove /fr/ prefix if present
-        const newPath = currentPath.replace(/^fr\//, '');
-        location.hash = '#/' + newPath;
-      } else if (lang === 'fr') {
-        // Add /fr/ prefix if not present
-        if (!currentPath.startsWith('fr/')) {
-          const newPath = currentPath === '' ? 'fr/' : 'fr/' + currentPath;
-          location.hash = '#/' + newPath;
-        }
-      }
-      // Update selector
-      document.getElementById('languageSelector').value = lang;
-    }
-
-    // Detect current language from URL and update selector
-    function detectLanguage() {
-      const hash = location.hash;
-      if (hash.includes('#/fr/') || hash === '#/fr') {
-        document.getElementById('languageSelector').value = 'fr';
-      } else {
-        document.getElementById('languageSelector').value = 'en';
-      }
-    }
-
-    // Update on hash change
-    window.addEventListener('hashchange', detectLanguage);
-    window.addEventListener('load', detectLanguage);
-
     window.$docsify = {
       name: '<img src="logo.svg" alt="JetScale" style="height: 28px; margin-top: 8px;">',
       nameLink: '/',
@@ -86,19 +27,13 @@
       search: {
         placeholder: 'Search...',
         noData: 'No results found',
-        depth: 3,
-        paths: 'auto'
+        depth: 3
       },
       themeColor: '#1c84ee',
       coverpage: false,
       executeScript: true,
       mergeNavbar: true,
       formatUpdated: '{MM}/{DD} {HH}:{mm}',
-      fallbackLanguages: ['en'],
-      alias: {
-        '/fr/_sidebar.md': '/fr/_sidebar.md',
-        '/.*/_sidebar.md': '/_sidebar.md'
-      }
     }
   </script>
   <!-- Docsify v4 -->

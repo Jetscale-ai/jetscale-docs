@@ -1,0 +1,26 @@
+- Démarrage
+  - [Aperçu](/)
+  - [Configuration AWS](aws-setup.md)
+  - [Configuration Azure](azure-setup.md)
+  - [Guide de Démarrage Rapide](getting-started.md)
+
+- Concepts de Base
+  - [Vue d'ensemble de l'Architecture](architecture.md)
+  - [Agents IA](ai-agents.md)
+  - [Workflow de Recommandation](recommendation-workflow.md)
+
+- Intégrations
+  - [GitHub](integrations/github.md)
+  - [Jira](integrations/jira.md)
+  - [Bitbucket](integrations/bitbucket.md)
+
+- Guides de Services
+  - [RDS](services/rds.md)
+  - [EC2](services/ec2.md)
+  - [EBS](services/ebs.md)
+  - [ElastiCache](services/elasticache.md)
+
+- Référence
+  - [API](api-reference.md)
+  - [Configuration](configuration.md)
+  - [Déploiement](deployment.md)
