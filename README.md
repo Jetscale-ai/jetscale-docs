@@ -47,8 +47,6 @@ JetScale uses specialized AI agents to analyze your cloud infrastructure, identi
 
 <div class="doc-card">
 
-<img src="icons/icon-database.png" alt="Database" class="card-icon">
-
 **Databases**
 
 AWS RDS - MySQL, PostgreSQL, Aurora clusters
