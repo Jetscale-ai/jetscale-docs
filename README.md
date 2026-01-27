@@ -8,14 +8,29 @@ JetScale is an AI-powered cloud cost optimization platform that automatically an
 
 <div class="card-grid">
 
-### [AWS Setup](aws-setup.md)
+<div class="doc-card">
+
+**[AWS Setup](aws-setup.md)**
+
 Connect your AWS account securely using IAM roles with read-only permissions
 
-### [Azure Setup](azure-setup.md)
+</div>
+
+<div class="doc-card">
+
+**[Azure Setup](azure-setup.md)**
+
 Connect Azure using service principal authentication with certificate or secret-based auth
 
-### [Quick Start Guide](getting-started.md)
+</div>
+
+<div class="doc-card">
+
+**[Quick Start Guide](getting-started.md)**
+
 Get up and running in minutes with our step-by-step onboarding guide
+
+</div>
 
 </div>
 
@@ -38,25 +53,45 @@ JetScale uses specialized AI agents to analyze your cloud infrastructure, identi
 
 <div class="card-grid">
 
-### Databases
-**AWS RDS** - MySQL, PostgreSQL, Aurora clusters
-**Azure SQL** - Azure SQL, MySQL, PostgreSQL
+<div class="doc-card">
+
+**Databases**
+
+AWS RDS - MySQL, PostgreSQL, Aurora clusters
+Azure SQL - Azure SQL, MySQL, PostgreSQL
 Right-sizing, instance class selection, topology optimization
 
-### Compute
-**AWS EC2** - All instance types and families
-**Azure VMs** - All VM series
+</div>
+
+<div class="doc-card">
+
+**Compute**
+
+AWS EC2 - All instance types and families
+Azure VMs - All VM series
 Instance type recommendations, reservation opportunities
 
-### Storage
-**AWS EBS** - gp2, gp3, io1, io2 volumes
-**Azure Storage** - Blob, Files, Managed Disks
+</div>
+
+<div class="doc-card">
+
+**Storage**
+
+AWS EBS - gp2, gp3, io1, io2 volumes
+Azure Storage - Blob, Files, Managed Disks
 Volume type optimization, tier optimization, IOPS provisioning
 
-### Caching
-**AWS ElastiCache** - Redis, Memcached
-**Azure Cache** - Redis, Redis Enterprise
+</div>
+
+<div class="doc-card">
+
+**Caching**
+
+AWS ElastiCache - Redis, Memcached
+Azure Cache - Redis, Redis Enterprise
 Node type optimization, cluster configuration
+
+</div>
 
 </div>
 
@@ -68,26 +103,46 @@ Node type optimization, cluster configuration
 
 <div class="card-grid">
 
-### Core Concepts
+<div class="doc-card">
+
+**Core Concepts**
+
 [Architecture Overview](architecture.md) - System design and workflows
 [AI Agents](ai-agents.md) - How specialized agents work
 [Recommendation Workflow](recommendation-workflow.md) - End-to-end process
 
-### Integrations
+</div>
+
+<div class="doc-card">
+
+**Integrations**
+
 [GitHub Integration](integrations/github.md) - PR creation and tracking
 [Jira Integration](integrations/jira.md) - Issue management
 [Bitbucket Integration](integrations/bitbucket.md) - Repository integration
 
-### Service Guides
+</div>
+
+<div class="doc-card">
+
+**Service Guides**
+
 [RDS Optimization](services/rds.md) - Database optimization
 [EC2 Optimization](services/ec2.md) - Compute optimization
 [EBS Optimization](services/ebs.md) - Storage optimization
 [ElastiCache Optimization](services/elasticache.md) - Cache optimization
 
-### Reference
+</div>
+
+<div class="doc-card">
+
+**Reference**
+
 [API Reference](api-reference.md) - REST API documentation
 [Configuration](configuration.md) - Platform configuration
 [Deployment Guide](deployment.md) - Self-hosted deployment
+
+</div>
 
 </div>
 
