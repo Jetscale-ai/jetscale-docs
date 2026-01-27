@@ -28,5 +28,3 @@
 
 * [FAQ](faq.md)
 * [API Reference](api-reference.md)
-* [Deployment Guide](deployment.md)
-* [Configuration](configuration.md)
