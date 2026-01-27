@@ -1,0 +1,249 @@
+/* JetScale Documentation Custom Styles */
+/* Based on frontend colors from app.css */
+
+:root {
+  /* JetScale Brand Colors */
+  --jetscale-primary: #1c84ee;
+  --jetscale-primary-dark: #0b355f;
+  --jetscale-primary-light: #d2e6fc;
+  --jetscale-success: #22c55e;
+  --jetscale-warning: #f9b931;
+  --jetscale-info: #4ecac2;
+  --jetscale-danger: #ef5f5f;
+
+  /* Grays */
+  --jetscale-gray-100: #f8f9fa;
+  --jetscale-gray-200: #eef2f7;
+  --jetscale-gray-300: #d8dfe7;
+  --jetscale-gray-500: #8486a7;
+  --jetscale-gray-700: #424e5a;
+  --jetscale-gray-900: #323a46;
+
+  /* Font */
+  --jetscale-font: "Wix Madefor Text", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+}
+
+/* Override Docsify theme with JetScale colors */
+body {
+  font-family: var(--jetscale-font);
+  color: var(--jetscale-gray-900);
+}
+
+/* Primary color overrides */
+.app-name-link {
+  color: var(--jetscale-primary) !important;
+  font-weight: 600;
+}
+
+.sidebar-nav a {
+  color: var(--jetscale-gray-700);
+}
+
+.sidebar-nav a:hover {
+  color: var(--jetscale-primary);
+}
+
+.sidebar-nav li.active > a {
+  color: var(--jetscale-primary);
+  font-weight: 600;
+  border-right: 3px solid var(--jetscale-primary);
+}
+
+/* Links */
+.markdown-section a {
+  color: var(--jetscale-primary);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-bottom-color 0.2s;
+}
+
+.markdown-section a:hover {
+  border-bottom-color: var(--jetscale-primary);
+}
+
+/* Headings */
+.markdown-section h1,
+.markdown-section h2,
+.markdown-section h3,
+.markdown-section h4,
+.markdown-section h5,
+.markdown-section h6 {
+  color: var(--jetscale-gray-900);
+  font-weight: 600;
+}
+
+.markdown-section h1 {
+  font-size: 2.5rem;
+  margin-top: 0;
+  padding-bottom: 0.3rem;
+  border-bottom: 2px solid var(--jetscale-gray-200);
+}
+
+/* Blockquotes - for hero/callout */
+.markdown-section blockquote {
+  border-left: 4px solid var(--jetscale-primary);
+  background-color: var(--jetscale-primary-light);
+  color: var(--jetscale-primary-dark);
+  padding: 1rem 1.5rem;
+  margin: 2rem 0;
+  border-radius: 4px;
+}
+
+.markdown-section blockquote p {
+  font-weight: 500;
+  margin: 0;
+}
+
+/* Code blocks */
+.markdown-section pre {
+  background-color: var(--jetscale-gray-900);
+  border-radius: 6px;
+}
+
+.markdown-section code {
+  color: var(--jetscale-primary);
+  background-color: var(--jetscale-gray-100);
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-size: 0.9em;
+}
+
+.markdown-section pre code {
+  color: var(--jetscale-gray-100);
+  background-color: transparent;
+  padding: 0;
+}
+
+/* Tables */
+.markdown-section table {
+  border-collapse: collapse;
+  border: 1px solid var(--jetscale-gray-300);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.markdown-section th {
+  background-color: var(--jetscale-primary);
+  color: white;
+  font-weight: 600;
+  padding: 12px;
+  text-align: left;
+}
+
+.markdown-section td {
+  padding: 12px;
+  border-bottom: 1px solid var(--jetscale-gray-200);
+}
+
+.markdown-section tr:last-child td {
+  border-bottom: none;
+}
+
+.markdown-section tr:hover {
+  background-color: var(--jetscale-gray-100);
+}
+
+/* Badges/Tags (using strong for emphasis) */
+.markdown-section strong {
+  color: var(--jetscale-primary-dark);
+  font-weight: 600;
+}
+
+/* Horizontal rules */
+.markdown-section hr {
+  border: none;
+  border-top: 2px solid var(--jetscale-gray-200);
+  margin: 2rem 0;
+}
+
+/* Lists */
+.markdown-section ul li::before {
+  color: var(--jetscale-primary);
+}
+
+/* Success/Info/Warning callouts using emoji prefixes */
+.markdown-section p:has(> :first-child:is(span):contains("✅")) {
+  padding-left: 1rem;
+  border-left: 3px solid var(--jetscale-success);
+}
+
+/* Search */
+.search input {
+  border: 1px solid var(--jetscale-gray-300);
+  border-radius: 4px;
+}
+
+.search input:focus {
+  border-color: var(--jetscale-primary);
+  box-shadow: 0 0 0 3px var(--jetscale-primary-light);
+}
+
+.matching-post {
+  border-bottom: 1px solid var(--jetscale-gray-200);
+}
+
+.matching-post:hover {
+  background-color: var(--jetscale-gray-100);
+}
+
+/* Sidebar */
+.sidebar {
+  background-color: white;
+  border-right: 1px solid var(--jetscale-gray-200);
+}
+
+/* Copy code button */
+.docsify-copy-code-button {
+  background: var(--jetscale-primary) !important;
+  color: white !important;
+  border-radius: 4px;
+}
+
+.docsify-copy-code-button:hover {
+  background: var(--jetscale-primary-dark) !important;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+  .markdown-section h1 {
+    font-size: 2rem;
+  }
+
+  .markdown-section table {
+    font-size: 0.9em;
+  }
+}
+
+/* Custom utility classes for homepage grid */
+.markdown-section div[style*="display: grid"] {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)) !important;
+  gap: 1.5rem !important;
+  margin: 1.5rem 0 !important;
+}
+
+/* Custom CTA section styling */
+.markdown-section div[style*="text-align: center"] {
+  text-align: center !important;
+  margin-top: 3rem !important;
+  padding-top: 2rem !important;
+  border-top: 2px solid var(--jetscale-gray-200) !important;
+}
+
+/* Button-like links in grid */
+.markdown-section div[style*="display: grid"] a {
+  display: inline-block;
+  padding: 1rem 1.5rem;
+  background-color: var(--jetscale-gray-100);
+  border: 1px solid var(--jetscale-gray-300);
+  border-radius: 8px;
+  font-weight: 600;
+  transition: all 0.2s;
+}
+
+.markdown-section div[style*="display: grid"] a:hover {
+  background-color: var(--jetscale-primary-light);
+  border-color: var(--jetscale-primary);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(28, 132, 238, 0.15);
+}
