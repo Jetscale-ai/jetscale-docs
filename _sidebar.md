@@ -2,7 +2,6 @@
 
 **Getting Started**
 
-* [Quick Start Guide](getting-started.md)
 * [AWS Setup](aws-setup.md)
 * [Azure Setup](azure-setup.md)
 

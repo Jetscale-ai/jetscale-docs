@@ -24,14 +24,6 @@ Connect Azure using service principal authentication with certificate or secret-
 
 </div>
 
-<div class="doc-card">
-
-**[Quick Start Guide](getting-started.md)**
-
-Get up and running in minutes with our step-by-step onboarding guide
-
-</div>
-
 </div>
 
 ---

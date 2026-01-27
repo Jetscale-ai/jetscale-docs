@@ -2,7 +2,6 @@
   - [Aperçu](/)
   - [Configuration AWS](aws-setup.md)
   - [Configuration Azure](azure-setup.md)
-  - [Guide de Démarrage Rapide](getting-started.md)
 
 - Concepts de Base
   - [Vue d'ensemble de l'Architecture](architecture.md)

@@ -24,14 +24,6 @@ Connectez Azure en utilisant l'authentification par service principal avec authe
 
 </div>
 
-<div class="doc-card">
-
-**[Guide de Démarrage Rapide](getting-started.md)**
-
-Soyez opérationnel en quelques minutes avec notre guide d'intégration étape par étape
-
-</div>
-
 </div>
 
 ---
