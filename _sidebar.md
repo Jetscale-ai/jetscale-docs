@@ -1,15 +1,17 @@
-- [Home](/)
+- Getting Started
+  - [Home](/)
+  - [AWS Setup](aws-setup.md)
+  - [Azure Setup](azure-setup.md)
 
-**Getting Started**
+- Core Concepts
+  - [Architecture Overview](architecture.md)
+  - [AI Agents](ai-agents.md)
+  - [Recommendation Workflow](recommendation-workflow.md)
 
-- [AWS Setup](aws-setup.md)
-- [Azure Setup](azure-setup.md)
-
-**Core Concepts**
-
-- [Architecture Overview](architecture.md)
-- [AI Agents](ai-agents.md)
-- [Recommendation Workflow](recommendation-workflow.md)
+- Integrations
+  - [GitHub](integrations/github.md)
+  - [Jira](integrations/jira.md)
+  - [Bitbucket](integrations/bitbucket.md)
 
 - Supported Services
 
@@ -20,13 +22,6 @@
 - [EBS](services/ebs.md)
 - [ElastiCache](services/elasticache.md)
 
-**Integrations**
-
-- [GitHub Integration](integrations/github.md)
-- [Jira Integration](integrations/jira.md)
-- [Bitbucket Integration](integrations/bitbucket.md)
-
-**Reference**
-
-- [FAQ](faq.md)
-- [API Reference](api-reference.md)
+- Reference
+  - [FAQ](faq.md)
+  - [API](api-reference.md)
