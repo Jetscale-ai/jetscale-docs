@@ -1,15 +1,14 @@
 # RDS Optimization
 
-JetScale provides AI-powered cost optimization for Amazon RDS (Relational Database Service) including both standalone instances and Aurora clusters. Our specialized agents analyze your database workloads to identify right-sizing opportunities, storage optimization, and configuration improvements.
+JetScale provides AI-powered cost optimization for Amazon RDS (Relational Database Service) including both standalone instances and Aurora clusters. Our specialized agents analyze your database workloads to identify right-sizing opportunities and configuration improvements.
 
 ## Overview
 
 JetScale optimizes RDS resources by analyzing:
 - **Instance utilization**: CPU, memory, network, and connection patterns
-- **Storage performance**: IOPS usage, throughput, and storage type efficiency
 - **Cost analysis**: Current spending vs. optimal configuration
 - **Performance metrics**: Query performance, replication lag, buffer cache hit ratios
-- **High availability**: Multi-AZ configurations and read replica topology
+- **High availability**: Multi-AZ configurations for standalone instances
 
 ## Supported RDS Types
 
@@ -27,17 +26,15 @@ RdsDbCluster (Optimization Target)
 ```
 
 **What We Optimize:**
-- **Instance types**: Right-size writer and reader instances based on actual load
-- **Reader count**: Optimize the number of read replicas for your read/write ratio
-- **Storage configuration**: Standard vs. I/O-Optimized based on I/O patterns
-- **Serverless v2**: Identify candidates for Aurora Serverless v2 with ACU-based scaling
-- **Cluster topology**: Multi-AZ vs. single-AZ based on availability requirements
+- **Instance class**: Right-size all cluster nodes to match actual workload (all nodes use same instance class)
+- **Graviton migration**: Switch to ARM-based instances (r6g, r7g, m6g, m7g) for 10-40% savings
+- **Storage configuration**: Aurora Standard vs. I/O-Optimized based on I/O patterns
 
-**Key Features:**
-- **I/O-Optimized**: Eliminate per-request I/O charges for high-I/O workloads
-- **Limitless Database**: Horizontal sharding for massive scale (Dec 2024)
-- **Serverless v2**: Scale from 0-256 ACUs, can mix with provisioned instances
-- **Blue/Green Deployments**: Zero-downtime instance class changes
+**Storage Configurations:**
+- **Aurora Standard** (`aurora`): Lower compute cost, $0.20/million I/O charges
+- **Aurora I/O-Optimized** (`aurora-iopt1`): Higher compute cost (+20%), zero I/O charges
+
+**Important:** All instances in an Aurora cluster must use the same instance class. JetScale sizes for the node with the highest resource usage to ensure adequate performance across all cluster members.
 
 ### Standalone RDS Instances
 
@@ -50,11 +47,9 @@ RdsDbInstance (Optimization Target, Billable)
 ```
 
 **What We Optimize:**
-- **Instance class**: db.t3, db.m5, db.r5, db.r6g (Graviton)
-- **Storage type**: gp2 → gp3 (20% cost savings), io1 → io2 (better performance/cost)
-- **Provisioned IOPS**: Right-size IOPS based on actual usage
-- **Multi-AZ configuration**: Cost vs. availability trade-offs
-- **Storage autoscaling**: Optimize max storage thresholds
+- **Instance class**: Right-size to appropriate family (t3, m5, r5, r6g, etc.)
+- **Graviton migration**: Switch to ARM-based instances (r6g, r7g, m6g, m7g) for 10-40% savings
+- **Multi-AZ configuration**: Disable Multi-AZ for ~50% savings when high availability isn't critical (reduces availability)
 
 **Billing Model:**
 - Per-second billing with 10-minute minimum
@@ -74,16 +69,13 @@ JetScale analyzes multiple data sources:
 - `ReadLatency` / `WriteLatency` - Storage performance
 - `ReadThroughput` / `WriteThroughput` - Disk I/O
 - `NetworkReceiveThroughput` / `NetworkTransmitThroughput`
-- `AuroraBinlogReplicaLag` (Aurora)
-- `BurstBalance` (gp2/gp3 volumes)
+- `AuroraBinlogReplicaLag` (Aurora only)
 
 **RDS API Data**:
 - Instance class and engine version
-- Storage configuration (type, size, IOPS)
-- Multi-AZ status
-- Read replica topology
-- Parameter groups and option groups
-- Backup retention settings
+- Storage type (Aurora Standard vs I/O-Optimized)
+- Multi-AZ status (standalone instances only)
+- Cluster members and roles (Aurora only)
 
 **Cost Explorer Data**:
 - Current monthly spend per instance/cluster
@@ -147,26 +139,27 @@ Performance Analysis:
 Risk: Low - Ample headroom maintained
 ```
 
-#### Storage Optimization
+#### Multi-AZ Optimization
 
 **Example Recommendation:**
 ```
-Resource: analytics-db-storage
-Current: io1 (1000 GB, 10,000 IOPS)
-Recommended: gp3 (1000 GB, 4,000 IOPS)
+Resource: staging-postgres-db
+Current: db.m5.large with Multi-AZ enabled
+Recommended: db.m5.large with Multi-AZ disabled
 
 Cost Impact:
-- Current: $125/month (volume) + $650/month (IOPS) = $775/month
-- Projected: $125/month (volume) + $160/month (IOPS) = $285/month
-- Savings: $490/month (63%), $5,880/year
+- Current: $280/month (Multi-AZ premium included)
+- Projected: $140/month (Single-AZ)
+- Savings: $140/month (50%), $1,680/year
 
-Performance Analysis:
-- Average IOPS: 800
-- Peak IOPS: 2,500
-- gp3 baseline: 3,000 IOPS (sufficient)
-- Burst capability provides additional buffer
+Availability Analysis:
+- Environment: Staging/Non-Production
+- Current SLA: 99.95% (Multi-AZ)
+- Projected SLA: 99.9% (Single-AZ)
+- RPO/RTO: Acceptable for staging workload
 
-Risk: Very Low - Peak usage well below new baseline
+Risk: Low - Non-production environment
+Note: Multi-AZ provides automatic failover in ~2 minutes
 ```
 
 #### Aurora I/O-Optimized
@@ -192,30 +185,27 @@ Recommendation: Switch to I/O-Optimized
 Threshold: Beneficial when I/O costs > 15% of instance costs
 ```
 
-#### Aurora Serverless v2 Migration
+#### Graviton Migration
 
 **Example Recommendation:**
 ```
-Resource: dev-aurora-reader-1
-Current: db.r5.large provisioned (24/7)
-Recommended: Aurora Serverless v2 (2-16 ACUs)
+Resource: api-database-cluster
+Current: 3x db.r5.xlarge (Intel-based)
+Recommended: 3x db.r6g.xlarge (Graviton2-based)
 
 Cost Impact:
-- Current: $175/month (24/7 provisioned)
-- Projected: $85/month (estimated based on usage patterns)
-- Savings: $90/month (51%), $1,080/year
+- Current: $1,095/month (3 instances @ $365/month each)
+- Projected: $876/month (3 instances @ $292/month each)
+- Savings: $219/month (20%), $2,628/year
 
-Usage Analysis:
-- Active hours: 40 hours/week (24% utilization)
-- Peak load: 16 ACUs
-- Average load: 4 ACUs
-- Idle periods: Nights and weekends
+Performance Analysis:
+- Graviton2 offers equivalent or better performance
+- 20% lower cost per instance
+- Engine: aurora-postgresql 14.7 (Graviton compatible)
+- Same vCPU and memory configuration
 
-Risk: Very Low - Dev/staging workload
-Benefits:
-- Automatic scaling to zero during idle periods
-- No cold start impact (warm pool maintained)
-- Can mix with provisioned instances in same cluster
+Risk: Very Low - Proven Graviton performance
+Note: Requires engine version compatibility check
 ```
 
 ### 4. Terraform Generation
@@ -419,31 +409,31 @@ After applying JetScale recommendations:
 - Typical savings: 20-40% on total cluster cost
 - Additional benefit: Predictable costs
 
-### Pattern 3: Dev/Staging Always-On
+### Pattern 3: Non-Production Multi-AZ
 
 **Symptoms:**
-- Non-production instances running 24/7
-- Low utilization during nights/weekends
-- Minimal traffic outside business hours
+- Dev/staging/test environments with Multi-AZ enabled
+- High availability not required for non-production
+- Acceptable downtime tolerance
 
 **JetScale Recommendation:**
-- Migrate to Aurora Serverless v2
-- Implement automated stop/start schedules
-- Typical savings: 50-70%
-- No code changes required
+- Disable Multi-AZ for non-production workloads
+- Typical savings: 50% on instance costs
+- Trade-off: Manual failover required vs automatic
+- Best for: Development, staging, testing, analytics
 
-### Pattern 4: Legacy Storage Types
+### Pattern 4: Missed Graviton Opportunities
 
 **Symptoms:**
-- Using io1 volumes
-- Using gp2 with low burst balance
-- Over-provisioned IOPS
+- Using Intel-based instances (r5, m5, r6i)
+- Compatible engine versions available
+- No ARM-specific dependencies
 
 **JetScale Recommendation:**
-- Migrate io1 → io2 (better price/performance)
-- Migrate gp2 → gp3 (20% cost savings, better IOPS baseline)
-- Right-size provisioned IOPS
-- Typical savings: 40-60% on storage costs
+- Migrate to Graviton instances (r6g, r7g, m6g, m7g)
+- Typical savings: 10-40% with same or better performance
+- Requirements: Verify engine version compatibility
+- Best for: Most modern RDS engines (PostgreSQL 12+, MySQL 8+, MariaDB 10.4+)
 
 ## Troubleshooting
 
@@ -491,18 +481,18 @@ Possible causes:
 3. Increase instance size by one step if needed
 4. Adjust `shared_buffers` or equivalent parameter
 
-**Symptom: Storage performance degradation**
+**Symptom: High I/O costs on Aurora**
 
 Possible causes:
-- Burst balance exhausted (gp2/gp3)
-- Provisioned IOPS too low
-- I/O-intensive workload spike
+- Using Aurora Standard with high I/O workload
+- Frequent read-heavy queries
+- Large table scans
 
 **Resolution:**
-1. Check `BurstBalance` metric (gp2/gp3)
-2. Monitor `ReadIOPS` / `WriteIOPS`
-3. Temporarily increase IOPS if needed
-4. Consider io2 for consistent performance
+1. Check I/O cost percentage of total RDS bill
+2. If I/O costs > 15% of instance costs, consider I/O-Optimized
+3. Monitor `VolumeReadIOPs` and `VolumeWriteIOPs` metrics
+4. I/O-Optimized adds 20% to instance cost but eliminates all I/O charges
 
 ## Security Considerations
 
@@ -516,10 +506,10 @@ JetScale recommendations preserve existing encryption settings:
 ### Compliance
 
 Instance changes maintain compliance:
-- Multi-AZ configuration preserved when required
-- Backup retention periods unchanged
-- Audit logging settings maintained
+- Multi-AZ configuration only changed when explicitly recommended
+- Engine and engine version never modified
 - VPC and security group associations preserved
+- Existing parameter groups maintained
 
 ### Credentials
 
