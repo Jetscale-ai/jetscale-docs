@@ -1,0 +1,29 @@
+# Folders for staging documentation - not tracked in git
+aws-setup/
+azure-setup/
+in-depth/
+
+# Sensitive files
+*.key
+*.pem
+*.env
+*.secret
+*credentials*
+*secrets*
+
+# Common sensitive patterns
+**/*secret*
+**/*credential*
+**/*password*
+**/*token*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor files
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
