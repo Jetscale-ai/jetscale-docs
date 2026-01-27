@@ -214,36 +214,60 @@ body {
   }
 }
 
-/* Custom utility classes for homepage grid */
-.markdown-section div[style*="display: grid"] {
-  display: grid !important;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)) !important;
-  gap: 1.5rem !important;
-  margin: 1.5rem 0 !important;
+/* Card Grid Layout - Milkstraw-inspired */
+.markdown-section .card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
 }
 
-/* Custom CTA section styling */
-.markdown-section div[style*="text-align: center"] {
-  text-align: center !important;
-  margin-top: 3rem !important;
-  padding-top: 2rem !important;
-  border-top: 2px solid var(--jetscale-gray-200) !important;
-}
-
-/* Button-like links in grid */
-.markdown-section div[style*="display: grid"] a {
-  display: inline-block;
-  padding: 1rem 1.5rem;
-  background-color: var(--jetscale-gray-100);
+.markdown-section .card-grid > h3 {
+  background-color: white;
   border: 1px solid var(--jetscale-gray-300);
   border-radius: 8px;
-  font-weight: 600;
-  transition: all 0.2s;
+  padding: 1.5rem;
+  margin: 0;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  font-size: 1.1rem;
 }
 
-.markdown-section div[style*="display: grid"] a:hover {
-  background-color: var(--jetscale-primary-light);
+.markdown-section .card-grid > h3:hover {
   border-color: var(--jetscale-primary);
+  box-shadow: 0 4px 12px rgba(28, 132, 238, 0.15);
   transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(28, 132, 238, 0.15);
+}
+
+.markdown-section .card-grid > h3 a {
+  color: var(--jetscale-gray-900);
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border: none;
+}
+
+.markdown-section .card-grid > h3 a:hover {
+  color: var(--jetscale-primary);
+  border: none;
+}
+
+/* Text following cards */
+.markdown-section .card-grid + p {
+  margin-top: 0.75rem;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--jetscale-gray-600);
+}
+
+/* Compact support section */
+.markdown-section h2 + p strong {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+}
+
+.markdown-section h2 + p + p {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
 }
