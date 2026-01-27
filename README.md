@@ -8,13 +8,13 @@ JetScale is an AI-powered cloud cost optimization platform that automatically an
 
 <div class="card-grid">
 
-### 🔧 [AWS Setup](aws-setup.md)
+### [AWS Setup](aws-setup.md)
 Connect your AWS account securely using IAM roles with read-only permissions
 
-### ☁️ [Azure Setup](azure-setup.md)
+### [Azure Setup](azure-setup.md)
 Connect Azure using service principal authentication with certificate or secret-based auth
 
-### 🚀 [Quick Start Guide](getting-started.md)
+### [Quick Start Guide](getting-started.md)
 Get up and running in minutes with our step-by-step onboarding guide
 
 </div>
@@ -38,22 +38,22 @@ JetScale uses specialized AI agents to analyze your cloud infrastructure, identi
 
 <div class="card-grid">
 
-### 🗄️ Databases
+### Databases
 **AWS RDS** - MySQL, PostgreSQL, Aurora clusters
 **Azure SQL** - Azure SQL, MySQL, PostgreSQL
 Right-sizing, instance class selection, topology optimization
 
-### 💻 Compute
+### Compute
 **AWS EC2** - All instance types and families
 **Azure VMs** - All VM series
 Instance type recommendations, reservation opportunities
 
-### 💾 Storage
+### Storage
 **AWS EBS** - gp2, gp3, io1, io2 volumes
 **Azure Storage** - Blob, Files, Managed Disks
 Volume type optimization, tier optimization, IOPS provisioning
 
-### ⚡ Caching
+### Caching
 **AWS ElastiCache** - Redis, Memcached
 **Azure Cache** - Redis, Redis Enterprise
 Node type optimization, cluster configuration
@@ -68,23 +68,23 @@ Node type optimization, cluster configuration
 
 <div class="card-grid">
 
-### 📖 Core Concepts
+### Core Concepts
 [Architecture Overview](architecture.md) - System design and workflows
 [AI Agents](ai-agents.md) - How specialized agents work
 [Recommendation Workflow](recommendation-workflow.md) - End-to-end process
 
-### 🔌 Integrations
+### Integrations
 [GitHub Integration](integrations/github.md) - PR creation and tracking
 [Jira Integration](integrations/jira.md) - Issue management
 [Bitbucket Integration](integrations/bitbucket.md) - Repository integration
 
-### 🛠️ Service Guides
+### Service Guides
 [RDS Optimization](services/rds.md) - Database optimization
 [EC2 Optimization](services/ec2.md) - Compute optimization
 [EBS Optimization](services/ebs.md) - Storage optimization
 [ElastiCache Optimization](services/elasticache.md) - Cache optimization
 
-### 📚 Reference
+### Reference
 [API Reference](api-reference.md) - REST API documentation
 [Configuration](configuration.md) - Platform configuration
 [Deployment Guide](deployment.md) - Self-hosted deployment
@@ -96,9 +96,9 @@ Node type optimization, cluster configuration
 ## Support
 
 **Need help?**
-📧 [support@jetscale.ai](mailto:support@jetscale.ai)
-💬 [GitHub Discussions](https://github.com/Jetscale-ai/jetscale-docs/discussions)
-🐛 [Report an Issue](https://github.com/Jetscale-ai/jetscale-docs/issues)
+[support@jetscale.ai](mailto:support@jetscale.ai)
+[GitHub Discussions](https://github.com/Jetscale-ai/jetscale-docs/discussions)
+[Report an Issue](https://github.com/Jetscale-ai/jetscale-docs/issues)
 
 **Resources:**
 [GitHub Organization](https://github.com/Jetscale-ai) · [Change Log](https://github.com/Jetscale-ai/jetscale-docs/releases)
