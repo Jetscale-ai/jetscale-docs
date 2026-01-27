@@ -19,11 +19,11 @@ Before starting, ensure you have:
 
 JetScale connects to your AWS account using a **cross-account IAM role** with read-only permissions. This approach:
 
-- ✅ Does not require AWS access keys or passwords
-- ✅ Provides secure, auditable access via AWS STS (Security Token Service)
-- ✅ Uses External ID for additional security against confused deputy attacks
-- ✅ Can be revoked instantly by deleting the IAM role
-- ✅ Follows AWS security best practices
+- Does not require AWS access keys or passwords
+- Provides secure, auditable access via AWS STS (Security Token Service)
+- Uses External ID for additional security against confused deputy attacks
+- Can be revoked instantly by deleting the IAM role
+- Follows AWS security best practices
 
 ## Setup Process
 
@@ -50,7 +50,7 @@ openssl rand -hex 32
 openssl rand -base64 32
 ```
 
-⚠️ **Security Note:** If you generate your own External ID, please share it with us via encrypted email. Share the decryption password through a separate communication channel.
+**Security Note:** If you generate your own External ID, please share it with us via encrypted email. Share the decryption password through a separate communication channel.
 
 ### Step 2: Create the IAM Role
 
@@ -103,11 +103,11 @@ JetScale requires read-only access to analyze your infrastructure and costs. The
 - **CloudWatch**: Metrics and monitoring data
 
 **Security Considerations:**
-- ✅ All permissions are read-only (Describe, Get, List actions only)
-- ✅ No write, modify, or delete permissions
-- ✅ No access to actual data stored in databases or S3 buckets
-- ✅ No access to secrets or credentials
-- ✅ Limited to metadata and configuration information
+- All permissions are read-only (Describe, Get, List actions only)
+- No write, modify, or delete permissions
+- No access to actual data stored in databases or S3 buckets
+- No access to secrets or credentials
+- Limited to metadata and configuration information
 
 During onboarding, the JetScale team will provide the complete IAM policy document and help validate permissions.
 

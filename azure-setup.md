@@ -21,11 +21,11 @@ Before starting, ensure you have:
 
 JetScale connects to your Azure subscription using an **App Registration (Service Principal)** with read-only RBAC permissions. This approach:
 
-- ✅ Does not require user credentials
-- ✅ Provides secure, auditable access via Azure Active Directory
-- ✅ Supports certificate-based authentication (most secure) or client secrets
-- ✅ Can be revoked instantly through Azure IAM
-- ✅ Follows Microsoft security best practices
+- Does not require user credentials
+- Provides secure, auditable access via Azure Active Directory
+- Supports certificate-based authentication (most secure) or client secrets
+- Can be revoked instantly through Azure IAM
+- Follows Microsoft security best practices
 
 ## Setup Process
 
@@ -86,7 +86,7 @@ If your organization prefers secrets over certificates:
 3. **Description**: `JetScale Access`
 4. **Expires**: Choose duration (recommend 24 months or less per your security policy)
 5. Click "Add"
-6. **⚠️ Important**: Copy the secret **Value** immediately—it's only shown once
+6. **Important**: Copy the secret **Value** immediately—it's only shown once
 
 ### Step 3: Assign RBAC Permissions
 
@@ -125,10 +125,10 @@ For granular control, create a custom role with specific permissions.
 - **Advisor**: Azure Advisor recommendations
 
 **Security Safeguards:**
-- ✅ All actions are read-only
-- ✅ Explicitly excludes storage account key access (`listkeys`, `regeneratekey`)
-- ✅ No write, modify, or delete permissions
-- ✅ No access to actual data stored in databases or storage accounts
+- All actions are read-only
+- Explicitly excludes storage account key access (`listkeys`, `regeneratekey`)
+- No write, modify, or delete permissions
+- No access to actual data stored in databases or storage accounts
 
 The JetScale team will provide the complete custom role definition during onboarding.
 
