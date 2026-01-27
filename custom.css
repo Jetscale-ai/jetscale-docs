@@ -284,28 +284,6 @@ body {
   margin-top: 1.5rem;
 }
 
-/* Cloud provider badges */
-.markdown-section .badge {
-  display: inline-block;
-  padding: 0.2rem 0.5rem;
-  font-size: 0.75rem;
-  font-weight: 600;
-  border-radius: 4px;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  margin-right: 0.5rem;
-}
-
-.markdown-section .badge.aws {
-  background-color: #FF9900;
-  color: white;
-}
-
-.markdown-section .badge.azure {
-  background-color: #0078D4;
-  color: white;
-}
-
 /* Compact support section */
 .markdown-section h2 + p strong {
   display: block;

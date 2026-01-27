@@ -57,10 +57,8 @@ JetScale uses specialized AI agents to analyze your cloud infrastructure, identi
 
 **Databases**
 
-<span class="badge aws">AWS</span> RDS - MySQL, PostgreSQL, Aurora clusters
-
-<span class="badge azure">Azure</span> SQL Database - Azure SQL, MySQL, PostgreSQL
-
+AWS RDS - MySQL, PostgreSQL, Aurora clusters
+Azure SQL - Azure SQL, MySQL, PostgreSQL
 Right-sizing, instance class selection, topology optimization
 
 </div>
@@ -69,10 +67,8 @@ Right-sizing, instance class selection, topology optimization
 
 **Compute**
 
-<span class="badge aws">AWS</span> EC2 - All instance types and families
-
-<span class="badge azure">Azure</span> Virtual Machines - All VM series
-
+AWS EC2 - All instance types and families
+Azure VMs - All VM series
 Instance type recommendations, reservation opportunities
 
 </div>
@@ -81,10 +77,8 @@ Instance type recommendations, reservation opportunities
 
 **Storage**
 
-<span class="badge aws">AWS</span> EBS - gp2, gp3, io1, io2 volumes
-
-<span class="badge azure">Azure</span> Storage - Blob, Files, Managed Disks
-
+AWS EBS - gp2, gp3, io1, io2 volumes
+Azure Storage - Blob, Files, Managed Disks
 Volume type optimization, tier optimization, IOPS provisioning
 
 </div>
@@ -93,10 +87,8 @@ Volume type optimization, tier optimization, IOPS provisioning
 
 **Caching**
 
-<span class="badge aws">AWS</span> ElastiCache - Redis, Memcached
-
-<span class="badge azure">Azure</span> Cache for Redis
-
+AWS ElastiCache - Redis, Memcached
+Azure Cache - Redis, Redis Enterprise
 Node type optimization, cluster configuration
 
 </div>
