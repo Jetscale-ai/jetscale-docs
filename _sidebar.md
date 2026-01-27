@@ -11,14 +11,14 @@
 - [AI Agents](ai-agents.md)
 - [Recommendation Workflow](recommendation-workflow.md)
 
-**Supported Services**
+- Supported Services
 
 **AWS**
 
-- [RDS Optimization](services/rds.md)
-- [EC2 Optimization](services/ec2.md)
-- [EBS Optimization](services/ebs.md)
-- [ElastiCache Optimization](services/elasticache.md)
+- [RDS](services/rds.md)
+- [EC2](services/ec2.md)
+- [EBS](services/ebs.md)
+- [ElastiCache](services/elasticache.md)
 
 **Integrations**
 
