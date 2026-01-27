@@ -1,5 +1,5 @@
 - Démarrage
-  - [Aperçu](/)
+  - [Aperçu](/fr/)
   - [Configuration AWS](aws-setup.md)
   - [Configuration Azure](azure-setup.md)
 
