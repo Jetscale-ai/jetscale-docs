@@ -3,11 +3,6 @@
   - [AWS Setup](aws-setup.md)
   - [Azure Setup](azure-setup.md)
 
-- Core Concepts
-  - [Architecture Overview](architecture.md)
-  - [AI Agents](ai-agents.md)
-  - [Recommendation Workflow](recommendation-workflow.md)
-
 - Integrations
   - [GitHub](integrations/github.md)
   - [Jira](integrations/jira.md)

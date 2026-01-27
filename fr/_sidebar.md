@@ -3,11 +3,6 @@
   - [Configuration AWS](aws-setup.md)
   - [Configuration Azure](azure-setup.md)
 
-- Concepts de Base
-  - [Vue d'ensemble de l'Architecture](architecture.md)
-  - [Agents IA](ai-agents.md)
-  - [Workflow de Recommandation](recommendation-workflow.md)
-
 - Intégrations
   - [GitHub](integrations/github.md)
   - [Jira](integrations/jira.md)
