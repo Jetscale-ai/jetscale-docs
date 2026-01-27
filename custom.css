@@ -302,3 +302,73 @@ body {
   margin-top: 0.5rem;
   font-size: 0.9rem;
 }
+
+/* FAQ Accordion Styling */
+.markdown-section details {
+  background-color: white;
+  border: 1px solid var(--jetscale-gray-300);
+  border-radius: 8px;
+  padding: 1rem 1.25rem;
+  margin-bottom: 1rem;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.markdown-section details:hover {
+  border-color: var(--jetscale-primary);
+  box-shadow: 0 4px 12px rgba(28, 132, 238, 0.15);
+}
+
+.markdown-section details[open] {
+  border-color: var(--jetscale-primary);
+  box-shadow: 0 4px 12px rgba(28, 132, 238, 0.15);
+}
+
+.markdown-section details summary {
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--jetscale-gray-900);
+  font-size: 1rem;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  user-select: none;
+  margin: 0;
+  padding: 0;
+}
+
+.markdown-section details summary::-webkit-details-marker {
+  display: none;
+}
+
+.markdown-section details summary::before {
+  content: '▶';
+  color: var(--jetscale-primary);
+  font-size: 0.75rem;
+  margin-right: 0.75rem;
+  transition: transform 0.2s ease;
+  display: inline-block;
+}
+
+.markdown-section details[open] summary::before {
+  transform: rotate(90deg);
+}
+
+.markdown-section details summary strong {
+  font-weight: 600;
+  color: var(--jetscale-gray-900);
+  margin: 0;
+  display: inline;
+}
+
+.markdown-section details p {
+  margin-top: 1rem;
+  margin-bottom: 0;
+  line-height: 1.6;
+  color: var(--jetscale-gray-700);
+}
+
+.markdown-section details ul {
+  margin-top: 0.75rem;
+  margin-bottom: 0;
+}
