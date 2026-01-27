@@ -168,7 +168,7 @@ Consider adding a maximum session duration to the role:
 
 Need help with AWS setup?
 
-- **Email**: [gabriel@jetscale.ai](mailto:gabriel@jetscale.ai)
+- **Email**: [support@jetscale.ai](mailto:support@jetscale.ai)
 - **Setup Calls**: Available for hands-on guidance
 - **Documentation**: Detailed permission requirements provided during onboarding
 
