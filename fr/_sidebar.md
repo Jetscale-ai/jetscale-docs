@@ -1,20 +1,20 @@
 - Démarrage
-  - [Aperçu](/fr/)
-  - [Configuration AWS](/fr/aws-setup.md)
-  - [Configuration Azure](/fr/azure-setup.md)
+  - [Aperçu](/)
+  - [Configuration AWS](aws-setup)
+  - [Configuration Azure](azure-setup)
 
 - Intégrations
-  - [GitHub](/fr/integrations/github.md)
-  - [Jira](/fr/integrations/jira.md)
-  - [Bitbucket](/fr/integrations/bitbucket.md)
+  - [GitHub](integrations/github)
+  - [Jira](integrations/jira)
+  - [Bitbucket](integrations/bitbucket)
 
 - Services Supportés
   - AWS
-    - [RDS](/fr/services/rds.md)
-    - [EC2](/fr/services/ec2.md)
-    - [EBS](/fr/services/ebs.md)
-    - [ElastiCache](/fr/services/elasticache.md)
+    - [RDS](services/rds)
+    - [EC2](services/ec2)
+    - [EBS](services/ebs)
+    - [ElastiCache](services/elasticache)
 
 - Référence
-  - [FAQ](/fr/faq.md)
-  - [API](/fr/api-reference.md)
+  - [FAQ](faq)
+  - [API](api-reference)
