@@ -1,54 +1,139 @@
 # JetScale Documentation
 
-Welcome to JetScale - AI-powered cloud cost optimization platform that automatically analyzes your AWS infrastructure and generates actionable recommendations.
+> **AI-powered cloud cost optimization that delivers actionable recommendations with infrastructure-as-code.**
 
-## What is JetScale?
+Welcome to the JetScale documentation. Whether you're setting up your first cloud connection or diving deep into our API, you'll find everything you need here.
 
-JetScale uses specialized AI agents to analyze your cloud resources, identify optimization opportunities, and generate infrastructure-as-code changes that you can review and deploy through your existing GitOps workflows.
+---
 
-## Supported AWS Services
+## 🚀 Getting Started
 
-### Database Services (RDS)
-- **RDS Standalone Instances**: MySQL, PostgreSQL, MariaDB, Oracle, SQL Server
-- **Aurora Clusters**: Multi-instance cluster optimization including reader/writer topology analysis
-- **Optimization Focus**: Right-sizing based on CPU, memory, IOPS metrics; instance class recommendations
+New to JetScale? Start here:
 
-### Compute Services (EC2)
-- **EC2 Instances**: All instance types and families
-- **Optimization Focus**: Instance type recommendations based on utilization patterns, cost-performance analysis
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; margin: 1.5rem 0;">
 
-### Storage Services
-- **EBS Volumes**: gp2, gp3, io1, io2, magnetic volumes
-- **Optimization Focus**: Volume type optimization, IOPS provisioning, size right-sizing
-- **ElastiCache**: Redis and Memcached optimization
+**[AWS Setup →](aws-setup.md)**
+Connect your AWS account securely using IAM roles
 
-## How It Works
+**[Azure Setup →](azure-setup.md)**
+Connect Azure with service principal authentication
 
-1. **Connect Your AWS Account**: Securely connect via IAM role with read-only permissions
-2. **AI Analysis**: Multi-agent system analyzes resource utilization, pricing, and usage patterns
-3. **Generate Recommendations**: AI agents create optimized configurations with:
+**[Quick Start Guide →](getting-started.md)**
+Get up and running in minutes
+
+</div>
+
+---
+
+## 💡 What is JetScale?
+
+JetScale uses specialized AI agents to continuously analyze your cloud infrastructure, identify cost optimization opportunities, and generate production-ready infrastructure-as-code changes—all integrated into your existing workflows.
+
+### The JetScale Difference
+
+- ✅ **AI agents** trained on each cloud service type (RDS, EC2, EBS, ElastiCache)
+- ✅ **Real data analysis** from CloudWatch, Cost Explorer, and Azure Monitor
+- ✅ **Automated validation** ensures recommendations maintain performance and SLAs
+- ✅ **GitOps-native** with GitHub, Jira, and Bitbucket integration
+- ✅ **Production-ready** Terraform code generation
+
+---
+
+## 🛠️ Supported Cloud Services
+
+### AWS Services
+
+| Service | Coverage | Optimization Focus |
+|---------|----------|-------------------|
+| **RDS** | Standalone instances, Aurora clusters | Right-sizing, instance class selection, topology optimization |
+| **EC2** | All instance types and families | Instance type recommendations, utilization analysis |
+| **EBS** | gp2, gp3, io1, io2, magnetic | Volume type optimization, IOPS provisioning, size right-sizing |
+| **ElastiCache** | Redis, Memcached | Node type optimization, cluster configuration |
+
+### Azure Services
+
+| Service | Coverage | Optimization Focus |
+|---------|----------|-------------------|
+| **Virtual Machines** | All VM series | VM size recommendations, reservation opportunities |
+| **SQL Database** | Azure SQL, MySQL, PostgreSQL | Tier and compute optimization |
+| **Storage** | Blob, Files, Managed Disks | Storage tier optimization, capacity planning |
+
+> **Coming Soon:** Support for S3, Lambda, DynamoDB, and Azure Cosmos DB
+
+---
+
+## 🔄 How It Works
+
+```mermaid
+graph LR
+    A[Connect Cloud Account] --> B[AI Analysis]
+    B --> C[Generate Recommendations]
+    C --> D[Review & Approve]
+    D --> E[Deploy via GitOps]
+    E --> F[Track Savings]
+```
+
+1. **Connect Your Cloud Account**
+   Secure, read-only access via IAM role (AWS) or service principal (Azure)
+
+2. **AI Analysis**
+   Multi-agent system analyzes utilization metrics, pricing, and usage patterns
+
+3. **Generate Recommendations**
+   AI creates optimized configurations with:
    - Cost impact analysis
    - Performance validation
-   - Terraform/IaC code generation
-4. **Review & Deploy**: Integrate with GitHub, Jira, or Bitbucket for approval workflows
-5. **Track Savings**: Monitor implemented optimizations and realized cost savings
+   - Terraform/IaC code
 
-## Key Features
+4. **Review & Deploy**
+   Integrate with GitHub, Jira, or Bitbucket for approval workflows
 
-- **AI-Powered Recommendations**: LangGraph-based multi-agent system with specialized expertise per service type
-- **Data Enrichment**: Real-time CloudWatch metrics, Cost Explorer data, and AWS Pricing API integration
-- **Validation Layer**: Automated checks ensure recommendations maintain performance and availability
-- **GitOps Integration**: Native GitHub, Jira, and Bitbucket integration for change management
-- **Real-Time Updates**: WebSocket-based live progress tracking during analysis
-- **Terraform Generation**: Production-ready infrastructure-as-code for approved changes
+5. **Track Savings**
+   Monitor implemented optimizations and realized cost reductions
 
-## Quick Links
+---
 
-- [Getting Started](getting-started.md)
-- [Architecture Overview](architecture.md)
+## 📚 Documentation
+
+### Core Concepts
+- [Architecture Overview](architecture.md) - System design and AI agent workflows
+- [AI Agents](ai-agents.md) - How specialized agents work
+- [Recommendation Workflow](recommendation-workflow.md) - From analysis to deployment
+
+### Service Guides
+- [RDS Optimization](services/rds.md)
+- [EC2 Optimization](services/ec2.md)
+- [EBS Optimization](services/ebs.md)
+- [ElastiCache Optimization](services/elasticache.md)
+
+### Integration
+- [GitHub Integration](integrations/github.md)
+- [Jira Integration](integrations/jira.md)
+- [Bitbucket Integration](integrations/bitbucket.md)
+
+### Reference
 - [API Reference](api-reference.md)
 - [Deployment Guide](deployment.md)
+- [Configuration](configuration.md)
 
-## Support
+---
 
-For questions or issues, visit [github.com/Jetscale-ai](https://github.com/Jetscale-ai)
+## 🤝 Support & Community
+
+**Need Help?**
+- 📧 Email: [support@jetscale.ai](mailto:support@jetscale.ai)
+- 💬 [GitHub Discussions](https://github.com/Jetscale-ai/jetscale-docs/discussions)
+- 🐛 [Report an Issue](https://github.com/Jetscale-ai/jetscale-docs/issues)
+
+**Resources:**
+- [GitHub Organization](https://github.com/Jetscale-ai)
+- [Change Log](https://github.com/Jetscale-ai/jetscale-docs/releases)
+
+---
+
+<div style="text-align: center; margin-top: 2rem; padding-top: 2rem; border-top: 1px solid #eee;">
+
+**Ready to optimize your cloud costs?**
+[Get Started →](getting-started.md) | [Schedule a Demo](mailto:support@jetscale.ai?subject=Demo%20Request)
+
+</div>
