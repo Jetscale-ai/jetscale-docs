@@ -13,6 +13,20 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Wix+Madefor+Text:ital,wght@0,400..800;1,400..800&display=swap" rel="stylesheet">
   <style>
+    .skip-link {
+      position: absolute;
+      top: -40px;
+      left: 0;
+      background: #1c84ee;
+      color: white;
+      padding: 8px 16px;
+      text-decoration: none;
+      font-family: "Wix Madefor Text", sans-serif;
+      z-index: 100;
+    }
+    .skip-link:focus {
+      top: 0;
+    }
     .lang-switcher {
       padding: 15px 20px 10px 20px;
       border-bottom: 1px solid #eee;
@@ -36,7 +50,20 @@
   </style>
 </head>
 <body>
+  <a href="#main" class="skip-link">Skip to main content</a>
   <div id="app"></div>
+  <script>
+    // Add main landmark after Docsify renders content
+    window.addEventListener('load', function() {
+      setTimeout(function() {
+        const content = document.querySelector('.content');
+        if (content && !content.id) {
+          content.id = 'main';
+          content.setAttribute('role', 'main');
+        }
+      }, 100);
+    });
+  </script>
   <script>
     // Inject language switcher into sidebar after Docsify loads
     window.addEventListener('load', function() {
@@ -45,7 +72,7 @@
         if (sidebar) {
           const langSwitcher = document.createElement('div');
           langSwitcher.className = 'lang-switcher';
-          langSwitcher.innerHTML = '<select id="languageSelector" onchange="switchLanguage(this.value)"><option value="en">English</option><option value="fr">Français</option></select>';
+          langSwitcher.innerHTML = '<select id="languageSelector" aria-label="Select documentation language" onchange="switchLanguage(this.value)"><option value="en">English</option><option value="fr">Français</option></select>';
           sidebar.insertBefore(langSwitcher, sidebar.firstChild);
           detectLanguage();
         }

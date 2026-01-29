@@ -4,14 +4,14 @@
 
 ## Getting Started
 
-* [Quick Start Guide](getting-started.md)
+* [Getting Started Guide](getting-started.md)
 * [AWS Setup](aws-setup.md)
 * [Azure Setup](azure-setup.md)
 
-## Core Concepts
+## How It Works
 
-* [Architecture Overview](architecture.md)
-* [AI Agents](ai-agents.md)
+* [How JetScale Works](how-it-works.md)
+* [AI-Powered Analysis](ai-analysis.md)
 * [Recommendation Workflow](recommendation-workflow.md)
 
 ## Supported Services
@@ -30,5 +30,4 @@
 ## Reference
 
 * [API Reference](api-reference.md)
-* [Deployment Guide](deployment.md)
-* [Configuration](configuration.md)
+* [FAQ](faq.md)

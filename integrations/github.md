@@ -39,9 +39,6 @@ Before connecting GitHub, you'll need:
 
 ### Step 2: Connect GitHub in JetScale
 
-![GitHub Connection Screen](#)
-*Screenshot placeholder: JetScale GitHub integration page*
-
 1. Navigate to **Settings** → **Integrations** in JetScale
 2. Click **Connect GitHub**
 3. Paste your Personal Access Token
@@ -50,9 +47,6 @@ Before connecting GitHub, you'll need:
 JetScale will verify your token and display your GitHub account information.
 
 ### Step 3: Select Your Repository
-
-![Repository Selection Screen](#)
-*Screenshot placeholder: Repository selection dropdown*
 
 1. From the **Repository** dropdown, select your Terraform infrastructure repository
 2. JetScale will verify you have push access

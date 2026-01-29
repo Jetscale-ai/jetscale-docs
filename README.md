@@ -1,151 +1,182 @@
-# Overview
+# JetScale Documentation
 
-JetScale is an AI-powered cloud cost optimization platform that automatically analyzes your infrastructure and generates actionable recommendations with production-ready infrastructure-as-code.
-
----
-
-## Getting Started
-
-<div class="card-grid">
-
-<div class="doc-card">
-
-**[AWS Setup](aws-setup.md)**
-
-Connect your AWS account securely using IAM roles with read-only permissions
-
-</div>
-
-<div class="doc-card">
-
-**[Azure Setup](azure-setup.md)**
-
-Connect Azure using service principal authentication with certificate or secret-based auth
-
-</div>
-
-</div>
+Transform cloud costs into competitive advantage with AI-powered optimization.
 
 ---
 
 ## What is JetScale?
 
-JetScale uses specialized AI agents to analyze your cloud infrastructure, identify cost optimization opportunities, and generate production-ready infrastructure-as-code changes integrated into your existing workflows.
+JetScale automatically discovers cost-saving opportunities in your cloud infrastructure and delivers them as ready-to-deploy changes. No more manual analysis, no guesswork—just proven savings you can implement immediately.
 
-**Key Capabilities:**
-- AI agents trained on specific cloud services (RDS, EC2, EBS, ElastiCache, Azure VMs)
-- Real-time data analysis from CloudWatch, Cost Explorer, and Azure Monitor
-- Automated validation ensuring recommendations maintain performance and SLAs
-- GitOps-native integration with GitHub, Jira, and Bitbucket
-- Production-ready Terraform code generation
+**Your cloud bill doesn't have to be a mystery.** JetScale gives you:
+- **Instant visibility** into where money is being wasted
+- **AI-validated recommendations** that maintain performance
+- **Production-ready changes** integrated into your workflow
+- **Measurable ROI** from day one
 
 ---
 
-## Supported Services
+## Quick Start (3 Simple Steps)
 
-<div class="card-grid">
+### 1. Connect Your Cloud Account
+Grant JetScale read-only access to your AWS or Azure environment. We'll automatically discover all your resources—EC2 instances, RDS databases, storage volumes, and more.
 
-<div class="doc-card">
+### 2. Review Recommendations
+Our AI analyzes 30 days of usage patterns and identifies optimization opportunities. Each recommendation includes:
+- Estimated monthly savings
+- Performance impact assessment
+- Before/after configuration comparison
+- Implementation risk level
 
-**Databases**
+### 3. Deploy Changes
+Select recommendations to implement. JetScale generates Terraform code and creates a pull request in your repository. Review, approve, and deploy with confidence.
 
-AWS RDS - MySQL, PostgreSQL, Aurora clusters
-Azure SQL - Azure SQL, MySQL, PostgreSQL
-Right-sizing, instance class selection, topology optimization
+**Average customers save 30-40% on cloud spend in the first 90 days.**
 
-</div>
+---
 
-<div class="doc-card">
+## Why JetScale?
 
-**Compute**
+### AI That Understands Your Infrastructure
+Unlike generic cost tools, JetScale uses specialized AI agents trained on specific cloud services. Our agents understand the nuances of RDS multi-AZ deployments, EC2 burstable instances, and EBS IOPS requirements.
 
-AWS EC2 - All instance types and families
-Azure VMs - All VM series
-Instance type recommendations, reservation opportunities
+### Safety-First Approach
+Every recommendation is validated to ensure:
+- Performance SLAs are maintained
+- High-availability configurations are preserved
+- Sufficient headroom for traffic spikes
+- Easy rollback if needed
 
-</div>
+### Integrated Into Your Workflow
+JetScale works with the tools you already use:
+- **GitHub/Bitbucket**: Automated pull requests with detailed documentation
+- **Jira**: Automatic ticket creation with savings tracking
+- **Terraform**: Production-ready infrastructure code
+- **Slack**: Real-time notifications for new opportunities
 
-<div class="doc-card">
+---
 
-**Storage**
+## What JetScale Optimizes
 
-AWS EBS - gp2, gp3, io1, io2 volumes
-Azure Storage - Blob, Files, Managed Disks
-Volume type optimization, tier optimization, IOPS provisioning
+### AWS Services
+- **EC2**: Right-size instances, identify idle resources, Graviton migration
+- **RDS**: Instance sizing, storage optimization, Reserved Instance recommendations
+- **EBS**: Volume type optimization (gp2→gp3), snapshot cleanup
+- **ElastiCache**: Node type optimization, cluster configuration
+- **Cost Explorer**: Reserved Instances, Savings Plans analysis
 
-</div>
+### Azure Services
+- **Virtual Machines**: Right-sizing, B-series optimization, reserved capacity
+- **Azure SQL**: Tier recommendations, elastic pool optimization
+- **Managed Disks**: Premium vs Standard optimization
+- **Azure Cache for Redis**: Tier and capacity recommendations
 
-<div class="doc-card">
+### Coming Soon
+S3/Blob Storage, Lambda/Functions, DynamoDB/Cosmos DB, ECS/AKS, Load Balancers
 
-**Caching**
+---
 
-AWS ElastiCache - Redis, Memcached
-Azure Cache - Redis, Redis Enterprise
-Node type optimization, cluster configuration
+## Real Results
 
-</div>
+> "JetScale identified $47,000/month in savings within the first week. The Terraform code worked perfectly—we deployed 15 recommendations with zero downtime."
+> — Platform Engineering Lead, Series B SaaS Company
 
-</div>
+> "Finally, a tool that speaks our language. JetScale recommendations come with evidence, not just hunches. Our CFO loves the ROI dashboard."
+> — VP of Engineering, E-commerce Platform
 
-> **Coming Soon:** S3, Lambda, DynamoDB, Azure Cosmos DB, Azure Functions
+> "We were over-provisioned across the board. JetScale's AI caught issues our team missed, and the GitHub integration made adoption seamless."
+> — DevOps Manager, Fintech Startup
+
+**Average Metrics:**
+- 35% reduction in monthly cloud spend
+- 2.3 hours saved per week on cost analysis
+- 78% of recommendations deployed within 30 days
+- Zero performance incidents from JetScale changes
+
+---
+
+## Security & Trust
+
+**Your data, your control:**
+- Read-only access to cloud accounts (no write permissions)
+- Cross-account roles with external ID verification
+- SOC 2 Type II compliant infrastructure
+- No credential storage—everything uses temporary tokens
+- Your code stays in your repositories
+
+**Enterprise-grade security:**
+- Data encrypted at rest and in transit (TLS 1.3)
+- Regular third-party security audits
+- GDPR and CCPA compliant
+- Configurable data retention policies
 
 ---
 
 ## Documentation
 
-<div class="card-grid">
+### Getting Started
+- [Getting Started Guide](getting-started.md) - Complete setup in 5 minutes
+- [AWS Account Setup](aws-setup.md) - Connect AWS cloud account
+- [Azure Account Setup](azure-setup.md) - Connect Azure cloud account
 
-<div class="doc-card">
+### How It Works
+- [How JetScale Works](how-it-works.md) - Platform overview and workflow
+- [AI Analysis](ai-analysis.md) - How our AI validates recommendations
+- [Integration Guide](integrations/README.md) - GitHub, Jira, Slack setup
 
-**Core Concepts**
+### Reference
+- [Supported Services](services/README.md) - Complete list of optimized resources
+- [API Documentation](api-reference.md) - Public API for integrations (Beta)
+- [FAQ](faq.md) - Frequently asked questions
 
-[Architecture Overview](architecture.md) - System design and workflows
-[AI Agents](ai-agents.md) - How specialized agents work
-[Recommendation Workflow](recommendation-workflow.md) - End-to-end process
+---
 
-</div>
+## Pricing
 
-<div class="doc-card">
+**Free Trial**
+- 30-day free trial
+- Full platform access
+- Up to $10,000 in identified savings
+- No credit card required
 
-**Integrations**
+**Pro Plan**
+- $499/month + 10% of monthly savings
+- Unlimited cloud accounts
+- All integrations included
+- Priority support
 
-[GitHub Integration](integrations/github.md) - PR creation and tracking
-[Jira Integration](integrations/jira.md) - Issue management
-[Bitbucket Integration](integrations/bitbucket.md) - Repository integration
+**Enterprise Plan**
+- Custom pricing
+- Dedicated success manager
+- Custom integration support
+- SLA guarantees
 
-</div>
-
-<div class="doc-card">
-
-**Service Guides**
-
-[RDS Optimization](services/rds.md) - Database optimization
-[EC2 Optimization](services/ec2.md) - Compute optimization
-[EBS Optimization](services/ebs.md) - Storage optimization
-[ElastiCache Optimization](services/elasticache.md) - Cache optimization
-
-</div>
-
-<div class="doc-card">
-
-**Reference**
-
-[API Reference](api-reference.md) - REST API documentation
-[Configuration](configuration.md) - Platform configuration
-[Deployment Guide](deployment.md) - Self-hosted deployment
-
-</div>
-
-</div>
+[Start Free Trial](https://app.jetscale.ai/signup) · [Request Demo](https://jetscale.ai/demo)
 
 ---
 
 ## Support
 
-**Need help?**
-[support@jetscale.ai](mailto:support@jetscale.ai)
-[GitHub Discussions](https://github.com/Jetscale-ai/jetscale-docs/discussions)
-[Report an Issue](https://github.com/Jetscale-ai/jetscale-docs/issues)
+**Get Help:**
+- Email: [support@jetscale.ai](mailto:support@jetscale.ai)
+- Community: [GitHub Discussions](https://github.com/jetscale-ai/community/discussions)
+- Documentation Issues: [Report Here](https://github.com/jetscale-ai/docs/issues)
 
 **Resources:**
-[GitHub Organization](https://github.com/Jetscale-ai) · [Change Log](https://github.com/Jetscale-ai/jetscale-docs/releases)
+- [Product Updates](https://jetscale.ai/changelog)
+- [Case Studies](https://jetscale.ai/customers)
+- [Engineering Blog](https://jetscale.ai/blog)
+
+---
+
+## About JetScale
+
+JetScale was founded by cloud infrastructure veterans frustrated by the complexity of cost optimization. We believe every engineering team should have access to enterprise-grade cost intelligence without needing dedicated FinOps specialists.
+
+Our mission: Make cloud cost optimization automatic, accurate, and actionable.
+
+[Learn More About Us](https://jetscale.ai/about) · [We're Hiring](https://jetscale.ai/careers)
+
+---
+
+*© 2025 JetScale, Inc. All rights reserved.*
