@@ -78,16 +78,7 @@ S3/Blob Storage, Lambda/Functions, DynamoDB/Cosmos DB, ECS/AKS, Load Balancers
 
 ## Real Results
 
-> "JetScale identified $47,000/month in savings within the first week. The Terraform code worked perfectly—we deployed 15 recommendations with zero downtime."
-> — Platform Engineering Lead, Series B SaaS Company
-
-> "Finally, a tool that speaks our language. JetScale recommendations come with evidence, not just hunches. Our CFO loves the ROI dashboard."
-> — VP of Engineering, E-commerce Platform
-
-> "We were over-provisioned across the board. JetScale's AI caught issues our team missed, and the GitHub integration made adoption seamless."
-> — DevOps Manager, Fintech Startup
-
-**Average Metrics:**
+**Typical outcomes from JetScale users:**
 - 35% reduction in monthly cloud spend
 - 2.3 hours saved per week on cost analysis
 - 78% of recommendations deployed within 30 days
