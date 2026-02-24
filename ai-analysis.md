@@ -360,20 +360,6 @@ JetScale's AI improves over time by learning from outcomes:
 
 ---
 
-## Real-World Performance Metrics
-
-**Accuracy & Reliability:**
-- **94%** of recommendations deployed without issues
-- **98%** accuracy in savings projections (±5% variance)
-- **<1%** rollback rate due to performance issues
-- **87%** customer acceptance rate for low-risk recommendations
-
-**Customer Results:**
-- Average **35% cost reduction** in first 90 days
-- **Zero performance incidents** from JetScale changes (across 500+ deployments)
-- **95%** of deployed recommendations still active after 1 year
-- **2.3 hours saved per week** on manual cost analysis
-
 ---
 
 ## Related Documentation

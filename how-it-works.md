@@ -336,23 +336,6 @@ After deployment, JetScale tracks:
 
 ---
 
-## Real Customer Results
-
-> "JetScale identified $47,000/month in savings within the first week. The Terraform code worked perfectly on first apply."
-> — Platform Engineering Lead, Series B SaaS Company
-
-> "Finally, a tool that understands the difference between safe optimization and reckless cost-cutting. Zero performance incidents."
-> — VP of Engineering, E-commerce Platform
-
-**Average Customer Metrics:**
-- **35% reduction** in monthly cloud spend
-- **2.3 hours saved** per week on cost analysis
-- **78%** of recommendations deployed within 30 days
-- **Zero performance incidents** from JetScale changes
-- **ROI achieved** within first 60 days
-
----
-
 ## Next Steps
 
 **Get Started:**

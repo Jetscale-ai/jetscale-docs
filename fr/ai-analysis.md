@@ -360,20 +360,6 @@ L'IA de JetScale s'améliore au fil du temps en apprenant des résultats :
 
 ---
 
-## Métriques de performance réelles
-
-**Précision et fiabilité :**
-- **94%** des recommandations déployées sans problèmes
-- **98%** de précision dans les projections d'économies (variance ±5%)
-- **<1%** de taux de rollback dû à des problèmes de performance
-- **87%** de taux d'acceptation client pour les recommandations à faible risque
-
-**Résultats clients :**
-- **Réduction de coût moyenne de 35%** dans les 90 premiers jours
-- **Zéro incident de performance** suite aux changements JetScale (sur 500+ déploiements)
-- **95%** des recommandations déployées toujours actives après 1 an
-- **2,3 heures économisées par semaine** sur l'analyse manuelle des coûts
-
 ---
 
 ## Documentation connexe

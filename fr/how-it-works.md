@@ -336,23 +336,6 @@ Après le déploiement, JetScale suit :
 
 ---
 
-## Résultats clients réels
-
-> "JetScale a identifié 47 000 $/mois d'économies dès la première semaine. Le code Terraform a fonctionné parfaitement dès la première application."
-> — Responsable Platform Engineering, Entreprise SaaS Série B
-
-> "Enfin, un outil qui comprend la différence entre optimisation sûre et réduction de coûts imprudente. Zéro incident de performance."
-> — VP Engineering, Plateforme e-commerce
-
-**Métriques clients moyennes :**
-- **Réduction de 35%** des dépenses cloud mensuelles
-- **2,3 heures économisées** par semaine sur l'analyse de coûts
-- **78%** des recommandations déployées rapidement
-- **Zéro incident de performance** suite aux changements JetScale
-- **ROI atteint** dans les premiers mois
-
----
-
 ## Prochaines étapes
 
 **Démarrer :**
