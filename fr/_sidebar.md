@@ -1,30 +1,32 @@
 - Démarrage
-  - [Aperçu](/)
-  - [Guide de Démarrage](getting-started)
-  - [Configuration AWS](aws-setup)
-  - [Configuration Azure](azure-setup)
+  - [Aperçu](/fr/)
+  - [Guide de Démarrage](/fr/getting-started)
+  - [Configuration AWS](/fr/aws-setup)
+  - [Configuration Azure](/fr/azure-setup)
 
 - Comment Ça Marche
-  - [Fonctionnement de JetScale](how-it-works)
-  - [Analyse IA](ai-analysis)
-  - [Flux de Recommandations](recommendation-workflow)
+  - [Fonctionnement de JetScale](/fr/how-it-works)
+  - [Analyse IA](/fr/ai-analysis)
+  - [Flux de Recommandations](/fr/recommendation-workflow)
 
 - Intégrations
-  - [GitHub](integrations/github)
-  - [Jira](integrations/jira)
-  - [Slack](integrations/slack)
-  - [Bitbucket](integrations/bitbucket)
+  - [Aperçu](/fr/integrations/)
+  - [GitHub](/fr/integrations/github)
+  - [Jira](/fr/integrations/jira)
+  - [Slack](/fr/integrations/slack)
+  - [Bitbucket](/fr/integrations/bitbucket)
 
 - Services Supportés
+  - [Aperçu](/fr/services/)
   - AWS
-    - [RDS](services/rds)
-    - [EC2](services/ec2)
-    - [EBS](services/ebs)
-    - [ElastiCache](services/elasticache)
+    - [RDS](/fr/services/rds)
+    - [EC2](/fr/services/ec2)
+    - [EBS](/fr/services/ebs)
+    - [ElastiCache](/fr/services/elasticache)
   - Azure
-    - [Machines Virtuelles](services/azure-vm)
-    - [Azure SQL](services/azure-sql)
+    - [Machines Virtuelles](/fr/services/azure-vm)
+    - [Azure SQL](/fr/services/azure-sql)
 
 - Référence
-  - [Référence API](api-reference)
-  - [FAQ](faq)
+  - [Référence API](/fr/api-reference)
+  - [FAQ](/fr/faq)
