@@ -45,7 +45,7 @@ Unlike generic cloud cost tools that provide simple alerts ("Your CPU is low—d
 
 ## How AI Analysis Works
 
-### 1. Comprehensive Data Collection (30 Days)
+### 1. Comprehensive Data Collection
 
 **Performance Metrics:**
 - CPU utilization (average, p50, p95, p99, max)
@@ -88,7 +88,7 @@ JetScale's AI categorizes your resources into optimization patterns:
 Resource: web-server-prod-01 (t3.2xlarge)
 Pattern: Over-Provisioned Steady-State
 
-30-Day Usage:
+Historical Usage:
 - Avg CPU: 12% | Peak CPU: 34%
 - Avg Memory: 28% | Peak Memory: 45%
 - Network: Consistent 100 Mbps (well below limits)
@@ -162,8 +162,8 @@ JetScale's AI evaluates multiple alternatives and selects the optimal balance:
 Every JetScale recommendation is backed by transparent evidence:
 
 **Usage Charts:**
-- 30-day CPU utilization graph with percentile bands
-- 30-day memory utilization graph showing peaks
+- Historical CPU utilization graph with percentile bands
+- Historical memory utilization graph showing peaks
 - Peak vs average comparison with trend lines
 - Percentile analysis (p50, p95, p99) for capacity planning
 
@@ -195,7 +195,7 @@ Every JetScale recommendation is backed by transparent evidence:
 Determines optimal instance size based on actual usage patterns and workload characteristics.
 
 **AI Factors Considered:**
-- Utilization trends over 30 days (not just averages)
+- Utilization trends over extended period (not just averages)
 - Traffic pattern classification (steady, bursty, scheduled)
 - Growth rate analysis (10% YoY growth requires bigger buffer)
 - Seasonal variation detection (holiday spikes, end-of-quarter)
@@ -205,7 +205,7 @@ Determines optimal instance size based on actual usage patterns and workload cha
 Current: t3.xlarge (4 vCPU, 16 GB RAM) = $730/month
 Recommended: t3.large (2 vCPU, 8 GB RAM) = $482/month
 
-Reason: Average CPU 12%, peak CPU 34% over 30 days.
+Reason: Average CPU 12%, peak CPU 34% over extended monitoring period.
 Recommended config provides 3x headroom above peak usage.
 
 Monthly Savings: $248 (34% reduction)
@@ -334,7 +334,7 @@ JetScale's AI improves over time by learning from outcomes:
 
 **Every recommendation includes:**
 - **Why this change is suggested**: Specific usage patterns and inefficiencies
-- **What data supports it**: 30 days of metrics and charts
+- **What data supports it**: Historical metrics and charts
 - **What risks exist**: Honest assessment of potential issues
 - **How to roll back if needed**: Step-by-step instructions
 
@@ -353,7 +353,7 @@ JetScale's AI improves over time by learning from outcomes:
 - Can't be easily rolled back if issues occur
 
 **Red flags that prevent recommendations:**
-- Insufficient usage data (< 14 days of metrics)
+- Insufficient usage data (minimal historical metrics)
 - High variability in workload patterns (unpredictable)
 - Recent instance size changes (let it stabilize first)
 - Critical production resources without backup plan

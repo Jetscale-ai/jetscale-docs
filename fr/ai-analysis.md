@@ -45,7 +45,7 @@ Contrairement aux outils génériques de coûts cloud qui fournissent de simples
 
 ## Comment fonctionne l'analyse IA
 
-### 1. Collecte de données complète (30 jours)
+### 1. Collecte de données complète (historique)
 
 **Métriques de performance :**
 - Utilisation CPU (moyenne, p50, p95, p99, max)
@@ -88,7 +88,7 @@ L'IA de JetScale catégorise vos ressources en modèles d'optimisation :
 Ressource : web-server-prod-01 (t3.2xlarge)
 Modèle : État stable sur-provisionné
 
-Utilisation sur 30 jours :
+Utilisation historique :
 - CPU moy : 12% | CPU pic : 34%
 - Mémoire moy : 28% | Mémoire pic : 45%
 - Réseau : 100 Mbps constant (bien en dessous des limites)
@@ -162,8 +162,8 @@ L'IA de JetScale évalue plusieurs alternatives et sélectionne l'équilibre opt
 Chaque recommandation JetScale est soutenue par des preuves transparentes :
 
 **Graphiques d'utilisation :**
-- Graphique d'utilisation CPU sur 30 jours avec bandes de centiles
-- Graphique d'utilisation mémoire sur 30 jours montrant les pics
+- Graphique d'utilisation CPU historique avec bandes de centiles
+- Graphique d'utilisation mémoire historique montrant les pics
 - Comparaison pic vs moyenne avec lignes de tendance
 - Analyse des centiles (p50, p95, p99) pour la planification de capacité
 
@@ -195,7 +195,7 @@ Chaque recommandation JetScale est soutenue par des preuves transparentes :
 Détermine la taille d'instance optimale basée sur les modèles d'utilisation réels et les caractéristiques de la charge de travail.
 
 **Facteurs IA considérés :**
-- Tendances d'utilisation sur 30 jours (pas seulement les moyennes)
+- Tendances d'utilisation historiques (pas seulement les moyennes)
 - Classification des modèles de trafic (stable, rafales, planifié)
 - Analyse du taux de croissance (croissance de 10% par an nécessite un tampon plus grand)
 - Détection de variation saisonnière (pics de vacances, fin de trimestre)
@@ -205,7 +205,7 @@ Détermine la taille d'instance optimale basée sur les modèles d'utilisation r
 Actuel : t3.xlarge (4 vCPU, 16 GB RAM) = 730 $/mois
 Recommandé : t3.large (2 vCPU, 8 GB RAM) = 482 $/mois
 
-Raison : CPU moyen 12%, CPU pic 34% sur 30 jours.
+Raison : CPU moyen 12%, CPU pic 34% sur période historique.
 La config recommandée fournit 3x de marge au-dessus du pic d'utilisation.
 
 Économies mensuelles : 248 $ (réduction de 34%)
@@ -334,7 +334,7 @@ L'IA de JetScale s'améliore au fil du temps en apprenant des résultats :
 
 **Chaque recommandation inclut :**
 - **Pourquoi ce changement est suggéré** : Modèles d'utilisation spécifiques et inefficacités
-- **Quelles données le soutiennent** : 30 jours de métriques et graphiques
+- **Quelles données le soutiennent** : Métriques et graphiques historiques
 - **Quels risques existent** : Évaluation honnête des problèmes potentiels
 - **Comment revenir en arrière si nécessaire** : Instructions étape par étape
 
@@ -353,7 +353,7 @@ L'IA de JetScale s'améliore au fil du temps en apprenant des résultats :
 - Ne peuvent pas être facilement annulés en cas de problèmes
 
 **Signaux d'alerte qui empêchent les recommandations :**
-- Données d'utilisation insuffisantes (< 14 jours de métriques)
+- Données d'utilisation insuffisantes (historique incomplet)
 - Variabilité élevée dans les modèles de charge de travail (imprévisible)
 - Changements de taille d'instance récents (laisser stabiliser d'abord)
 - Ressources de production critiques sans plan de sauvegarde

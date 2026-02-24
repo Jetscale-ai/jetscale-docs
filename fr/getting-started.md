@@ -19,7 +19,7 @@ JetScale est une plateforme SaaS qui découvre automatiquement les opportunités
 4. Complétez votre profil (nom de l'entreprise, fonction)
 
 **Essai gratuit :**
-- 30 jours d'accès complet à la plateforme
+- Accès complet à la plateforme pour une période d'essai
 - Jusqu'à 10 000 $ d'économies identifiées
 - Aucune carte de crédit requise
 - Résiliation possible à tout moment
@@ -66,12 +66,12 @@ Choisissez votre fournisseur cloud et suivez le guide de configuration :
 **Ce qui se passe :**
 - JetScale analyse toutes les régions de votre compte
 - Catalogue les ressources de calcul, bases de données, stockage et cache
-- Récupère 30 jours de métriques d'utilisation depuis CloudWatch/Azure Monitor
+- Récupère l'historique de métriques d'utilisation depuis CloudWatch/Azure Monitor
 - L'IA analyse les modèles d'utilisation et identifie les opportunités
 
 **Indicateurs de progression :**
 - **Découverte des ressources** → Recherche de toutes les ressources cloud
-- **Analyse de l'utilisation** → Collecte de 30 jours de métriques
+- **Analyse de l'utilisation** → Collecte de métriques historiques
 - **Génération de recommandations** → Validation IA en cours
 - **Prêt** → Recommandations disponibles pour révision
 
@@ -95,7 +95,7 @@ Chaque carte affiche :
 - **Résumé rapide** de la modification
 
 **En cliquant sur "Voir les détails", vous verrez :**
-- Graphiques d'utilisation sur 30 jours (CPU, mémoire, réseau)
+- Graphiques d'utilisation historiques (CPU, mémoire, réseau)
 - Configuration actuelle vs recommandée
 - Calcul détaillé des économies
 - Évaluation de l'impact sur les performances
@@ -333,7 +333,7 @@ Après le déploiement, surveillez :
 
 **Très précise :**
 - Précision de 98% avec une variance de ±5%
-- Basée sur 30 jours de données d'utilisation réelles
+- Basée sur l'historique de données d'utilisation réelles
 - Inclut tous les facteurs de coût (calcul, stockage, transfert de données)
 - Tient compte des crédits d'instances réservées
 

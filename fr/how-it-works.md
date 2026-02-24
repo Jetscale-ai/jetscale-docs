@@ -84,7 +84,7 @@ graph LR
 
 ## 3. Analyser les modèles d'utilisation
 
-**30 jours de collecte de données :**
+**Collecte de données historiques :**
 
 JetScale récupère des données d'utilisation complètes depuis :
 - Les métriques **AWS CloudWatch** ou **Azure Monitor**
@@ -153,7 +153,7 @@ Contrairement aux outils de coût génériques qui vous alertent simplement d'un
 - **Évaluation de l'impact sur les performances** : Zéro temps d'arrêt ou ajustements mineurs notés
 - **Niveau de risque d'implémentation** : Faible, Moyen ou Élevé avec risques spécifiques
 - **Comparaison avant/après** : Vue côte à côte de la configuration
-- **Preuves à l'appui** : Graphiques et métriques sur 30 jours
+- **Preuves à l'appui** : Graphiques et métriques historiques
 - **Instructions de retour arrière** : Chemin facile de retour si nécessaire
 
 **Validation de sécurité :**
@@ -181,7 +181,7 @@ Les recommandations sont organisées par :
 
 Cliquez sur n'importe quelle recommandation pour voir :
 - **Résumé** : Ce qui change et pourquoi
-- **Preuves** : Graphiques d'utilisation sur 30 jours
+- **Preuves** : Graphiques d'utilisation historiques
 - **Comparaison de configuration** : Paramètres actuels vs recommandés
 - **Calcul des économies** : Analyse détaillée des coûts
 - **Évaluation d'impact** : Considérations de performance et disponibilité
@@ -280,7 +280,7 @@ Après le déploiement, JetScale suit :
 
 **Données que nous conservons :**
 - Métadonnées de ressources (ID d'instances, types, configurations)
-- Métriques d'utilisation agrégées (fenêtre glissante de 30 jours)
+- Métriques d'utilisation agrégées (période de rétention configurable)
 - Historique des recommandations et statut d'approbation
 - Préférences utilisateur et paramètres d'équipe
 
@@ -347,9 +347,9 @@ Après le déploiement, JetScale suit :
 **Métriques clients moyennes :**
 - **Réduction de 35%** des dépenses cloud mensuelles
 - **2,3 heures économisées** par semaine sur l'analyse de coûts
-- **78%** des recommandations déployées dans les 30 jours
+- **78%** des recommandations déployées rapidement
 - **Zéro incident de performance** suite aux changements JetScale
-- **ROI atteint** dans les 60 premiers jours
+- **ROI atteint** dans les premiers mois
 
 ---
 

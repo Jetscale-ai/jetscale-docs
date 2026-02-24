@@ -119,7 +119,7 @@ Nous développons activement la prise en charge de services supplémentaires :
 Pour chaque service pris en charge, JetScale :
 
 1. **Découvre les ressources** : Identifie automatiquement toutes les instances sur vos comptes cloud
-2. **Collecte les métriques** : Rassemble 30 jours de données d'utilisation (CPU, mémoire, disque, réseau)
+2. **Collecte les métriques** : Rassemble l'historique de données d'utilisation (CPU, mémoire, disque, réseau)
 3. **Analyse IA** : Des agents spécialisés analysent les modèles et identifient les opportunités d'optimisation
 4. **Valide la sécurité** : Garantit que les recommandations maintiennent la performance et la disponibilité
 5. **Génère du code** : Crée du Terraform prêt pour la production pour l'implémentation

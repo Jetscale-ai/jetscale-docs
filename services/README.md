@@ -119,7 +119,7 @@ We're actively developing support for additional services:
 For each supported service, JetScale:
 
 1. **Discovers Resources**: Automatically identifies all instances across your cloud accounts
-2. **Collects Metrics**: Gathers 30 days of usage data (CPU, memory, disk, network)
+2. **Collects Metrics**: Gathers historical usage data (CPU, memory, disk, network)
 3. **AI Analysis**: Specialized agents analyze patterns and identify optimization opportunities
 4. **Validates Safety**: Ensures recommendations maintain performance and availability
 5. **Generates Code**: Creates production-ready Terraform for implementation

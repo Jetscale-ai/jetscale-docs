@@ -84,7 +84,7 @@ graph LR
 
 ## 3. Analyze Usage Patterns
 
-**30 Days of Data Collection:**
+**Historical Data Collection:**
 
 JetScale pulls comprehensive usage data from:
 - **AWS CloudWatch** or **Azure Monitor** metrics
@@ -153,7 +153,7 @@ Unlike generic cost tools that simply alert you to low CPU usage, JetScale's AI 
 - **Performance impact assessment**: Zero-downtime or minor adjustments noted
 - **Implementation risk level**: Low, Medium, or High with specific risks
 - **Before/after comparison**: Side-by-side configuration view
-- **Supporting evidence**: 30-day usage charts and metrics
+- **Supporting evidence**: Historical usage charts and metrics
 - **Rollback instructions**: Easy path back if needed
 
 **Safety Validation:**
@@ -181,7 +181,7 @@ Recommendations are organized by:
 
 Click any recommendation to see:
 - **Summary**: What's changing and why
-- **Evidence**: Usage charts over 30 days
+- **Evidence**: Historical usage charts
 - **Configuration Comparison**: Current vs recommended settings
 - **Savings Calculation**: Detailed cost analysis
 - **Impact Assessment**: Performance and availability considerations
@@ -280,7 +280,7 @@ After deployment, JetScale tracks:
 
 **Data We Keep:**
 - Resource metadata (instance IDs, types, configurations)
-- Aggregated usage metrics (30-day rolling window)
+- Aggregated usage metrics (configurable retention period)
 - Recommendation history and approval status
 - User preferences and team settings
 

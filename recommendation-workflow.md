@@ -58,7 +58,7 @@ sequenceDiagram
     Discovery-->>JetScale UI: 1,247 resources discovered
 
     JetScale UI->>Metrics: Start data collection
-    Metrics->>AWS/Azure: Query CloudWatch/Azure Monitor (14-30 days)
+    Metrics->>AWS/Azure: Query CloudWatch/Azure Monitor (configurable period)
     Metrics->>AWS/Azure: Query Cost Explorer/Cost Management
     AWS/Azure-->>Metrics: Usage metrics + cost data
     Metrics-->>JetScale UI: Metrics collected & stored
@@ -193,7 +193,7 @@ sequenceDiagram
    - **CloudWatch/Azure Monitor**: CPU, memory, network, disk I/O
    - **Cost Explorer/Cost Management**: Daily cost breakdowns
    - **Service-specific metrics**: Lambda invocations, RDS connections, etc.
-2. Historical data collected for 14-30 days (configurable)
+2. Historical data collected for configurable period
 3. Metrics aggregated at multiple intervals (5min, 1hr, 1day)
 4. Data normalized and stored in time-series database
 
@@ -700,7 +700,7 @@ Risk: Low
    - Update status as changes progress
    - Close ticket when verification complete
 
-3. **Savings Verification** (7-30 days):
+3. **Savings Verification** (verification period):
    - Compare actual costs vs. baseline
    - Calculate realized savings
    - Identify variance (actual vs. estimated)
@@ -726,7 +726,7 @@ Details:
 - PR: github.com/yourorg/infra/pull/234
 - Applied: 2024-01-15 12:38 UTC
 - Estimated Savings: $2,847/month
-- Actual Savings (30d): $2,789/month (98% of estimate)
+- Actual Savings (verified): $2,789/month (98% of estimate)
 - Resources Modified: 12
 - Issues: None
 
@@ -745,7 +745,7 @@ Savings Breakdown:
 ├─────────────────────────────────────────────────┤
 │ Status: ✓ Verified                              │
 │ Implementation Date: Jan 15, 2024               │
-│ Verification Period: 30 days                    │
+│ Verification Complete                           │
 │                                                 │
 │ Estimated:  $2,847/month                        │
 │ Actual:     $2,789/month                        │
@@ -766,7 +766,7 @@ Savings Breakdown:
 **Timeline**:
 - Jira ticket creation: Immediate
 - Initial health check: 24 hours
-- Savings verification: 7-30 days
+- Savings verification: Verification period
 
 **AI Agents Involved**: Cost Tracking Agent, Anomaly Detection Agent
 
@@ -823,8 +823,8 @@ Clicking on any recommendation shows detailed analysis:
 │   Savings: $62.04/month (48%)                                │
 │                                                              │
 │ Evidence:                                                    │
-│   30-day Avg CPU: 12%                                        │
-│   30-day Avg Memory: 28%                                     │
+│   Historical Avg CPU: 12%                                    │
+│   Historical Avg Memory: 28%                                 │
 │   Peak CPU: 34% (well under 50% threshold)                  │
 │   [View CloudWatch Metrics →]                                │
 │                                                              │
@@ -989,7 +989,7 @@ graph TB
 
 **Pattern Recognition Agent**
 - **Purpose**: Identify usage patterns and trends
-- **Inputs**: 30-day metric history per resource
+- **Inputs**: Historical metric data per resource
 - **Outputs**: Pattern classifications (idle, underutilized, stable, variable, bursty)
 - **Model**: LSTM neural network + clustering
 - **Key Insights**:
@@ -1010,7 +1010,7 @@ graph TB
 **Forecasting Agent**
 - **Purpose**: Predict future usage and costs
 - **Inputs**: Historical metrics + external factors (seasonality, growth)
-- **Outputs**: 30/60/90-day forecasts with confidence intervals
+- **Outputs**: Future forecasts with confidence intervals
 - **Model**: Prophet (Facebook) + ARIMA
 - **Key Insights**:
   - Predicts when Reserved Instances become cost-effective
@@ -1314,12 +1314,12 @@ Top recommendations:
 | 8. GitOps PR creation | 2-5 minutes | 2 days |
 | 9. Team review & approval | 1-3 business days | 3-5 days |
 | 10. Implementation | 10-30 minutes | 3-5 days |
-| 11. Savings verification | 7-30 days | 10-35 days |
+| 11. Savings verification | Verification period | 10-35 days |
 
 **Typical Timeline**:
 - **First recommendations ready**: 2-3 days after connection
 - **First implementation**: 3-7 days (including review)
-- **First verified savings**: 10-37 days
+- **First verified savings**: 10-35 days
 
 ---
 
@@ -1354,12 +1354,12 @@ Day 4: PR approved and merged
        Implementation executed (30 min)
        Jira ticket created
 
-Day 5-11: Monitoring period (7 days)
+Day 5-11: Monitoring period
 
 Day 12: Initial savings verification
         Jira ticket updated
 
-Day 30: Final savings verification
+Verification complete: Final savings verification
         Variance analysis
         Jira ticket closed
 ```
@@ -1607,14 +1607,14 @@ JetScale handles AWS and Azure differently but provides unified workflow:
 ### Calculation Methodology
 
 **Savings Estimates**:
-- Based on 30-day rolling average usage
+- Based on historical rolling average usage
 - Current pricing (on-demand rates)
 - Regional pricing variations included
 - Tax and support costs excluded
 
 **Formula**:
 ```
-Monthly Savings = (Current Cost - Recommended Cost) × 30 days
+Monthly Savings = Current Cost - Recommended Cost
 Annual Savings = Monthly Savings × 12
 ```
 

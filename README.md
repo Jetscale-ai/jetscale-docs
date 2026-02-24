@@ -22,7 +22,7 @@ JetScale automatically discovers cost-saving opportunities in your cloud infrast
 Grant JetScale read-only access to your AWS or Azure environment. We'll automatically discover all your resources—EC2 instances, RDS databases, storage volumes, and more.
 
 ### 2. Review Recommendations
-Our AI analyzes 30 days of usage patterns and identifies optimization opportunities. Each recommendation includes:
+Our AI analyzes historical usage patterns and identifies optimization opportunities. Each recommendation includes:
 - Estimated monthly savings
 - Performance impact assessment
 - Before/after configuration comparison

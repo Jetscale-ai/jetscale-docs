@@ -109,7 +109,7 @@ JetScale optimise les volumes EBS rattachés aux instances EC2 ou les volumes no
 
 JetScale analyse plusieurs sources de données :
 
-**Métriques CloudWatch** (fenêtre glissante de 14 jours) :
+**Métriques CloudWatch** (période historique) :
 - `VolumeReadOps` / `VolumeWriteOps` - Utilisation des IOPS
 - `VolumeReadBytes` / `VolumeWriteBytes` - Utilisation du débit
 - `VolumeThroughputPercentage` - Pourcentage du débit provisionné utilisé
@@ -391,7 +391,7 @@ resource "aws_ebs_volume" "database_volume" {
 2. Vérifier les tags pour les informations de propriété
 3. Créer un snapshot si les données peuvent être nécessaires
 4. Confirmer avec l'équipe applicative
-5. Attendre 30 jours après la création du snapshot avant suppression
+5. Attendre une période de rétention appropriée après la création du snapshot avant suppression
 
 **Stratégie de snapshot :**
 ```bash
@@ -404,7 +404,7 @@ aws ec2 create-snapshot \
 aws ec2 wait snapshot-completed \
   --snapshot-ids snap-0xyz789
 
-# Supprimer le volume après une période de rétention de 30 jours
+# Supprimer le volume après une période de rétention appropriée
 aws ec2 delete-volume --volume-id vol-0abc123
 ```
 

@@ -19,7 +19,7 @@ JetScale is a SaaS platform that automatically discovers cost-saving opportuniti
 4. Complete your profile (company name, role)
 
 **Free Trial:**
-- 30 days of full platform access
+- Full platform access
 - Up to $10,000 in identified savings
 - No credit card required
 - Cancel anytime
@@ -66,12 +66,12 @@ Choose your cloud provider and follow the setup guide:
 **What's Happening:**
 - JetScale scans all regions in your account
 - Catalogs compute, database, storage, and caching resources
-- Pulls 30 days of usage metrics from CloudWatch/Azure Monitor
+- Pulls historical usage metrics from CloudWatch/Azure Monitor
 - AI analyzes usage patterns and identifies opportunities
 
 **Progress indicators:**
 - **Discovering resources** → Finding all cloud resources
-- **Analyzing usage** → Collecting 30 days of metrics
+- **Analyzing usage** → Collecting historical metrics
 - **Generating recommendations** → AI validation in progress
 - **Ready** → Recommendations available for review
 
@@ -95,7 +95,7 @@ Each card shows:
 - **Quick summary** of the change
 
 **Clicking "View Details" shows:**
-- 30-day usage charts (CPU, memory, network)
+- Historical usage charts (CPU, memory, network)
 - Current vs recommended configuration
 - Detailed savings calculation
 - Performance impact assessment
@@ -333,7 +333,7 @@ After deployment, monitor:
 
 **Very accurate:**
 - 98% accuracy within ±5% variance
-- Based on 30 days of actual usage data
+- Based on historical actual usage data
 - Includes all cost factors (compute, storage, data transfer)
 - Accounts for Reserved Instance credits
 

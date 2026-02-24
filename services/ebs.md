@@ -109,7 +109,7 @@ JetScale optimizes EBS volumes attached to EC2 instances or unattached volumes i
 
 JetScale analyzes multiple data sources:
 
-**CloudWatch Metrics** (14-day rolling window):
+**CloudWatch Metrics** (configurable period):
 - `VolumeReadOps` / `VolumeWriteOps` - IOPS usage
 - `VolumeReadBytes` / `VolumeWriteBytes` - Throughput usage
 - `VolumeThroughputPercentage` - Percentage of provisioned throughput used
@@ -391,7 +391,7 @@ resource "aws_ebs_volume" "database_volume" {
 2. Check tags for ownership information
 3. Create snapshot if data might be needed
 4. Confirm with application team
-5. Wait 30 days after snapshot creation before deletion
+5. Follow retention period after snapshot creation before deletion
 
 **Snapshot strategy:**
 ```bash
@@ -404,7 +404,7 @@ aws ec2 create-snapshot \
 aws ec2 wait snapshot-completed \
   --snapshot-ids snap-0xyz789
 
-# Delete volume after 30-day retention period
+# Delete volume after retention period
 aws ec2 delete-volume --volume-id vol-0abc123
 ```
 

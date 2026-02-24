@@ -22,7 +22,7 @@ JetScale découvre automatiquement les opportunités d'économies dans votre inf
 Accordez à JetScale un accès en lecture seule à votre environnement AWS ou Azure. Nous découvrirons automatiquement toutes vos ressources—instances EC2, bases de données RDS, volumes de stockage, et plus encore.
 
 ### 2. Examinez les Recommandations
-Notre IA analyse 30 jours de modèles d'utilisation et identifie les opportunités d'optimisation. Chaque recommandation inclut:
+Notre IA analyse l'historique des modèles d'utilisation et identifie les opportunités d'optimisation. Chaque recommandation inclut:
 - Économies mensuelles estimées
 - Évaluation de l'impact sur les performances
 - Comparaison de configuration avant/après
