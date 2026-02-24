@@ -76,16 +76,6 @@ S3/Blob Storage, Lambda/Functions, DynamoDB/Cosmos DB, ECS/AKS, Load Balancers
 
 ---
 
-## Real Results
-
-**Typical outcomes from JetScale users:**
-- 35% reduction in monthly cloud spend
-- 2.3 hours saved per week on cost analysis
-- 78% of recommendations deployed within 30 days
-- Zero performance incidents from JetScale changes
-
----
-
 ## Security & Trust
 
 **Your data, your control:**
@@ -119,30 +109,6 @@ S3/Blob Storage, Lambda/Functions, DynamoDB/Cosmos DB, ECS/AKS, Load Balancers
 - [Supported Services](services/README.md) - Complete list of optimized resources
 - [API Documentation](api-reference.md) - Public API for integrations (Beta)
 - [FAQ](faq.md) - Frequently asked questions
-
----
-
-## Pricing
-
-**Free Trial**
-- 30-day free trial
-- Full platform access
-- Up to $10,000 in identified savings
-- No credit card required
-
-**Pro Plan**
-- $499/month + 10% of monthly savings
-- Unlimited cloud accounts
-- All integrations included
-- Priority support
-
-**Enterprise Plan**
-- Custom pricing
-- Dedicated success manager
-- Custom integration support
-- SLA guarantees
-
-[Start Free Trial](https://app.jetscale.ai/signup) · [Request Demo](https://jetscale.ai/demo)
 
 ---
 
