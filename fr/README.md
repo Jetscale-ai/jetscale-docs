@@ -114,15 +114,7 @@ S3/Blob Storage, Lambda/Functions, DynamoDB/Cosmos DB, ECS/AKS, Load Balancers
 
 ## Support
 
-**Obtenir de l'Aide:**
-- Email: [support@jetscale.ai](mailto:support@jetscale.ai)
-- Communauté: [Discussions GitHub](https://github.com/jetscale-ai/community/discussions)
-- Problèmes de Documentation: [Signaler Ici](https://github.com/jetscale-ai/docs/issues)
-
-**Ressources:**
-- [Mises à Jour Produit](https://jetscale.ai/changelog)
-- [Études de Cas](https://jetscale.ai/customers)
-- [Blog Ingénierie](https://jetscale.ai/blog)
+Email: [support@jetscale.ai](mailto:support@jetscale.ai)
 
 ---
 
