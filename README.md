@@ -132,7 +132,7 @@ JetScale was founded by cloud infrastructure veterans frustrated by the complexi
 
 Our mission: Make cloud cost optimization automatic, accurate, and actionable.
 
-[Learn More About Us](https://jetscale.ai/about) · [We're Hiring](https://jetscale.ai/careers)
+[Learn More About Us](https://jetscale.ai/about)
 
 ---
 
