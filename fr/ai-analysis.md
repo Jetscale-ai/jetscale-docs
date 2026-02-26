@@ -4,7 +4,7 @@
 
 ## Vue d'ensemble
 
-JetScale utilise une IA avancée pour analyser votre infrastructure cloud et générer des recommandations sûres et validées. Notre IA ne se contente pas d'identifier des économies de coûts—elle garantit que ces économies maintiennent les performances, la disponibilité et la fiabilité.
+JetScale utilise une IA avancée pour analyser votre infrastructure cloud et générer des recommandations sûres et validées. Notre IA ne se contente pas d'identifier des économies de coûts. Elle garantit que ces économies maintiennent les performances, la disponibilité et la fiabilité.
 
 **C'est ce qui distingue JetScale des rapports de coûts génériques.**
 
@@ -14,7 +14,7 @@ JetScale utilise une IA avancée pour analyser votre infrastructure cloud et gé
 
 ### Intelligence spécifique aux services
 
-Contrairement aux outils génériques de coûts cloud qui fournissent de simples alertes ("Votre CPU est bas—réduisez la taille !"), l'IA de JetScale comprend les nuances de chaque service cloud :
+Contrairement aux outils génériques de coûts cloud qui fournissent de simples alertes ("Votre CPU est bas, réduisez la taille !"), l'IA de JetScale comprend les nuances de chaque service cloud :
 
 **Pour les bases de données RDS/Azure SQL :**
 - Modèles de basculement Multi-AZ et marge de capacité

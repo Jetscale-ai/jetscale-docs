@@ -172,4 +172,4 @@ Besoin d'aide avec la configuration AWS?
 - **Appels de Configuration**: Disponibles pour une assistance pratique
 - **Documentation**: Exigences de permissions détaillées fournies lors de l'intégration
 
-Tous les problèmes de permissions seront résolus pendant le processus de validation—nous sommes là pour vous aider!
+Tous les problèmes de permissions seront résolus pendant le processus de validation. Nous sommes là pour vous aider!

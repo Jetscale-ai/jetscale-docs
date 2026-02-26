@@ -12,7 +12,7 @@ JetScale est une plateforme d'optimisation des coûts cloud alimentée par l'IA 
 <details>
 <summary><strong>Comment fonctionne JetScale?</strong></summary>
 
-JetScale utilise des agents IA spécialisés formés sur des services cloud spécifiques (RDS, EC2, EBS, ElastiCache, Azure VMs). Ces agents analysent les données en temps réel de CloudWatch, Cost Explorer et Azure Monitor pour identifier les opportunités d'optimisation. Lorsque des opportunités sont trouvées, JetScale génère du code Terraform prêt pour la production et s'intègre directement dans vos workflows GitOps existants via GitHub, Jira ou Bitbucket.
+JetScale utilise des agents IA spécialisés formés sur des services cloud spécifiques (RDS, EC2, EBS, ElastiCache, S3, EKS, Azure VMs). Ces agents analysent les données en temps réel de CloudWatch, Cost Explorer et Azure Monitor pour identifier les opportunités d'optimisation. Lorsque des opportunités sont trouvées, JetScale génère du code Terraform prêt pour la production et s'intègre directement dans vos workflows GitOps existants via GitHub, Jira ou Bitbucket.
 
 </details>
 
@@ -20,10 +20,10 @@ JetScale utilise des agents IA spécialisés formés sur des services cloud spé
 <summary><strong>Quels fournisseurs cloud JetScale supporte-t-il?</strong></summary>
 
 JetScale prend actuellement en charge AWS et Azure. Nous analysons les services suivants:
-- **AWS**: RDS, EC2, EBS, ElastiCache
+- **AWS**: RDS, EC2, EBS, ElastiCache, S3, EKS
 - **Azure**: Azure SQL, Machines Virtuelles, Disques Managés, Azure Cache for Redis
 
-Des services supplémentaires (S3, Lambda, DynamoDB, Azure Cosmos DB, Azure Functions) arrivent bientôt.
+Des services supplémentaires (Lambda, DynamoDB, ECS, Azure Cosmos DB, Azure Functions) arrivent bientôt.
 
 </details>
 
@@ -43,7 +43,7 @@ JetScale nécessite un **accès en lecture seule** à vos comptes cloud:
 - **AWS**: Rôle IAM inter-comptes avec permissions de lecture pour Cost Explorer, Compute Optimizer, CloudWatch et métadonnées de service
 - **Azure**: Service principal avec les rôles Lecteur, Lecteur Cost Management et Lecteur de Monitoring
 
-Nous ne nécessitons jamais de permissions d'écriture, de modification ou de suppression. Nous ne pouvons pas accéder aux données réelles stockées dans vos bases de données, comptes de stockage ou buckets S3—uniquement aux métadonnées et aux informations de configuration.
+Nous ne nécessitons jamais de permissions d'écriture, de modification ou de suppression. Nous ne pouvons pas accéder aux données réelles stockées dans vos bases de données, comptes de stockage ou buckets S3. Nous n'accédons qu'aux métadonnées et aux informations de configuration.
 
 </details>
 

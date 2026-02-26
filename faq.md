@@ -12,7 +12,7 @@ JetScale is an AI-powered cloud cost optimization platform that automatically an
 <details>
 <summary><strong>How does JetScale work?</strong></summary>
 
-JetScale uses specialized AI agents trained on specific cloud services (RDS, EC2, EBS, ElastiCache, Azure VMs). These agents analyze real-time data from CloudWatch, Cost Explorer, and Azure Monitor to identify optimization opportunities. When opportunities are found, JetScale generates production-ready Terraform code and integrates directly into your existing GitOps workflows through GitHub, Jira, or Bitbucket.
+JetScale uses specialized AI agents trained on specific cloud services (RDS, EC2, EBS, ElastiCache, S3, EKS, Azure VMs). These agents analyze real-time data from CloudWatch, Cost Explorer, and Azure Monitor to identify optimization opportunities. When opportunities are found, JetScale generates production-ready Terraform code and integrates directly into your existing GitOps workflows through GitHub, Jira, or Bitbucket.
 
 </details>
 
@@ -20,10 +20,10 @@ JetScale uses specialized AI agents trained on specific cloud services (RDS, EC2
 <summary><strong>Which cloud providers does JetScale support?</strong></summary>
 
 JetScale currently supports AWS and Azure. We analyze services including:
-- **AWS**: RDS, EC2, EBS, ElastiCache
+- **AWS**: RDS, EC2, EBS, ElastiCache, S3, EKS
 - **Azure**: Azure SQL, Virtual Machines, Managed Disks, Azure Cache for Redis
 
-Additional services (S3, Lambda, DynamoDB, Azure Cosmos DB, Azure Functions) are coming soon.
+Additional services (Lambda, DynamoDB, ECS, Azure Cosmos DB, Azure Functions) are coming soon.
 
 </details>
 
@@ -43,7 +43,7 @@ JetScale requires **read-only access** to your cloud accounts:
 - **AWS**: Cross-account IAM role with read permissions for Cost Explorer, Compute Optimizer, CloudWatch, and service metadata
 - **Azure**: Service principal with Reader, Cost Management Reader, and Monitoring Reader roles
 
-We never require write, modify, or delete permissions. We cannot access actual data stored in your databases, storage accounts, or S3 buckets—only metadata and configuration information.
+We never require write, modify, or delete permissions. We cannot access actual data stored in your databases, storage accounts, or S3 buckets. We only access metadata and configuration information.
 
 </details>
 

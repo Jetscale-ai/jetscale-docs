@@ -6,7 +6,7 @@ Transformez les coûts cloud en avantage concurrentiel avec une optimisation ali
 
 ## Qu'est-ce que JetScale?
 
-JetScale découvre automatiquement les opportunités d'économies dans votre infrastructure cloud et les livre sous forme de modifications prêtes à déployer. Plus d'analyse manuelle, plus de conjectures—seulement des économies prouvées que vous pouvez mettre en œuvre immédiatement.
+JetScale découvre automatiquement les opportunités d'économies dans votre infrastructure cloud et les livre sous forme de modifications prêtes à déployer. Plus d'analyse manuelle, plus de conjectures, seulement des économies prouvées que vous pouvez mettre en œuvre immédiatement.
 
 **Votre facture cloud n'a pas à être un mystère.** JetScale vous offre:
 - **Visibilité instantanée** sur les gaspillages d'argent
@@ -19,7 +19,7 @@ JetScale découvre automatiquement les opportunités d'économies dans votre inf
 ## Démarrage Rapide (3 Étapes Simples)
 
 ### 1. Connectez Votre Compte Cloud
-Accordez à JetScale un accès en lecture seule à votre environnement AWS ou Azure. Nous découvrirons automatiquement toutes vos ressources—instances EC2, bases de données RDS, volumes de stockage, et plus encore.
+Accordez à JetScale un accès en lecture seule à votre environnement AWS ou Azure. Nous découvrirons automatiquement toutes vos ressources : instances EC2, bases de données RDS, volumes de stockage, et plus encore.
 
 ### 2. Examinez les Recommandations
 Notre IA analyse l'historique des modèles d'utilisation et identifie les opportunités d'optimisation. Chaque recommandation inclut:
@@ -59,20 +59,22 @@ JetScale fonctionne avec les outils que vous utilisez déjà:
 ## Ce Que JetScale Optimise
 
 ### Services AWS
-- **EC2**: Dimensionnement optimal des instances, identification des ressources inactives, migration Graviton
-- **RDS**: Dimensionnement des instances, optimisation du stockage, recommandations d'Instances Réservées
-- **EBS**: Optimisation du type de volume (gp2→gp3), nettoyage des snapshots
-- **ElastiCache**: Optimisation du type de nœud, configuration du cluster
 - **Cost Explorer**: Analyse des Instances Réservées et des Plans d'Économies
+- **EBS**: Optimisation du type de volume (gp2→gp3), nettoyage des snapshots
+- **EC2**: Dimensionnement optimal des instances, identification des ressources inactives, migration Graviton
+- **EKS**: Dimensionnement des groupes de nœuds, migration Graviton, optimisation Spot
+- **ElastiCache**: Optimisation du type de nœud, configuration du cluster
+- **RDS**: Dimensionnement des instances, optimisation du stockage, recommandations d'Instances Réservées
+- **S3**: Intelligent-Tiering, politiques de cycle de vie, Bucket Key, Gateway Endpoints
 
 ### Services Azure
-- **Machines Virtuelles**: Dimensionnement optimal, optimisation de la série B, capacité réservée
+- **Azure Cache for Redis**: Recommandations de niveau et de capacité
 - **Azure SQL**: Recommandations de niveau, optimisation des pools élastiques
 - **Disques Managés**: Optimisation Premium vs Standard
-- **Azure Cache for Redis**: Recommandations de niveau et de capacité
+- **Machines Virtuelles**: Dimensionnement optimal, optimisation de la série B, capacité réservée
 
 ### Prochainement
-S3/Blob Storage, Lambda/Functions, DynamoDB/Cosmos DB, ECS/AKS, Load Balancers
+Lambda/Functions, DynamoDB/Cosmos DB, ECS/AKS, Blob Storage, Load Balancers
 
 ---
 
@@ -82,7 +84,7 @@ S3/Blob Storage, Lambda/Functions, DynamoDB/Cosmos DB, ECS/AKS, Load Balancers
 - Accès en lecture seule aux comptes cloud (aucune permission d'écriture)
 - Rôles inter-comptes avec vérification d'ID externe
 - Infrastructure conforme SOC 2 Type II
-- Aucun stockage d'identifiants—tout utilise des jetons temporaires
+- Aucun stockage d'identifiants. Tout utilise des jetons temporaires
 - Votre code reste dans vos dépôts
 
 **Sécurité de niveau entreprise:**

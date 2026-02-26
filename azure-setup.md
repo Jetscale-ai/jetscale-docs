@@ -86,7 +86,7 @@ If your organization prefers secrets over certificates:
 3. **Description**: `JetScale Access`
 4. **Expires**: Choose duration (recommend 24 months or less per your security policy)
 5. Click "Add"
-6. **Important**: Copy the secret **Value** immediately—it's only shown once
+6. **Important**: Copy the secret **Value** immediately. It's only shown once
 
 ### Step 3: Assign RBAC Permissions
 
@@ -266,4 +266,4 @@ Need help with Azure setup?
 - **Setup Calls**: Available for hands-on guidance
 - **Documentation**: Detailed permission requirements provided during onboarding
 
-All permission issues will be resolved during the validation process—we're here to help!
+All permission issues will be resolved during the validation process. We're here to help!

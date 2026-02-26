@@ -274,7 +274,7 @@ Pour chaque recommandation, JetScale génère du code Terraform prêt pour la pr
 ```hcl
 # Optimisation instance EC2
 # Généré par JetScale le 2024-01-15
-# ID recommandation : rec_ec2_001
+# ID de recommandation : rec_ec2_001
 
 resource "aws_instance" "web_server_prod_1" {
   # Précédent : m5.2xlarge ($280/mois)

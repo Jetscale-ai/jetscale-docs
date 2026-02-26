@@ -172,4 +172,4 @@ Need help with AWS setup?
 - **Setup Calls**: Available for hands-on guidance
 - **Documentation**: Detailed permission requirements provided during onboarding
 
-All permission issues will be resolved during the validation process—we're here to help!
+All permission issues will be resolved during the validation process. We're here to help!

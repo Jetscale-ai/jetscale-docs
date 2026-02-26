@@ -16,7 +16,7 @@ Optimisez les tailles d'instances de base de données, les configurations de sto
 - Recommandations d'instances réservées
 - Nettoyage des snapshots
 
-[En savoir plus →](rds.md)
+[En savoir plus →](services/rds.md)
 
 ---
 
@@ -30,7 +30,7 @@ Dimensionnez correctement les instances de calcul, identifiez les ressources ina
 - Instances réservées et Savings Plans
 - Planification arrêt/démarrage
 
-[En savoir plus →](ec2.md)
+[En savoir plus →](services/ec2.md)
 
 ---
 
@@ -44,7 +44,7 @@ Optimisez les volumes de stockage avec des recommandations de type et des ajuste
 - Détection des volumes inutilisés
 - Migration vers stockage froid
 
-[En savoir plus →](ebs.md)
+[En savoir plus →](services/ebs.md)
 
 ---
 
@@ -58,9 +58,30 @@ Optimisez les clusters Redis et Memcached pour le coût et la performance.
 - Révision Multi-AZ
 - Optimisation de la politique d'éviction
 
-[En savoir plus →](elasticache.md)
+[En savoir plus →](services/elasticache.md)
 
----
+### Amazon S3 (Simple Storage Service)
+Optimisez les coûts de stockage avec le tiering, les politiques de cycle de vie, l'optimisation du chiffrement et l'amélioration du routage réseau.
+
+**Domaines d'optimisation :**
+- Activation d'Intelligent-Tiering
+- Configuration de règles de cycle de vie (Standard → IA → Glacier → Deep Archive)
+- Bucket Key pour réduction des coûts KMS
+- S3 Gateway Endpoints pour éliminer les frais de traitement NAT
+
+[En savoir plus →](services/s3.md)
+
+### Amazon EKS (Elastic Kubernetes Service)
+Dimensionnez les groupes de nœuds, migrez vers Graviton et optimisez la capacité Spot sur vos clusters Kubernetes.
+
+**Domaines d'optimisation :**
+- Dimensionnement du type de nœud par groupe de nœuds
+- Migration Graviton (ARM64) pour 10-40% d'économies
+- Capacité Spot pour les charges de travail tolérantes aux pannes (60-90% d'économies)
+- Détection des clusters et groupes de nœuds inactifs
+- Analyse par groupe de nœuds avec agrégation au niveau du cluster
+
+[En savoir plus →](services/eks.md)
 
 ## Services Azure
 
@@ -74,7 +95,7 @@ Dimensionnez correctement les VM, optimisez les types d'instance et exploitez la
 - Opportunités d'instances spot
 - Planification d'arrêt
 
-[En savoir plus →](azure-vm.md)
+[En savoir plus →](services/azure-vm.md)
 
 ---
 
@@ -88,7 +109,7 @@ Optimisez les niveaux de base de données, l'allocation DTU et les configuration
 - Achats de capacité réservée
 - Optimisation du stockage
 
-[En savoir plus →](azure-sql.md)
+[En savoir plus →](services/azure-sql.md)
 
 ---
 
@@ -97,10 +118,9 @@ Optimisez les niveaux de base de données, l'allocation DTU et les configuration
 Nous développons activement la prise en charge de services supplémentaires :
 
 ### AWS
-- **Amazon S3** - Optimisation des classes de stockage, politiques de cycle de vie
 - **AWS Lambda** - Optimisation de la mémoire et du timeout
 - **Amazon DynamoDB** - Recommandations de mode de capacité
-- **Amazon ECS/EKS** - Dimensionnement approprié des conteneurs et clusters
+- **Amazon ECS** - Dimensionnement approprié des conteneurs
 - **Elastic Load Balancing** - Optimisation du type de load balancer
 - **Amazon CloudFront** - Optimisation de la distribution
 

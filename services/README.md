@@ -16,7 +16,7 @@ Optimize database instance sizes, storage configurations, and Reserved Instance 
 - Reserved Instance recommendations
 - Snapshot cleanup
 
-[Learn More →](rds.md)
+[Learn More →](services/rds.md)
 
 ---
 
@@ -30,7 +30,7 @@ Right-size compute instances, identify idle resources, and optimize instance pur
 - Reserved Instance and Savings Plans
 - Stop/start scheduling
 
-[Learn More →](ec2.md)
+[Learn More →](services/ec2.md)
 
 ---
 
@@ -44,7 +44,7 @@ Optimize storage volumes with type recommendations and capacity adjustments.
 - Unused volume detection
 - Cold storage migration
 
-[Learn More →](ebs.md)
+[Learn More →](services/ebs.md)
 
 ---
 
@@ -58,9 +58,30 @@ Optimize Redis and Memcached clusters for cost and performance.
 - Multi-AZ review
 - Eviction policy optimization
 
-[Learn More →](elasticache.md)
+[Learn More →](services/elasticache.md)
 
----
+### Amazon S3 (Simple Storage Service)
+Optimize storage costs with tiering, lifecycle policies, encryption tuning, and network routing improvements.
+
+**Optimization Areas:**
+- Intelligent-Tiering enablement
+- Lifecycle rule configuration (Standard → IA → Glacier → Deep Archive)
+- Bucket Key for KMS cost reduction
+- S3 Gateway Endpoints to eliminate NAT processing fees
+
+[Learn More →](services/s3.md)
+
+### Amazon EKS (Elastic Kubernetes Service)
+Right-size node groups, migrate to Graviton, and optimize Spot capacity across your Kubernetes clusters.
+
+**Optimization Areas:**
+- Node type right-sizing per node group
+- Graviton migration (ARM64) for 10-40% savings
+- Spot capacity for fault-tolerant workloads (60-90% savings)
+- Idle cluster and node group detection
+- Per-node-group analysis with cluster-level aggregation
+
+[Learn More →](services/eks.md)
 
 ## Azure Services
 
@@ -74,7 +95,7 @@ Right-size VMs, optimize instance types, and leverage reserved capacity.
 - Spot instance opportunities
 - Shutdown scheduling
 
-[Learn More →](azure-vm.md)
+[Learn More →](services/azure-vm.md)
 
 ---
 
@@ -88,7 +109,7 @@ Optimize database tiers, DTU allocation, and elastic pool configurations.
 - Reserved capacity purchases
 - Storage optimization
 
-[Learn More →](azure-sql.md)
+[Learn More →](services/azure-sql.md)
 
 ---
 
@@ -97,10 +118,9 @@ Optimize database tiers, DTU allocation, and elastic pool configurations.
 We're actively developing support for additional services:
 
 ### AWS
-- **Amazon S3** - Storage class optimization, lifecycle policies
 - **AWS Lambda** - Memory and timeout optimization
 - **Amazon DynamoDB** - Capacity mode recommendations
-- **Amazon ECS/EKS** - Container and cluster right-sizing
+- **Amazon ECS** - Container service right-sizing
 - **Elastic Load Balancing** - Load balancer type optimization
 - **Amazon CloudFront** - Distribution optimization
 
@@ -143,7 +163,7 @@ Every recommendation is validated against:
 Questions about supported services?
 
 - **Email**: [support@jetscale.ai](mailto:support@jetscale.ai)
-- **Documentation**: [FAQ](../faq.md)
+- **Documentation**: [FAQ](faq.md)
 - **Feature Requests**: [Request a service](https://github.com/Jetscale-ai/jetscale-docs/issues)
 
 ---

@@ -6,7 +6,7 @@ Transform cloud costs into competitive advantage with AI-powered optimization.
 
 ## What is JetScale?
 
-JetScale automatically discovers cost-saving opportunities in your cloud infrastructure and delivers them as ready-to-deploy changes. No more manual analysis, no guesswork—just proven savings you can implement immediately.
+JetScale automatically discovers cost-saving opportunities in your cloud infrastructure and delivers them as ready-to-deploy changes. No more manual analysis, no guesswork, just proven savings you can implement immediately.
 
 **Your cloud bill doesn't have to be a mystery.** JetScale gives you:
 - **Instant visibility** into where money is being wasted
@@ -19,7 +19,7 @@ JetScale automatically discovers cost-saving opportunities in your cloud infrast
 ## Quick Start (3 Simple Steps)
 
 ### 1. Connect Your Cloud Account
-Grant JetScale read-only access to your AWS or Azure environment. We'll automatically discover all your resources—EC2 instances, RDS databases, storage volumes, and more.
+Grant JetScale read-only access to your AWS or Azure environment. We'll automatically discover all your resources: EC2 instances, RDS databases, storage volumes, and more.
 
 ### 2. Review Recommendations
 Our AI analyzes historical usage patterns and identifies optimization opportunities. Each recommendation includes:
@@ -59,20 +59,22 @@ JetScale works with the tools you already use:
 ## What JetScale Optimizes
 
 ### AWS Services
-- **EC2**: Right-size instances, identify idle resources, Graviton migration
-- **RDS**: Instance sizing, storage optimization, Reserved Instance recommendations
-- **EBS**: Volume type optimization (gp2→gp3), snapshot cleanup
-- **ElastiCache**: Node type optimization, cluster configuration
 - **Cost Explorer**: Reserved Instances, Savings Plans analysis
+- **EBS**: Volume type optimization (gp2→gp3), snapshot cleanup
+- **EC2**: Right-size instances, identify idle resources, Graviton migration
+- **EKS**: Node group right-sizing, Graviton migration, Spot optimization
+- **ElastiCache**: Node type optimization, cluster configuration
+- **RDS**: Instance sizing, storage optimization, Reserved Instance recommendations
+- **S3**: Intelligent-Tiering, lifecycle policies, Bucket Key, Gateway Endpoints
 
 ### Azure Services
-- **Virtual Machines**: Right-sizing, B-series optimization, reserved capacity
+- **Azure Cache for Redis**: Tier and capacity recommendations
 - **Azure SQL**: Tier recommendations, elastic pool optimization
 - **Managed Disks**: Premium vs Standard optimization
-- **Azure Cache for Redis**: Tier and capacity recommendations
+- **Virtual Machines**: Right-sizing, B-series optimization, reserved capacity
 
 ### Coming Soon
-S3/Blob Storage, Lambda/Functions, DynamoDB/Cosmos DB, ECS/AKS, Load Balancers
+Lambda/Functions, DynamoDB/Cosmos DB, ECS/AKS, Blob Storage, Load Balancers
 
 ---
 
@@ -82,7 +84,7 @@ S3/Blob Storage, Lambda/Functions, DynamoDB/Cosmos DB, ECS/AKS, Load Balancers
 - Read-only access to cloud accounts (no write permissions)
 - Cross-account roles with external ID verification
 - SOC 2 Type II compliant infrastructure
-- No credential storage—everything uses temporary tokens
+- No credential storage. Everything uses temporary tokens
 - Your code stays in your repositories
 
 **Enterprise-grade security:**

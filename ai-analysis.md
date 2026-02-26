@@ -4,7 +4,7 @@
 
 ## Overview
 
-JetScale uses advanced AI to analyze your cloud infrastructure and generate safe, validated recommendations. Our AI doesn't just identify cost savings—it ensures those savings maintain performance, availability, and reliability.
+JetScale uses advanced AI to analyze your cloud infrastructure and generate safe, validated recommendations. Our AI doesn't just identify cost savings. It ensures those savings maintain performance, availability, and reliability.
 
 **This is what sets JetScale apart from generic cost reports.**
 
@@ -14,7 +14,7 @@ JetScale uses advanced AI to analyze your cloud infrastructure and generate safe
 
 ### Service-Specific Intelligence
 
-Unlike generic cloud cost tools that provide simple alerts ("Your CPU is low—downsize!"), JetScale's AI understands the nuances of each cloud service:
+Unlike generic cloud cost tools that provide simple alerts ("Your CPU is low, downsize!"), JetScale's AI understands the nuances of each cloud service:
 
 **For RDS/Azure SQL Databases:**
 - Multi-AZ failover patterns and capacity headroom

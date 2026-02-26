@@ -85,8 +85,7 @@ Si votre organisation préfère les secrets aux certificats:
 2. Cliquez sur "Nouveau secret client"
 3. **Description**: `Accès JetScale`
 4. **Expire**: Choisissez la durée (recommandé 24 mois ou moins selon votre politique de sécurité)
-5. Cliquez sur "Ajouter"
-6. **Important**: Copiez la **Valeur** du secret immédiatement—elle n'est affichée qu'une seule fois
+5. Cliquez sur "Ajouterh6. **Important**: Copiez la **Valeur** du secret immédiatement. Elle n'est affichée qu'une seule fois
 
 ### Étape 3: Attribuer les Permissions RBAC
 
@@ -266,4 +265,4 @@ Besoin d'aide avec la configuration Azure?
 - **Appels de Configuration**: Disponibles pour une assistance pratique
 - **Documentation**: Exigences de permissions détaillées fournies lors de l'intégration
 
-Tous les problèmes de permissions seront résolus pendant le processus de validation—nous sommes là pour vous aider!
+Tous les problèmes de permissions seront résolus pendant le processus de validation. Nous sommes là pour vous aider!

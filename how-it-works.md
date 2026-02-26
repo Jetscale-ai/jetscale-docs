@@ -4,7 +4,7 @@
 
 ## Overview
 
-JetScale automatically discovers cost-saving opportunities in your cloud infrastructure and delivers them as production-ready Terraform code. This guide explains the JetScale platform workflow—what happens when you connect your cloud account and how you get actionable savings.
+ JetScale automatically discovers cost-saving opportunities in your cloud infrastructure and delivers them as production-ready Terraform code. This guide explains the JetScale platform workflow: what happens when you connect your cloud account and how you get actionable savings.
 
 ---
 
@@ -32,7 +32,7 @@ graph LR
 
 **What You Do:**
 - Grant JetScale read-only access to your AWS or Azure environment
-- No write permissions—JetScale never modifies your infrastructure directly
+- No write permissions. JetScale never modifies your infrastructure directly
 - Takes 5 minutes with our step-by-step guides
 
 **How Security Works:**

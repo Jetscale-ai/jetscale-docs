@@ -19,13 +19,15 @@
 - Services Supportés
   - [Aperçu](/fr/services/)
   - AWS
-    - [RDS](/fr/services/rds)
-    - [EC2](/fr/services/ec2)
     - [EBS](/fr/services/ebs)
+    - [EC2](/fr/services/ec2)
+    - [EKS](/fr/services/eks)
     - [ElastiCache](/fr/services/elasticache)
+    - [RDS](/fr/services/rds)
+    - [S3](/fr/services/s3)
   - Azure
-    - [Machines Virtuelles](/fr/services/azure-vm)
     - [Azure SQL](/fr/services/azure-sql)
+    - [Machines Virtuelles](/fr/services/azure-vm)
 
 - Référence
   - [Référence API](/fr/api-reference)
