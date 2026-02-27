@@ -10,7 +10,7 @@ JetScale automatically discovers cost-saving opportunities in your cloud infrast
 
 **Your cloud bill doesn't have to be a mystery.** JetScale gives you:
 - **Instant visibility** into where money is being wasted
-- **AI-validated recommendations** that maintain performance
+- **AI-generated recommendations** that maintain performance
 - **Production-ready changes** integrated into your workflow
 - **Measurable ROI** from day one
 
@@ -104,7 +104,7 @@ Lambda/Functions, DynamoDB/Cosmos DB, ECS/AKS, Blob Storage, Load Balancers
 
 ### How It Works
 - [How JetScale Works](how-it-works.md) - Platform overview and workflow
-- [AI Analysis](ai-analysis.md) - How our AI validates recommendations
+- [AI Analysis](ai-analysis.md) - How our AI generates recommendations
 - [Integration Guide](integrations/README.md) - GitHub, Jira, Slack setup
 
 ### Reference

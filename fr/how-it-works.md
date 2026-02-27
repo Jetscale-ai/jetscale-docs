@@ -14,7 +14,7 @@ JetScale découvre automatiquement les opportunités d'économies dans votre inf
 graph LR
     A[Connecter le Cloud] --> B[Découvrir les ressources]
     B --> C[Analyser l'utilisation]
-    C --> D[L'IA valide les recommandations]
+    C --> D[L'IA génère les recommandations]
     D --> E[Examiner et sélectionner]
     E --> F[Déployer via Terraform]
     F --> G[Suivre les économies]
@@ -23,7 +23,7 @@ graph LR
 ### Workflow en 3 étapes
 
 1. **Connecter** → Accorder un accès cloud en lecture seule
-2. **Examiner** → Parcourir les recommandations validées par l'IA avec estimations d'économies
+2. **Examiner** → Parcourir les recommandations générées par l'IA avec estimations d'économies
 3. **Déployer** → Obtenir le code Terraform via pull request, fusionner et économiser
 
 ---
@@ -114,7 +114,7 @@ L'IA de JetScale classifie les charges de travail :
 
 ---
 
-## 4. Recommandations validées par l'IA
+## 4. Recommandations générées par l'IA
 
 **Ce qui rend JetScale différent :**
 

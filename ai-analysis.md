@@ -1,6 +1,6 @@
 # AI-Powered Analysis
 
-> How JetScale's AI validates cost optimization while maintaining performance and reliability
+> How JetScale's AI generates cost optimization recommendations while maintaining performance and reliability
 
 ## Overview
 

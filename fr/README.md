@@ -10,7 +10,7 @@ JetScale découvre automatiquement les opportunités d'économies dans votre inf
 
 **Votre facture cloud n'a pas à être un mystère.** JetScale vous offre:
 - **Visibilité instantanée** sur les gaspillages d'argent
-- **Recommandations validées par IA** qui maintiennent les performances
+- **Recommandations générées par IA** qui maintiennent les performances
 - **Modifications prêtes pour la production** intégrées dans votre flux de travail
 - **ROI mesurable** dès le premier jour
 
@@ -104,7 +104,7 @@ Lambda/Functions, DynamoDB/Cosmos DB, ECS/AKS, Blob Storage, Load Balancers
 
 ### Comment Ça Marche
 - [Comment Fonctionne JetScale](/fr/how-it-works) - Aperçu de la plateforme et flux de travail
-- [Analyse IA](/fr/ai-analysis) - Comment notre IA valide les recommandations
+- [Analyse IA](/fr/ai-analysis) - Comment notre IA génère les recommandations
 - [Guide d'Intégration](/fr/integrations/) - Configuration GitHub, Jira, Slack
 
 ### Référence

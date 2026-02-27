@@ -14,7 +14,7 @@
 graph LR
     A[Connect Cloud] --> B[Discover Resources]
     B --> C[Analyze Usage]
-    C --> D[AI Validates Recommendations]
+    C --> D[AI Generates Recommendations]
     D --> E[Review & Select]
     E --> F[Deploy via Terraform]
     F --> G[Track Savings]
@@ -23,7 +23,7 @@ graph LR
 ### 3-Step Workflow
 
 1. **Connect** → Grant read-only cloud access
-2. **Review** → Browse AI-validated recommendations with savings estimates
+2. **Review** → Browse AI-generated recommendations with savings estimates
 3. **Deploy** → Get Terraform code via pull request, merge, and save
 
 ---
@@ -114,7 +114,7 @@ JetScale's AI classifies workloads:
 
 ---
 
-## 4. AI-Validated Recommendations
+## 4. AI-Generated Recommendations
 
 **What Makes JetScale Different:**
 
@@ -344,7 +344,7 @@ After deployment, JetScale tracks:
 3. [Configure Integrations](integrations/README.md) (GitHub, Jira, Slack)
 
 **Learn More:**
-- [AI Analysis Deep Dive](ai-analysis.md) - How our AI validates safety
+- [AI Analysis Deep Dive](ai-analysis.md) - How our AI generates recommendations
 - [Supported Services](services/README.md) - What JetScale optimizes
 - [FAQ](faq.md) - Common questions answered
 

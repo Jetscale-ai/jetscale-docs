@@ -1,6 +1,6 @@
 # Analyse Propulsée par l'IA
 
-> Comment l'IA de JetScale valide l'optimisation des coûts tout en maintenant les performances et la fiabilité
+> Comment l'IA de JetScale génère des recommandations d'optimisation des coûts tout en maintenant les performances et la fiabilité
 
 ## Vue d'ensemble
 
