@@ -14,7 +14,7 @@ This page groups every route by **module** (router prefix). Most handlers return
 | **OAuth** | `/oauth/*` is mounted on the **root** app (not under `/api/v2`) |
 | **Interactive spec** | OpenAPI at `/docs` and `/redoc` when the server runs |
 | **MCP** | Model Context Protocol is mounted at `/mcp` (Streamable HTTP); see your internal `docs/mcp/usage.md` if applicable |
-| **Route count** | 139 (GET / POST / PATCH / PUT; excludes implicit HEAD) |
+| **Route count** | 130 (GET / POST / PATCH / PUT; excludes implicit HEAD) |
 
 **Authentication (typical):** Session and Bearer tokens issued by `/api/v2/auth` flows. Individual operations require the permissions configured for your tenant and role.
 
@@ -27,7 +27,6 @@ This page groups every route by **module** (router prefix). Most handlers return
 | Authentication and identity | `/api/v2/auth` | [Go](#authentication-and-identity) |
 | Cloud accounts and providers | `/api/v2/cloud` | [Go](#cloud-accounts-and-providers) |
 | Integrations | `/api/v2/integrations` | [Go](#integrations) |
-| License and billing | `/api/v2/license-and-billing` | [Go](#license-and-billing) |
 | Organization | `/api/v2/organization` | [Go](#organization) |
 | Recommendations v2 | `/api/v2/recommendations-v2` | [Go](#recommendations-v2) |
 | Remediation | `/api/v2/remediation` | [Go](#remediation) |
@@ -185,31 +184,6 @@ This page groups every route by **module** (router prefix). Most handlers return
 | `GET` | `/api/v2/integrations/jira/me` | Connected Jira user and profile metadata. |
 | `POST` | `/api/v2/integrations/jira/me/action/connect` | Connect the current user's Atlassian account for Jira API access. |
 | `GET` | `/api/v2/integrations/jira/projects` | List Jira projects visible to the connected account. |
-
----
-
-## License and billing :id=license-and-billing
-
-**Base path:** `/api/v2/license-and-billing`
-
-### Licenses
-
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| `GET` | `/api/v2/license-and-billing/licenses` | List licenses for the tenant. |
-| `POST` | `/api/v2/license-and-billing/licenses` | Create or attach a new license record. |
-| `GET` | `/api/v2/license-and-billing/licenses/active` | Return the currently active license for the tenant context. |
-| `GET` | `/api/v2/license-and-billing/licenses/{license_id}` | Fetch one license by id. |
-| `PATCH` | `/api/v2/license-and-billing/licenses/{license_id}` | Update license fields (dates, plan link, and so on). |
-
-### Pricing plans
-
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| `GET` | `/api/v2/license-and-billing/pricing-plans` | List pricing plans (catalog). |
-| `POST` | `/api/v2/license-and-billing/pricing-plans` | Create a new pricing plan definition. |
-| `GET` | `/api/v2/license-and-billing/pricing-plans/{pricing_plan_id}` | Fetch one pricing plan. |
-| `PATCH` | `/api/v2/license-and-billing/pricing-plans/{pricing_plan_id}` | Update an existing pricing plan. |
 
 ---
 

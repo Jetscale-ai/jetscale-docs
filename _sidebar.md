@@ -37,7 +37,6 @@
     - [Authentication](v2-endpoints.md#authentication-and-identity)
     - [Cloud accounts](v2-endpoints.md#cloud-accounts-and-providers)
     - [Integrations](v2-endpoints.md#integrations)
-    - [License and billing](v2-endpoints.md#license-and-billing)
     - [Organization](v2-endpoints.md#organization)
     - [Recommendations v2](v2-endpoints.md#recommendations-v2)
     - [Remediation](v2-endpoints.md#remediation)
