@@ -31,7 +31,8 @@
 
 - Reference
   - [API Reference](api-reference.md)
-  - [REST API v2](v2-endpoints.md)
+  - REST API v2
+    - [Full catalog](v2-endpoints.md)
     - [Overview and conventions](v2-endpoints.md#overview-and-conventions)
     - [Module index](v2-endpoints.md#module-index)
     - [Authentication](v2-endpoints.md#authentication-and-identity)
