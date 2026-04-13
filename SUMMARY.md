@@ -30,4 +30,5 @@
 ## Reference
 
 * [API Reference](api-reference.md)
+* [REST API v2](v2-endpoints.md)
 * [FAQ](faq.md)
