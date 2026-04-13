@@ -31,4 +31,17 @@
 
 - Reference
   - [API Reference](api-reference.md)
+  - [REST API v2](v2-endpoints.md)
+    - [Overview and conventions](v2-endpoints.md#overview-and-conventions)
+    - [Module index](v2-endpoints.md#module-index)
+    - [Authentication](v2-endpoints.md#authentication-and-identity)
+    - [Cloud accounts](v2-endpoints.md#cloud-accounts-and-providers)
+    - [Integrations](v2-endpoints.md#integrations)
+    - [Organization](v2-endpoints.md#organization)
+    - [Recommendations v2](v2-endpoints.md#recommendations-v2)
+    - [Remediation](v2-endpoints.md#remediation)
+    - [Settings admin](v2-endpoints.md#settings-admin)
+    - [System](v2-endpoints.md#system)
+    - [Temporary dashboard](v2-endpoints.md#temporary-dashboard)
+    - [OAuth 2.1](v2-endpoints.md#oauth-21)
   - [FAQ](faq.md)
