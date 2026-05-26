@@ -1,23 +1,30 @@
 # RDS Optimization
 
-JetScale provides AI-powered cost optimization for Amazon RDS (Relational Database Service) including both standalone instances and Aurora clusters. Our specialized agents analyze your database workloads to identify right-sizing opportunities and configuration improvements.
+Jetscale provides AI-powered cost optimization for Amazon RDS (Relational
+Database Service) including both standalone instances and Aurora clusters. Our
+specialized agents analyze your database workloads to identify right-sizing
+opportunities and configuration improvements.
 
 ## Overview
 
-JetScale optimizes RDS resources by analyzing:
+Jetscale optimizes RDS resources by analyzing:
+
 - **Instance utilization**: CPU, memory, network, and connection patterns
 - **Cost analysis**: Current spending vs. optimal configuration
-- **Performance metrics**: Query performance, replication lag, buffer cache hit ratios
+- **Performance metrics**: Query performance, replication lag, buffer cache hit
+  ratios
 - **High availability**: Multi-AZ configurations for standalone instances
 
 ## Supported RDS Types
 
 ### Aurora Clusters
 
-Aurora clusters are our **primary optimization target**. We analyze the cluster as a whole rather than individual instances.
+Aurora clusters are our **primary optimization target**. We analyze the cluster
+as a whole rather than individual instances.
 
-**Cluster Architecture:**
-```
+#### Cluster Architecture:
+
+```text
 RdsDbCluster (Optimization Target)
 ├── RdsDbInstance (Writer) - Billable
 ├── RdsDbInstance (Reader) - Billable
@@ -25,44 +32,59 @@ RdsDbCluster (Optimization Target)
 └── AuroraDbClusterStorage - Billable (I/O + Storage)
 ```
 
-**What We Optimize:**
-- **Instance class**: Right-size all cluster nodes to match actual workload (all nodes use same instance class)
-- **Graviton migration**: Switch to ARM-based instances (r6g, r7g, m6g, m7g) for 10-40% savings
-- **Storage configuration**: Aurora Standard vs. I/O-Optimized based on I/O patterns
+##### What We Optimize:
 
-**Storage Configurations:**
+- **Instance class**: Right-size all cluster nodes to match actual workload (all
+  nodes use same instance class)
+- **Graviton migration**: Switch to ARM-based instances (r6g, r7g, m6g, m7g) for
+  10-40% savings
+- **Storage configuration**: Aurora Standard vs. I/O-Optimized based on I/O
+  patterns
+
+##### Storage Configurations:
+
 - **Aurora Standard** (`aurora`): Lower compute cost, $0.20/million I/O charges
-- **Aurora I/O-Optimized** (`aurora-iopt1`): Higher compute cost (+20%), zero I/O charges
+- **Aurora I/O-Optimized** (`aurora-iopt1`): Higher compute cost (+20%), zero
+  I/O charges
 
-**Important:** All instances in an Aurora cluster must use the same instance class. JetScale sizes for the node with the highest resource usage to ensure adequate performance across all cluster members.
+**Important:** All instances in an Aurora cluster must use the same instance
+class. Jetscale sizes for the node with the highest resource usage to ensure
+adequate performance across all cluster members.
 
 ### Standalone RDS Instances
 
-Traditional RDS instances (MySQL, PostgreSQL, MariaDB, SQL Server, Oracle) are optimized individually.
+Traditional RDS instances (MySQL, PostgreSQL, MariaDB, SQL Server, Oracle) are
+optimized individually.
 
-**Instance Architecture:**
-```
+#### Instance Architecture:
+
+```text
 RdsDbInstance (Optimization Target, Billable)
 └── RdsDbInstanceStorage - Billable
 ```
 
-**What We Optimize:**
-- **Instance class**: Right-size to appropriate family (t3, m5, r5, r6g, etc.)
-- **Graviton migration**: Switch to ARM-based instances (r6g, r7g, m6g, m7g) for 10-40% savings
-- **Multi-AZ configuration**: Disable Multi-AZ for ~50% savings when high availability isn't critical (reduces availability)
+##### What We Optimize:
 
-**Billing Model:**
+- **Instance class**: Right-size to appropriate family (t3, m5, r5, r6g, etc.)
+- **Graviton migration**: Switch to ARM-based instances (r6g, r7g, m6g, m7g) for
+  10-40% savings
+- **Multi-AZ configuration**: Disable Multi-AZ for ~50% savings when high
+  availability isn't critical (reduces availability)
+
+##### Billing Model:
+
 - Per-second billing with 10-minute minimum
 - Reserved Instances: Up to 66% savings (1-year or 3-year commitment)
 - Database Savings Plans: Additional flexibility across instance families
 
-## How JetScale Optimizes RDS
+## How Jetscale Optimizes RDS
 
 ### 1. Data Collection
 
-JetScale analyzes multiple data sources:
+Jetscale analyzes multiple data sources:
 
 **CloudWatch Metrics** (14-day rolling window):
+
 - `CPUUtilization` - Instance CPU usage
 - `FreeableMemory` - Available memory
 - `DatabaseConnections` - Active connections
@@ -72,17 +94,20 @@ JetScale analyzes multiple data sources:
 - `AuroraBinlogReplicaLag` (Aurora only)
 
 **RDS API Data**:
+
 - Instance class and engine version
 - Storage type (Aurora Standard vs I/O-Optimized)
 - Multi-AZ status (standalone instances only)
 - Cluster members and roles (Aurora only)
 
 **Cost Explorer Data**:
+
 - Current monthly spend per instance/cluster
 - Historical cost trends
 - Reserved Instance utilization
 
 **AWS Compute Optimizer** (if enabled):
+
 - AWS-generated right-sizing recommendations
 - Performance risk assessments
 
@@ -90,37 +115,42 @@ JetScale analyzes multiple data sources:
 
 Our AI agents perform deep analysis:
 
-**Utilization Patterns:**
+#### Utilization Patterns:
+
 - Peak vs. average utilization across all metrics
 - Time-of-day patterns (identify idle periods)
 - Day-of-week patterns (weekend vs. weekday load)
 - Growth trends over time
 
-**Performance Assessment:**
+##### Performance Assessment:
+
 - Buffer cache hit ratio (indicates memory adequacy)
 - Storage throughput vs. provisioned IOPS
 - Network throughput vs. instance limits
 - Replication lag patterns
 
-**Cost Modeling:**
+##### Cost Modeling:
+
 - Current cost breakdown (compute, storage, I/O, backup)
 - Projected cost for alternative configurations
 - Reserved Instance / Savings Plan opportunities
 - Multi-AZ premium analysis
 
-**Risk Evaluation:**
+##### Risk Evaluation:
+
 - Headroom calculation (buffer above peak usage)
 - Performance degradation probability
 - Availability impact assessment
 
 ### 3. Recommendations
 
-JetScale generates specific, actionable recommendations:
+Jetscale generates specific, actionable recommendations:
 
 #### Instance Right-Sizing
 
-**Example Recommendation:**
-```
+##### Example Recommendation:
+
+```text
 Resource: production-postgres-db
 Current: db.r5.2xlarge (8 vCPUs, 64 GB RAM)
 Recommended: db.r5.xlarge (4 vCPUs, 32 GB RAM)
@@ -141,8 +171,9 @@ Risk: Low - Ample headroom maintained
 
 #### Multi-AZ Optimization
 
-**Example Recommendation:**
-```
+##### Example Recommendation:
+
+```text
 Resource: staging-postgres-db
 Current: db.m5.large with Multi-AZ enabled
 Recommended: db.m5.large with Multi-AZ disabled
@@ -164,8 +195,9 @@ Note: Multi-AZ provides automatic failover in ~2 minutes
 
 #### Aurora I/O-Optimized
 
-**Example Recommendation:**
-```
+##### Example Recommendation:
+
+```text
 Resource: customer-aurora-cluster
 Current: Standard configuration
 Recommended: I/O-Optimized configuration
@@ -187,8 +219,9 @@ Threshold: Beneficial when I/O costs > 15% of instance costs
 
 #### Graviton Migration
 
-**Example Recommendation:**
-```
+##### Example Recommendation:
+
+```text
 Resource: api-database-cluster
 Current: 3x db.r5.xlarge (Intel-based)
 Recommended: 3x db.r6g.xlarge (Graviton2-based)
@@ -210,13 +243,13 @@ Note: Requires engine version compatibility check
 
 ### 4. Terraform Generation
 
-For each recommendation, JetScale generates production-ready Terraform code:
+For each recommendation, Jetscale generates production-ready Terraform code:
 
-**Example: Instance Right-Sizing**
+#### Example: Instance Right-Sizing
 
 ```hcl
 # RDS Instance Optimization
-# Generated by JetScale on 2024-01-15
+# Generated by Jetscale on 2024-01-15
 # Recommendation ID: rec_rds_001
 
 resource "aws_db_instance" "production_postgres" {
@@ -269,11 +302,11 @@ resource "aws_db_instance" "production_postgres" {
 }
 ```
 
-**Example: Aurora I/O-Optimized**
+## Example: Aurora I/O-Optimized
 
 ```hcl
 # Aurora Cluster I/O Optimization
-# Generated by JetScale on 2024-01-15
+# Generated by Jetscale on 2024-01-15
 
 resource "aws_rds_cluster" "customer_aurora" {
   cluster_identifier = "customer-aurora-cluster"
@@ -337,15 +370,17 @@ resource "aws_rds_cluster_instance" "customer_aurora_instances" {
 
 ### Monitoring After Changes
 
-After applying JetScale recommendations:
+After applying Jetscale recommendations:
 
 1. **First 24 Hours**: Monitor key metrics closely
+
    - CPU and memory utilization
    - Database connections
    - Query latency (p50, p95, p99)
    - Storage IOPS and throughput
 
 2. **Week 1**: Validate performance
+
    - Compare query execution times
    - Check for any memory pressure indicators
    - Monitor replication lag (if applicable)
@@ -358,13 +393,15 @@ After applying JetScale recommendations:
 
 ### Testing Strategy
 
-**Pre-Production Testing:**
+#### Pre-Production Testing:
+
 1. Apply changes to dev/staging environment first
 2. Run load tests simulating peak traffic
 3. Monitor for 48-72 hours under realistic load
 4. Validate backup/restore procedures
 
-**Production Rollout:**
+##### Production Rollout:
+
 1. Schedule changes during maintenance windows
 2. Use blue/green deployments for Aurora (zero-downtime)
 3. Have rollback plan ready
@@ -372,12 +409,14 @@ After applying JetScale recommendations:
 
 ### Reserved Instances & Savings Plans
 
-**When to Purchase:**
+#### When to Purchase:
+
 - Stable, long-running databases (> 1 year)
 - After right-sizing (don't reserve oversized instances)
 - When commitment savings > opportunity cost
 
-**JetScale Recommendations:**
+##### Jetscale Recommendations:
+
 - We analyze RI utilization and suggest optimal purchases
 - Consider 1-year over 3-year for flexibility
 - Size-flexible RIs allow instance family changes
@@ -388,11 +427,13 @@ After applying JetScale recommendations:
 ### Pattern 1: Over-Provisioned OLTP Database
 
 **Symptoms:**
+
 - CPU utilization < 20% average
 - Memory utilization < 40%
 - Infrequent connection spikes
 
-**JetScale Recommendation:**
+#### Jetscale Recommendation:
+
 - Downsize by 1-2 instance sizes
 - Typical savings: 50-66%
 - Risk: Low (2-3x headroom maintained)
@@ -400,11 +441,13 @@ After applying JetScale recommendations:
 ### Pattern 2: High I/O Costs on Aurora
 
 **Symptoms:**
+
 - I/O costs > 15% of total RDS bill
 - Frequent read-heavy queries
 - Large table scans
 
-**JetScale Recommendation:**
+#### Jetscale Recommendation:
+
 - Switch to I/O-Optimized configuration
 - Typical savings: 20-40% on total cluster cost
 - Additional benefit: Predictable costs
@@ -412,11 +455,13 @@ After applying JetScale recommendations:
 ### Pattern 3: Non-Production Multi-AZ
 
 **Symptoms:**
+
 - Dev/staging/test environments with Multi-AZ enabled
 - High availability not required for non-production
 - Acceptable downtime tolerance
 
-**JetScale Recommendation:**
+#### Jetscale Recommendation:
+
 - Disable Multi-AZ for non-production workloads
 - Typical savings: 50% on instance costs
 - Trade-off: Manual failover required vs automatic
@@ -425,11 +470,13 @@ After applying JetScale recommendations:
 ### Pattern 4: Missed Graviton Opportunities
 
 **Symptoms:**
+
 - Using Intel-based instances (r5, m5, r6i)
 - Compatible engine versions available
 - No ARM-specific dependencies
 
-**JetScale Recommendation:**
+#### Jetscale Recommendation:
+
 - Migrate to Graviton instances (r6g, r7g, m6g, m7g)
 - Typical savings: 10-40% with same or better performance
 - Requirements: Verify engine version compatibility
@@ -439,9 +486,10 @@ After applying JetScale recommendations:
 
 ### Recommendation Concerns
 
-**Q: Will downgrading my instance impact performance?**
+#### Q: Will downgrading my instance impact performance?
 
-A: JetScale maintains 2-3x headroom above peak usage. We analyze:
+A: Jetscale maintains 2-3x headroom above peak usage. We analyze:
+
 - P99 CPU/memory utilization over 14 days
 - Buffer cache hit ratios
 - Network and storage saturation points
@@ -449,18 +497,20 @@ A: JetScale maintains 2-3x headroom above peak usage. We analyze:
 
 Recommendations only proceed if performance risk is Low or Very Low.
 
-**Q: What about sudden traffic spikes?**
+##### Q: What about sudden traffic spikes?
 
 A: Our analysis includes:
+
 - P99 (99th percentile) metrics, not just averages
 - Buffer for unexpected spikes (2-3x above peak)
 - Historical spike patterns
 - Application-level health check validation
 
-**Q: Can I test before committing?**
+##### Q: Can I test before committing?
 
 A: Yes! Apply changes to dev/staging first:
-1. JetScale generates Terraform for all environments
+
+1. Jetscale generates Terraform for all environments
 2. Test in non-production for 48-72 hours
 3. Monitor performance metrics
 4. Rollback if needed (simple Terraform revert)
@@ -468,27 +518,31 @@ A: Yes! Apply changes to dev/staging first:
 
 ### Performance Issues After Optimization
 
-**Symptom: Increased query latency**
+#### Symptom: Increased query latency
 
 Possible causes:
+
 - Insufficient connection pool size for smaller instance
 - Memory pressure causing increased disk I/O
 - Parameter group settings need tuning
 
 **Resolution:**
+
 1. Check `FreeableMemory` metric
 2. Review slow query logs
 3. Increase instance size by one step if needed
 4. Adjust `shared_buffers` or equivalent parameter
 
-**Symptom: High I/O costs on Aurora**
+##### Symptom: High I/O costs on Aurora
 
 Possible causes:
+
 - Using Aurora Standard with high I/O workload
 - Frequent read-heavy queries
 - Large table scans
 
 **Resolution:**
+
 1. Check I/O cost percentage of total RDS bill
 2. If I/O costs > 15% of instance costs, consider I/O-Optimized
 3. Monitor `VolumeReadIOPs` and `VolumeWriteIOPs` metrics
@@ -498,7 +552,8 @@ Possible causes:
 
 ### Encryption
 
-JetScale recommendations preserve existing encryption settings:
+Jetscale recommendations preserve existing encryption settings:
+
 - Storage encryption state maintained
 - KMS keys unchanged
 - TLS/SSL connection requirements preserved
@@ -506,6 +561,7 @@ JetScale recommendations preserve existing encryption settings:
 ### Compliance
 
 Instance changes maintain compliance:
+
 - Multi-AZ configuration only changed when explicitly recommended
 - Engine and engine version never modified
 - VPC and security group associations preserved
@@ -520,7 +576,7 @@ Instance changes maintain compliance:
 
 ## API Integration
 
-JetScale provides API access for programmatic optimization:
+Jetscale provides API access for programmatic optimization:
 
 ```bash
 # List RDS recommendations
@@ -544,11 +600,13 @@ Need help with RDS optimization?
 
 - **Email**: [support@jetscale.ai](mailto:support@jetscale.ai)
 - **Documentation**: [FAQ](../faq.md)
-- **GitHub Issues**: [Report a problem](https://github.com/Jetscale-ai/jetscale-docs/issues)
+- **GitHub Issues**:
+  [Report a problem](https://github.com/Jetscale-AI/jetscale-docs/issues)
 
 ---
 
-**Related Documentation:**
+### Related Documentation:
+
 - [ElastiCache Optimization](elasticache.md)
 - [EC2 Optimization](ec2.md)
 - [EBS Optimization](ebs.md)

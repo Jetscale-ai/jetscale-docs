@@ -1,14 +1,17 @@
-# JetScale Documentation
+# Jetscale Documentation
 
 Transform cloud costs into competitive advantage with AI-powered optimization.
 
 ---
 
-## What is JetScale?
+## What is Jetscale?
 
-JetScale automatically discovers cost-saving opportunities in your cloud infrastructure and delivers them as ready-to-deploy changes. No more manual analysis, no guesswork, just proven savings you can implement immediately.
+Jetscale automatically discovers cost-saving opportunities in your cloud
+infrastructure and delivers them as ready-to-deploy changes. No more manual
+analysis, no guesswork, just proven savings you can implement immediately.
 
-**Your cloud bill doesn't have to be a mystery.** JetScale gives you:
+**Your cloud bill doesn't have to be a mystery.** Jetscale gives you:
+
 - **Instant visibility** into where money is being wasted
 - **AI-generated recommendations** that maintain performance
 - **Production-ready changes** integrated into your workflow
@@ -19,36 +22,52 @@ JetScale automatically discovers cost-saving opportunities in your cloud infrast
 ## Quick Start (3 Simple Steps)
 
 ### 1. Connect Your Cloud Account
-Grant JetScale read-only access to your AWS or Azure environment. We'll automatically discover all your resources: EC2 instances, RDS databases, storage volumes, and more.
+
+Grant Jetscale read-only access to your AWS or Azure environment. We'll
+automatically discover all your resources: EC2 instances, RDS databases, storage
+volumes, and more.
 
 ### 2. Review Recommendations
-Our AI analyzes historical usage patterns and identifies optimization opportunities. Each recommendation includes:
+
+Our AI analyzes historical usage patterns and identifies optimization
+opportunities. Each recommendation includes:
+
 - Estimated monthly savings
 - Performance impact assessment
 - Before/after configuration comparison
 - Implementation risk level
 
 ### 3. Deploy Changes
-Select recommendations to implement. JetScale generates Terraform code and creates a pull request in your repository. Review, approve, and deploy with confidence.
 
-**Average customers save 30-40% on cloud spend in the first 90 days.**
+Select recommendations to implement. Jetscale generates Terraform code and
+creates a pull request in your repository. Review, approve, and deploy with
+confidence.
+
+#### Average customers save 30-40% on cloud spend in the first 90 days.
 
 ---
 
-## Why JetScale?
+## Why Jetscale?
 
 ### AI That Understands Your Infrastructure
-Unlike generic cost tools, JetScale uses specialized AI agents trained on specific cloud services. Our agents understand the nuances of RDS multi-AZ deployments, EC2 burstable instances, and EBS IOPS requirements.
+
+Unlike generic cost tools, Jetscale uses specialized AI agents trained on
+specific cloud services. Our agents understand the nuances of RDS multi-AZ
+deployments, EC2 burstable instances, and EBS IOPS requirements.
 
 ### Safety-First Approach
+
 Every recommendation is validated to ensure:
+
 - Performance SLAs are maintained
 - High-availability configurations are preserved
 - Sufficient headroom for traffic spikes
 - Easy rollback if needed
 
 ### Integrated Into Your Workflow
-JetScale works with the tools you already use:
+
+Jetscale works with the tools you already use:
+
 - **GitHub/Bitbucket**: Automated pull requests with detailed documentation
 - **Jira**: Automatic ticket creation with savings tracking
 - **Terraform**: Production-ready infrastructure code
@@ -56,38 +75,44 @@ JetScale works with the tools you already use:
 
 ---
 
-## What JetScale Optimizes
+## What Jetscale Optimizes
 
 ### AWS Services
+
 - **Cost Explorer**: Reserved Instances, Savings Plans analysis
 - **EBS**: Volume type optimization (gp2→gp3), snapshot cleanup
 - **EC2**: Right-size instances, identify idle resources, Graviton migration
 - **EKS**: Node group right-sizing, Graviton migration, Spot optimization
 - **ElastiCache**: Node type optimization, cluster configuration
-- **RDS**: Instance sizing, storage optimization, Reserved Instance recommendations
+- **RDS**: Instance sizing, storage optimization, Reserved Instance
+  recommendations
 - **S3**: Intelligent-Tiering, lifecycle policies, Bucket Key, Gateway Endpoints
 
 ### Azure Services
+
 - **Azure Cache for Redis**: Tier and capacity recommendations
 - **Azure SQL**: Tier recommendations, elastic pool optimization
 - **Managed Disks**: Premium vs Standard optimization
 - **Virtual Machines**: Right-sizing, B-series optimization, reserved capacity
 
 ### Coming Soon
+
 Lambda/Functions, DynamoDB/Cosmos DB, ECS/AKS, Blob Storage, Load Balancers
 
 ---
 
 ## Security & Trust
 
-**Your data, your control:**
+### Your data, your control:
+
 - Read-only access to cloud accounts (no write permissions)
 - Cross-account roles with external ID verification
 - SOC 2 Type II compliant infrastructure
 - No credential storage. Everything uses temporary tokens
 - Your code stays in your repositories
 
-**Enterprise-grade security:**
+#### Enterprise-grade security:
+
 - Data encrypted at rest and in transit (TLS 1.3)
 - Regular third-party security audits
 - GDPR and CCPA compliant
@@ -98,17 +123,21 @@ Lambda/Functions, DynamoDB/Cosmos DB, ECS/AKS, Blob Storage, Load Balancers
 ## Documentation
 
 ### Getting Started
+
 - [Getting Started Guide](getting-started.md) - Complete setup in 5 minutes
 - [AWS Account Setup](aws-setup.md) - Connect AWS cloud account
 - [Azure Account Setup](azure-setup.md) - Connect Azure cloud account
 
 ### How It Works
-- [How JetScale Works](how-it-works.md) - Platform overview and workflow
+
+- [How Jetscale Works](how-it-works.md) - Platform overview and workflow
 - [AI Analysis](ai-analysis.md) - How our AI generates recommendations
 - [Integration Guide](integrations/README.md) - GitHub, Jira, Slack setup
 
 ### Reference
-- [Supported Services](services/README.md) - Complete list of optimized resources
+
+- [Supported Services](services/README.md) - Complete list of optimized
+  resources
 - [API Documentation](api-reference.md) - Public API for integrations (Beta)
 - [FAQ](faq.md) - Frequently asked questions
 
@@ -120,9 +149,12 @@ Email: [support@jetscale.ai](mailto:support@jetscale.ai)
 
 ---
 
-## About JetScale
+## About Jetscale
 
-JetScale was founded by cloud infrastructure veterans frustrated by the complexity of cost optimization. We believe every engineering team should have access to enterprise-grade cost intelligence without needing dedicated FinOps specialists.
+Jetscale AI was founded by cloud infrastructure veterans frustrated by the
+complexity of cost optimization. We believe every engineering team should have
+access to enterprise-grade cost intelligence without needing dedicated FinOps
+specialists.
 
 Our mission: Make cloud cost optimization automatic, accurate, and actionable.
 
@@ -130,4 +162,4 @@ Our mission: Make cloud cost optimization automatic, accurate, and actionable.
 
 ---
 
-*© 2025 JetScale, Inc. All rights reserved.*
+_© 2025 Jetscale AI. All rights reserved._

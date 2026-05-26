@@ -1,0 +1,1 @@
+../../../../governance/.agents/codex/skills/core/hello/skill.md

@@ -1,10 +1,14 @@
 # EBS Optimization
 
-JetScale provides AI-powered cost optimization for Amazon EBS (Elastic Block Store) volumes. Our specialized agents analyze your storage workloads to identify volume type optimization, IOPS/throughput tuning, and unused volume cleanup opportunities.
+Jetscale provides AI-powered cost optimization for Amazon EBS (Elastic Block
+Store) volumes. Our specialized agents analyze your storage workloads to
+identify volume type optimization, IOPS/throughput tuning, and unused volume
+cleanup opportunities.
 
 ## Overview
 
-JetScale optimizes EBS volumes by analyzing:
+Jetscale optimizes EBS volumes by analyzing:
+
 - **Volume utilization**: IOPS and throughput usage patterns
 - **Volume type efficiency**: Cost-effectiveness of current volume type
 - **Attachment status**: Identify unused, unattached volumes
@@ -14,15 +18,19 @@ JetScale optimizes EBS volumes by analyzing:
 
 ### EBS Volumes
 
-JetScale optimizes EBS volumes attached to EC2 instances or unattached volumes in your account.
+Jetscale optimizes EBS volumes attached to EC2 instances or unattached volumes
+in your account.
 
-**What We Optimize:**
-- **Volume type migration**: gp2 → gp3 (20% cost savings), io1 → io2 (better durability)
+#### What We Optimize:
+
+- **Volume type migration**: gp2 → gp3 (20% cost savings), io1 → io2 (better
+  durability)
 - **IOPS optimization**: Right-size provisioned IOPS based on actual usage
 - **Throughput optimization**: Adjust gp3 throughput to match actual needs
 - **Delete unattached volumes**: Remove unused volumes for 100% savings
 
-**Supported Volume Types:**
+##### Supported Volume Types:
+
 - **gp3** (General Purpose SSD) - Latest generation, best value
 - **gp2** (General Purpose SSD) - Previous generation
 - **io2** (Provisioned IOPS SSD) - High performance, 99.999% durability
@@ -35,12 +43,14 @@ JetScale optimizes EBS volumes attached to EC2 instances or unattached volumes i
 ### General Purpose SSD (gp3)
 
 **Best for:** Most workloads
+
 - **Baseline performance**: 3,000 IOPS, 125 MB/s throughput
 - **Scalable**: Up to 16,000 IOPS, 1,000 MB/s throughput
 - **Pricing**: Pay for storage + optional additional IOPS/throughput
 - **Cost advantage**: ~20% cheaper than gp2 for equivalent performance
 
-**Use cases:**
+#### Use cases:
+
 - Boot volumes
 - Virtual desktops
 - Development and test environments
@@ -48,12 +58,14 @@ JetScale optimizes EBS volumes attached to EC2 instances or unattached volumes i
 
 ### General Purpose SSD (gp2)
 
-**Legacy volume type**
+#### Legacy volume type
+
 - **Performance**: 3 IOPS per GB (minimum 100 IOPS, maximum 16,000 IOPS)
 - **Burst**: Can burst to 3,000 IOPS using burst credits
 - **Migration recommended**: Almost always better to migrate to gp3
 
-**Why migrate to gp3:**
+##### Why migrate to gp3:
+
 - 20% cost savings on storage
 - Customize IOPS independently of size
 - No burst credit management needed
@@ -61,19 +73,22 @@ JetScale optimizes EBS volumes attached to EC2 instances or unattached volumes i
 ### Provisioned IOPS SSD (io2)
 
 **Best for:** Mission-critical, I/O-intensive workloads
+
 - **Performance**: Up to 64,000 IOPS (256,000 with Block Express)
 - **Durability**: 99.999% (vs. 99.8-99.9% for gp3)
 - **Latency**: Sub-millisecond latency
 - **Pricing**: Pay for storage + provisioned IOPS
 
-**Use cases:**
+#### Use cases:
+
 - Large relational databases (Oracle, SAP HANA)
 - Mission-critical applications requiring highest durability
 - Applications needing sustained IOPS performance
 
 ### Provisioned IOPS SSD (io1)
 
-**Legacy high-performance volume**
+#### Legacy high-performance volume
+
 - **Performance**: Up to 64,000 IOPS
 - **Durability**: 99.8-99.9% (lower than io2)
 - **Migration recommended**: Migrate to io2 for better durability and same cost
@@ -81,11 +96,13 @@ JetScale optimizes EBS volumes attached to EC2 instances or unattached volumes i
 ### Throughput Optimized HDD (st1)
 
 **Best for:** Throughput-intensive workloads
+
 - **Performance**: 500 MB/s max throughput, 500 IOPS max
 - **Pricing**: Lower cost than SSD options
 - **Cannot be boot volume**
 
-**Use cases:**
+#### Use cases:
+
 - Big data processing
 - Data warehouses
 - Log processing
@@ -94,22 +111,25 @@ JetScale optimizes EBS volumes attached to EC2 instances or unattached volumes i
 ### Cold HDD (sc1)
 
 **Best for:** Infrequently accessed data
+
 - **Performance**: 250 MB/s max throughput, 250 IOPS max
 - **Pricing**: Lowest cost per GB
 - **Cannot be boot volume**
 
-**Use cases:**
+#### Use cases:
+
 - Archival storage
 - Infrequently accessed data
 - Cost-optimized storage for large datasets
 
-## How JetScale Optimizes EBS
+## How Jetscale Optimizes EBS
 
 ### 1. Data Collection
 
-JetScale analyzes multiple data sources:
+Jetscale analyzes multiple data sources:
 
 **CloudWatch Metrics** (configurable period):
+
 - `VolumeReadOps` / `VolumeWriteOps` - IOPS usage
 - `VolumeReadBytes` / `VolumeWriteBytes` - Throughput usage
 - `VolumeThroughputPercentage` - Percentage of provisioned throughput used
@@ -117,6 +137,7 @@ JetScale analyzes multiple data sources:
 - `BurstBalance` - Burst credit balance (gp2 only)
 
 **EBS API Data**:
+
 - Volume type (gp3, gp2, io2, io1, st1, sc1)
 - Size in GB
 - Provisioned IOPS
@@ -126,10 +147,12 @@ JetScale analyzes multiple data sources:
 - Volume state (available, in-use, creating, deleting)
 
 **Cost Explorer Data**:
+
 - Current monthly spend per volume
 - Historical cost trends
 
 **AWS Compute Optimizer** (if enabled):
+
 - AWS-generated EBS recommendations
 - Performance risk assessments
 
@@ -137,31 +160,35 @@ JetScale analyzes multiple data sources:
 
 Our AI agents perform deep analysis:
 
-**Utilization Patterns:**
+#### Utilization Patterns:
+
 - Peak vs. average IOPS usage
 - Peak vs. average throughput usage
 - Time-of-day patterns
 - Burst credit balance trends (gp2)
 
-**Cost Modeling:**
+##### Cost Modeling:
+
 - Current cost breakdown (storage + IOPS + throughput)
 - Projected cost for alternative volume types
 - Savings from IOPS/throughput reduction
 - Cost of unattached volumes
 
-**Safety Checks:**
+##### Safety Checks:
+
 - Verify volume is not attached before recommending deletion
 - Ensure IOPS/throughput reductions don't impact performance
 - Validate migration paths (gp2→gp3, io1→io2)
 
 ### 3. Recommendations
 
-JetScale generates specific, actionable recommendations:
+Jetscale generates specific, actionable recommendations:
 
 #### gp2 to gp3 Migration
 
-**Example Recommendation:**
-```
+##### Example Recommendation:
+
+```text
 Resource: vol-0abc123 (web-server root volume)
 Current: gp2, 100 GB
 Recommended: gp3, 100 GB, 3,000 IOPS, 125 MB/s
@@ -182,8 +209,9 @@ Note: Can be done online without detaching volume
 
 #### IOPS Right-Sizing (io2)
 
-**Example Recommendation:**
-```
+##### Example Recommendation:
+
+```text
 Resource: vol-0def456 (database volume)
 Current: io2, 500 GB, 10,000 IOPS
 Recommended: io2, 500 GB, 5,000 IOPS
@@ -204,8 +232,9 @@ Risk: Low - Significant headroom above peak usage maintained
 
 #### gp3 Throughput Optimization
 
-**Example Recommendation:**
-```
+##### Example Recommendation:
+
+```text
 Resource: vol-0ghi789 (log storage volume)
 Current: gp3, 1000 GB, 3,000 IOPS, 500 MB/s
 Recommended: gp3, 1000 GB, 3,000 IOPS, 250 MB/s
@@ -227,8 +256,9 @@ Note: Throughput can be adjusted online
 
 #### io1 to io2 Migration
 
-**Example Recommendation:**
-```
+##### Example Recommendation:
+
+```text
 Resource: vol-0jkl012 (production database)
 Current: io1, 1000 GB, 20,000 IOPS
 Recommended: io2, 1000 GB, 20,000 IOPS
@@ -250,8 +280,9 @@ Benefit: 10-100x lower annual failure rate
 
 #### Delete Unattached Volume
 
-**Example Recommendation:**
-```
+##### Example Recommendation:
+
+```text
 Resource: vol-0mno345 (legacy-backup-volume)
 Current: gp2, 500 GB, unattached
 Recommended: Delete
@@ -273,13 +304,13 @@ Recommendation: Verify with team before deletion, create snapshot if needed
 
 ### 4. Terraform Generation
 
-For each recommendation, JetScale generates production-ready Terraform code:
+For each recommendation, Jetscale generates production-ready Terraform code:
 
-**Example: gp2 to gp3 Migration**
+#### Example: gp2 to gp3 Migration
 
 ```hcl
 # EBS Volume Optimization: gp2 → gp3
-# Generated by JetScale on 2024-01-15
+# Generated by Jetscale on 2024-01-15
 # Recommendation ID: rec_ebs_001
 
 resource "aws_ebs_volume" "web_server_root" {
@@ -321,11 +352,11 @@ resource "aws_volume_attachment" "web_server_root" {
 }
 ```
 
-**Example: IOPS Right-Sizing**
+## Example: IOPS Right-Sizing
 
 ```hcl
 # EBS Volume IOPS Optimization
-# Generated by JetScale on 2024-01-15
+# Generated by Jetscale on 2024-01-15
 
 resource "aws_ebs_volume" "database_volume" {
   availability_zone = "us-east-1b"
@@ -360,13 +391,15 @@ resource "aws_ebs_volume" "database_volume" {
 
 ### Testing Strategy
 
-**Pre-Production Testing:**
+#### Pre-Production Testing:
+
 1. Test volume modifications in dev/staging first
 2. Monitor performance for 48-72 hours
 3. Validate application I/O patterns
 4. Check database query performance (if applicable)
 
-**Production Rollout:**
+##### Production Rollout:
+
 1. Schedule changes during maintenance windows
 2. Volume modifications can be done online (no downtime)
 3. Some modifications may cause performance impact during migration
@@ -374,26 +407,30 @@ resource "aws_ebs_volume" "database_volume" {
 
 ### Volume Type Migration
 
-**gp2 → gp3 Migration:**
+#### gp2 → gp3 Migration:
+
 - Can be done online without detaching
 - May experience brief performance impact during migration
 - Almost always recommended (20% savings, better performance)
 
-**io1 → io2 Migration:**
+##### io1 → io2 Migration:
+
 - Can be done online
 - Same cost, better durability (99.999% vs. 99.8-99.9%)
 - Strongly recommended for mission-critical workloads
 
 ### Unattached Volume Cleanup
 
-**Before deleting unattached volumes:**
+#### Before deleting unattached volumes:
+
 1. Verify volume is truly unused
 2. Check tags for ownership information
 3. Create snapshot if data might be needed
 4. Confirm with application team
 5. Follow retention period after snapshot creation before deletion
 
-**Snapshot strategy:**
+##### Snapshot strategy:
+
 ```bash
 # Create snapshot before deletion
 aws ec2 create-snapshot \
@@ -413,11 +450,13 @@ aws ec2 delete-volume --volume-id vol-0abc123
 ### Pattern 1: Legacy gp2 Volumes
 
 **Symptoms:**
+
 - Using gp2 volumes
 - gp3 available in region
 - No special burst requirements
 
-**JetScale Recommendation:**
+#### Jetscale Recommendation:
+
 - Migrate all gp2 → gp3
 - Typical savings: 20% on storage costs
 - Performance improvement: Higher baseline IOPS (3,000 vs. 3 IOPS/GB)
@@ -426,11 +465,13 @@ aws ec2 delete-volume --volume-id vol-0abc123
 ### Pattern 2: Over-Provisioned IOPS
 
 **Symptoms:**
+
 - Using io2 or io1 volumes
 - Peak IOPS usage < 50% of provisioned
 - High IOPS costs relative to storage costs
 
-**JetScale Recommendation:**
+#### Jetscale Recommendation:
+
 - Reduce provisioned IOPS to 2x peak usage
 - Typical savings: 30-50% on IOPS costs
 - Risk: Low (maintain 2x headroom)
@@ -438,11 +479,13 @@ aws ec2 delete-volume --volume-id vol-0abc123
 ### Pattern 3: Unattached Volumes Accumulation
 
 **Symptoms:**
+
 - Multiple unattached volumes in account
 - Volumes from terminated instances
 - Old backup volumes no longer needed
 
-**JetScale Recommendation:**
+#### Jetscale Recommendation:
+
 - Create snapshots if needed
 - Delete unattached volumes
 - Typical savings: 100% on deleted volumes
@@ -451,11 +494,13 @@ aws ec2 delete-volume --volume-id vol-0abc123
 ### Pattern 4: Unnecessary gp3 IOPS/Throughput
 
 **Symptoms:**
+
 - gp3 volumes with >3,000 IOPS or >125 MB/s throughput
 - Actual usage below baseline performance
 - Paying for unused performance
 
-**JetScale Recommendation:**
+#### Jetscale Recommendation:
+
 - Reduce to baseline (3,000 IOPS, 125 MB/s)
 - Typical savings: 10-30% on volume costs
 - Risk: Very Low if usage is well below baseline
@@ -464,52 +509,63 @@ aws ec2 delete-volume --volume-id vol-0abc123
 
 ### Recommendation Concerns
 
-**Q: Will migrating from gp2 to gp3 cause downtime?**
+#### Q: Will migrating from gp2 to gp3 cause downtime?
 
-A: No. EBS volume modifications are done online without detaching the volume. The volume remains available during the modification, though there may be brief performance impacts during the migration process.
+A: No. EBS volume modifications are done online without detaching the volume.
+The volume remains available during the modification, though there may be brief
+performance impacts during the migration process.
 
-**Q: How long does volume modification take?**
+##### Q: How long does volume modification take?
 
 A: Volume modifications typically complete within minutes to hours depending on:
+
 - Volume size
 - Current I/O load
 - Type of modification (type change, IOPS change, size change)
 
 You can monitor progress via AWS Console or CLI.
 
-**Q: Can I roll back a volume modification?**
+##### Q: Can I roll back a volume modification?
 
-A: You cannot directly roll back, but you can modify the volume again after the current modification completes. There's a cooldown period (typically 6 hours) between modifications.
+A: You cannot directly roll back, but you can modify the volume again after the
+current modification completes. There's a cooldown period (typically 6 hours)
+between modifications.
 
-**Q: What if I reduce IOPS too much?**
+##### Q: What if I reduce IOPS too much?
 
-A: You can increase IOPS again after the modification completes. Monitor CloudWatch metrics for:
+A: You can increase IOPS again after the modification completes. Monitor
+CloudWatch metrics for:
+
 - `VolumeQueueLength` (should stay low)
 - `VolumeThroughputPercentage` (should not hit 100%)
 - Application latency metrics
 
 ### Performance Issues After Optimization
 
-**Symptom: Increased application latency after IOPS reduction**
+#### Symptom: Increased application latency after IOPS reduction
 
 Possible causes:
+
 - IOPS reduced below actual peak needs
 - `VolumeQueueLength` increasing
 - Application experiencing I/O waits
 
 **Resolution:**
+
 1. Check CloudWatch `VolumeReadOps` and `VolumeWriteOps`
 2. Verify `VolumeQueueLength` metric
 3. Increase IOPS if queue length consistently > 0
 4. Allow 6-hour cooldown between modifications
 
-**Symptom: gp2 burst credit depletion after migration**
+##### Symptom: gp2 burst credit depletion after migration
 
 Possible causes:
+
 - Migrated to gp3 but workload still needs burst capability
 - Baseline IOPS insufficient for workload
 
 **Resolution:**
+
 - gp3 doesn't use burst credits - performance is consistent
 - If seeing performance issues, increase gp3 IOPS above 3,000 baseline
 - Cost: $0.065 per provisioned IOPS per month
@@ -518,7 +574,8 @@ Possible causes:
 
 ### Encryption
 
-JetScale recommendations preserve:
+Jetscale recommendations preserve:
+
 - EBS encryption status
 - KMS key associations
 - Encryption in-transit settings
@@ -532,6 +589,7 @@ JetScale recommendations preserve:
 ### Snapshots
 
 Before deleting volumes:
+
 - Always create snapshot if data might be needed
 - Tag snapshots appropriately
 - Set snapshot lifecycle policies
@@ -539,20 +597,22 @@ Before deleting volumes:
 
 ## Limitations
 
-**Not Currently Supported:**
+### Not Currently Supported:
+
 - Snapshot optimization (lifecycle policies, cross-region copies)
 - Multi-attach volumes
 - Volume size reduction (AWS limitation)
 - Snapshot-to-volume restore optimization
 
-**Volume Modification Limits:**
+#### Volume Modification Limits:
+
 - 6-hour cooldown between modifications
 - Cannot modify volumes <6 hours old
 - Cannot decrease volume size (AWS limitation)
 
 ## API Integration
 
-JetScale provides API access for programmatic optimization:
+Jetscale provides API access for programmatic optimization:
 
 ```bash
 # List EBS recommendations
@@ -576,11 +636,13 @@ Need help with EBS optimization?
 
 - **Email**: [support@jetscale.ai](mailto:support@jetscale.ai)
 - **Documentation**: [FAQ](../faq.md)
-- **GitHub Issues**: [Report a problem](https://github.com/Jetscale-ai/jetscale-docs/issues)
+- **GitHub Issues**:
+  [Report a problem](https://github.com/Jetscale-AI/jetscale-docs/issues)
 
 ---
 
-**Related Documentation:**
+### Related Documentation:
+
 - [EC2 Optimization](ec2.md)
 - [RDS Optimization](rds.md)
 - [ElastiCache Optimization](elasticache.md)

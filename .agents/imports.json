@@ -1,0 +1,30 @@
+{
+  "version": 2,
+  "sourcePackage": "./codex",
+  "imports": [
+    {
+      "bundle": "baseline"
+    },
+    {
+      "bundle": "docs-authoring"
+    }
+  ],
+  "localOverrides": {},
+  "components": [
+    "skills",
+    "agents",
+    "commands",
+    "context",
+    "statuslines",
+    "settings",
+    "templates"
+  ],
+  "include": [],
+  "exclude": [
+    "**/node_modules/**",
+    "**/dist/**",
+    "**/build/**",
+    "**/coverage/**",
+    "**/vendor/**"
+  ]
+}

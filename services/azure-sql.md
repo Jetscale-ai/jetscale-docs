@@ -1,14 +1,19 @@
 # Azure SQL Optimization
 
-JetScale provides AI-powered cost optimization for Azure SQL Database, including single databases, elastic pools, and Azure SQL Managed Instance. Our specialized agents analyze your database workloads to identify right-sizing opportunities and configuration improvements.
+Jetscale provides AI-powered cost optimization for Azure SQL Database, including
+single databases, elastic pools, and Azure SQL Managed Instance. Our specialized
+agents analyze your database workloads to identify right-sizing opportunities
+and configuration improvements.
 
 ## Overview
 
-JetScale optimizes Azure SQL resources by analyzing:
+Jetscale optimizes Azure SQL resources by analyzing:
+
 - **Database utilization**: DTU/vCore usage, CPU, memory, and I/O patterns
 - **Cost analysis**: Current spending vs. optimal configuration
 - **Performance metrics**: Query performance, connection patterns, storage usage
-- **Service tier alignment**: Basic, Standard, Premium, Business Critical, Hyperscale
+- **Service tier alignment**: Basic, Standard, Premium, Business Critical,
+  Hyperscale
 
 ## Supported Azure SQL Types
 
@@ -16,16 +21,19 @@ JetScale optimizes Azure SQL resources by analyzing:
 
 Single databases are our primary optimization target.
 
-**Database Architecture:**
-```
+#### Database Architecture:
+
+```text
 SqlDatabase (Optimization Target, Billable)
 ├── Compute (DTU or vCore)
 ├── Storage (Data + Log)
 └── Backup Storage
 ```
 
-**What We Optimize:**
-- **Service tier**: Right-size between Basic, Standard, Premium, Business Critical, Hyperscale
+##### What We Optimize:
+
+- **Service tier**: Right-size between Basic, Standard, Premium, Business
+  Critical, Hyperscale
 - **Compute tier**: Provisioned vs. Serverless
 - **DTU/vCore sizing**: Match actual workload requirements
 - **Storage configuration**: Data max size and performance tier
@@ -34,15 +42,17 @@ SqlDatabase (Optimization Target, Billable)
 
 Elastic pools share resources across multiple databases.
 
-**Pool Architecture:**
-```
+#### Pool Architecture:
+
+```text
 SqlElasticPool (Optimization Target, Billable)
 ├── Database 1 - Shares pool resources
 ├── Database 2 - Shares pool resources
 └── Database N - Shares pool resources
 ```
 
-**What We Optimize:**
+##### What We Optimize:
+
 - **Pool sizing**: Total DTUs/vCores for all databases
 - **Service tier**: Standard, Premium, Business Critical
 - **Database density**: Optimal number of databases per pool
@@ -51,15 +61,17 @@ SqlElasticPool (Optimization Target, Billable)
 
 Fully managed SQL Server instance.
 
-**Instance Architecture:**
-```
+#### Instance Architecture:
+
+```text
 SqlManagedInstance (Optimization Target, Billable)
 ├── Compute (vCores)
 ├── Storage
 └── Multiple Databases
 ```
 
-**What We Optimize:**
+##### What We Optimize:
+
 - **Instance sizing**: vCore count (4, 8, 16, 24, 32, 40, 64, 80)
 - **Service tier**: General Purpose vs. Business Critical
 - **Storage configuration**: Data and log storage sizing
@@ -68,21 +80,25 @@ SqlManagedInstance (Optimization Target, Billable)
 
 ### DTU-Based Model (Single Database & Elastic Pools)
 
-**Basic Tier**
+#### Basic Tier
+
 - **Use for**: Small databases, development, testing, light workloads
 - **DTU range**: 5 DTUs
 - **Max database size**: 2 GB
 - **Typical cost**: ~$5/month
 - **Best when**: Learning, prototyping, minimal production use
 
-**Standard Tier**
-- **Use for**: Most production workloads, web applications, line-of-business apps
+##### Standard Tier
+
+- **Use for**: Most production workloads, web applications, line-of-business
+  apps
 - **DTU range**: 10, 20, 50, 100, 200, 400, 800, 1600, 3000 DTUs
 - **Max database size**: Up to 1 TB
 - **Typical cost**: $15-$1,500/month
 - **Best when**: Predictable performance requirements, balanced workloads
 
-**Premium Tier**
+##### Premium Tier
+
 - **Use for**: Mission-critical applications, high transaction rate, low latency
 - **DTU range**: 125, 250, 500, 1000, 1750, 4000 DTUs
 - **Max database size**: Up to 4 TB
@@ -91,15 +107,18 @@ SqlManagedInstance (Optimization Target, Billable)
 
 ### vCore-Based Model (All Types)
 
-**General Purpose**
+#### General Purpose
+
 - **Use for**: Most production workloads, balanced compute and I/O
 - **vCores**: 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 24, 32, 40, 80, 128
 - **Max memory**: 625 GB (128 vCore)
-- **Storage**: Remote storage (SSD), up to 4 TB (single) or 16 TB (managed instance)
+- **Storage**: Remote storage (SSD), up to 4 TB (single) or 16 TB (managed
+  instance)
 - **Typical cost**: $300-$8,000/month
 - **Best when**: Standard business workloads
 
-**Business Critical**
+##### Business Critical
+
 - **Use for**: Mission-critical applications, low latency, high availability
 - **vCores**: Same range as General Purpose
 - **Max memory**: 625 GB (128 vCore)
@@ -109,6 +128,7 @@ SqlManagedInstance (Optimization Target, Billable)
 - **Best when**: Highest performance and availability required
 
 **Hyperscale** (Single Database only)
+
 - **Use for**: Very large databases (100 TB+), rapid scale-up/down
 - **vCores**: 2-80 vCores
 - **Storage**: Highly scalable, up to 100 TB
@@ -118,25 +138,28 @@ SqlManagedInstance (Optimization Target, Billable)
 
 ### Compute Tiers
 
-**Provisioned**
+#### Provisioned
+
 - **Billing**: Per second for compute resources
 - **Best for**: Predictable workloads, continuous usage
 - **Minimum**: No minimum compute
 
 **Serverless** (General Purpose only)
+
 - **Billing**: Per second when active, auto-pause when idle
 - **Best for**: Intermittent, unpredictable usage patterns
 - **Auto-pause**: Configurable delay (1 hour - 7 days)
 - **Savings**: Up to 90% during idle periods
 - **Note**: Cold start delay when resuming from paused state
 
-## How JetScale Optimizes Azure SQL
+## How Jetscale Optimizes Azure SQL
 
 ### 1. Data Collection
 
-JetScale analyzes multiple data sources:
+Jetscale analyzes multiple data sources:
 
 **Azure Monitor Metrics** (14-day rolling window):
+
 - `cpu_percent` - CPU utilization
 - `dtu_consumption_percent` - DTU usage (DTU model)
 - `storage_percent` - Storage utilization
@@ -147,6 +170,7 @@ JetScale analyzes multiple data sources:
 - `log_write_percent` - Transaction log write usage
 
 **Azure Resource Manager Data**:
+
 - Service tier and compute tier
 - DTU/vCore configuration
 - Current storage size and max size
@@ -154,11 +178,13 @@ JetScale analyzes multiple data sources:
 - Backup retention settings
 
 **Cost Management Data**:
+
 - Current monthly spend per database
 - Compute, storage, and backup costs breakdown
 - Historical cost trends
 
 **Azure Advisor** (if available):
+
 - Azure-generated right-sizing recommendations
 - Performance optimization suggestions
 
@@ -166,25 +192,29 @@ JetScale analyzes multiple data sources:
 
 Our AI agents perform deep analysis:
 
-**Utilization Patterns:**
+#### Utilization Patterns:
+
 - Peak vs. average DTU/vCore usage
 - Time-of-day patterns (identify idle periods for serverless)
 - Day-of-week patterns (weekend vs. weekday load)
 - Growth trends over time
 
-**Performance Assessment:**
+##### Performance Assessment:
+
 - Query performance metrics
 - Connection patterns and failures
 - Deadlock frequency
 - Transaction log pressure
 
-**Cost Modeling:**
+##### Cost Modeling:
+
 - Current cost breakdown (compute, storage, backup)
 - Projected cost for alternative configurations
 - Provisioned vs. Serverless cost comparison
 - Reserved capacity opportunities
 
-**Tier Selection:**
+##### Tier Selection:
+
 - Basic vs. Standard vs. Premium alignment
 - General Purpose vs. Business Critical requirements
 - Hyperscale suitability for large databases
@@ -192,12 +222,13 @@ Our AI agents perform deep analysis:
 
 ### 3. Recommendations
 
-JetScale generates specific, actionable recommendations:
+Jetscale generates specific, actionable recommendations:
 
 #### Service Tier Downgrade
 
-**Example Recommendation:**
-```
+##### Example Recommendation:
+
+```text
 Resource: app-database-prod
 Current: Premium P2 (250 DTUs, $930/month)
 Recommended: Standard S3 (100 DTUs, $300/month)
@@ -219,8 +250,9 @@ Note: Premium tier features (lower latency, more IOPS) not fully utilized
 
 #### DTU Right-Sizing
 
-**Example Recommendation:**
-```
+##### Example Recommendation:
+
+```text
 Resource: customer-db-01
 Current: Standard S7 (800 DTUs, $600/month)
 Recommended: Standard S3 (100 DTUs, $300/month)
@@ -241,8 +273,9 @@ Risk: Very Low - Substantial headroom maintained
 
 #### Serverless Migration
 
-**Example Recommendation:**
-```
+##### Example Recommendation:
+
+```text
 Resource: reporting-database
 Current: General Purpose (4 vCores, Provisioned, $730/month)
 Recommended: General Purpose (4 vCores, Serverless, ~$290/month)
@@ -269,8 +302,9 @@ Note: ~2-minute resume time from paused state
 
 #### vCore Optimization
 
-**Example Recommendation:**
-```
+##### Example Recommendation:
+
+```text
 Resource: api-database-prod
 Current: General Purpose (16 vCores, $1,460/month)
 Recommended: General Purpose (8 vCores, $730/month)
@@ -291,8 +325,9 @@ Risk: Low - 2.6x headroom above peak CPU usage
 
 #### Business Critical → General Purpose
 
-**Example Recommendation:**
-```
+##### Example Recommendation:
+
+```text
 Resource: legacy-app-database
 Current: Business Critical (8 vCores, $3,650/month)
 Recommended: General Purpose (8 vCores, $1,460/month)
@@ -315,8 +350,9 @@ Recommendation: Test in staging environment first
 
 #### Elastic Pool Consolidation
 
-**Example Recommendation:**
-```
+##### Example Recommendation:
+
+```text
 Resource: 12 Standard S3 databases
 Current: 12 × S3 (100 DTUs each, $3,600/month total)
 Recommended: 1 × Elastic Pool (600 eDTUs, $900/month)
@@ -338,13 +374,13 @@ Note: Databases share pool resources, reducing over-provisioning
 
 ### 4. Terraform Generation
 
-For each recommendation, JetScale generates production-ready Terraform code:
+For each recommendation, Jetscale generates production-ready Terraform code:
 
-**Example: Service Tier Optimization**
+#### Example: Service Tier Optimization
 
 ```hcl
 # Azure SQL Database Optimization
-# Generated by JetScale on 2024-01-15
+# Generated by Jetscale on 2024-01-15
 # Recommendation ID: rec_azuresql_001
 
 resource "azurerm_mssql_database" "app_database_prod" {
@@ -387,11 +423,11 @@ resource "azurerm_mssql_database" "app_database_prod" {
 }
 ```
 
-**Example: Serverless Migration**
+## Example: Serverless Migration
 
 ```hcl
 # Azure SQL Serverless Migration
-# Generated by JetScale on 2024-01-15
+# Generated by Jetscale on 2024-01-15
 
 resource "azurerm_mssql_database" "reporting_database" {
   name      = "reporting-database"
@@ -436,11 +472,11 @@ resource "azurerm_mssql_database" "reporting_database" {
 }
 ```
 
-**Example: Elastic Pool**
+## Example: Elastic Pool
 
 ```hcl
 # Azure SQL Elastic Pool Consolidation
-# Generated by JetScale on 2024-01-15
+# Generated by Jetscale on 2024-01-15
 
 resource "azurerm_mssql_elasticpool" "app_pool" {
   name                = "app-elastic-pool"
@@ -500,15 +536,17 @@ resource "azurerm_mssql_database" "pooled_databases" {
 
 ### Monitoring After Changes
 
-After applying JetScale recommendations:
+After applying Jetscale recommendations:
 
 1. **First 24 Hours**: Monitor key metrics closely
+
    - CPU and DTU/vCore utilization
    - Connection success rate
    - Query performance (execution time)
    - Transaction log usage
 
 2. **Week 1**: Validate performance
+
    - Compare query execution times
    - Check for resource pressure indicators
    - Monitor connection failures
@@ -521,13 +559,15 @@ After applying JetScale recommendations:
 
 ### Testing Strategy
 
-**Pre-Production Testing:**
+#### Pre-Production Testing:
+
 1. Apply changes to dev/staging environment first
 2. Run load tests simulating peak usage
 3. Monitor for 48-72 hours under realistic load
 4. Validate backup/restore procedures
 
-**Production Rollout:**
+##### Production Rollout:
+
 1. Schedule changes during maintenance windows
 2. Use Azure SQL geo-replication for blue/green deployments
 3. Have rollback plan ready
@@ -535,12 +575,14 @@ After applying JetScale recommendations:
 
 ### Reserved Capacity
 
-**When to Purchase:**
+#### When to Purchase:
+
 - Stable, long-running databases (> 1 year)
 - After right-sizing (don't reserve oversized resources)
 - Up to 80% savings vs. pay-as-you-go
 
-**JetScale Recommendations:**
+##### Jetscale Recommendations:
+
 - 1-year or 3-year commitment
 - Applied automatically to matching resources
 - Size-flexible within same service tier
@@ -550,11 +592,13 @@ After applying JetScale recommendations:
 ### Pattern 1: Over-Provisioned Premium Database
 
 **Symptoms:**
+
 - Premium tier with low DTU usage (<40%)
 - High availability features not utilized
 - Lower latency not critical for application
 
-**JetScale Recommendation:**
+#### Jetscale Recommendation:
+
 - Downgrade to Standard tier
 - Typical savings: 60-70%
 - Risk: Low (verify latency requirements)
@@ -562,11 +606,13 @@ After applying JetScale recommendations:
 ### Pattern 2: Idle Development Databases
 
 **Symptoms:**
+
 - Databases used only during business hours
 - Zero activity nights and weekends
 - Development or reporting workloads
 
-**JetScale Recommendation:**
+#### Jetscale Recommendation:
+
 - Migrate to Serverless compute tier
 - Typical savings: 50-80%
 - Risk: Very Low (non-continuous usage)
@@ -574,11 +620,13 @@ After applying JetScale recommendations:
 ### Pattern 3: Multiple Small Databases
 
 **Symptoms:**
+
 - Many databases with similar usage patterns
 - Individual database peaks don't coincide
 - Over-provisioning due to peak capacity per database
 
-**JetScale Recommendation:**
+#### Jetscale Recommendation:
+
 - Consolidate into Elastic Pool
 - Typical savings: 60-75%
 - Risk: Low (resource sharing reduces waste)
@@ -586,11 +634,13 @@ After applying JetScale recommendations:
 ### Pattern 4: Business Critical Over-Provisioning
 
 **Symptoms:**
+
 - Business Critical tier without HA requirements
 - Readable secondary replicas not used
 - Local SSD performance not required
 
-**JetScale Recommendation:**
+#### Jetscale Recommendation:
+
 - Downgrade to General Purpose
 - Typical savings: 60% (2.5x price difference)
 - Risk: Medium (verify latency tolerance)
@@ -599,9 +649,10 @@ After applying JetScale recommendations:
 
 ### Recommendation Concerns
 
-**Q: Will downgrading impact performance?**
+#### Q: Will downgrading impact performance?
 
-A: JetScale maintains 2-3x headroom above peak usage. We analyze:
+A: Jetscale maintains 2-3x headroom above peak usage. We analyze:
+
 - P95 and P99 DTU/vCore usage over 14 days
 - Query performance metrics
 - Connection patterns and failures
@@ -609,18 +660,20 @@ A: JetScale maintains 2-3x headroom above peak usage. We analyze:
 
 Recommendations only proceed if performance risk is Low or Very Low.
 
-**Q: What about serverless cold start delays?**
+##### Q: What about serverless cold start delays?
 
 A: Serverless databases resume in ~2 minutes from paused state. Best for:
+
 - Batch processing and reporting
 - Development and testing
 - Applications tolerant of occasional cold starts
 - Avoid for: Real-time APIs, always-on applications
 
-**Q: Can I test before committing?**
+##### Q: Can I test before committing?
 
 A: Yes! Apply changes to dev/staging first:
-1. JetScale generates Terraform for all environments
+
+1. Jetscale generates Terraform for all environments
 2. Test in non-production for 48-72 hours
 3. Monitor performance metrics
 4. Rollback if needed (simple tier change)
@@ -628,27 +681,31 @@ A: Yes! Apply changes to dev/staging first:
 
 ### Performance Issues After Optimization
 
-**Symptom: Increased query latency**
+#### Symptom: Increased query latency
 
 Possible causes:
+
 - Insufficient DTU/vCore capacity
 - Storage I/O throttling
 - Connection pool exhaustion
 
 **Resolution:**
+
 1. Check `cpu_percent` and `dtu_consumption_percent` metrics
 2. Review slow query logs
 3. Increase tier/size by one step if needed
 4. Consider Query Performance Insights for optimization
 
-**Symptom: Connection failures**
+##### Symptom: Connection failures
 
 Possible causes:
+
 - Serverless database in paused state
 - Connection pool settings need adjustment
 - Resource limits exceeded
 
 **Resolution:**
+
 1. If serverless: Reduce auto-pause delay or switch to provisioned
 2. Check `connection_failed` metric
 3. Review connection pool configuration
@@ -658,7 +715,8 @@ Possible causes:
 
 ### Encryption
 
-JetScale recommendations preserve:
+Jetscale recommendations preserve:
+
 - Transparent Data Encryption (TDE) settings
 - Always Encrypted configuration
 - SSL/TLS connection requirements
@@ -667,6 +725,7 @@ JetScale recommendations preserve:
 ### Compliance
 
 Configuration changes maintain compliance:
+
 - Geo-replication settings preserved
 - Backup retention policies unchanged
 - Threat detection and auditing settings maintained
@@ -674,18 +733,19 @@ Configuration changes maintain compliance:
 
 ## Limitations
 
-**Not Currently Supported:**
+### Not Currently Supported:
+
 - Reserved capacity purchase recommendations
 - Cross-region replication optimization
 - Backup retention policy optimization
 - Index and query tuning recommendations
 
-**Roadmap:**
-These features are planned for future releases. Currently, JetScale focuses on service tier and compute optimization.
+**Roadmap:** These features are planned for future releases. Currently, Jetscale
+focuses on service tier and compute optimization.
 
 ## API Integration
 
-JetScale provides API access for programmatic optimization:
+Jetscale provides API access for programmatic optimization:
 
 ```bash
 # List Azure SQL recommendations
@@ -709,10 +769,12 @@ Need help with Azure SQL optimization?
 
 - **Email**: [support@jetscale.ai](mailto:support@jetscale.ai)
 - **Documentation**: [FAQ](../faq.md)
-- **GitHub Issues**: [Report a problem](https://github.com/Jetscale-ai/jetscale-docs/issues)
+- **GitHub Issues**:
+  [Report a problem](https://github.com/Jetscale-AI/jetscale-docs/issues)
 
 ---
 
-**Related Documentation:**
+### Related Documentation:
+
 - [Azure VM Optimization](azure-vm.md)
 - [RDS Optimization](rds.md)

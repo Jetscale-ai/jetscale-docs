@@ -1,15 +1,19 @@
 # Services pris en charge
 
-JetScale fournit une optimisation des coûts basée sur l'IA pour les services cloud les plus critiques sur AWS et Azure.
+Jetscale fournit une optimisation des coûts basée sur l'IA pour les services
+cloud les plus critiques sur AWS et Azure.
 
 ---
 
 ## Services AWS
 
 ### Amazon RDS (Relational Database Service)
-Optimisez les tailles d'instances de base de données, les configurations de stockage et les achats d'instances réservées.
 
-**Domaines d'optimisation :**
+Optimisez les tailles d'instances de base de données, les configurations de
+stockage et les achats d'instances réservées.
+
+#### Domaines d'optimisation :
+
 - Dimensionnement approprié des classes d'instance
 - Optimisation du type de stockage (gp2 → gp3)
 - Révision de la configuration Multi-AZ
@@ -21,9 +25,12 @@ Optimisez les tailles d'instances de base de données, les configurations de sto
 ---
 
 ### Amazon EC2 (Elastic Compute Cloud)
-Dimensionnez correctement les instances de calcul, identifiez les ressources inactives et optimisez l'achat d'instances.
 
-**Domaines d'optimisation :**
+Dimensionnez correctement les instances de calcul, identifiez les ressources
+inactives et optimisez l'achat d'instances.
+
+#### Domaines d'optimisation :
+
 - Recommandations de type et taille d'instance
 - Détection des instances inactives
 - Opportunités de migration Graviton
@@ -35,9 +42,12 @@ Dimensionnez correctement les instances de calcul, identifiez les ressources ina
 ---
 
 ### Amazon EBS (Elastic Block Store)
-Optimisez les volumes de stockage avec des recommandations de type et des ajustements de capacité.
 
-**Domaines d'optimisation :**
+Optimisez les volumes de stockage avec des recommandations de type et des
+ajustements de capacité.
+
+#### Domaines d'optimisation :
+
 - Optimisation du type de volume (gp2 → gp3)
 - Réglage IOPS et débit
 - Gestion du cycle de vie des snapshots
@@ -49,9 +59,11 @@ Optimisez les volumes de stockage avec des recommandations de type et des ajuste
 ---
 
 ### Amazon ElastiCache
+
 Optimisez les clusters Redis et Memcached pour le coût et la performance.
 
-**Domaines d'optimisation :**
+#### Domaines d'optimisation :
+
 - Dimensionnement approprié du type de nœud
 - Configuration du cluster
 - Recommandations de nœuds réservés
@@ -61,23 +73,31 @@ Optimisez les clusters Redis et Memcached pour le coût et la performance.
 [En savoir plus →](services/elasticache.md)
 
 ### Amazon S3 (Simple Storage Service)
-Optimisez les coûts de stockage avec le tiering, les politiques de cycle de vie, l'optimisation du chiffrement et l'amélioration du routage réseau.
 
-**Domaines d'optimisation :**
+Optimisez les coûts de stockage avec le tiering, les politiques de cycle de vie,
+l'optimisation du chiffrement et l'amélioration du routage réseau.
+
+#### Domaines d'optimisation :
+
 - Activation d'Intelligent-Tiering
-- Configuration de règles de cycle de vie (Standard → IA → Glacier → Deep Archive)
+- Configuration de règles de cycle de vie (Standard → IA → Glacier → Deep
+  Archive)
 - Bucket Key pour réduction des coûts KMS
 - S3 Gateway Endpoints pour éliminer les frais de traitement NAT
 
 [En savoir plus →](services/s3.md)
 
 ### Amazon EKS (Elastic Kubernetes Service)
-Dimensionnez les groupes de nœuds, migrez vers Graviton et optimisez la capacité Spot sur vos clusters Kubernetes.
 
-**Domaines d'optimisation :**
+Dimensionnez les groupes de nœuds, migrez vers Graviton et optimisez la capacité
+Spot sur vos clusters Kubernetes.
+
+#### Domaines d'optimisation :
+
 - Dimensionnement du type de nœud par groupe de nœuds
 - Migration Graviton (ARM64) pour 10-40% d'économies
-- Capacité Spot pour les charges de travail tolérantes aux pannes (60-90% d'économies)
+- Capacité Spot pour les charges de travail tolérantes aux pannes (60-90%
+  d'économies)
 - Détection des clusters et groupes de nœuds inactifs
 - Analyse par groupe de nœuds avec agrégation au niveau du cluster
 
@@ -86,9 +106,12 @@ Dimensionnez les groupes de nœuds, migrez vers Graviton et optimisez la capacit
 ## Services Azure
 
 ### Azure Virtual Machines
-Dimensionnez correctement les VM, optimisez les types d'instance et exploitez la capacité réservée.
 
-**Domaines d'optimisation :**
+Dimensionnez correctement les VM, optimisez les types d'instance et exploitez la
+capacité réservée.
+
+#### Domaines d'optimisation :
+
 - Recommandations de taille de VM
 - Instances B-series burstables
 - Instances réservées Azure VM
@@ -100,9 +123,12 @@ Dimensionnez correctement les VM, optimisez les types d'instance et exploitez la
 ---
 
 ### Azure SQL Database
-Optimisez les niveaux de base de données, l'allocation DTU et les configurations de pools élastiques.
 
-**Domaines d'optimisation :**
+Optimisez les niveaux de base de données, l'allocation DTU et les configurations
+de pools élastiques.
+
+#### Domaines d'optimisation :
+
 - Recommandations de niveau de service
 - Dimensionnement DTU et vCore
 - Optimisation des pools élastiques
@@ -118,6 +144,7 @@ Optimisez les niveaux de base de données, l'allocation DTU et les configuration
 Nous développons activement la prise en charge de services supplémentaires :
 
 ### AWS
+
 - **AWS Lambda** - Optimisation de la mémoire et du timeout
 - **Amazon DynamoDB** - Recommandations de mode de capacité
 - **Amazon ECS** - Dimensionnement approprié des conteneurs
@@ -125,6 +152,7 @@ Nous développons activement la prise en charge de services supplémentaires :
 - **Amazon CloudFront** - Optimisation de la distribution
 
 ### Azure
+
 - **Azure Blob Storage** - Optimisation du niveau de stockage
 - **Azure Functions** - Optimisation du plan et de la mémoire
 - **Azure Cosmos DB** - Recommandations de débit et capacité
@@ -136,13 +164,18 @@ Nous développons activement la prise en charge de services supplémentaires :
 
 ## Comment fonctionne l'analyse des services
 
-Pour chaque service pris en charge, JetScale :
+Pour chaque service pris en charge, Jetscale :
 
-1. **Découvre les ressources** : Identifie automatiquement toutes les instances sur vos comptes cloud
-2. **Collecte les métriques** : Rassemble l'historique de données d'utilisation (CPU, mémoire, disque, réseau)
-3. **Analyse IA** : Des agents spécialisés analysent les modèles et identifient les opportunités d'optimisation
-4. **Valide la sécurité** : Garantit que les recommandations maintiennent la performance et la disponibilité
-5. **Génère du code** : Crée du Terraform prêt pour la production pour l'implémentation
+1. **Découvre les ressources** : Identifie automatiquement toutes les instances
+   sur vos comptes cloud
+2. **Collecte les métriques** : Rassemble l'historique de données d'utilisation
+   (CPU, mémoire, disque, réseau)
+3. **Analyse IA** : Des agents spécialisés analysent les modèles et identifient
+   les opportunités d'optimisation
+4. **Valide la sécurité** : Garantit que les recommandations maintiennent la
+   performance et la disponibilité
+5. **Génère du code** : Crée du Terraform prêt pour la production pour
+   l'implémentation
 
 ---
 
@@ -164,8 +197,9 @@ Des questions sur les services pris en charge ?
 
 - **Email** : [support@jetscale.ai](mailto:support@jetscale.ai)
 - **Documentation** : [FAQ](../faq.md)
-- **Demandes de fonctionnalités** : [Demander un service](https://github.com/Jetscale-ai/jetscale-docs/issues)
+- **Demandes de fonctionnalités** :
+  [Demander un service](https://github.com/Jetscale-AI/jetscale-docs/issues)
 
 ---
 
-*© 2025 JetScale, Inc. Tous droits réservés.*
+_© 2025 Jetscale AI. Tous droits réservés._

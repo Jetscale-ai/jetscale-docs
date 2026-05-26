@@ -1,15 +1,18 @@
 - Démarrage
+
   - [Aperçu](/fr/)
   - [Guide de Démarrage](/fr/getting-started)
   - [Configuration AWS](/fr/aws-setup)
   - [Configuration Azure](/fr/azure-setup)
 
 - Comment Ça Marche
-  - [Fonctionnement de JetScale](/fr/how-it-works)
+
+  - [Fonctionnement de Jetscale](/fr/how-it-works)
   - [Analyse IA](/fr/ai-analysis)
   - [Flux de Recommandations](/fr/recommendation-workflow)
 
 - Intégrations
+
   - [Aperçu](/fr/integrations/)
   - [GitHub](/fr/integrations/github)
   - [Jira](/fr/integrations/jira)
@@ -17,6 +20,7 @@
   - [Bitbucket](/fr/integrations/bitbucket)
 
 - Services Supportés
+
   - [Aperçu](/fr/services/)
   - AWS
     - [EBS](/fr/services/ebs)

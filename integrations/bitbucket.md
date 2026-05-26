@@ -1,10 +1,13 @@
 # Bitbucket Integration
 
-JetScale integrates with Bitbucket to automatically create pull requests containing production-ready Terraform code for your cost optimization recommendations.
+Jetscale integrates with Bitbucket to automatically create pull requests
+containing production-ready Terraform code for your cost optimization
+recommendations.
 
 ## Overview
 
-The Bitbucket integration allows JetScale to:
+The Bitbucket integration allows Jetscale to:
+
 - Push generated Terraform code to your Bitbucket repositories
 - Create pull requests with detailed optimization recommendations
 - Integrate seamlessly with your existing code review and CI/CD workflows
@@ -27,14 +30,15 @@ Before connecting Bitbucket, you'll need:
 
 ### Step 1: Create a Bitbucket App Password
 
-![Bitbucket App Password Creation](#)
-*Screenshot placeholder: Bitbucket app password settings*
+![Bitbucket App Password Creation](#) _Screenshot placeholder: Bitbucket app
+password settings_
 
-#### For Bitbucket Cloud:
+#### For Bitbucket Cloud
 
-1. Navigate to [Bitbucket Settings → App passwords](https://bitbucket.org/account/settings/app-passwords/)
+1. Navigate to
+   [Bitbucket Settings → App passwords](https://bitbucket.org/account/settings/app-passwords/)
 2. Click **Create app password**
-3. Give it a descriptive label (e.g., "JetScale Integration")
+3. Give it a descriptive label (e.g., "Jetscale Integration")
 4. Select the required permissions:
    - ✓ **Account: Read**
    - ✓ **Workspace membership: Read**
@@ -44,11 +48,11 @@ Before connecting Bitbucket, you'll need:
 5. Click **Create**
 6. **Important**: Copy your app password immediately - you won't see it again
 
-#### For Bitbucket Server:
+#### For Bitbucket Server
 
 1. Navigate to **Profile Settings → Personal access tokens**
 2. Click **Create a token**
-3. Give it a name (e.g., "JetScale")
+3. Give it a name (e.g., "Jetscale")
 4. Select permissions:
    - ✓ **Repository read**
    - ✓ **Repository write**
@@ -56,32 +60,35 @@ Before connecting Bitbucket, you'll need:
 6. Click **Create**
 7. Copy your token
 
-> **Security Note**: Store your app password or token securely. JetScale encrypts credentials at rest.
+> **Security Note**: Store your app password or token securely. Jetscale
+> encrypts credentials at rest.
 
-### Step 2: Connect Bitbucket in JetScale
+### Step 2: Connect Bitbucket in Jetscale
 
-![Bitbucket Connection Screen](#)
-*Screenshot placeholder: JetScale Bitbucket integration page*
+![Bitbucket Connection Screen](#) _Screenshot placeholder: Jetscale Bitbucket
+integration page_
 
-1. Navigate to **Settings** → **Integrations** in JetScale
+1. Navigate to **Settings** → **Integrations** in Jetscale
 2. Click **Connect Bitbucket**
 3. Enter your configuration:
    - **Bitbucket Type**: Cloud or Server
-   - **Server URL**: (For Bitbucket Server only) e.g., `https://bitbucket.yourcompany.com`
+   - **Server URL**: (For Bitbucket Server only) e.g.,
+     `https://bitbucket.yourcompany.com`
    - **Username**: Your Bitbucket username
    - **App Password/Token**: The credential created in Step 1
 4. Click **Verify and Connect**
 
-JetScale will verify your credentials and display your accessible repositories.
+Jetscale will verify your credentials and display your accessible repositories.
 
 ### Step 3: Select Your Repository
 
-![Repository Selection](#)
-*Screenshot placeholder: Bitbucket repository selection dropdown*
+![Repository Selection](#) _Screenshot placeholder: Bitbucket repository
+selection dropdown_
 
-1. From the **Repository** dropdown, select your Terraform infrastructure repository
+1. From the **Repository** dropdown, select your Terraform infrastructure
+   repository
 2. Format: `workspace/repository-slug` (Cloud) or `project/repository` (Server)
-3. JetScale will verify you have write access
+3. Jetscale will verify you have write access
 4. Click **Save**
 
 The selected repository will be used for all future pull requests.
@@ -90,19 +97,23 @@ The selected repository will be used for all future pull requests.
 
 ### Pull Request Creation
 
-When you approve a cost optimization recommendation in JetScale:
+When you approve a cost optimization recommendation in Jetscale:
 
-1. **Branch Creation**: JetScale creates a new feature branch from your default branch (usually `main` or `master`)
+1. **Branch Creation**: Jetscale creates a new feature branch from your default
+   branch (usually `main` or `master`)
+
    - Branch naming: `jetscale/optimization-{resource-type}-{timestamp}`
    - Example: `jetscale/optimization-rds-20240115-143022`
 
 2. **File Push**: Generated Terraform files are committed to the branch
+
    - Files placed in `terraform/` directory
    - Commit message includes optimization summary and cost impact
 
 3. **Pull Request**: A PR is automatically created with:
    - **Title**: Concise optimization description
-   - **Description**: Detailed cost analysis, performance considerations, implementation steps
+   - **Description**: Detailed cost analysis, performance considerations,
+     implementation steps
    - **Reviewers**: Automatically added based on repository settings (optional)
 
 ### Pull Request Structure
@@ -111,25 +122,28 @@ When you approve a cost optimization recommendation in JetScale:
 # Cost Optimization: RDS Instance Right-Sizing
 
 ## Summary
-Downgrade RDS instance `production-db` from **db.r5.2xlarge** to **db.r5.xlarge**
+
+Downgrade RDS instance `production-db` from **db.r5.2xlarge** to
+
+### db.r5.xlarge
 
 ## Cost Impact
 
-| Metric | Current | Projected | Savings |
-|--------|---------|-----------|---------|
-| Monthly Cost | $730.00 | $365.00 | **$365.00 (50%)** |
-| Annual Cost | $8,760.00 | $4,380.00 | **$4,380.00** |
+| Metric       | Current   | Projected | Savings           |
+| ------------ | --------- | --------- | ----------------- |
+| Monthly Cost | $730.00   | $365.00   | **$365.00 (50%)** |
+| Annual Cost  | $8,760.00 | $4,380.00 | **$4,380.00**     |
 
 ## Performance Analysis
 
-✓ Current CPU utilization: 15-25% average
-✓ Current memory utilization: 30-40% average
-✓ Recommended instance provides 2x current peak usage
-✓ **Risk Assessment**: Low - No performance degradation expected
+✓ Current CPU utilization: 15-25% average ✓ Current memory utilization: 30-40%
+average ✓ Recommended instance provides 2x current peak usage ✓ **Risk
+Assessment**: Low - No performance degradation expected
 
 ## Files Changed
 
-- `terraform/rds_production_db.tf` - Updated instance class from db.r5.2xlarge to db.r5.xlarge
+- `terraform/rds_production_db.tf` - Updated instance class from db.r5.2xlarge
+  to db.r5.xlarge
 - `terraform/variables.tf` - Added configurable instance_class variable
 
 ## Implementation Checklist
@@ -148,14 +162,16 @@ Downgrade RDS instance `production-db` from **db.r5.2xlarge** to **db.r5.xlarge*
 4. Confirm monitoring dashboards are updated
 
 ---
-🤖 Generated by [JetScale](https://jetscale.ai) | [View in JetScale Dashboard](#)
+
+🤖 Generated by [Jetscale](https://jetscale.ai) |
+[View in Jetscale Dashboard](#)
 ```
 
 ### Terraform Code Example
 
 ```hcl
 # Optimized RDS instance configuration
-# Generated by JetScale on 2024-01-15
+# Generated by Jetscale on 2024-01-15
 
 resource "aws_db_instance" "production_db" {
   identifier     = "production-db"
@@ -182,29 +198,26 @@ resource "aws_db_instance" "production_db" {
 
 ## Repository Permissions
 
-JetScale requires **write** access to your repository to create branches and pull requests. The integration will:
+Jetscale requires **write** access to your repository to create branches and
+pull requests. The integration will:
 
-✓ Create feature branches
-✓ Commit Terraform files
-✓ Create pull requests
-✓ Read repository metadata and branches
+✓ Create feature branches ✓ Commit Terraform files ✓ Create pull requests ✓ Read
+repository metadata and branches
 
-✗ Cannot merge pull requests
-✗ Cannot delete branches
-✗ Cannot modify settings or webhooks
-✗ Cannot access repository secrets or pipeline variables
+✗ Cannot merge pull requests ✗ Cannot delete branches ✗ Cannot modify settings
+or webhooks ✗ Cannot access repository secrets or pipeline variables
 
 ## Bitbucket Pipeline Integration
 
 ### Automatic Validation
 
-JetScale pull requests trigger your existing Bitbucket Pipelines:
+Jetscale pull requests trigger your existing Bitbucket Pipelines:
 
 ```yaml
 # bitbucket-pipelines.yml example
 pipelines:
   pull-requests:
-    '**':
+    "**":
       - step:
           name: Validate Terraform
           script:
@@ -214,9 +227,10 @@ pipelines:
             - terraform plan
 ```
 
-### Status Checks
+## Status Checks
 
-JetScale monitors pipeline status:
+Jetscale monitors pipeline status:
+
 - ✅ All checks passed: Ready to merge
 - ⚠️ Checks pending: Waiting for pipeline
 - ❌ Checks failed: Review pipeline logs
@@ -226,6 +240,7 @@ JetScale monitors pipeline status:
 ### View Integration Status
 
 From **Settings** → **Integrations** → **Bitbucket**:
+
 - Connected Bitbucket account
 - Server URL (if Bitbucket Server)
 - Selected workspace/project and repository
@@ -258,7 +273,8 @@ To remove the integration:
 3. Confirm disconnection
 
 **Important**: Disconnecting will:
-- Remove stored credentials from JetScale
+
+- Remove stored credentials from Jetscale
 - Stop automatic PR creation
 - Preserve existing pull requests in Bitbucket
 
@@ -269,6 +285,7 @@ To remove the integration:
 **Problem**: "Invalid credentials" error when connecting
 
 **Solutions**:
+
 - Verify username is correct (case-sensitive)
 - Check app password/token hasn't expired
 - Ensure all required scopes are selected
@@ -280,6 +297,7 @@ To remove the integration:
 **Problem**: Can't find repository in selection dropdown
 
 **Solutions**:
+
 - Verify you have write access to the repository
 - Check repository isn't archived
 - Ensure workspace/project membership is active
@@ -291,6 +309,7 @@ To remove the integration:
 **Problem**: Recommendation approved but PR wasn't created
 
 **Solutions**:
+
 - Verify branch doesn't already exist with same name
 - Check you still have write access
 - Ensure default branch exists and isn't locked
@@ -299,9 +318,10 @@ To remove the integration:
 
 ### Pipeline Not Triggering
 
-**Problem**: Bitbucket Pipelines doesn't run on JetScale PRs
+**Problem**: Bitbucket Pipelines doesn't run on Jetscale PRs
 
 **Solutions**:
+
 - Verify Pipelines are enabled for the repository
 - Check `bitbucket-pipelines.yml` includes pull-request triggers
 - Ensure pipeline quota isn't exhausted
@@ -311,7 +331,7 @@ To remove the integration:
 
 ### Credential Management
 
-- **Dedicated app password**: Create separate credentials for JetScale
+- **Dedicated app password**: Create separate credentials for Jetscale
 - **Set expiration**: Use reasonable expiration dates (90-180 days)
 - **Rotate regularly**: Update credentials before expiry
 - **Revoke unused**: Delete old app passwords immediately
@@ -335,22 +355,24 @@ To remove the integration:
 
 ### Feature Comparison
 
-| Feature | Bitbucket Cloud | Bitbucket Server |
-|---------|-----------------|------------------|
-| Authentication | App Password | Personal Access Token |
-| Repository Format | workspace/repo-slug | project/repo |
-| API Version | REST 2.0 | REST 1.0 |
-| Webhooks | Native support | Native support |
-| Pipelines | Built-in | Plugin required |
+| Feature           | Bitbucket Cloud     | Bitbucket Server      |
+| ----------------- | ------------------- | --------------------- |
+| Authentication    | App Password        | Personal Access Token |
+| Repository Format | workspace/repo-slug | project/repo          |
+| API Version       | REST 2.0            | REST 1.0              |
+| Webhooks          | Native support      | Native support        |
+| Pipelines         | Built-in            | Plugin required       |
 
 ### Configuration Differences
 
 **Bitbucket Cloud**:
+
 - Uses workspace-based permissions
 - App passwords have granular scopes
 - Automatic HTTPS endpoints
 
 **Bitbucket Server**:
+
 - Uses project-based permissions
 - Requires full server URL
 - May need firewall/VPN configuration
@@ -359,42 +381,48 @@ To remove the integration:
 
 ### Credential Security
 
-- JetScale encrypts app passwords and tokens at rest (AES-256)
+- Jetscale encrypts app passwords and tokens at rest (AES-256)
 - Credentials never appear in logs or API responses
 - All Bitbucket API calls use HTTPS with TLS 1.2+
 - Credentials stored separately with restricted access
 
 ### Audit Trail
 
-All JetScale actions are logged:
+All Jetscale actions are logged:
+
 - Bitbucket API calls
 - Pull request creation per recommendation
 - Failed authentication attempts
 - Repository access events
 
-Audit logs available in JetScale dashboard under **Settings** → **Audit Log**.
+Audit logs available in Jetscale dashboard under **Settings** → **Audit Log**.
 
 ### Revoking Access
 
 To immediately revoke access:
 
 **Bitbucket Cloud**:
+
 1. Go to [App passwords](https://bitbucket.org/account/settings/app-passwords/)
-2. Click **Revoke** next to JetScale password
+2. Click **Revoke** next to Jetscale password
 
 **Bitbucket Server**:
-1. Navigate to **Personal access tokens**
-2. Click **Revoke** next to JetScale token
 
-**JetScale**:
+1. Navigate to **Personal access tokens**
+2. Click **Revoke** next to Jetscale token
+
+**Jetscale**:
+
 1. Go to **Settings** → **Integrations** → **Bitbucket**
 2. Click **Disconnect**
 
 ## API Reference
 
-For programmatic access, see our [API Documentation](../api-reference.md#bitbucket-integration).
+For programmatic access, see our
+[API Documentation](../api-reference.md#bitbucket-integration).
 
 Key endpoints:
+
 - `POST /api/v1/bitbucket/action/connect` - Connect Bitbucket account
 - `POST /api/v1/bitbucket/action/select-repo` - Select repository
 - `GET /api/v1/bitbucket/repos` - List accessible repositories
@@ -407,4 +435,5 @@ Need help with Bitbucket integration?
 
 - **Email**: [support@jetscale.ai](mailto:support@jetscale.ai)
 - **Documentation**: [FAQ](../faq.md)
-- **GitHub Issues**: [Report a problem](https://github.com/Jetscale-ai/jetscale-docs/issues)
+- **GitHub Issues**:
+  [Report a problem](https://github.com/Jetscale-AI/jetscale-docs/issues)

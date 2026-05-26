@@ -1,15 +1,20 @@
 # Intégration Jira
 
-JetScale s'intègre avec Jira pour créer automatiquement des tickets pour les recommandations d'optimisation des coûts, permettant un suivi transparent via votre flux de gestion de projet existant.
+Jetscale s'intègre avec Jira pour créer automatiquement des tickets pour les
+recommandations d'optimisation des coûts, permettant un suivi transparent via
+votre flux de gestion de projet existant.
 
 ## Vue d'ensemble
 
-L'intégration Jira permet à JetScale de :
+L'intégration Jira permet à Jetscale de :
+
 - Créer des tickets pour chaque recommandation d'optimisation des coûts
-- Inclure une analyse détaillée de l'impact sur les coûts dans les descriptions des tickets
+- Inclure une analyse détaillée de l'impact sur les coûts dans les descriptions
+  des tickets
 - Lier les tickets au code Terraform généré
 - Suivre le statut de mise en œuvre via les workflows Jira
-- S'intégrer à vos processus existants de planification de sprint et de gestion de tickets
+- S'intégrer à vos processus existants de planification de sprint et de gestion
+  de tickets
 
 ## Prérequis
 
@@ -30,76 +35,91 @@ Avant de connecter Jira, vous aurez besoin de :
 
 ### Étape 1 : Créer un jeton API Jira
 
-![Création d'un jeton API Jira](#)
-*Emplacement pour capture d'écran : Page de génération de jeton API Jira*
+![Création d'un jeton API Jira](#) _Emplacement pour capture d'écran : Page de
+génération de jeton API Jira_
 
-1. Accédez aux [Paramètres du compte Atlassian](https://id.atlassian.com/manage/api-tokens)
+1. Accédez aux
+   [Paramètres du compte Atlassian](https://id.atlassian.com/manage/api-tokens)
 2. Cliquez sur **Create API token**
-3. Donnez un libellé descriptif à votre jeton (par exemple, "Intégration JetScale")
+3. Donnez un libellé descriptif à votre jeton (par exemple, "Intégration
+   Jetscale")
 4. Cliquez sur **Create**
 5. **Important** : Copiez immédiatement votre jeton - il ne sera plus affiché
 
-> **Note de sécurité** : Les jetons API ont les mêmes permissions que votre compte Jira. JetScale utilise uniquement les jetons pour créer et lire des tickets.
+> **Note de sécurité** : Les jetons API ont les mêmes permissions que votre
+> compte Jira. Jetscale utilise uniquement les jetons pour créer et lire des
+> tickets.
 
-### Étape 2 : Connecter Jira dans JetScale
+### Étape 2 : Connecter Jira dans Jetscale
 
-![Écran de connexion Jira](#)
-*Emplacement pour capture d'écran : Page d'intégration Jira de JetScale*
+![Écran de connexion Jira](#) _Emplacement pour capture d'écran : Page
+d'intégration Jira de Jetscale_
 
-1. Accédez à **Paramètres** → **Intégrations** dans JetScale
+1. Accédez à **Paramètres** → **Intégrations** dans Jetscale
 2. Cliquez sur **Connecter Jira**
 3. Saisissez votre configuration :
-   - **URL du serveur Jira** : L'URL de votre instance Jira (par exemple, `https://votre-entreprise.atlassian.net`)
+   - **URL du serveur Jira** : L'URL de votre instance Jira (par exemple,
+     `https://votre-entreprise.atlassian.net`)
    - **E-mail** : L'adresse e-mail associée à votre compte Jira
    - **Jeton API** : Le jeton que vous avez créé à l'étape 1
 4. Cliquez sur **Vérifier et connecter**
 
-JetScale vérifiera vos identifiants et affichera les projets disponibles.
+Jetscale vérifiera vos identifiants et affichera les projets disponibles.
 
 ### Étape 3 : Configurer les paramètres du projet
 
-![Écran de sélection de projet](#)
-*Emplacement pour capture d'écran : Configuration du projet Jira*
+![Écran de sélection de projet](#) _Emplacement pour capture d'écran :
+Configuration du projet Jira_
 
-1. Sélectionnez votre **projet par défaut** pour les tickets d'optimisation des coûts
+1. Sélectionnez votre **projet par défaut** pour les tickets d'optimisation des
+   coûts
 2. Choisissez le **type de ticket** (généralement "Tâche" ou "Story")
 3. Définissez la **priorité par défaut** (facultatif)
-4. Configurez les **étiquettes par défaut** (par exemple, "jetscale", "optimisation-coûts")
+4. Configurez les **étiquettes par défaut** (par exemple, "jetscale",
+   "optimisation-coûts")
 5. Cliquez sur **Enregistrer les paramètres**
 
 ## Fonctionnement
 
 ### Création de tickets
 
-Lorsque vous approuvez une recommandation d'optimisation des coûts dans JetScale :
+Lorsque vous approuvez une recommandation d'optimisation des coûts dans Jetscale
+:
 
-1. **Ticket créé** : Un ticket Jira est automatiquement créé dans votre projet sélectionné
-2. **Détails remplis** : Le ticket inclut l'analyse des coûts, les considérations de performance et les étapes de mise en œuvre
-3. **Liaison** : Le ticket inclut des liens vers la recommandation dans JetScale et les pull requests associées (si GitHub est connecté)
-4. **Étiquettes** : Automatiquement tagué avec les étiquettes configurées pour un filtrage facile
+1. **Ticket créé** : Un ticket Jira est automatiquement créé dans votre projet
+   sélectionné
+2. **Détails remplis** : Le ticket inclut l'analyse des coûts, les
+   considérations de performance et les étapes de mise en œuvre
+3. **Liaison** : Le ticket inclut des liens vers la recommandation dans Jetscale
+   et les pull requests associées (si GitHub est connecté)
+4. **Étiquettes** : Automatiquement tagué avec les étiquettes configurées pour
+   un filtrage facile
 
 ### Structure du ticket
 
 ```markdown
 ## Summary
+
 RDS Instance Right-Sizing: production-db (db.r5.2xlarge → db.r5.xlarge)
 
 ## Description
 
 ### Cost Optimization Recommendation
 
-**Resource**: RDS Instance `production-db`
-**Recommendation**: Downsize from db.r5.2xlarge to db.r5.xlarge
+**Resource**: RDS Instance `production-db` **Recommendation**: Downsize from
+db.r5.2xlarge to db.r5.xlarge
 
 ### Cost Impact
-| Metric | Value |
-|--------|-------|
-| Current Monthly Cost | $730.00 |
-| Projected Monthly Cost | $365.00 |
-| **Monthly Savings** | **$365.00 (50%)** |
-| **Annual Savings** | **$4,380.00** |
+
+| Metric                 | Value             |
+| ---------------------- | ----------------- |
+| Current Monthly Cost   | $730.00           |
+| Projected Monthly Cost | $365.00           |
+| **Monthly Savings**    | **$365.00 (50%)** |
+| **Annual Savings**     | **$4,380.00**     |
 
 ### Performance Analysis
+
 - Current CPU utilization: 15-25% average
 - Current memory utilization: 30-40% average
 - Recommended instance provides 2x current peak usage
@@ -110,6 +130,7 @@ RDS Instance Right-Sizing: production-db (db.r5.2xlarge → db.r5.xlarge)
 **Terraform Code**: [View Pull Request](#)
 
 **Testing Checklist**:
+
 - [ ] Apply changes in staging environment
 - [ ] Monitor performance metrics for 48 hours
 - [ ] Verify application response times
@@ -117,27 +138,29 @@ RDS Instance Right-Sizing: production-db (db.r5.2xlarge → db.r5.xlarge)
 - [ ] Apply to production
 
 ### Resources
-- [View in JetScale](#)
+
+- [View in Jetscale](#)
 - [Terraform PR](#)
 - [AWS RDS Documentation](https://docs.aws.amazon.com/rds/)
 
 ---
-Generated by [JetScale](https://jetscale.ai)
+
+Generated by [Jetscale](https://jetscale.ai)
 ```
 
 ### Champs du ticket
 
-JetScale remplit les champs Jira suivants :
+Jetscale remplit les champs Jira suivants :
 
-| Champ | Description | Exemple |
-|-------|-------------|---------|
-| **Project** | Clé du projet sélectionné | DEVOPS |
-| **Issue Type** | Type de ticket configuré | Tâche, Story |
-| **Summary** | Brève description de l'optimisation | RDS Right-Sizing: production-db |
-| **Description** | Analyse détaillée des coûts | Contenu markdown complet |
-| **Priority** | Niveau de priorité configuré | Moyen, Élevé |
-| **Labels** | Étiquettes pour le filtrage | jetscale, optimisation-coûts, rds |
-| **Assignee** | Assigné facultatif | Facultatif |
+| Champ           | Description                         | Exemple                           |
+| --------------- | ----------------------------------- | --------------------------------- |
+| **Project**     | Clé du projet sélectionné           | DEVOPS                            |
+| **Issue Type**  | Type de ticket configuré            | Tâche, Story                      |
+| **Summary**     | Brève description de l'optimisation | RDS Right-Sizing: production-db   |
+| **Description** | Analyse détaillée des coûts         | Contenu markdown complet          |
+| **Priority**    | Niveau de priorité configuré        | Moyen, Élevé                      |
+| **Labels**      | Étiquettes pour le filtrage         | jetscale, optimisation-coûts, rds |
+| **Assignee**    | Assigné facultatif                  | Facultatif                        |
 
 ## Options de configuration
 
@@ -153,7 +176,8 @@ Configurez les valeurs par défaut pour les tickets créés automatiquement :
 
 ### Remplacement par recommandation
 
-Lors de la création d'un ticket depuis JetScale, vous pouvez remplacer les valeurs par défaut :
+Lors de la création d'un ticket depuis Jetscale, vous pouvez remplacer les
+valeurs par défaut :
 
 1. Cliquez sur **Créer un ticket Jira** sur une recommandation
 2. Modifiez n'importe quel champ :
@@ -168,10 +192,11 @@ Lors de la création d'un ticket depuis JetScale, vous pouvez remplacer les vale
 ### Afficher le statut de l'intégration
 
 Depuis **Paramètres** → **Intégrations** → **Jira**, vous pouvez afficher :
+
 - L'URL de l'instance Jira connectée
 - L'adresse e-mail connectée
 - Les paramètres par défaut du projet et des tickets
-- Les tickets récents créés par JetScale
+- Les tickets récents créés par Jetscale
 - L'heure de la dernière vérification de connexion
 
 ### Tester la connexion
@@ -180,7 +205,7 @@ Pour vérifier que votre connexion Jira fonctionne :
 
 1. Accédez à **Paramètres** → **Intégrations** → **Jira**
 2. Cliquez sur **Tester la connexion**
-3. JetScale tentera de récupérer les projets et de vérifier l'accès à l'API
+3. Jetscale tentera de récupérer les projets et de vérifier l'accès à l'API
 
 ### Mettre à jour les identifiants
 
@@ -201,7 +226,8 @@ Pour supprimer l'intégration Jira :
 3. Confirmez la déconnexion
 
 **Important** : La déconnexion va :
-- Supprimer votre jeton API stocké de JetScale
+
+- Supprimer votre jeton API stocké de Jetscale
 - Arrêter la création automatique de tickets pour les nouvelles recommandations
 - Préserver les tickets Jira existants (ils restent dans votre projet Jira)
 
@@ -211,24 +237,28 @@ Pour supprimer l'intégration Jira :
 
 Une fois les tickets créés dans Jira :
 
-1. **Intégration du workflow** : Déplacez les tickets à travers votre workflow standard (À faire → En cours → Terminé)
-2. **Planification de sprint** : Ajoutez les tickets aux sprints pour la planification
+1. **Intégration du workflow** : Déplacez les tickets à travers votre workflow
+   standard (À faire → En cours → Terminé)
+2. **Planification de sprint** : Ajoutez les tickets aux sprints pour la
+   planification
 3. **Affectation d'équipe** : Assignez aux membres appropriés de l'équipe
-4. **Synchronisation du statut** : JetScale lit le statut des tickets pour suivre la progression de la mise en œuvre
+4. **Synchronisation du statut** : Jetscale lit le statut des tickets pour
+   suivre la progression de la mise en œuvre
 
 ### Liaison aux recommandations
 
 Chaque ticket Jira inclut :
-- Un lien direct vers la recommandation JetScale
+
+- Un lien direct vers la recommandation Jetscale
 - Un lien vers la pull request GitHub associée (si disponible)
 - Un lien vers la ressource AWS/Azure dans la console
 
-### Filtrage des tickets JetScale
+### Filtrage des tickets Jetscale
 
 Utilisez les requêtes JQL pour filtrer les tickets d'optimisation des coûts :
 
 ```jql
-# All JetScale issues
+# All Jetscale issues
 labels = jetscale
 
 # Open cost optimization issues
@@ -248,6 +278,7 @@ labels in (jetscale, rds)
 **Problème** : Erreur "Impossible de se connecter à Jira"
 
 **Solutions** :
+
 - Vérifiez que votre URL de serveur Jira est correcte (incluez `https://`)
 - Vérifiez que votre e-mail correspond à votre e-mail de compte Jira
 - Assurez-vous que le jeton API est valide et non expiré
@@ -259,60 +290,74 @@ labels in (jetscale, rds)
 **Problème** : Erreur "Projet sélectionné introuvable"
 
 **Solutions** :
+
 - Vérifiez que le projet existe et n'a pas été archivé
 - Confirmez que vous avez la permission de créer des tickets dans le projet
 - Vérifiez que la clé du projet est correcte (sensible à la casse)
-- Assurez-vous que le projet n'a pas été déplacé vers un espace de travail différent
+- Assurez-vous que le projet n'a pas été déplacé vers un espace de travail
+  différent
 
 ### Échec de la création du ticket
 
 **Problème** : Le ticket Jira n'a pas été créé pour la recommandation
 
 **Solutions** :
+
 - Vérifiez que le jeton API n'a pas expiré
 - Vérifiez que vous avez toujours les permissions dans le projet
 - Confirmez que le type de ticket existe dans le projet
 - Vérifiez que les champs personnalisés requis ne bloquent pas la création
-- Consultez les [limites de taux](https://developer.atlassian.com/cloud/jira/platform/rate-limiting/) de Jira
+- Consultez les
+  [limites de taux](https://developer.atlassian.com/cloud/jira/platform/rate-limiting/)
+  de Jira
 
 ### Champs personnalisés manquants
 
 **Problème** : Jira requiert des champs personnalisés qui ne sont pas remplis
 
 **Solutions** :
-- Configurez les valeurs par défaut des champs personnalisés dans les paramètres de votre projet Jira
+
+- Configurez les valeurs par défaut des champs personnalisés dans les paramètres
+  de votre projet Jira
 - Utilisez les règles d'automatisation Jira pour remplir les champs requis
 - Contactez votre administrateur Jira pour rendre les champs facultatifs
-- Créez un projet dédié pour JetScale avec un minimum de champs requis
+- Créez un projet dédié pour Jetscale avec un minimum de champs requis
 
 ## Bonnes pratiques
 
 ### Gestion des jetons API
 
-- **Créez un jeton dédié** pour JetScale
+- **Créez un jeton dédié** pour Jetscale
 - **Définissez l'expiration du jeton** selon votre politique de sécurité
 - **Renouvelez les jetons régulièrement** (tous les 90-180 jours)
 - **Révoquez immédiatement les jetons inutilisés**
 
 ### Organisation du projet
 
-- **Créez un projet dédié** pour les optimisations de coûts (par exemple, "Optimisation des coûts cloud")
-- **Utilisez des composants** pour catégoriser par type de service (RDS, EC2, EBS)
-- **Configurez des workflows personnalisés** pour le processus d'approbation des optimisations
+- **Créez un projet dédié** pour les optimisations de coûts (par exemple,
+  "Optimisation des coûts cloud")
+- **Utilisez des composants** pour catégoriser par type de service (RDS, EC2,
+  EBS)
+- **Configurez des workflows personnalisés** pour le processus d'approbation des
+  optimisations
 - **Configurez l'automatisation** pour notifier les équipes concernées
 
-### Gestion des tickets
+### Pratiques de gestion des tickets
 
 - **Utilisez les étiquettes de manière cohérente** pour un filtrage facile
 - **Créez des tableaux de bord** pour suivre les économies de coûts
-- **Liez aux épopées parentes** pour les initiatives trimestrielles de réduction des coûts
+- **Liez aux épopées parentes** pour les initiatives trimestrielles de réduction
+  des coûts
 - **Ajoutez le suivi du temps** pour mesurer l'effort de mise en œuvre
 
 ### Intégration avec CI/CD
 
-1. **Lier les tickets aux PR** : Connectez les tickets Jira aux PR GitHub en utilisant les clés de ticket dans les messages de commit
-2. **Règles d'automatisation** : Faites transiter automatiquement les tickets lorsque les PR sont fusionnées
-3. **Mises à jour de statut** : Utilisez l'automatisation Jira pour notifier les équipes lorsque les tickets sont prêts pour la mise en œuvre
+1. **Lier les tickets aux PR** : Connectez les tickets Jira aux PR GitHub en
+   utilisant les clés de ticket dans les messages de commit
+2. **Règles d'automatisation** : Faites transiter automatiquement les tickets
+   lorsque les PR sont fusionnées
+3. **Mises à jour de statut** : Utilisez l'automatisation Jira pour notifier les
+   équipes lorsque les tickets sont prêts pour la mise en œuvre
 
 ## Configuration avancée
 
@@ -320,16 +365,18 @@ labels in (jetscale, rds)
 
 Configurez des modèles de tickets Jira pour différents types de ressources :
 
-- **Optimisations RDS** : Incluez une liste de contrôle spécifique aux bases de données
+- **Optimisations RDS** : Incluez une liste de contrôle spécifique aux bases de
+  données
 - **Redimensionnement EC2** : Ajoutez des étapes de validation de calcul
 - **Modifications de volumes EBS** : Incluez la vérification des sauvegardes
-- **Modifications ElastiCache** : Ajoutez les procédures de préchauffage du cache
+- **Modifications ElastiCache** : Ajoutez les procédures de préchauffage du
+  cache
 
 ### Règles d'automatisation Jira
 
 Créez des règles d'automatisation dans Jira :
 
-```
+```text
 WHEN: Issue created with label "jetscale"
 THEN:
 - Add to "Cost Optimization" epic
@@ -343,11 +390,13 @@ THEN:
 Créez des filtres sauvegardés pour les requêtes courantes :
 
 **Optimisations à forte valeur** :
+
 ```jql
 project = DEVOPS AND labels = jetscale AND description ~ "savings > 1000"
 ```
 
 **Gains rapides** :
+
 ```jql
 project = DEVOPS AND labels = jetscale AND priority = High AND description ~ "Risk Level: Low"
 ```
@@ -356,20 +405,24 @@ project = DEVOPS AND labels = jetscale AND priority = High AND description ~ "Ri
 
 ### Sécurité des jetons API
 
-- JetScale chiffre les jetons API au repos en utilisant AES-256
-- Les jetons ne sont jamais enregistrés dans les journaux ou exposés dans les réponses API
+- Jetscale chiffre les jetons API au repos en utilisant AES-256
+- Les jetons ne sont jamais enregistrés dans les journaux ou exposés dans les
+  réponses API
 - Tous les appels API vers Jira utilisent HTTPS avec TLS 1.2+
-- Les jetons sont stockés séparément des données utilisateur avec un accès restreint
+- Les jetons sont stockés séparément des données utilisateur avec un accès
+  restreint
 
 ### Permissions
 
-JetScale requiert les permissions Jira suivantes :
+Jetscale requiert les permissions Jira suivantes :
+
 - **Browse Projects** : Afficher les détails du projet
 - **Create Issues** : Créer de nouveaux tickets
 - **View Issues** : Lire les détails des tickets
 - **Edit Issues** : Mettre à jour le statut des tickets (facultatif)
 
-JetScale ne peut pas :
+Jetscale ne peut pas :
+
 - Supprimer des tickets
 - Modifier les paramètres du projet
 - Accéder à d'autres projets sans permission
@@ -377,17 +430,20 @@ JetScale ne peut pas :
 
 ### Piste d'audit
 
-Chaque action effectuée par JetScale est enregistrée :
+Chaque action effectuée par Jetscale est enregistrée :
+
 - Tous les appels API Jira sont journalisés
 - La création de tickets est suivie par recommandation
 - Les tentatives échouées sont capturées avec les détails de l'erreur
-- Les journaux d'audit sont disponibles dans votre tableau de bord JetScale
+- Les journaux d'audit sont disponibles dans votre tableau de bord Jetscale
 
 ## Référence API
 
-Pour un accès programmatique à l'intégration Jira, consultez notre [Documentation API](../api-reference.md#jira-integration).
+Pour un accès programmatique à l'intégration Jira, consultez notre
+[Documentation API](../api-reference.md#jira-integration).
 
 Points de terminaison clés :
+
 - `POST /api/v2/integrations/jira/me/action/connect` - Connecter un compte Jira
 - `GET /api/v2/integrations/jira/projects` - Lister les projets accessibles
 - `POST /api/v2/integrations/jira/issues/action/create` - Créer un ticket
@@ -400,4 +456,5 @@ Besoin d'aide avec l'intégration Jira ?
 
 - **E-mail** : [support@jetscale.ai](mailto:support@jetscale.ai)
 - **Documentation** : [FAQ](../faq.md)
-- **GitHub Issues** : [Signaler un problème](https://github.com/Jetscale-ai/jetscale-docs/issues)
+- **GitHub Issues** :
+  [Signaler un problème](https://github.com/Jetscale-AI/jetscale-docs/issues)

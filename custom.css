@@ -1,8 +1,8 @@
-/* JetScale Documentation Custom Styles */
+/* Jetscale Documentation Custom Styles */
 /* Based on frontend colors from app.css */
 
 :root {
-  /* JetScale Brand Colors */
+  /* Jetscale Brand Colors */
   --jetscale-primary: #1c84ee;
   --jetscale-primary-dark: #0b355f;
   --jetscale-primary-light: #d2e6fc;
@@ -23,7 +23,7 @@
   --jetscale-font: "Wix Madefor Text", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
 }
 
-/* Override Docsify theme with JetScale colors */
+/* Override Docsify theme with Jetscale colors */
 body {
   font-family: var(--jetscale-font);
   color: var(--jetscale-gray-900);
@@ -33,6 +33,15 @@ body {
 .app-name-link {
   color: var(--jetscale-primary) !important;
   font-weight: 600;
+}
+
+.sidebar .app-name .docs-logo {
+  display: block;
+  height: 40px;
+  width: auto;
+  max-width: 100%;
+  margin-top: 8px;
+  margin-left: 15px;
 }
 
 .sidebar-nav a {
@@ -47,6 +56,11 @@ body {
   color: var(--jetscale-primary);
   font-weight: 600;
   border-right: 3px solid var(--jetscale-primary);
+}
+
+/* Docsify vue theme adds "-" before in-page TOC items only */
+.app-sub-sidebar li::before {
+  content: none;
 }
 
 /* Links */

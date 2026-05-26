@@ -1,36 +1,44 @@
 # Référence API
 
-> API REST publique pour les intégrations JetScale
+> API REST publique pour les intégrations Jetscale
 
 ## Vue d'ensemble
 
-L'API JetScale vous permet d'accéder de manière programmatique aux recommandations, aux données de coûts et aux fonctionnalités de la plateforme. Utilisez cette API pour créer des intégrations personnalisées, automatiser des workflows ou créer des tableaux de bord internes.
+L'API Jetscale vous permet d'accéder de manière programmatique aux
+recommandations, aux données de coûts et aux fonctionnalités de la plateforme.
+Utilisez cette API pour créer des intégrations personnalisées, automatiser des
+workflows ou créer des tableaux de bord internes.
 
 ### URL de base
 
-```
+```text
 Production: https://api.jetscale.ai/v1
 ```
 
 ### Disponible prochainement
-L'API publique JetScale est actuellement en version bêta. La documentation complète et l'accès seront disponibles au T2 2025.
 
-Un accès anticipé est disponible pour les clients Entreprise. Contactez [sales@jetscale.ai](mailto:sales@jetscale.ai) pour plus de détails.
+L'API publique Jetscale est actuellement en version bêta. La documentation
+complète et l'accès seront disponibles au T2 2025.
+
+Un accès anticipé est disponible pour les clients Entreprise. Contactez
+[sales@jetscale.ai](mailto:sales@jetscale.ai) pour plus de détails.
 
 ---
 
 ## Authentification
 
-L'API JetScale utilise des clés API pour l'authentification. Vous pouvez générer des clés API depuis les paramètres de votre compte.
+L'API Jetscale utilise des clés API pour l'authentification. Vous pouvez générer
+des clés API depuis les paramètres de votre compte.
 
-**Incluez votre clé API dans l'en-tête Authorization :**
+### Incluez votre clé API dans l'en-tête Authorization :
 
 ```bash
 curl https://api.jetscale.ai/v1/recommendations \
   -H "Authorization: Bearer YOUR_API_KEY"
 ```
 
-**Bonnes pratiques de sécurité :**
+#### Bonnes pratiques de sécurité :
+
 - Ne jamais exposer les clés API dans le code côté client
 - Effectuer une rotation régulière des clés
 - Utiliser des clés différentes pour différents environnements
@@ -40,15 +48,15 @@ curl https://api.jetscale.ai/v1/recommendations \
 
 ## Limites de débit
 
-| Forfait | Requêtes/Minute | Requêtes/Heure |
-|------|-----------------|---------------|
-| Free Trial | 30 | 500 |
-| Pro | 100 | 5,000 |
-| Enterprise | Personnalisé | Personnalisé |
+| Forfait    | Requêtes/Minute | Requêtes/Heure |
+| ---------- | --------------- | -------------- |
+| Free Trial | 30              | 500            |
+| Pro        | 100             | 5,000          |
+| Enterprise | Personnalisé    | Personnalisé   |
 
 Les informations de limite de débit sont incluses dans les en-têtes de réponse :
 
-```
+```text
 X-RateLimit-Limit: 100
 X-RateLimit-Remaining: 87
 X-RateLimit-Reset: 1706529600
@@ -62,7 +70,7 @@ Les points de terminaison suivants seront disponibles dans l'API publique :
 
 ### Recommendations
 
-```
+```text
 GET    /v1/recommendations          List all recommendations
 GET    /v1/recommendations/:id      Get recommendation details
 POST   /v1/recommendations/:id/approve   Approve recommendation
@@ -71,7 +79,7 @@ POST   /v1/recommendations/:id/reject    Reject recommendation
 
 ### Cloud Accounts
 
-```
+```text
 GET    /v1/accounts                 List connected cloud accounts
 GET    /v1/accounts/:id             Get account details
 POST   /v1/accounts                 Connect new cloud account
@@ -79,7 +87,7 @@ POST   /v1/accounts                 Connect new cloud account
 
 ### Cost Data
 
-```
+```text
 GET    /v1/costs/summary            Get cost summary
 GET    /v1/costs/trends             Get cost trends
 GET    /v1/savings                  Get realized savings
@@ -87,7 +95,7 @@ GET    /v1/savings                  Get realized savings
 
 ### Resources
 
-```
+```text
 GET    /v1/resources                List discovered resources
 GET    /v1/resources/:id            Get resource details
 ```
@@ -98,14 +106,15 @@ GET    /v1/resources/:id            Get resource details
 
 Enregistrez des webhooks pour recevoir des notifications en temps réel :
 
-**Événements :**
+### Événements :
+
 - `recommendation.created` - Nouvelle recommandation disponible
 - `recommendation.approved` - Recommandation approuvée
 - `recommendation.deployed` - Modifications déployées
 - `savings.milestone` - Jalon d'économies atteint
 - `account.connected` - Nouveau compte cloud connecté
 
-**Exemple de charge utile de webhook :**
+#### Exemple de charge utile de webhook :
 
 ```json
 {
@@ -125,16 +134,17 @@ Enregistrez des webhooks pour recevoir des notifications en temps réel :
 ## Bibliothèques SDK (Feuille de route)
 
 Des bibliothèques SDK officielles sont prévues pour :
+
 - Python
 - JavaScript/TypeScript
 - Go
 
-**Exemple d'utilisation (Python - Disponible prochainement) :**
+### Exemple d'utilisation (Python - Disponible prochainement) :
 
 ```python
-from jetscale import JetScaleClient
+from jetscale import JetscaleClient
 
-client = JetScaleClient(api_key="your_api_key")
+client = JetscaleClient(api_key="your_api_key")
 
 # Get recommendations
 recommendations = client.recommendations.list(
@@ -156,15 +166,17 @@ print(f"Total savings: ${summary['total_savings']}")
 
 ### Tableaux de bord personnalisés
 
-Créez des tableaux de bord internes à l'aide de l'API JetScale :
+Créez des tableaux de bord internes à l'aide de l'API Jetscale :
+
 - Extraire les données de recommandations
 - Afficher les tendances de coûts
 - Afficher les métriques d'économies
-- Intégrer les insights JetScale dans les outils existants
+- Intégrer les insights Jetscale dans les outils existants
 
 ### Workflows d'automatisation
 
 Automatisez l'optimisation des coûts :
+
 - Approuver automatiquement les recommandations à faible risque
 - Déclencher des déploiements basés sur des règles personnalisées
 - Envoyer des notifications Slack pour les nouvelles recommandations
@@ -173,6 +185,7 @@ Automatisez l'optimisation des coûts :
 ### Intégration avec CI/CD
 
 Intégrez l'optimisation des coûts dans votre pipeline de déploiement :
+
 - Vérifier les recommandations avant le déploiement
 - Bloquer les déploiements si les seuils de coûts sont dépassés
 - Implémenter automatiquement les optimisations approuvées
@@ -182,18 +195,21 @@ Intégrez l'optimisation des coûts dans votre pipeline de déploiement :
 
 ## Premiers pas
 
-**Accès bêta :**
+### Accès bêta :
 
-L'API JetScale est actuellement en version bêta privée. Pour demander l'accès :
+L'API Jetscale est actuellement en version bêta privée. Pour demander l'accès :
 
 1. **Contactez les ventes :** [sales@jetscale.ai](mailto:sales@jetscale.ai)
 2. **Décrivez votre cas d'usage :** Décrivez vos objectifs d'intégration
 3. **Recevez votre clé API :** Obtenez les identifiants d'accès bêta
-4. **Rejoignez le programme bêta :** Accédez à la documentation anticipée et au support
+4. **Rejoignez le programme bêta :** Accédez à la documentation anticipée et au
+   support
 
-**Clients Entreprise :**
+#### Clients Entreprise :
 
-Tous les clients avec un forfait Entreprise ont un accès complet à l'API. Contactez votre responsable de la réussite client pour :
+Tous les clients avec un forfait Entreprise ont un accès complet à l'API.
+Contactez votre responsable de la réussite client pour :
+
 - La génération de clés API
 - Des limites de débit personnalisées
 - Le support d'intégration
@@ -203,16 +219,19 @@ Tous les clients avec un forfait Entreprise ont un accès complet à l'API. Cont
 
 ## Support
 
-**Questions sur l'API ?**
-- Email : [api-support@jetscale.ai](mailto:api-support@jetscale.ai)
-- Problèmes de documentation : [Signaler ici](https://github.com/jetscale-ai/docs/issues)
-- Demandes de fonctionnalités : [Demander une fonctionnalité](https://jetscale.ai/feature-requests)
+### Questions sur l'API ?
 
-**Documentation connexe :**
-- [Comment fonctionne JetScale](how-it-works.md)
+- Email : [api-support@jetscale.ai](mailto:api-support@jetscale.ai)
+- Problèmes de documentation :
+  [Signaler ici](https://github.com/Jetscale-AI/docs/issues)
+- Demandes de fonctionnalités :
+  [Demander une fonctionnalité](https://jetscale.ai/feature-requests)
+
+#### Documentation connexe :
+
+- [Comment fonctionne Jetscale](how-it-works.md)
 - [Intégration GitHub](integrations/github.md)
 
 ---
 
-*Dernière mise à jour : 29 janvier 2025*
-*Version de l'API : 1.0 (Bêta)*
+Dernière mise à jour : 29 janvier 2025\_\_Version de l'API : 1.0 (Bêta)

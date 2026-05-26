@@ -1,15 +1,19 @@
 # Supported Services
 
-JetScale provides AI-powered cost optimization for the most critical cloud services across AWS and Azure.
+Jetscale provides AI-powered cost optimization for the most critical cloud
+services across AWS and Azure.
 
 ---
 
 ## AWS Services
 
 ### Amazon RDS (Relational Database Service)
-Optimize database instance sizes, storage configurations, and Reserved Instance purchases.
 
-**Optimization Areas:**
+Optimize database instance sizes, storage configurations, and Reserved Instance
+purchases.
+
+#### Optimization Areas:
+
 - Instance class right-sizing
 - Storage type optimization (gp2 → gp3)
 - Multi-AZ configuration review
@@ -21,9 +25,12 @@ Optimize database instance sizes, storage configurations, and Reserved Instance 
 ---
 
 ### Amazon EC2 (Elastic Compute Cloud)
-Right-size compute instances, identify idle resources, and optimize instance purchasing.
 
-**Optimization Areas:**
+Right-size compute instances, identify idle resources, and optimize instance
+purchasing.
+
+#### Optimization Areas:
+
 - Instance type and size recommendations
 - Idle instance detection
 - Graviton migration opportunities
@@ -35,9 +42,11 @@ Right-size compute instances, identify idle resources, and optimize instance pur
 ---
 
 ### Amazon EBS (Elastic Block Store)
+
 Optimize storage volumes with type recommendations and capacity adjustments.
 
-**Optimization Areas:**
+#### Optimization Areas:
+
 - Volume type optimization (gp2 → gp3)
 - IOPS and throughput tuning
 - Snapshot lifecycle management
@@ -49,9 +58,11 @@ Optimize storage volumes with type recommendations and capacity adjustments.
 ---
 
 ### Amazon ElastiCache
+
 Optimize Redis and Memcached clusters for cost and performance.
 
-**Optimization Areas:**
+#### Optimization Areas:
+
 - Node type right-sizing
 - Cluster configuration
 - Reserved Node recommendations
@@ -61,9 +72,12 @@ Optimize Redis and Memcached clusters for cost and performance.
 [Learn More →](services/elasticache.md)
 
 ### Amazon S3 (Simple Storage Service)
-Optimize storage costs with tiering, lifecycle policies, encryption tuning, and network routing improvements.
 
-**Optimization Areas:**
+Optimize storage costs with tiering, lifecycle policies, encryption tuning, and
+network routing improvements.
+
+#### Optimization Areas:
+
 - Intelligent-Tiering enablement
 - Lifecycle rule configuration (Standard → IA → Glacier → Deep Archive)
 - Bucket Key for KMS cost reduction
@@ -72,9 +86,12 @@ Optimize storage costs with tiering, lifecycle policies, encryption tuning, and 
 [Learn More →](services/s3.md)
 
 ### Amazon EKS (Elastic Kubernetes Service)
-Right-size node groups, migrate to Graviton, and optimize Spot capacity across your Kubernetes clusters.
 
-**Optimization Areas:**
+Right-size node groups, migrate to Graviton, and optimize Spot capacity across
+your Kubernetes clusters.
+
+#### Optimization Areas:
+
 - Node type right-sizing per node group
 - Graviton migration (ARM64) for 10-40% savings
 - Spot capacity for fault-tolerant workloads (60-90% savings)
@@ -86,9 +103,11 @@ Right-size node groups, migrate to Graviton, and optimize Spot capacity across y
 ## Azure Services
 
 ### Azure Virtual Machines
+
 Right-size VMs, optimize instance types, and leverage reserved capacity.
 
-**Optimization Areas:**
+#### Optimization Areas:
+
 - VM size recommendations
 - B-series burstable instances
 - Azure Reserved VM Instances
@@ -100,9 +119,11 @@ Right-size VMs, optimize instance types, and leverage reserved capacity.
 ---
 
 ### Azure SQL Database
+
 Optimize database tiers, DTU allocation, and elastic pool configurations.
 
-**Optimization Areas:**
+#### Optimization Areas:
+
 - Service tier recommendations
 - DTU and vCore sizing
 - Elastic pool optimization
@@ -118,6 +139,7 @@ Optimize database tiers, DTU allocation, and elastic pool configurations.
 We're actively developing support for additional services:
 
 ### AWS
+
 - **AWS Lambda** - Memory and timeout optimization
 - **Amazon DynamoDB** - Capacity mode recommendations
 - **Amazon ECS** - Container service right-sizing
@@ -125,6 +147,7 @@ We're actively developing support for additional services:
 - **Amazon CloudFront** - Distribution optimization
 
 ### Azure
+
 - **Azure Blob Storage** - Storage tier optimization
 - **Azure Functions** - Plan and memory optimization
 - **Azure Cosmos DB** - Throughput and capacity recommendations
@@ -136,12 +159,16 @@ We're actively developing support for additional services:
 
 ## How Service Analysis Works
 
-For each supported service, JetScale:
+For each supported service, Jetscale:
 
-1. **Discovers Resources**: Automatically identifies all instances across your cloud accounts
-2. **Collects Metrics**: Gathers historical usage data (CPU, memory, disk, network)
-3. **AI Analysis**: Specialized agents analyze patterns and identify optimization opportunities
-4. **Validates Safety**: Ensures recommendations maintain performance and availability
+1. **Discovers Resources**: Automatically identifies all instances across your
+   cloud accounts
+2. **Collects Metrics**: Gathers historical usage data (CPU, memory, disk,
+   network)
+3. **AI Analysis**: Specialized agents analyze patterns and identify
+   optimization opportunities
+4. **Validates Safety**: Ensures recommendations maintain performance and
+   availability
 5. **Generates Code**: Creates production-ready Terraform for implementation
 
 ---
@@ -164,8 +191,9 @@ Questions about supported services?
 
 - **Email**: [support@jetscale.ai](mailto:support@jetscale.ai)
 - **Documentation**: [FAQ](faq.md)
-- **Feature Requests**: [Request a service](https://github.com/Jetscale-ai/jetscale-docs/issues)
+- **Feature Requests**:
+  [Request a service](https://github.com/Jetscale-AI/jetscale-docs/issues)
 
 ---
 
-*© 2025 JetScale, Inc. All rights reserved.*
+_© 2025 Jetscale AI. All rights reserved._

@@ -1,15 +1,18 @@
 - Getting Started
+
   - [Home](/)
   - [Getting Started Guide](getting-started.md)
   - [AWS Setup](aws-setup.md)
   - [Azure Setup](azure-setup.md)
 
 - How It Works
-  - [How JetScale Works](how-it-works.md)
+
+  - [How Jetscale Works](how-it-works.md)
   - [AI-Powered Analysis](ai-analysis.md)
   - [Recommendation Workflow](recommendation-workflow.md)
 
 - Integrations
+
   - [Overview](integrations/README.md)
   - [GitHub](integrations/github.md)
   - [Jira](integrations/jira.md)
@@ -17,6 +20,7 @@
   - [Bitbucket](integrations/bitbucket.md)
 
 - Supported Services
+
   - [Overview](services/README.md)
   - AWS
     - [EBS](services/ebs.md)

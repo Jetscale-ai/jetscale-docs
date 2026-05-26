@@ -1,27 +1,38 @@
 # Recommendation Workflow
 
-> **Complete guide to JetScale's end-to-end cost optimization process**
+> **Complete guide to Jetscale's end-to-end cost optimization process**
 
 ## Overview
 
-JetScale's recommendation workflow is an intelligent, automated system that continuously identifies, validates, and implements cloud cost optimizations across your AWS and Azure environments. By combining multi-agent AI analysis with production-ready Infrastructure as Code (IaC), JetScale delivers verified savings while maintaining performance and SLA compliance.
+Jetscale's recommendation workflow is an intelligent, automated system that
+continuously identifies, validates, and implements cloud cost optimizations
+across your AWS and Azure environments. By combining multi-agent AI analysis
+with production-ready Infrastructure as Code (IaC), Jetscale delivers verified
+savings while maintaining performance and SLA compliance.
 
 ### Key Capabilities
 
-- **Automated Discovery**: Continuous scanning of cloud resources across AWS and Azure
-- **AI-Powered Analysis**: Multi-agent system processes usage patterns and cost data
-- **Validated Recommendations**: Performance and SLA impact assessment before implementation
+- **Automated Discovery**: Continuous scanning of cloud resources across AWS and
+  Azure
+- **AI-Powered Analysis**: Multi-agent system processes usage patterns and cost
+  data
+- **Validated Recommendations**: Performance and SLA impact assessment before
+  implementation
 - **Production-Ready IaC**: Automated Terraform generation for safe deployments
 - **GitOps Integration**: Seamless PR-based workflow with GitHub and Bitbucket
-- **End-to-End Tracking**: Jira integration for complete audit trail and savings verification
+- **End-to-End Tracking**: Jira integration for complete audit trail and savings
+  verification
 
 ### Workflow Phases
 
-The JetScale recommendation workflow consists of four major phases:
+The Jetscale recommendation workflow consists of four major phases:
 
-1. **Discovery & Collection** (Steps 1-3): Connect accounts, scan resources, collect metrics
-2. **Analysis & Validation** (Steps 4-6): AI processing, recommendation generation, SLA checks
-3. **Implementation Preparation** (Steps 7-8): Terraform generation, GitOps PR creation
+1. **Discovery & Collection** (Steps 1-3): Connect accounts, scan resources,
+   collect metrics
+2. **Analysis & Validation** (Steps 4-6): AI processing, recommendation
+   generation, SLA checks
+3. **Implementation Preparation** (Steps 7-8): Terraform generation, GitOps PR
+   creation
 4. **Execution & Tracking** (Steps 9-11): Review, apply changes, verify savings
 
 ---
@@ -33,7 +44,7 @@ sequenceDiagram
     autonumber
 
     participant User
-    participant JetScale UI
+    participant Jetscale UI
     participant AWS/Azure as Cloud Provider
     participant Discovery as Resource Discovery
     participant Metrics as Metrics Collection
@@ -48,48 +59,48 @@ sequenceDiagram
     %% Phase 1: Discovery & Collection
     Note over User,Jira: Phase 1: Discovery & Collection
 
-    User->>JetScale UI: Connect cloud account
-    JetScale UI->>AWS/Azure: Validate credentials & permissions
-    AWS/Azure-->>JetScale UI: Connection confirmed
+    User->>Jetscale UI: Connect cloud account
+    Jetscale UI->>AWS/Azure: Validate credentials & permissions
+    AWS/Azure-->>Jetscale UI: Connection confirmed
 
-    JetScale UI->>Discovery: Trigger resource scan
+    Jetscale UI->>Discovery: Trigger resource scan
     Discovery->>AWS/Azure: Query all resources (EC2, RDS, Lambda, etc)
     AWS/Azure-->>Discovery: Resource inventory
-    Discovery-->>JetScale UI: 1,247 resources discovered
+    Discovery-->>Jetscale UI: 1,247 resources discovered
 
-    JetScale UI->>Metrics: Start data collection
+    Jetscale UI->>Metrics: Start data collection
     Metrics->>AWS/Azure: Query CloudWatch/Azure Monitor (configurable period)
     Metrics->>AWS/Azure: Query Cost Explorer/Cost Management
     AWS/Azure-->>Metrics: Usage metrics + cost data
-    Metrics-->>JetScale UI: Metrics collected & stored
+    Metrics-->>Jetscale UI: Metrics collected & stored
 
     %% Phase 2: Analysis & Validation
     Note over User,Jira: Phase 2: Analysis & Validation
 
-    JetScale UI->>AI: Initiate analysis
+    Jetscale UI->>AI: Initiate analysis
     AI->>AI: Multi-agent processing<br/>(Pattern, Anomaly, Forecast agents)
     AI->>CostHub: Query AWS Cost Optimization Hub
     CostHub-->>AI: Native AWS recommendations
     AI->>AI: Generate custom recommendations<br/>(rightsizing, scheduling, reserved instances)
-    AI-->>JetScale UI: 47 recommendations (Est. $12,340/mo savings)
+    AI-->>Jetscale UI: 47 recommendations (Est. $12,340/mo savings)
 
-    JetScale UI->>Validator: Validate recommendations
+    Jetscale UI->>Validator: Validate recommendations
     Validator->>Metrics: Check performance impact
     Validator->>Validator: Run SLA compliance checks
-    Validator-->>JetScale UI: 45 recommendations approved<br/>2 flagged for review
+    Validator-->>Jetscale UI: 45 recommendations approved<br/>2 flagged for review
 
     %% Phase 3: Implementation Preparation
     Note over User,Jira: Phase 3: Implementation Preparation
 
-    User->>JetScale UI: Select recommendations to implement
-    JetScale UI->>Terraform: Generate IaC for 12 approved recs
+    User->>Jetscale UI: Select recommendations to implement
+    Jetscale UI->>Terraform: Generate IaC for 12 approved recs
     Terraform->>Terraform: Create production-ready Terraform<br/>(state management, variables, outputs)
-    Terraform-->>JetScale UI: Terraform code generated
+    Terraform-->>Jetscale UI: Terraform code generated
 
-    JetScale UI->>Git: Create PR with Terraform changes
-    Git-->>JetScale UI: PR #234 created
-    JetScale UI->>Jira: Create implementation ticket
-    Jira-->>JetScale UI: JETSCALE-567 created
+    Jetscale UI->>Git: Create PR with Terraform changes
+    Git-->>Jetscale UI: PR #234 created
+    Jetscale UI->>Jira: Create implementation ticket
+    Jira-->>Jetscale UI: JETSCALE-567 created
 
     %% Phase 4: Execution & Tracking
     Note over User,Jira: Phase 4: Execution & Tracking
@@ -98,18 +109,18 @@ sequenceDiagram
     Reviewer->>Git: Review Terraform changes
     Reviewer->>Git: Approve PR
 
-    User->>JetScale UI: Apply Terraform
-    JetScale UI->>Terraform: Execute terraform apply
+    User->>Jetscale UI: Apply Terraform
+    Jetscale UI->>Terraform: Execute terraform apply
     Terraform->>AWS/Azure: Provision optimized resources
     AWS/Azure-->>Terraform: Changes applied successfully
-    Terraform-->>JetScale UI: Implementation complete
+    Terraform-->>Jetscale UI: Implementation complete
 
-    JetScale UI->>Metrics: Monitor post-implementation
+    Jetscale UI->>Metrics: Monitor post-implementation
     Metrics->>AWS/Azure: Collect new usage/cost data
     AWS/Azure-->>Metrics: Updated metrics
-    Metrics-->>JetScale UI: Savings verified: $11,890/mo actual
+    Metrics-->>Jetscale UI: Savings verified: $11,890/mo actual
 
-    JetScale UI->>Jira: Update ticket with results
+    Jetscale UI->>Jira: Update ticket with results
     Jira-->>User: Implementation complete notification
 ```
 
@@ -126,19 +137,20 @@ sequenceDiagram
 1. Navigate to **Settings > Cloud Accounts**
 2. Click **Add Account** and select provider (AWS or Azure)
 3. Follow provider-specific setup:
-   - **AWS**: Create IAM role with JetScale trust policy, provide Role ARN
+   - **AWS**: Create IAM role with Jetscale trust policy, provide Role ARN
    - **Azure**: Register app, grant Subscription Reader + Cost Management Reader
-4. JetScale validates credentials and permissions
+4. Jetscale validates credentials and permissions
 5. Account appears in dashboard with "Connected" status
 
 **Required Permissions**:
 
-- **AWS**: ReadOnlyAccess, CostExplorerReadOnly, TrustedAdvisor:Describe*
+- **AWS**: ReadOnlyAccess, CostExplorerReadOnly, TrustedAdvisor:Describe\*
 - **Azure**: Reader, Cost Management Reader
 
 **Timeline**: 5-10 minutes
 
 **Related Documentation**:
+
 - [AWS Setup Guide](aws-setup.md)
 - [Azure Setup Guide](azure-setup.md)
 
@@ -151,7 +163,7 @@ sequenceDiagram
 **Process**:
 
 1. Automated scan initiates immediately after account connection
-2. JetScale queries cloud provider APIs to discover:
+2. Jetscale queries cloud provider APIs to discover:
    - **Compute**: EC2, Azure VMs, Lambda, App Service
    - **Storage**: EBS, S3, Azure Storage, managed disks
    - **Databases**: RDS, DynamoDB, Cosmos DB, SQL Database
@@ -163,14 +175,14 @@ sequenceDiagram
 **Discovery Scope**:
 
 - All regions enabled in your account
-- All resource types supported by JetScale (100+ AWS, 80+ Azure)
+- All resource types supported by Jetscale (100+ AWS, 80+ Azure)
 - Resources in all subscription levels (free tier to enterprise)
 
 **Timeline**: 5-30 minutes (varies by account size)
 
 **Output Example**:
 
-```
+```text
 ✓ Discovered 1,247 resources across 3 accounts
   - 342 EC2 instances
   - 89 RDS databases
@@ -189,7 +201,7 @@ sequenceDiagram
 
 **Process**:
 
-1. JetScale begins continuous metric collection:
+1. Jetscale begins continuous metric collection:
    - **CloudWatch/Azure Monitor**: CPU, memory, network, disk I/O
    - **Cost Explorer/Cost Management**: Daily cost breakdowns
    - **Service-specific metrics**: Lambda invocations, RDS connections, etc.
@@ -199,13 +211,13 @@ sequenceDiagram
 
 **Metrics Collected**:
 
-| Resource Type | Key Metrics |
-|---------------|-------------|
-| EC2/VM | CPU utilization, memory, network I/O, disk I/O |
-| RDS/SQL | Connections, CPU, storage, IOPS, read/write latency |
-| Lambda | Invocations, duration, memory usage, errors |
-| EBS/Disk | IOPS, throughput, volume type |
-| S3/Storage | Requests, data transfer, storage class usage |
+| Resource Type | Key Metrics                                         |
+| ------------- | --------------------------------------------------- |
+| EC2/VM        | CPU utilization, memory, network I/O, disk I/O      |
+| RDS/SQL       | Connections, CPU, storage, IOPS, read/write latency |
+| Lambda        | Invocations, duration, memory usage, errors         |
+| EBS/Disk      | IOPS, throughput, volume type                       |
+| S3/Storage    | Requests, data transfer, storage class usage        |
 
 **Timeline**: Continuous (initial baseline: 24-48 hours)
 
@@ -217,21 +229,25 @@ sequenceDiagram
 
 ### Step 4: AI Analysis
 
-**Objective**: Process metrics using multi-agent AI system to identify optimization opportunities
+**Objective**: Process metrics using multi-agent AI system to identify
+optimization opportunities
 
 **Process**:
 
 1. **Pattern Recognition Agent**:
+
    - Analyzes usage trends over time
    - Identifies idle/underutilized resources
    - Detects recurring patterns (e.g., weekend shutdowns)
 
 2. **Anomaly Detection Agent**:
+
    - Flags unusual spikes or drops in usage
    - Identifies resources with erratic performance
    - Detects potential misconfigurations
 
 3. **Forecasting Agent**:
+
    - Predicts future usage based on historical data
    - Models seasonal variations
    - Estimates cost trajectory
@@ -274,12 +290,14 @@ graph LR
 **Process**:
 
 1. **Native Recommendations**:
+
    - Query AWS Cost Optimization Hub (EC2, RDS, EBS, Lambda)
    - Fetch Azure Advisor recommendations
    - Parse and normalize recommendations
 
 2. **Custom Recommendations**:
-   - Generate JetScale-specific optimizations:
+
+   - Generate Jetscale-specific optimizations:
      - **Rightsizing**: Instance type changes based on usage
      - **Scheduling**: Stop/start patterns for dev/test resources
      - **Reserved Instances**: Commitment recommendations
@@ -294,14 +312,14 @@ graph LR
 
 **Recommendation Categories**:
 
-| Category | Examples | Typical Savings |
-|----------|----------|----------------|
-| Rightsizing | Downsize overprovisioned instances | 30-50% per resource |
-| Scheduling | Stop non-prod resources off-hours | 60-75% for scheduled |
-| Commitment | Reserved Instances, Savings Plans | 30-70% long-term |
-| Storage | S3 lifecycle, EBS type changes | 40-80% on storage |
-| Serverless | Migrate to Lambda/Functions | 70-90% for low-traffic |
-| Cleanup | Delete unused resources | 100% per resource |
+| Category    | Examples                           | Typical Savings        |
+| ----------- | ---------------------------------- | ---------------------- |
+| Rightsizing | Downsize overprovisioned instances | 30-50% per resource    |
+| Scheduling  | Stop non-prod resources off-hours  | 60-75% for scheduled   |
+| Commitment  | Reserved Instances, Savings Plans  | 30-70% long-term       |
+| Storage     | S3 lifecycle, EBS type changes     | 40-80% on storage      |
+| Serverless  | Migrate to Lambda/Functions        | 70-90% for low-traffic |
+| Cleanup     | Delete unused resources            | 100% per resource      |
 
 **Timeline**: 10-20 minutes
 
@@ -326,17 +344,20 @@ Evidence: [CloudWatch metrics attached]
 
 ### Step 6: Validation
 
-**Objective**: Verify recommendations won't negatively impact performance or SLAs
+**Objective**: Verify recommendations won't negatively impact performance or
+SLAs
 
 **Process**:
 
 1. **Performance Impact Assessment**:
+
    - Simulate recommended changes against historical load
    - Model peak usage scenarios
    - Calculate performance degradation risk
    - Check against defined thresholds (e.g., CPU <80%)
 
 2. **SLA Compliance Check**:
+
    - Verify against user-defined SLAs:
      - Response time requirements
      - Availability targets (99.9%, 99.99%)
@@ -344,6 +365,7 @@ Evidence: [CloudWatch metrics attached]
    - Flag recommendations that risk SLA violations
 
 3. **Dependency Analysis**:
+
    - Check for resource dependencies
    - Identify cascading impacts (e.g., scaling groups)
    - Validate network/security group changes
@@ -356,19 +378,19 @@ Evidence: [CloudWatch metrics attached]
 
 **Validation Rules**:
 
-| Check | Threshold | Action if Failed |
-|-------|-----------|------------------|
-| CPU headroom | >20% capacity | Flag for review |
-| Memory headroom | >15% capacity | Flag for review |
-| Peak load handling | Must handle 99th percentile | Block recommendation |
-| Availability impact | SLA maintained | Block recommendation |
-| Rollback feasibility | Must be reversible <5 min | Flag for review |
+| Check                | Threshold                   | Action if Failed     |
+| -------------------- | --------------------------- | -------------------- |
+| CPU headroom         | >20% capacity               | Flag for review      |
+| Memory headroom      | >15% capacity               | Flag for review      |
+| Peak load handling   | Must handle 99th percentile | Block recommendation |
+| Availability impact  | SLA maintained              | Block recommendation |
+| Rollback feasibility | Must be reversible <5 min   | Flag for review      |
 
 **Timeline**: 5-10 minutes per recommendation
 
 **Output**:
 
-```
+```text
 ✓ 45 recommendations validated and approved
 ⚠ 2 recommendations flagged for manual review:
   - REC-2024-018: May impact peak load (review metrics)
@@ -382,22 +404,26 @@ Evidence: [CloudWatch metrics attached]
 
 ### Step 7: Terraform Generation
 
-**Objective**: Create production-ready Infrastructure as Code for approved recommendations
+**Objective**: Create production-ready Infrastructure as Code for approved
+recommendations
 
 **Process**:
 
 1. **Code Generation**:
+
    - Convert recommendations to Terraform HCL
    - Generate modules for each resource type
    - Include variables for environment-specific values
    - Add outputs for tracking and verification
 
 2. **State Management**:
+
    - Configure remote state backend (S3/Azure Storage)
    - Set up state locking (DynamoDB/Azure Storage)
    - Include workspace configuration for multi-env
 
 3. **Safety Features**:
+
    - Add `prevent_destroy` lifecycle rules for critical resources
    - Include `create_before_destroy` for zero-downtime changes
    - Generate plan files for review
@@ -410,7 +436,7 @@ Evidence: [CloudWatch metrics attached]
 
 **Terraform Structure**:
 
-```
+```text
 jetscale-optimizations/
 ├── main.tf                 # Primary resource definitions
 ├── variables.tf            # Input variables
@@ -438,8 +464,8 @@ resource "aws_instance" "prod_web_server_01" {
 
   tags = {
     Name                  = "prod-web-server-01"
-    JetScaleRecommendation = "REC-2024-001"
-    JetScaleSavings       = "62.04"
+    JetscaleRecommendation = "REC-2024-001"
+    JetscaleSavings       = "62.04"
   }
 }
 
@@ -461,18 +487,20 @@ output "optimized_instances" {
 
 ---
 
-### Step 8: GitOps Integration
+## Step 8: GitOps Integration
 
 **Objective**: Create pull requests in version control for team review
 
 **Process**:
 
 1. **Repository Setup** (one-time):
+
    - Connect GitHub or Bitbucket account
    - Select target repository
    - Configure branch strategy (e.g., `jetscale/optimizations/*`)
 
 2. **PR Creation**:
+
    - Create feature branch from main/master
    - Commit Terraform code with descriptive message
    - Generate PR with detailed description:
@@ -483,7 +511,7 @@ output "optimized_instances" {
    - Add reviewers automatically (configurable)
 
 3. **PR Metadata**:
-   - Link to JetScale recommendation dashboard
+   - Link to Jetscale recommendation dashboard
    - Attach cost analysis charts
    - Include before/after resource configurations
    - Add CI/CD workflow for terraform plan
@@ -491,48 +519,58 @@ output "optimized_instances" {
 **PR Description Template**:
 
 ```markdown
-## JetScale Cost Optimization PR
+## Jetscale Cost Optimization PR
 
 ### Summary
-This PR implements 12 JetScale recommendations with estimated savings of **$2,847/month**.
+
+This PR implements 12 Jetscale recommendations with estimated savings of
+**$2,847/month**.
 
 ### Recommendations Included
+
 - **6x Rightsizing**: Downsize overprovisioned EC2 instances
 - **3x Scheduling**: Implement stop/start for dev resources
 - **2x Storage**: Optimize EBS volume types
 - **1x Cleanup**: Remove unused snapshots
 
 ### Validation Status
-✓ All recommendations passed SLA compliance checks
-✓ Performance impact modeled and acceptable
-✓ Rollback procedures documented
+
+✓ All recommendations passed SLA compliance checks ✓ Performance impact modeled
+and acceptable ✓ Rollback procedures documented
 
 ### Expected Impact
+
 - **Monthly Savings**: $2,847
 - **Annual Savings**: $34,164
 - **Affected Resources**: 12
 - **Risk Level**: Low
 
 ### Testing
+
 - [x] `terraform validate` passed
 - [x] `terraform plan` reviewed
 - [ ] Peer review required
 
 ### Rollback Plan
-If you need to rollback a change, you can revert the Terraform changes and apply the previous configuration. Monitor your metrics closely during and after rollback to ensure services return to expected performance levels.
+
+If you need to rollback a change, you can revert the Terraform changes and apply
+the previous configuration. Monitor your metrics closely during and after
+rollback to ensure services return to expected performance levels.
 
 ---
-**Generated by JetScale** | [View in Dashboard](https://app.jetscale.ai/recommendations/batch-2024-001)
+
+**Generated by Jetscale** |
+[View in Dashboard](https://app.jetscale.ai/recommendations/batch-2024-001)
 ```
 
 **GitHub Actions Workflow** (auto-added):
 
 ```yaml
-name: JetScale Terraform Plan
+name: Jetscale Terraform Plan
 on:
   pull_request:
     paths:
-      - '**.tf'
+      - "**.tf"
 
 jobs:
   plan:
@@ -569,20 +607,23 @@ jobs:
 **User Experience**:
 
 1. **Notification**:
+
    - Team receives GitHub/Bitbucket notification
-   - JetScale dashboard shows "Pending Review" status
+   - Jetscale dashboard shows "Pending Review" status
    - Email/Slack alerts sent (if configured)
 
 2. **Review Process**:
+
    - Reviewer opens PR in GitHub/Bitbucket
    - Examines Terraform plan output
-   - Checks JetScale dashboard for detailed metrics
+   - Checks Jetscale dashboard for detailed metrics
    - Reviews cost/benefit analysis
    - Verifies rollback procedures
 
 3. **Approval Options**:
+
    - **Approve**: Ready for implementation
-   - **Request Changes**: Flag issues, JetScale regenerates
+   - **Request Changes**: Flag issues, Jetscale regenerates
    - **Comment**: Ask questions, request additional validation
    - **Reject**: Close PR if recommendation no longer applicable
 
@@ -604,9 +645,9 @@ jobs:
 
 **Timeline**: 1-3 business days (team-dependent)
 
-**JetScale Dashboard View**:
+**Jetscale Dashboard View**:
 
-```
+```text
 Recommendation Batch #2024-001
 Status: Awaiting Approval
 PR: github.com/yourorg/infra/pull/234
@@ -627,20 +668,23 @@ Risk: Low
 **Process**:
 
 1. **Pre-Implementation**:
+
    - PR merged to main branch
-   - JetScale detects merge event
-   - User clicks "Apply" in JetScale dashboard
+   - Jetscale detects merge event
+   - User clicks "Apply" in Jetscale dashboard
    - Final confirmation dialog with change summary
 
 2. **Terraform Execution**:
-   - JetScale clones repository
+
+   - Jetscale clones repository
    - Runs `terraform init` with remote backend
    - Executes `terraform apply` with approved plan
-   - Streams output to JetScale dashboard (real-time)
+   - Streams output to Jetscale dashboard (real-time)
    - Captures success/failure status
 
 3. **Change Tracking**:
-   - Resources modified are tagged with JetScale metadata
+
+   - Resources modified are tagged with Jetscale metadata
    - Before/after snapshots stored
    - Implementation logs saved for audit
    - Cost baseline updated for savings tracking
@@ -653,16 +697,16 @@ Risk: Low
 
 **Implementation Modes**:
 
-| Mode | Description | Use Case |
-|------|-------------|----------|
-| **Standard** | Apply all changes in single operation | Low-risk, small batches |
-| **Staged** | Apply in groups with verification between | Medium-risk, large batches |
+| Mode           | Description                                | Use Case                   |
+| -------------- | ------------------------------------------ | -------------------------- |
+| **Standard**   | Apply all changes in single operation      | Low-risk, small batches    |
+| **Staged**     | Apply in groups with verification between  | Medium-risk, large batches |
 | **Blue-Green** | Create new resources before destroying old | Zero-downtime requirements |
-| **Canary** | Apply to subset, monitor, then expand | High-risk changes |
+| **Canary**     | Apply to subset, monitor, then expand      | High-risk changes          |
 
 **Real-Time Dashboard Output**:
 
-```
+```text
 [12:34:56] Terraform initialized successfully
 [12:35:02] Planning changes...
 [12:35:08] Plan complete: 12 to change, 0 to add, 0 to destroy
@@ -689,18 +733,21 @@ Risk: Low
 **Process**:
 
 1. **Immediate Monitoring** (First 24 hours):
+
    - Track resource health metrics
    - Alert on performance degradation
    - Monitor error rates and latency
    - Verify resources running as expected
 
 2. **Jira Integration**:
+
    - Create implementation ticket automatically
-   - Link to PR and JetScale recommendation
+   - Link to PR and Jetscale recommendation
    - Update status as changes progress
    - Close ticket when verification complete
 
 3. **Savings Verification** (verification period):
+
    - Compare actual costs vs. baseline
    - Calculate realized savings
    - Identify variance (actual vs. estimated)
@@ -714,13 +761,13 @@ Risk: Low
 
 **Jira Ticket Example**:
 
-```
-Title: [JetScale] Cost Optimization Batch #2024-001
+```text
+Title: [Jetscale] Cost Optimization Batch #2024-001
 Type: Task
 Status: Done
 
 Description:
-Implemented 12 JetScale cost optimization recommendations.
+Implemented 12 Jetscale cost optimization recommendations.
 
 Details:
 - PR: github.com/yourorg/infra/pull/234
@@ -739,7 +786,7 @@ Savings Breakdown:
 
 **Dashboard Savings View**:
 
-```
+```text
 ┌─────────────────────────────────────────────────┐
 │ Batch #2024-001 Savings Verification           │
 ├─────────────────────────────────────────────────┤
@@ -764,6 +811,7 @@ Savings Breakdown:
 - **<80% accuracy**: Investigate discrepancies, adjust models
 
 **Timeline**:
+
 - Jira ticket creation: Immediate
 - Initial health check: 24 hours
 - Savings verification: Verification period
@@ -776,13 +824,14 @@ Savings Breakdown:
 
 ### Dashboard Overview
 
-The JetScale dashboard provides a unified view of the entire recommendation lifecycle.
+The Jetscale dashboard provides a unified view of the entire recommendation
+lifecycle.
 
 **Main Dashboard**:
 
-```
+```text
 ┌──────────────────────────────────────────────────────────────┐
-│ JetScale Dashboard                                           │
+│ Jetscale Dashboard                                           │
 ├──────────────────────────────────────────────────────────────┤
 │                                                              │
 │  Active Recommendations                  47                 │
@@ -805,7 +854,7 @@ The JetScale dashboard provides a unified view of the entire recommendation life
 
 Clicking on any recommendation shows detailed analysis:
 
-```
+```text
 ┌──────────────────────────────────────────────────────────────┐
 │ Recommendation REC-2024-001                                  │
 ├──────────────────────────────────────────────────────────────┤
@@ -847,9 +896,9 @@ Clicking on any recommendation shows detailed analysis:
 
 Users can select multiple recommendations and implement them together:
 
-**Step 1: Filter & Select**
+#### Step 1: Filter & Select
 
-```
+```text
 Filters: [All Types ▼] [All Risk Levels ▼] [Min Savings: $50]
 
 ☑ Select All (12 recommendations)
@@ -863,9 +912,9 @@ Filters: [All Types ▼] [All Risk Levels ▼] [Min Savings: $50]
 [Generate Terraform] [Export Report]
 ```
 
-**Step 2: Review Generated Code**
+##### Step 2: Review Generated Code
 
-```
+```text
 ✓ Terraform code generated successfully
 
 Files created:
@@ -877,9 +926,9 @@ Files created:
 [Preview Code] [Download ZIP] [Create PR]
 ```
 
-**Step 3: Create PR**
+##### Step 3: Create PR
 
-```
+```text
 Create Pull Request
 
 Repository: yourorg/infrastructure ▼
@@ -887,7 +936,7 @@ Base Branch: main ▼
 New Branch: jetscale/batch-2024-001
 
 Title: [Auto-generated ▼]
-[JetScale] Cost optimization batch #2024-001
+[Jetscale] Cost optimization batch #2024-001
 
 Reviewers:
 ☑ alice@company.com
@@ -896,9 +945,9 @@ Reviewers:
 [Create Pull Request]
 ```
 
-**Step 4: Monitor Implementation**
+##### Step 4: Monitor Implementation
 
-```
+```text
 Batch #2024-001 Status
 
 Status: Applying Changes...
@@ -920,7 +969,8 @@ Recent Events:
 
 ### Multi-Agent Architecture
 
-JetScale employs a coordinated system of specialized AI agents, each responsible for specific aspects of the recommendation workflow.
+Jetscale employs a coordinated system of specialized AI agents, each responsible
+for specific aspects of the recommendation workflow.
 
 ```mermaid
 graph TB
@@ -976,7 +1026,8 @@ graph TB
 
 #### Data Collection Layer
 
-**Data Collector Agent**
+##### Data Collector Agent
+
 - **Purpose**: Continuously gather metrics from cloud providers
 - **Inputs**: Cloud account credentials, resource inventory
 - **Outputs**: Time-series metrics database
@@ -987,17 +1038,20 @@ graph TB
 
 #### Analysis Layer
 
-**Pattern Recognition Agent**
+##### Pattern Recognition Agent
+
 - **Purpose**: Identify usage patterns and trends
 - **Inputs**: Historical metric data per resource
-- **Outputs**: Pattern classifications (idle, underutilized, stable, variable, bursty)
+- **Outputs**: Pattern classifications (idle, underutilized, stable, variable,
+  bursty)
 - **Model**: LSTM neural network + clustering
 - **Key Insights**:
   - Detects "always idle" resources (avg utilization <5%)
   - Identifies time-of-day patterns (e.g., business hours only)
   - Recognizes seasonal trends (monthly/quarterly cycles)
 
-**Anomaly Detection Agent**
+##### Anomaly Detection Agent
+
 - **Purpose**: Flag unusual resource behavior
 - **Inputs**: Real-time metrics + historical baseline
 - **Outputs**: Anomaly scores (0-100) + root cause hints
@@ -1007,7 +1061,8 @@ graph TB
   - Flags resources with erratic behavior
   - Identifies potential misconfigurations
 
-**Forecasting Agent**
+##### Forecasting Agent
+
 - **Purpose**: Predict future usage and costs
 - **Inputs**: Historical metrics + external factors (seasonality, growth)
 - **Outputs**: Future forecasts with confidence intervals
@@ -1017,7 +1072,8 @@ graph TB
   - Forecasts scaling requirements
   - Estimates long-term commitment savings
 
-**Optimization Agent**
+##### Optimization Agent
+
 - **Purpose**: Generate optimization recommendations
 - **Inputs**: Outputs from Pattern, Anomaly, Forecasting agents
 - **Outputs**: Ranked list of recommendations with savings estimates
@@ -1031,7 +1087,8 @@ graph TB
 
 #### Validation Layer
 
-**Validation Agent**
+##### Validation Agent
+
 - **Purpose**: Verify recommendations won't degrade performance
 - **Inputs**: Recommendations + historical metrics
 - **Outputs**: Validation status (approved/flagged/blocked) + risk score
@@ -1041,7 +1098,8 @@ graph TB
   - Verifies headroom (CPU/memory) meets thresholds
   - Checks rollback feasibility
 
-**SLA Checker Agent**
+##### SLA Checker Agent
+
 - **Purpose**: Ensure SLA compliance
 - **Inputs**: Recommendations + user-defined SLAs
 - **Outputs**: SLA impact assessment (pass/fail per SLA metric)
@@ -1055,7 +1113,8 @@ graph TB
 
 #### Generation Layer
 
-**Code Generation Agent**
+##### Code Generation Agent
+
 - **Purpose**: Generate production-ready Terraform code
 - **Inputs**: Approved recommendations
 - **Outputs**: Terraform HCL files (main, variables, outputs, backend)
@@ -1065,7 +1124,8 @@ graph TB
   - Generates modules for reusability
   - Adds comments and documentation
 
-**IaC Validation Agent**
+##### IaC Validation Agent
+
 - **Purpose**: Validate generated Terraform code
 - **Inputs**: Terraform files
 - **Outputs**: Validation report (syntax, best practices, security)
@@ -1079,7 +1139,8 @@ graph TB
 
 #### Execution Layer
 
-**GitOps Agent**
+##### GitOps Agent
+
 - **Purpose**: Manage Git workflow (PR creation, CI/CD setup)
 - **Inputs**: Terraform code + target repository
 - **Outputs**: Pull request with CI/CD checks
@@ -1089,7 +1150,8 @@ graph TB
   - Sets up GitHub Actions / Bitbucket Pipelines
   - Adds reviewers and labels automatically
 
-**Execution Monitor Agent**
+##### Execution Monitor Agent
+
 - **Purpose**: Watch Terraform apply and detect issues
 - **Inputs**: Real-time Terraform output stream
 - **Outputs**: Alerts on errors, rollback triggers
@@ -1099,7 +1161,8 @@ graph TB
   - Resource creation/destruction tracking
   - Error log aggregation
 
-**Cost Tracking Agent**
+##### Cost Tracking Agent
+
 - **Purpose**: Verify actual savings post-implementation
 - **Inputs**: Pre/post implementation cost data
 - **Outputs**: Savings verification report
@@ -1176,11 +1239,13 @@ sequenceDiagram
 ### GitHub Integration
 
 **Setup**:
-1. Install JetScale GitHub App from GitHub Marketplace
+
+1. Install Jetscale GitHub App from GitHub Marketplace
 2. Grant permissions: Repository (read/write), Pull Requests (read/write)
-3. Configure in JetScale dashboard: **Settings > Integrations > GitHub**
+3. Configure in Jetscale dashboard: **Settings > Integrations > GitHub**
 
 **Features**:
+
 - Automatic PR creation with detailed descriptions
 - Terraform plan output as PR comments
 - CI/CD workflow setup (GitHub Actions)
@@ -1188,6 +1253,7 @@ sequenceDiagram
 - Auto-merge capability (optional)
 
 **GitHub App Permissions**:
+
 - `contents`: Read & Write (clone repo, commit code)
 - `pull_requests`: Read & Write (create PRs, add reviewers)
 - `checks`: Read & Write (add status checks)
@@ -1202,11 +1268,13 @@ sequenceDiagram
 ### Bitbucket Integration
 
 **Setup**:
+
 1. Create Bitbucket App Password with: Repository (read/write), PR (read/write)
-2. Configure in JetScale: **Settings > Integrations > Bitbucket**
+2. Configure in Jetscale: **Settings > Integrations > Bitbucket**
 3. Provide repository URL and credentials
 
 **Features**:
+
 - PR creation with custom templates
 - Terraform plan as PR comment
 - Bitbucket Pipelines integration
@@ -1219,7 +1287,7 @@ sequenceDiagram
 ```yaml
 pipelines:
   pull-requests:
-    '**':
+    "**":
       - step:
           name: Terraform Plan
           image: hashicorp/terraform:latest
@@ -1234,31 +1302,34 @@ pipelines:
 ### Jira Integration
 
 **Setup**:
+
 1. Create Jira API token
-2. Configure in JetScale: **Settings > Integrations > Jira**
+2. Configure in Jetscale: **Settings > Integrations > Jira**
 3. Provide: Jira URL, email, API token, project key
 
 **Features**:
+
 - Automatic ticket creation for implementations
-- Links to PRs and JetScale recommendations
+- Links to PRs and Jetscale recommendations
 - Status updates (To Do → In Progress → Done)
 - Savings tracking in ticket description
 - Custom fields for cost metadata
 
 **Jira Ticket Fields**:
 
-| Field | Type | Value |
-|-------|------|-------|
-| Summary | Text | `[JetScale] Cost Optimization Batch #2024-001` |
-| Description | Markdown | PR link, savings, resource list |
-| Issue Type | Task/Story | Configurable |
-| Priority | Medium/High | Based on savings amount |
-| Labels | Text[] | `jetscale`, `cost-optimization`, `terraform` |
-| Custom: Est. Savings | Number | `2847` |
-| Custom: Actual Savings | Number | `2789` (updated after verification) |
-| Custom: Resources | Number | `12` |
+| Field                  | Type        | Value                                          |
+| ---------------------- | ----------- | ---------------------------------------------- |
+| Summary                | Text        | `[Jetscale] Cost Optimization Batch #2024-001` |
+| Description            | Markdown    | PR link, savings, resource list                |
+| Issue Type             | Task/Story  | Configurable                                   |
+| Priority               | Medium/High | Based on savings amount                        |
+| Labels                 | Text[]      | `jetscale`, `cost-optimization`, `terraform`   |
+| Custom: Est. Savings   | Number      | `2847`                                         |
+| Custom: Actual Savings | Number      | `2789` (updated after verification)            |
+| Custom: Resources      | Number      | `12`                                           |
 
 **Automation Rules** (configured in Jira):
+
 - When PR merged → Transition to "In Progress"
 - When implementation complete → Transition to "Done"
 - When savings verified → Add comment with results
@@ -1268,11 +1339,13 @@ pipelines:
 ### Slack/Teams Integration (Optional)
 
 **Setup**:
-1. Install JetScale Slack app or Teams connector
+
+1. Install Jetscale Slack app or Teams connector
 2. Configure notification channels
 3. Set alert thresholds
 
 **Notifications**:
+
 - New recommendations available
 - PR created and awaiting review
 - Implementation complete
@@ -1281,8 +1354,8 @@ pipelines:
 
 **Example Slack Message**:
 
-```
-🎯 JetScale: New Recommendations Available
+```text
+🎯 Jetscale: New Recommendations Available
 
 47 recommendations with estimated savings of $12,340/month
 
@@ -1302,21 +1375,22 @@ Top recommendations:
 
 **End-to-End**: From account connection to verified savings
 
-| Phase | Duration | Cumulative |
-|-------|----------|------------|
-| 1. Account connection | 5-10 minutes | 10 min |
-| 2. Resource discovery | 5-30 minutes | 40 min |
-| 3. Metrics collection baseline | 24-48 hours | 2 days |
-| 4. AI analysis (initial) | 30-60 minutes | 2 days |
-| 5. Recommendation generation | 10-20 minutes | 2 days |
-| 6. Validation | 5-10 minutes | 2 days |
-| 7. Terraform generation | 5-15 minutes | 2 days |
-| 8. GitOps PR creation | 2-5 minutes | 2 days |
-| 9. Team review & approval | 1-3 business days | 3-5 days |
-| 10. Implementation | 10-30 minutes | 3-5 days |
-| 11. Savings verification | Verification period | 10-35 days |
+| Phase                          | Duration            | Cumulative |
+| ------------------------------ | ------------------- | ---------- |
+| 1. Account connection          | 5-10 minutes        | 10 min     |
+| 2. Resource discovery          | 5-30 minutes        | 40 min     |
+| 3. Metrics collection baseline | 24-48 hours         | 2 days     |
+| 4. AI analysis (initial)       | 30-60 minutes       | 2 days     |
+| 5. Recommendation generation   | 10-20 minutes       | 2 days     |
+| 6. Validation                  | 5-10 minutes        | 2 days     |
+| 7. Terraform generation        | 5-15 minutes        | 2 days     |
+| 8. GitOps PR creation          | 2-5 minutes         | 2 days     |
+| 9. Team review & approval      | 1-3 business days   | 3-5 days   |
+| 10. Implementation             | 10-30 minutes       | 3-5 days   |
+| 11. Savings verification       | Verification period | 10-35 days |
 
 **Typical Timeline**:
+
 - **First recommendations ready**: 2-3 days after connection
 - **First implementation**: 3-7 days (including review)
 - **First verified savings**: 10-35 days
@@ -1325,16 +1399,16 @@ Top recommendations:
 
 ### Continuous Operation
 
-Once initial setup is complete, JetScale operates continuously:
+Once initial setup is complete, Jetscale operates continuously:
 
-| Activity | Frequency |
-|----------|-----------|
-| Metrics collection | Every 5 minutes |
-| Pattern analysis | Hourly |
-| Recommendation refresh | Daily |
-| Cost tracking update | Daily |
-| Savings verification | Weekly (for recent implementations) |
-| Full resource re-scan | Weekly |
+| Activity               | Frequency                           |
+| ---------------------- | ----------------------------------- |
+| Metrics collection     | Every 5 minutes                     |
+| Pattern analysis       | Hourly                              |
+| Recommendation refresh | Daily                               |
+| Cost tracking update   | Daily                               |
+| Savings verification   | Weekly (for recent implementations) |
+| Full resource re-scan  | Weekly                              |
 
 ---
 
@@ -1342,7 +1416,7 @@ Once initial setup is complete, JetScale operates continuously:
 
 **For a typical batch of 12 recommendations**:
 
-```
+```text
 Day 1: Recommendation batch created
        Terraform generated
        PR created
@@ -1370,7 +1444,7 @@ Verification complete: Final savings verification
 
 ### Custom Validation Rules
 
-JetScale allows defining custom validation rules for your organization:
+Jetscale allows defining custom validation rules for your organization:
 
 **Example**: Ensure production databases always have 50% memory headroom
 
@@ -1383,10 +1457,10 @@ custom_validation_rules:
         Environment: "production"
     checks:
       - metric: memory_utilization
-        threshold: 50  # Max 50% utilization
+        threshold: 50 # Max 50% utilization
         operation: max
         period: 30d
-    action: block  # Block recommendation if violated
+    action: block # Block recommendation if violated
 ```
 
 ---
@@ -1396,12 +1470,14 @@ custom_validation_rules:
 Every implementation includes automated rollback capability:
 
 **Automated Rollback Triggers**:
+
 - Performance degradation >20% from baseline
 - Error rate spike >10x normal
 - SLA violation detected
 - Manual trigger via dashboard
 
 **Rollback Process**:
+
 1. Detect trigger condition
 2. Alert user immediately
 3. Execute terraform state backup
@@ -1417,15 +1493,15 @@ Dashboard: **Recommendations > Batch #2024-001 > Rollback**
 
 ### Multi-Cloud Support
 
-JetScale handles AWS and Azure differently but provides unified workflow:
+Jetscale handles AWS and Azure differently but provides unified workflow:
 
-| Feature | AWS | Azure |
-|---------|-----|-------|
-| Native Recommendations | Cost Optimization Hub | Azure Advisor |
-| Metrics Source | CloudWatch | Azure Monitor |
-| Cost Data | Cost Explorer | Cost Management |
-| Terraform Provider | `hashicorp/aws` | `hashicorp/azurerm` |
-| State Backend | S3 + DynamoDB | Azure Storage |
+| Feature                | AWS                   | Azure               |
+| ---------------------- | --------------------- | ------------------- |
+| Native Recommendations | Cost Optimization Hub | Azure Advisor       |
+| Metrics Source         | CloudWatch            | Azure Monitor       |
+| Cost Data              | Cost Explorer         | Cost Management     |
+| Terraform Provider     | `hashicorp/aws`       | `hashicorp/azurerm` |
+| State Backend          | S3 + DynamoDB         | Azure Storage       |
 
 ---
 
@@ -1445,11 +1521,11 @@ JetScale handles AWS and Azure differently but provides unified workflow:
 
 **Recommended Approval Process**:
 
-| Risk Level | Approvers Required | Review Time |
-|------------|-------------------|-------------|
-| Low (1-3) | 1 engineer | 1 business day |
-| Medium (4-7) | 1 senior engineer + 1 architect | 2 business days |
-| High (8-10) | 2 senior engineers + 1 architect + manager | 3 business days |
+| Risk Level   | Approvers Required                         | Review Time     |
+| ------------ | ------------------------------------------ | --------------- |
+| Low (1-3)    | 1 engineer                                 | 1 business day  |
+| Medium (4-7) | 1 senior engineer + 1 architect            | 2 business days |
+| High (8-10)  | 2 senior engineers + 1 architect + manager | 3 business days |
 
 ---
 
@@ -1458,11 +1534,13 @@ JetScale handles AWS and Azure differently but provides unified workflow:
 **Prioritization Framework**:
 
 1. **Quick Wins** (Week 1-2):
+
    - Unused resource cleanup (100% savings)
    - Obvious rightsizing (>50% CPU/memory idle)
    - Non-prod scheduling (60-75% savings)
 
 2. **Medium Impact** (Week 3-4):
+
    - Moderate rightsizing (20-50% idle)
    - Storage optimization
    - Reserved Instance analysis
@@ -1473,6 +1551,7 @@ JetScale handles AWS and Azure differently but provides unified workflow:
    - Architectural changes (serverless migration)
 
 **Expected Savings Curve**:
+
 - Month 1: 10-20% of total potential savings
 - Month 3: 50-70% of total potential savings
 - Month 6: 80-90% of total potential savings
@@ -1486,6 +1565,7 @@ JetScale handles AWS and Azure differently but provides unified workflow:
 **Issue**: Recommendations not appearing after 48 hours
 
 **Solution**:
+
 1. Check account connection: **Settings > Cloud Accounts**
 2. Verify permissions (IAM role for AWS, App registration for Azure)
 3. Check metrics collection status: **Settings > Data Collection**
@@ -1496,7 +1576,8 @@ JetScale handles AWS and Azure differently but provides unified workflow:
 **Issue**: Terraform apply fails with permission errors
 
 **Solution**:
-1. Verify JetScale execution role has necessary permissions
+
+1. Verify Jetscale execution role has necessary permissions
 2. Check if resources have `prevent_destroy` lifecycle rules
 3. Review Terraform error logs in dashboard
 4. Ensure state backend is accessible (S3/Azure Storage)
@@ -1506,6 +1587,7 @@ JetScale handles AWS and Azure differently but provides unified workflow:
 **Issue**: Savings verification shows low accuracy (<80%)
 
 **Solution**:
+
 1. Check if usage patterns changed post-implementation
 2. Verify cost data collection is working
 3. Review if external factors affected costs (e.g., data transfer spikes)
@@ -1516,9 +1598,10 @@ JetScale handles AWS and Azure differently but provides unified workflow:
 **Issue**: PR creation fails
 
 **Solution**:
+
 1. Verify GitHub/Bitbucket integration: **Settings > Integrations**
 2. Check repository permissions
-3. Ensure branch protection rules allow JetScale commits
+3. Ensure branch protection rules allow Jetscale commits
 4. Review Git provider API rate limits
 
 ---
@@ -1543,7 +1626,8 @@ JetScale handles AWS and Azure differently but provides unified workflow:
 
 - **AWS**: IAM role with cross-account assume role (no long-lived credentials)
 - **Azure**: Service principal with certificate authentication
-- **Secrets**: Stored in dedicated secrets manager (AWS Secrets Manager / Azure Key Vault)
+- **Secrets**: Stored in dedicated secrets manager (AWS Secrets Manager / Azure
+  Key Vault)
 - **Rotation**: Automatic credential rotation every 90 days
 
 ---
@@ -1558,14 +1642,14 @@ JetScale handles AWS and Azure differently but provides unified workflow:
 
 ### Support Channels
 
-- **Email**: support@jetscale.ai
+- **Email**: <support@jetscale.ai>
 - **Chat**: In-app live chat (bottom-right corner)
-- **Community**: https://community.jetscale.ai
-- **Status Page**: https://status.jetscale.ai
+- **Community**: <https://community.jetscale.ai>
+- **Status Page**: <https://status.jetscale.ai>
 
 ### Training
 
-- **Onboarding Videos**: https://jetscale.ai/training
+- **Onboarding Videos**: <https://jetscale.ai/training>
 - **Webinars**: Monthly best practices sessions
 - **Office Hours**: Weekly Q&A sessions (Thursdays 2pm EST)
 
@@ -1575,21 +1659,22 @@ JetScale handles AWS and Azure differently but provides unified workflow:
 
 ### Glossary
 
-| Term | Definition |
-|------|------------|
-| **Rightsizing** | Changing resource instance types to match actual usage |
-| **Scheduling** | Automatically starting/stopping resources based on time patterns |
-| **Reserved Instance** | 1-3 year commitment for discounted pricing |
-| **Savings Plan** | Flexible commitment based on $/hour spend |
-| **GitOps** | Infrastructure management via Git pull requests |
-| **SLA** | Service Level Agreement (performance/availability target) |
-| **IaC** | Infrastructure as Code (Terraform, CloudFormation, etc.) |
+| Term                  | Definition                                                       |
+| --------------------- | ---------------------------------------------------------------- |
+| **Rightsizing**       | Changing resource instance types to match actual usage           |
+| **Scheduling**        | Automatically starting/stopping resources based on time patterns |
+| **Reserved Instance** | 1-3 year commitment for discounted pricing                       |
+| **Savings Plan**      | Flexible commitment based on $/hour spend                        |
+| **GitOps**            | Infrastructure management via Git pull requests                  |
+| **SLA**               | Service Level Agreement (performance/availability target)        |
+| **IaC**               | Infrastructure as Code (Terraform, CloudFormation, etc.)         |
 
 ---
 
 ### Supported Resource Types
 
 **AWS** (100+ types):
+
 - Compute: EC2, Lambda, ECS, EKS, Fargate, Lightsail
 - Storage: EBS, S3, EFS, FSx
 - Database: RDS, DynamoDB, Redshift, ElastiCache, MemoryDB
@@ -1597,6 +1682,7 @@ JetScale handles AWS and Azure differently but provides unified workflow:
 - Analytics: Athena, EMR, Glue, Kinesis
 
 **Azure** (80+ types):
+
 - Compute: Virtual Machines, App Service, Functions, AKS, Container Instances
 - Storage: Managed Disks, Blob Storage, Files, Data Lake
 - Database: SQL Database, Cosmos DB, MySQL, PostgreSQL, Redis Cache
@@ -1607,23 +1693,25 @@ JetScale handles AWS and Azure differently but provides unified workflow:
 ### Calculation Methodology
 
 **Savings Estimates**:
+
 - Based on historical rolling average usage
 - Current pricing (on-demand rates)
 - Regional pricing variations included
 - Tax and support costs excluded
 
 **Formula**:
-```
+
+```text
 Monthly Savings = Current Cost - Recommended Cost
 Annual Savings = Monthly Savings × 12
 ```
 
 **Accuracy**:
+
 - 95% accuracy for rightsizing (±5%)
 - 98% accuracy for scheduling (±2%)
 - 90% accuracy for commitment recommendations (±10% due to usage variability)
 
 ---
 
-*Last Updated: January 29, 2024*
-*Version: 1.0*
+Last Updated: January 29, 2024\_\_Version: 1.0
