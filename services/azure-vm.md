@@ -1,10 +1,13 @@
 # Azure VM Optimization
 
-JetScale provides AI-powered cost optimization for Azure Virtual Machines. Our specialized agents analyze your compute workloads to identify right-sizing opportunities, VM family migrations, and cost-effective alternatives.
+Jetscale provides AI-powered cost optimization for Azure Virtual Machines. Our
+specialized agents analyze your compute workloads to identify right-sizing
+opportunities, VM family migrations, and cost-effective alternatives.
 
 ## Overview
 
-JetScale optimizes Azure VM resources by analyzing:
+Jetscale optimizes Azure VM resources by analyzing:
+
 - **Instance utilization**: CPU, memory, disk, and network usage patterns
 - **Cost analysis**: Current spending vs. optimal configuration
 - **Workload characteristics**: Resource requirements and performance patterns
@@ -14,37 +17,46 @@ JetScale optimizes Azure VM resources by analyzing:
 
 ### Standalone Virtual Machines
 
-JetScale optimizes standalone Azure VMs that are not part of Virtual Machine Scale Sets (VMSS).
+Jetscale optimizes standalone Azure VMs that are not part of Virtual Machine
+Scale Sets (VMSS).
 
-**VM Architecture:**
-```
+#### VM Architecture:
+
+```text
 VirtualMachine (Optimization Target, Billable)
 ├── OSDisk - Billable
 ├── DataDisk - Billable (optimized separately)
 └── DataDisk - Billable
 ```
 
-**What We Optimize:**
+##### What We Optimize:
+
 - **VM size right-sizing**: Change to smaller/larger sizes based on actual usage
-- **VM series migration**: Switch between series (B, D, E, F, etc.) based on workload characteristics
-- **Generation upgrades**: Migrate to latest generation (v5, v6) for better price/performance
+- **VM series migration**: Switch between series (B, D, E, F, etc.) based on
+  workload characteristics
+- **Generation upgrades**: Migrate to latest generation (v5, v6) for better
+  price/performance
 - **Delete unused**: Remove VMs with zero or near-zero activity (100% savings)
 
-**Important:** JetScale currently optimizes standalone Azure VMs only. VMs managed by Virtual Machine Scale Sets, AKS, or other orchestration systems are not yet supported.
+**Important:** Jetscale currently optimizes standalone Azure VMs only. VMs
+managed by Virtual Machine Scale Sets, AKS, or other orchestration systems are
+not yet supported.
 
 ## VM Series and Families
 
-JetScale considers all Azure VM series when optimizing:
+Jetscale considers all Azure VM series when optimizing:
 
 ### General Purpose (B, D)
 
 **B-series** - Burstable VMs
+
 - Use for: Dev/test, low-traffic web servers, small databases, microservices
 - Best when: CPU usage is low most of the time with occasional bursts
 - Caution: Based on CPU credits, monitor credit balance to avoid throttling
 - Sizes: B1s, B1ms, B2s, B2ms, B4ms, B8ms, B12ms, B16ms, B20ms
 
 **D-series** - Balanced compute/memory/network
+
 - Use for: Web servers, application servers, medium databases, mixed workloads
 - Latest generations: Dv5/Dsv5 > Dv4/Dsv4 > Dv3/Dsv3
 - Available in: Standard HDD, Standard SSD, Premium SSD
@@ -53,6 +65,7 @@ JetScale considers all Azure VM series when optimizing:
 ### Compute Optimized (F)
 
 **F-series** - High CPU-to-memory ratio
+
 - Use for: Batch processing, application servers, web servers, analytics, gaming
 - Best when: CPU utilization is consistently high, memory needs are moderate
 - Latest generations: Fv2 (Intel), Fasv5/Famsv5 (AMD)
@@ -61,12 +74,14 @@ JetScale considers all Azure VM series when optimizing:
 ### Memory Optimized (E, M)
 
 **E-series** - High memory-to-CPU ratio
+
 - Use for: Relational databases, in-memory analytics, SAP applications, caching
 - Best when: Memory utilization is high, CPU is moderate
 - Latest generations: Ev5/Esv5 > Ev4/Esv4 > Ev3/Esv3
 - Sizes: E2-E96 (2-96 vCPUs, up to 672 GB RAM)
 
 **M-series** - Extreme memory (up to 4 TB RAM)
+
 - Use for: Large SQL Server, SAP HANA, in-memory databases
 - Cost premium: Significantly higher than E-series
 - Mission-critical workloads requiring massive memory
@@ -75,6 +90,7 @@ JetScale considers all Azure VM series when optimizing:
 ### Storage Optimized (L)
 
 **L-series** - High disk throughput and I/O
+
 - Use for: Big data, SQL databases, NoSQL databases, data warehousing
 - NVMe-based local storage
 - Best for: I/O-intensive workloads requiring low latency
@@ -83,32 +99,37 @@ JetScale considers all Azure VM series when optimizing:
 ### Accelerated Computing (N)
 
 **N-series** - GPU-enabled VMs
+
 - Use for: AI/ML training and inference, graphics rendering, video processing
 - Options: NC (NVIDIA Tesla), NV (NVIDIA Tesla M60), ND (NVIDIA Tesla P40/V100)
-- Not typically recommended for general cost optimization (specialized workloads)
+- Not typically recommended for general cost optimization (specialized
+  workloads)
 
 ### VM Sizing Patterns
 
 Sizes follow pattern: `{Series}{Version}{Size}`
 
 Examples:
+
 - **B2s**: B-series, 2 vCPUs, Standard disk support
 - **D4s_v5**: D-series v5, 4 vCPUs, Premium SSD support
 - **E8as_v5**: E-series v5 AMD, 8 vCPUs, Premium SSD support
 
-**Size progression:**
+#### Size progression:
+
 - Standard: 1, 2, 4, 8, 16, 32, 64, 96+ vCPUs
 - Burstable: 1, 2, 4, 8, 12, 16, 20 vCPUs
 
 Each step typically doubles vCPU and memory.
 
-## How JetScale Optimizes Azure VMs
+## How Jetscale Optimizes Azure VMs
 
 ### 1. Data Collection
 
-JetScale analyzes multiple data sources:
+Jetscale analyzes multiple data sources:
 
 **Azure Monitor Metrics** (14-day rolling window):
+
 - `Percentage CPU` - VM CPU usage
 - `Available Memory Bytes` - Available memory
 - `Network In Total` / `Network Out Total` - Network throughput
@@ -116,6 +137,7 @@ JetScale analyzes multiple data sources:
 - `Disk Read Operations/Sec` / `Disk Write Operations/Sec` - IOPS
 
 **Azure Resource Manager Data**:
+
 - VM size and state
 - OS type (Windows/Linux)
 - Creation time
@@ -123,11 +145,13 @@ JetScale analyzes multiple data sources:
 - Tags and resource groups
 
 **Cost Management Data**:
+
 - Current monthly spend per VM
 - Historical cost trends
 - Reserved Instance coverage
 
 **Azure Advisor** (if available):
+
 - Azure-generated right-sizing recommendations
 - Performance risk assessments
 
@@ -135,25 +159,29 @@ JetScale analyzes multiple data sources:
 
 Our AI agents perform deep analysis:
 
-**Utilization Patterns:**
+#### Utilization Patterns:
+
 - Peak vs. average CPU utilization
 - Time-of-day patterns (identify idle periods)
 - Day-of-week patterns (weekend vs. weekday load)
 - Memory usage trends
 
-**Workload Classification:**
+##### Workload Classification:
+
 - **Variable CPU**: Consider B-series (burstable)
 - **Steady high CPU**: Consider F-series (compute optimized)
 - **Balanced**: Consider D-series (general purpose)
 - **Memory-intensive**: Consider E-series (memory optimized)
 
-**Cost Modeling:**
+##### Cost Modeling:
+
 - Current monthly cost
 - Projected cost for alternative VM sizes
 - Savings percentage and annual impact
 - Reserved Instance opportunities
 
-**Risk Evaluation:**
+##### Risk Evaluation:
+
 - Performance degradation probability
 - Headroom calculation (buffer above peak usage)
 - Memory safety checks
@@ -161,12 +189,13 @@ Our AI agents perform deep analysis:
 
 ### 3. Recommendations
 
-JetScale generates specific, actionable recommendations:
+Jetscale generates specific, actionable recommendations:
 
 #### VM Right-Sizing
 
-**Example Recommendation:**
-```
+##### Example Recommendation:
+
+```text
 Resource: web-server-prod-01
 Current: Standard_D16s_v5 (16 vCPUs, 64 GB RAM)
 Recommended: Standard_D8s_v5 (8 vCPUs, 32 GB RAM)
@@ -187,8 +216,9 @@ Risk: Low - Ample headroom maintained
 
 #### Series Migration
 
-**Example Recommendation:**
-```
+##### Example Recommendation:
+
+```text
 Resource: batch-processor-02
 Current: Standard_D8s_v5 (8 vCPUs, 32 GB RAM)
 Recommended: Standard_F8s_v2 (8 vCPUs, 16 GB RAM)
@@ -210,8 +240,9 @@ Risk: Very Low - CPU-bound workload, memory headroom adequate
 
 #### Generation Upgrade
 
-**Example Recommendation:**
-```
+##### Example Recommendation:
+
+```text
 Resource: api-server-01
 Current: Standard_D4s_v3 (4 vCPUs, 16 GB RAM)
 Recommended: Standard_D4s_v5 (4 vCPUs, 16 GB RAM)
@@ -232,8 +263,9 @@ Risk: Very Low - Same series, newer generation
 
 #### Delete Unused VM
 
-**Example Recommendation:**
-```
+##### Example Recommendation:
+
+```text
 Resource: legacy-test-vm
 Current: Standard_B2s (2 vCPUs, 4 GB RAM)
 Recommended: Delete/Deallocate
@@ -255,13 +287,13 @@ Recommendation: Verify with application team before deletion
 
 ### 4. Terraform Generation
 
-For each recommendation, JetScale generates production-ready Terraform code:
+For each recommendation, Jetscale generates production-ready Terraform code:
 
-**Example: VM Right-Sizing**
+#### Example: VM Right-Sizing
 
 ```hcl
 # Azure VM Optimization
-# Generated by JetScale on 2024-01-15
+# Generated by Jetscale on 2024-01-15
 # Recommendation ID: rec_azurevm_001
 
 resource "azurerm_linux_virtual_machine" "web_server_prod_01" {
@@ -319,11 +351,11 @@ resource "azurerm_linux_virtual_machine" "web_server_prod_01" {
 }
 ```
 
-**Example: Series Migration**
+## Example: Series Migration
 
 ```hcl
 # Azure VM Series Migration
-# Generated by JetScale on 2024-01-15
+# Generated by Jetscale on 2024-01-15
 
 resource "azurerm_linux_virtual_machine" "batch_processor_02" {
   name                = "batch-processor-02"
@@ -384,13 +416,15 @@ resource "azurerm_linux_virtual_machine" "batch_processor_02" {
 
 ### Testing Strategy
 
-**Pre-Production Testing:**
+#### Pre-Production Testing:
+
 1. Apply changes to dev/staging environment first
 2. Run load tests simulating peak traffic
 3. Monitor for 48-72 hours under realistic load
 4. Validate application performance
 
-**Production Rollout:**
+##### Production Rollout:
+
 1. Use `create_before_destroy` lifecycle in Terraform
 2. Schedule changes during maintenance windows
 3. Have rollback plan ready (previous Terraform state)
@@ -398,15 +432,18 @@ resource "azurerm_linux_virtual_machine" "batch_processor_02" {
 
 ### Reserved Instances & Savings Plans
 
-While JetScale doesn't currently generate RI recommendations, consider them after right-sizing:
+While Jetscale doesn't currently generate RI recommendations, consider them
+after right-sizing:
 
-**Best practice:**
-1. Right-size VMs with JetScale first
+#### Best practice:
+
+1. Right-size VMs with Jetscale first
 2. Run optimized configuration for 30-60 days
 3. Purchase Reserved Instances for stable workloads (1-year or 3-year)
 4. Never reserve over-sized VMs
 
-**Azure Reserved VM Instances:**
+##### Azure Reserved VM Instances:
+
 - Up to 72% savings vs. pay-as-you-go
 - 1-year or 3-year commitment
 - Size flexibility within same VM series
@@ -415,21 +452,24 @@ While JetScale doesn't currently generate RI recommendations, consider them afte
 ### Spot VMs
 
 For non-critical workloads, consider Azure Spot VMs:
+
 - Up to 90% savings vs. pay-as-you-go
 - Best for: Batch processing, dev/test, stateless applications
 - Risk: Can be evicted with 30-second notice when Azure needs capacity
-- JetScale identifies candidates for Spot migration (roadmap feature)
+- Jetscale identifies candidates for Spot migration (roadmap feature)
 
 ## Common Optimization Patterns
 
 ### Pattern 1: Over-Provisioned VMs
 
 **Symptoms:**
+
 - CPU utilization < 20% average
 - Memory utilization < 30%
 - VM running 24/7 with consistent low usage
 
-**JetScale Recommendation:**
+#### Jetscale Recommendation:
+
 - Downsize by 1-2 VM sizes (e.g., D16 → D8)
 - Typical savings: 40-50%
 - Risk: Low (2-3x headroom maintained)
@@ -437,11 +477,13 @@ For non-critical workloads, consider Azure Spot VMs:
 ### Pattern 2: Wrong VM Series
 
 **Symptoms:**
+
 - Using D-series with consistently high CPU (>70%)
 - Using E-series with low memory usage (<40%)
 - Using F-series with high memory needs
 
-**JetScale Recommendation:**
+#### Jetscale Recommendation:
+
 - Migrate to appropriate series (D → F for CPU, E → D for balanced)
 - Typical savings: 10-30%
 - Risk: Low to Medium (verify workload characteristics)
@@ -449,11 +491,13 @@ For non-critical workloads, consider Azure Spot VMs:
 ### Pattern 3: Legacy Generations
 
 **Symptoms:**
+
 - Using v3 or v4 VMs
 - Newer generations available (v5, v6)
 - Same cost or lower for better performance
 
-**JetScale Recommendation:**
+#### Jetscale Recommendation:
+
 - Upgrade to latest generation (Dv3 → Dv5, Ev4 → Ev5)
 - Typical savings: 5-15% with better performance
 - Risk: Very Low (same series, newer hardware)
@@ -461,11 +505,13 @@ For non-critical workloads, consider Azure Spot VMs:
 ### Pattern 4: Idle Development VMs
 
 **Symptoms:**
+
 - Dev/test VMs running 24/7
 - Used only during business hours
 - Low CPU usage overnight and weekends
 
-**JetScale Recommendation:**
+#### Jetscale Recommendation:
+
 - Implement auto-shutdown schedules (Azure feature)
 - Downsize to B-series for burstable workloads
 - Typical savings: 50-70% combined approach
@@ -475,9 +521,10 @@ For non-critical workloads, consider Azure Spot VMs:
 
 ### Recommendation Concerns
 
-**Q: Will downsizing my VM impact performance?**
+#### Q: Will downsizing my VM impact performance?
 
-A: JetScale maintains 2-3x headroom above peak usage. We analyze:
+A: Jetscale maintains 2-3x headroom above peak usage. We analyze:
+
 - 99th percentile (P99) CPU utilization over 14 days
 - Peak memory usage
 - Network saturation points
@@ -485,16 +532,19 @@ A: JetScale maintains 2-3x headroom above peak usage. We analyze:
 
 Recommendations only proceed if performance risk is Low or Very Low.
 
-**Q: What if I don't have memory metrics?**
+##### Q: What if I don't have memory metrics?
 
-A: Azure Monitor provides memory metrics by default for all VMs. If metrics are missing:
+A: Azure Monitor provides memory metrics by default for all VMs. If metrics are
+missing:
+
 1. Verify Azure Monitor agent is installed
 2. Check diagnostics settings are enabled
 3. Wait 14 days for sufficient historical data
 
-**Q: Can I test without downtime?**
+##### Q: Can I test without downtime?
 
 A: Yes! Recommended approach:
+
 1. Use `create_before_destroy = true` in Terraform
 2. New VM launches with optimized size
 3. Health check passes → traffic shifts to new VM
@@ -503,27 +553,31 @@ A: Yes! Recommended approach:
 
 ### Performance Issues After Optimization
 
-**Symptom: Increased latency or response times**
+#### Symptom: Increased latency or response times
 
 Possible causes:
+
 - Insufficient CPU for peak loads
 - Memory pressure
 - Network throughput bottleneck
 
 **Resolution:**
+
 1. Check Azure Monitor CPU, memory, network metrics
 2. Compare current vs. previous VM performance
 3. If needed, increase VM size by one step
 4. Simple rollback: revert Terraform to previous state
 
-**Symptom: B-series CPU credit exhaustion**
+##### Symptom: B-series CPU credit exhaustion
 
 Possible causes:
+
 - Migrated from standard VM to burstable
 - CPU usage higher than B-series baseline
 - Insufficient CPU credits for workload pattern
 
 **Resolution:**
+
 1. Check `CPU Credits Remaining` metric
 2. If consistently depleted, migrate to D/F-series
 3. Consider B-series with higher baseline (e.g., B4ms → B8ms)
@@ -532,7 +586,8 @@ Possible causes:
 
 ### VM Configuration
 
-JetScale recommendations preserve:
+Jetscale recommendations preserve:
+
 - Virtual network and subnet associations
 - Network Security Groups (NSGs)
 - Managed identities
@@ -550,6 +605,7 @@ JetScale recommendations preserve:
 ### Lifecycle Management
 
 Use Terraform lifecycle rules:
+
 ```hcl
 lifecycle {
   create_before_destroy = true
@@ -559,7 +615,8 @@ lifecycle {
 
 ## Limitations
 
-**Not Currently Supported:**
+### Not Currently Supported:
+
 - Virtual Machine Scale Sets (VMSS) optimization
 - Spot VM recommendations
 - Reserved Instance purchase recommendations
@@ -567,12 +624,13 @@ lifecycle {
 - AKS node pool optimization
 - Multi-VM orchestration
 
-**Roadmap:**
-These features are planned for future releases. Currently, JetScale focuses on standalone Azure VM optimization where immediate cost savings can be achieved through right-sizing and migration.
+**Roadmap:** These features are planned for future releases. Currently, Jetscale
+focuses on standalone Azure VM optimization where immediate cost savings can be
+achieved through right-sizing and migration.
 
 ## API Integration
 
-JetScale provides API access for programmatic optimization:
+Jetscale provides API access for programmatic optimization:
 
 ```bash
 # List Azure VM recommendations
@@ -596,10 +654,12 @@ Need help with Azure VM optimization?
 
 - **Email**: [support@jetscale.ai](mailto:support@jetscale.ai)
 - **Documentation**: [FAQ](../faq.md)
-- **GitHub Issues**: [Report a problem](https://github.com/Jetscale-ai/jetscale-docs/issues)
+- **GitHub Issues**:
+  [Report a problem](https://github.com/Jetscale-AI/jetscale-docs/issues)
 
 ---
 
-**Related Documentation:**
+### Related Documentation:
+
 - [Azure SQL Optimization](azure-sql.md)
 - [EC2 Optimization](ec2.md)

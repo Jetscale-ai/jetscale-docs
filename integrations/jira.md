@@ -1,10 +1,13 @@
 # Jira Integration
 
-JetScale integrates with Jira to automatically create issues for cost optimization recommendations, enabling seamless tracking through your existing project management workflow.
+Jetscale integrates with Jira to automatically create issues for cost
+optimization recommendations, enabling seamless tracking through your existing
+project management workflow.
 
 ## Overview
 
-The Jira integration allows JetScale to:
+The Jira integration allows Jetscale to:
+
 - Create issues for each cost optimization recommendation
 - Include detailed cost impact analysis in issue descriptions
 - Link issues to generated Terraform code
@@ -30,36 +33,39 @@ Before connecting Jira, you'll need:
 
 ### Step 1: Create a Jira API Token
 
-![Jira API Token Creation](#)
-*Screenshot placeholder: Jira API token generation page*
+![Jira API Token Creation](#) _Screenshot placeholder: Jira API token generation
+page_
 
-1. Navigate to [Atlassian Account Settings](https://id.atlassian.com/manage/api-tokens)
+1. Navigate to
+   [Atlassian Account Settings](https://id.atlassian.com/manage/api-tokens)
 2. Click **Create API token**
-3. Give your token a descriptive label (e.g., "JetScale Integration")
+3. Give your token a descriptive label (e.g., "Jetscale Integration")
 4. Click **Create**
 5. **Important**: Copy your token immediately - it won't be shown again
 
-> **Security Note**: API tokens have the same permissions as your Jira account. JetScale only uses tokens to create and read issues.
+> **Security Note**: API tokens have the same permissions as your Jira account.
+> Jetscale only uses tokens to create and read issues.
 
-### Step 2: Connect Jira in JetScale
+### Step 2: Connect Jira in Jetscale
 
-![Jira Connection Screen](#)
-*Screenshot placeholder: JetScale Jira integration page*
+![Jira Connection Screen](#) _Screenshot placeholder: Jetscale Jira integration
+page_
 
-1. Navigate to **Settings** → **Integrations** in JetScale
+1. Navigate to **Settings** → **Integrations** in Jetscale
 2. Click **Connect Jira**
 3. Enter your configuration:
-   - **Jira Server URL**: Your Jira instance URL (e.g., `https://your-company.atlassian.net`)
+   - **Jira Server URL**: Your Jira instance URL (e.g.,
+     `https://your-company.atlassian.net`)
    - **Email**: The email address associated with your Jira account
    - **API Token**: The token you created in Step 1
 4. Click **Verify and Connect**
 
-JetScale will verify your credentials and display available projects.
+Jetscale will verify your credentials and display available projects.
 
 ### Step 3: Configure Project Settings
 
-![Project Selection Screen](#)
-*Screenshot placeholder: Jira project configuration*
+![Project Selection Screen](#) _Screenshot placeholder: Jira project
+configuration_
 
 1. Select your **default project** for cost optimization issues
 2. Choose the **issue type** (typically "Task" or "Story")
@@ -71,35 +77,41 @@ JetScale will verify your credentials and display available projects.
 
 ### Issue Creation
 
-When you approve a cost optimization recommendation in JetScale:
+When you approve a cost optimization recommendation in Jetscale:
 
-1. **Issue Created**: A Jira issue is automatically created in your selected project
-2. **Details Populated**: Issue includes cost analysis, performance considerations, and implementation steps
-3. **Linking**: Issue includes links to the recommendation in JetScale and related pull requests (if GitHub is connected)
+1. **Issue Created**: A Jira issue is automatically created in your selected
+   project
+2. **Details Populated**: Issue includes cost analysis, performance
+   considerations, and implementation steps
+3. **Linking**: Issue includes links to the recommendation in Jetscale and
+   related pull requests (if GitHub is connected)
 4. **Labels**: Automatically tagged with configured labels for easy filtering
 
 ### Issue Structure
 
 ```markdown
 ## Summary
+
 RDS Instance Right-Sizing: production-db (db.r5.2xlarge → db.r5.xlarge)
 
 ## Description
 
 ### Cost Optimization Recommendation
 
-**Resource**: RDS Instance `production-db`
-**Recommendation**: Downsize from db.r5.2xlarge to db.r5.xlarge
+**Resource**: RDS Instance `production-db` **Recommendation**: Downsize from
+db.r5.2xlarge to db.r5.xlarge
 
 ### Cost Impact
-| Metric | Value |
-|--------|-------|
-| Current Monthly Cost | $730.00 |
-| Projected Monthly Cost | $365.00 |
-| **Monthly Savings** | **$365.00 (50%)** |
-| **Annual Savings** | **$4,380.00** |
+
+| Metric                 | Value             |
+| ---------------------- | ----------------- |
+| Current Monthly Cost   | $730.00           |
+| Projected Monthly Cost | $365.00           |
+| **Monthly Savings**    | **$365.00 (50%)** |
+| **Annual Savings**     | **$4,380.00**     |
 
 ### Performance Analysis
+
 - Current CPU utilization: 15-25% average
 - Current memory utilization: 30-40% average
 - Recommended instance provides 2x current peak usage
@@ -110,6 +122,7 @@ RDS Instance Right-Sizing: production-db (db.r5.2xlarge → db.r5.xlarge)
 **Terraform Code**: [View Pull Request](#)
 
 **Testing Checklist**:
+
 - [ ] Apply changes in staging environment
 - [ ] Monitor performance metrics for 48 hours
 - [ ] Verify application response times
@@ -117,27 +130,29 @@ RDS Instance Right-Sizing: production-db (db.r5.2xlarge → db.r5.xlarge)
 - [ ] Apply to production
 
 ### Resources
-- [View in JetScale](#)
+
+- [View in Jetscale](#)
 - [Terraform PR](#)
 - [AWS RDS Documentation](https://docs.aws.amazon.com/rds/)
 
 ---
-Generated by [JetScale](https://jetscale.ai)
+
+Generated by [Jetscale](https://jetscale.ai)
 ```
 
 ### Issue Fields
 
-JetScale populates the following Jira fields:
+Jetscale populates the following Jira fields:
 
-| Field | Description | Example |
-|-------|-------------|---------|
-| **Project** | Selected project key | DEVOPS |
-| **Issue Type** | Configured issue type | Task, Story |
-| **Summary** | Brief optimization description | RDS Right-Sizing: production-db |
-| **Description** | Detailed cost analysis | Full markdown content |
-| **Priority** | Configured priority level | Medium, High |
-| **Labels** | Tags for filtering | jetscale, cost-optimization, rds |
-| **Assignee** | Optional assignee | Optional |
+| Field           | Description                    | Example                          |
+| --------------- | ------------------------------ | -------------------------------- |
+| **Project**     | Selected project key           | DEVOPS                           |
+| **Issue Type**  | Configured issue type          | Task, Story                      |
+| **Summary**     | Brief optimization description | RDS Right-Sizing: production-db  |
+| **Description** | Detailed cost analysis         | Full markdown content            |
+| **Priority**    | Configured priority level      | Medium, High                     |
+| **Labels**      | Tags for filtering             | jetscale, cost-optimization, rds |
+| **Assignee**    | Optional assignee              | Optional                         |
 
 ## Configuration Options
 
@@ -153,7 +168,7 @@ Configure default values for automatically created issues:
 
 ### Per-Recommendation Override
 
-When creating an issue from JetScale, you can override defaults:
+When creating an issue from Jetscale, you can override defaults:
 
 1. Click **Create Jira Issue** on a recommendation
 2. Modify any field:
@@ -168,10 +183,11 @@ When creating an issue from JetScale, you can override defaults:
 ### View Integration Status
 
 From **Settings** → **Integrations** → **Jira**, you can view:
+
 - Connected Jira instance URL
 - Connected email address
 - Default project and issue settings
-- Recent issues created by JetScale
+- Recent issues created by Jetscale
 - Last connection verification time
 
 ### Test Connection
@@ -180,7 +196,7 @@ To verify your Jira connection is working:
 
 1. Navigate to **Settings** → **Integrations** → **Jira**
 2. Click **Test Connection**
-3. JetScale will attempt to fetch projects and verify API access
+3. Jetscale will attempt to fetch projects and verify API access
 
 ### Update Credentials
 
@@ -201,7 +217,8 @@ To remove the Jira integration:
 3. Confirm disconnection
 
 **Important**: Disconnecting will:
-- Remove your stored API token from JetScale
+
+- Remove your stored API token from Jetscale
 - Stop automatic issue creation for new recommendations
 - Preserve existing Jira issues (they remain in your Jira project)
 
@@ -211,24 +228,26 @@ To remove the Jira integration:
 
 Once issues are created in Jira:
 
-1. **Workflow Integration**: Move issues through your standard workflow (To Do → In Progress → Done)
+1. **Workflow Integration**: Move issues through your standard workflow (To Do →
+   In Progress → Done)
 2. **Sprint Planning**: Add issues to sprints for scheduling
 3. **Team Assignment**: Assign to appropriate team members
-4. **Status Sync**: JetScale reads issue status to track implementation progress
+4. **Status Sync**: Jetscale reads issue status to track implementation progress
 
 ### Linking to Recommendations
 
 Each Jira issue includes:
-- Direct link back to the JetScale recommendation
+
+- Direct link back to the Jetscale recommendation
 - Link to associated GitHub pull request (if available)
 - Link to AWS/Azure resource in console
 
-### Filtering JetScale Issues
+### Filtering Jetscale Issues
 
 Use JQL queries to filter cost optimization issues:
 
 ```jql
-# All JetScale issues
+# All Jetscale issues
 labels = jetscale
 
 # Open cost optimization issues
@@ -248,6 +267,7 @@ labels in (jetscale, rds)
 **Problem**: "Unable to connect to Jira" error
 
 **Solutions**:
+
 - Verify your Jira Server URL is correct (include `https://`)
 - Check your email matches your Jira account email
 - Ensure API token is valid and not expired
@@ -259,6 +279,7 @@ labels in (jetscale, rds)
 **Problem**: "Selected project not found" error
 
 **Solutions**:
+
 - Verify the project exists and hasn't been archived
 - Confirm you have permission to create issues in the project
 - Check project key is correct (case-sensitive)
@@ -269,39 +290,43 @@ labels in (jetscale, rds)
 **Problem**: Jira issue wasn't created for recommendation
 
 **Solutions**:
+
 - Check API token hasn't expired
 - Verify you still have permissions in the project
 - Confirm issue type exists in the project
 - Check required custom fields aren't blocking creation
-- Review Jira's [rate limits](https://developer.atlassian.com/cloud/jira/platform/rate-limiting/)
+- Review Jira's
+  [rate limits](https://developer.atlassian.com/cloud/jira/platform/rate-limiting/)
 
 ### Missing Custom Fields
 
 **Problem**: Jira requires custom fields that aren't populated
 
 **Solutions**:
+
 - Configure custom field defaults in your Jira project settings
 - Use Jira automation rules to populate required fields
 - Contact your Jira administrator to make fields optional
-- Create a dedicated project for JetScale with minimal required fields
+- Create a dedicated project for Jetscale with minimal required fields
 
 ## Best Practices
 
 ### API Token Management
 
-- **Create a dedicated token** for JetScale
+- **Create a dedicated token** for Jetscale
 - **Set token expiration** according to your security policy
 - **Rotate tokens regularly** (every 90-180 days)
 - **Revoke unused tokens** immediately
 
 ### Project Organization
 
-- **Create a dedicated project** for cost optimizations (e.g., "Cloud Cost Optimization")
+- **Create a dedicated project** for cost optimizations (e.g., "Cloud Cost
+  Optimization")
 - **Use components** to categorize by service type (RDS, EC2, EBS)
 - **Configure custom workflows** for optimization approval process
 - **Set up automation** to notify relevant teams
 
-### Issue Management
+### Issue management practices
 
 - **Use labels consistently** for easy filtering
 - **Create dashboards** to track cost savings
@@ -310,9 +335,11 @@ labels in (jetscale, rds)
 
 ### Integration with CI/CD
 
-1. **Link Issues to PRs**: Connect Jira issues to GitHub PRs using issue keys in commit messages
+1. **Link Issues to PRs**: Connect Jira issues to GitHub PRs using issue keys in
+   commit messages
 2. **Automation Rules**: Transition issues automatically when PRs are merged
-3. **Status Updates**: Use Jira automation to notify teams when issues are ready for implementation
+3. **Status Updates**: Use Jira automation to notify teams when issues are ready
+   for implementation
 
 ## Advanced Configuration
 
@@ -329,7 +356,7 @@ Configure Jira issue templates for different resource types:
 
 Create automation rules in Jira:
 
-```
+```text
 WHEN: Issue created with label "jetscale"
 THEN:
 - Add to "Cost Optimization" epic
@@ -343,11 +370,13 @@ THEN:
 Create saved filters for common queries:
 
 **High-Value Optimizations**:
+
 ```jql
 project = DEVOPS AND labels = jetscale AND description ~ "savings > 1000"
 ```
 
 **Quick Wins**:
+
 ```jql
 project = DEVOPS AND labels = jetscale AND priority = High AND description ~ "Risk Level: Low"
 ```
@@ -356,20 +385,22 @@ project = DEVOPS AND labels = jetscale AND priority = High AND description ~ "Ri
 
 ### API Token Security
 
-- JetScale encrypts API tokens at rest using AES-256
+- Jetscale encrypts API tokens at rest using AES-256
 - Tokens are never logged or exposed in API responses
 - All API calls to Jira use HTTPS with TLS 1.2+
 - Tokens are stored separately from user data with restricted access
 
 ### Permissions
 
-JetScale requires the following Jira permissions:
+Jetscale requires the following Jira permissions:
+
 - **Browse Projects**: View project details
 - **Create Issues**: Create new issues
 - **View Issues**: Read issue details
 - **Edit Issues**: Update issue status (optional)
 
-JetScale cannot:
+Jetscale cannot:
+
 - Delete issues
 - Modify project settings
 - Access other projects without permission
@@ -377,17 +408,20 @@ JetScale cannot:
 
 ### Audit Trail
 
-Every action taken by JetScale is recorded:
+Every action taken by Jetscale is recorded:
+
 - All Jira API calls are logged
 - Issue creation is tracked per recommendation
 - Failed attempts are captured with error details
-- Audit logs are available in your JetScale dashboard
+- Audit logs are available in your Jetscale dashboard
 
 ## API Reference
 
-For programmatic access to the Jira integration, see our [API Documentation](../api-reference.md#jira-integration).
+For programmatic access to the Jira integration, see our
+[API Documentation](../api-reference.md#jira-integration).
 
 Key endpoints:
+
 - `POST /api/v2/integrations/jira/me/action/connect` - Connect Jira account
 - `GET /api/v2/integrations/jira/projects` - List accessible projects
 - `POST /api/v2/integrations/jira/issues/action/create` - Create issue
@@ -400,4 +434,5 @@ Need help with Jira integration?
 
 - **Email**: [support@jetscale.ai](mailto:support@jetscale.ai)
 - **Documentation**: [FAQ](../faq.md)
-- **GitHub Issues**: [Report a problem](https://github.com/Jetscale-ai/jetscale-docs/issues)
+- **GitHub Issues**:
+  [Report a problem](https://github.com/Jetscale-AI/jetscale-docs/issues)

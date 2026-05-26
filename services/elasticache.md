@@ -1,10 +1,14 @@
 # ElastiCache Optimization
 
-JetScale provides AI-powered cost optimization for Amazon ElastiCache including both Redis and Memcached clusters. Our specialized agents analyze your caching workloads to identify right-sizing opportunities, node type migrations, and configuration improvements.
+Jetscale provides AI-powered cost optimization for Amazon ElastiCache including
+both Redis and Memcached clusters. Our specialized agents analyze your caching
+workloads to identify right-sizing opportunities, node type migrations, and
+configuration improvements.
 
 ## Overview
 
-JetScale optimizes ElastiCache resources by analyzing:
+Jetscale optimizes ElastiCache resources by analyzing:
+
 - **Node utilization**: CPU, memory, network, and connection patterns
 - **Cache performance**: Hit rates, eviction patterns, swap usage
 - **Cost analysis**: Current spending vs. optimal configuration
@@ -14,20 +18,23 @@ JetScale optimizes ElastiCache resources by analyzing:
 
 ### Redis Clusters
 
-Redis is our **primary optimization target** for feature-rich caching with persistence and replication.
+Redis is our **primary optimization target** for feature-rich caching with
+persistence and replication.
 
-**Cluster Modes:**
+#### Cluster Modes:
 
-**Redis Cluster Mode Disabled:**
-```
+##### Redis Cluster Mode Disabled:
+
+```text
 ElastiCacheReplicationGroup (Optimization Target)
 ├── CacheNode (Primary) - Billable
 ├── CacheNode (Replica) - Billable
 └── CacheNode (Replica) - Billable
 ```
 
-**Redis Cluster Mode Enabled:**
-```
+##### Redis Cluster Mode Enabled:
+
+```text
 ElastiCacheReplicationGroup (Optimization Target)
 ├── NodeGroup (Shard 1)
 │   ├── CacheNode (Primary) - Billable
@@ -37,33 +44,46 @@ ElastiCacheReplicationGroup (Optimization Target)
 │   └── CacheNode (Replica) - Billable
 ```
 
-**What We Optimize:**
-- **Node type right-sizing**: Match actual memory and CPU workload (all nodes in cluster use same type)
-- **Graviton migration**: Switch to ARM-based instances (r7g, m7g, r6g, m6g) for 10-40% savings
-- **Engine version upgrades**: Recommend latest Redis versions for performance and features
-- **Multi-AZ configuration**: Disable Multi-AZ for ~50% savings when high availability isn't critical
-- **Reserved node recommendations**: Up to 55% savings with 1-year or 3-year commitment
+##### What We Optimize:
 
-**Important:** All nodes in a Redis cluster must use the same node type. JetScale sizes for the node with highest resource usage to ensure adequate performance across all cluster members.
+- **Node type right-sizing**: Match actual memory and CPU workload (all nodes in
+  cluster use same type)
+- **Graviton migration**: Switch to ARM-based instances (r7g, m7g, r6g, m6g) for
+  10-40% savings
+- **Engine version upgrades**: Recommend latest Redis versions for performance
+  and features
+- **Multi-AZ configuration**: Disable Multi-AZ for ~50% savings when high
+  availability isn't critical
+- **Reserved node recommendations**: Up to 55% savings with 1-year or 3-year
+  commitment
+
+**Important:** All nodes in a Redis cluster must use the same node type.
+Jetscale sizes for the node with highest resource usage to ensure adequate
+performance across all cluster members.
 
 ### Memcached Clusters
 
-Traditional Memcached clusters are optimized as a collection of independent nodes.
+Traditional Memcached clusters are optimized as a collection of independent
+nodes.
 
-**Cluster Architecture:**
-```
+#### Cluster Architecture:
+
+```text
 ElastiCacheCluster (Optimization Target)
 ├── CacheNode - Billable
 ├── CacheNode - Billable
 └── CacheNode - Billable
 ```
 
-**What We Optimize:**
+##### What We Optimize:
+
 - **Node type right-sizing**: Match memory and CPU to workload
-- **Graviton migration**: Switch to ARM-based instances (m7g, m6g) for 10-40% savings
+- **Graviton migration**: Switch to ARM-based instances (m7g, m6g) for 10-40%
+  savings
 - **Node count optimization**: Adjust number of nodes based on actual usage
 
-**Key Differences from Redis:**
+##### Key Differences from Redis:
+
 - No replication (each node is independent)
 - No persistence (purely in-memory)
 - Simpler scaling model (add/remove nodes)
@@ -71,73 +91,82 @@ ElastiCacheCluster (Optimization Target)
 
 ## ElastiCache Node Types
 
-JetScale considers all AWS ElastiCache node types when optimizing:
+Jetscale considers all AWS ElastiCache node types when optimizing:
 
 ### Memory Optimized (R-family)
 
 **R7g (Graviton3)** - Latest generation, ARM-based
+
 - Best price/performance ratio
 - 40% better price/performance than R6g
 - Use for: Redis with high memory needs, low-latency caching
 
 **R6g (Graviton2)** - Previous ARM generation
+
 - 20% cost savings vs. R5
 - Excellent performance
 - Use for: Redis requiring large memory footprint
 
 **R5** - Intel-based
+
 - Legacy option (migrate to R6g/R7g for savings)
 - Use for: x86-specific requirements (rare)
 
 ### General Purpose (M-family)
 
 **M7g (Graviton3)** - Latest generation, balanced
+
 - Best for workloads with balanced CPU and memory needs
 - 40% better price/performance than M6g
 
 **M6g (Graviton2)** - ARM-based
+
 - 20% cost savings vs. M5
 - Use for: Balanced Redis/Memcached workloads
 
 **M5** - Intel-based
+
 - Legacy option (migrate to M6g/M7g)
 
 ### Burstable (T-family)
 
 **T4g (Graviton2)** - Low-cost burstable
+
 - Use for: Development, testing, small caches
 - Baseline CPU with burst credits
 - Lowest cost option
 - Caution: Monitor CPU credit balance
 
 **T3** - Intel-based burstable
+
 - Legacy option (migrate to T4g)
 
 ### Node Sizing
 
 Each node type comes in multiple sizes:
 
-| Size | Example (R7g) | vCPUs | Memory |
-|------|---------------|-------|--------|
-| small | cache.r7g.small | 1 | 1.5 GB |
-| medium | cache.r7g.medium | 1 | 3.1 GB |
-| large | cache.r7g.large | 1 | 6.4 GB |
-| xlarge | cache.r7g.xlarge | 2 | 13.1 GB |
-| 2xlarge | cache.r7g.2xlarge | 4 | 26.3 GB |
-| 4xlarge | cache.r7g.4xlarge | 8 | 52.8 GB |
-| 8xlarge | cache.r7g.8xlarge | 16 | 105.8 GB |
-| 12xlarge | cache.r7g.12xlarge | 24 | 159.0 GB |
-| 16xlarge | cache.r7g.16xlarge | 32 | 212.2 GB |
+| Size     | Example (R7g)      | vCPUs | Memory   |
+| -------- | ------------------ | ----- | -------- |
+| small    | cache.r7g.small    | 1     | 1.5 GB   |
+| medium   | cache.r7g.medium   | 1     | 3.1 GB   |
+| large    | cache.r7g.large    | 1     | 6.4 GB   |
+| xlarge   | cache.r7g.xlarge   | 2     | 13.1 GB  |
+| 2xlarge  | cache.r7g.2xlarge  | 4     | 26.3 GB  |
+| 4xlarge  | cache.r7g.4xlarge  | 8     | 52.8 GB  |
+| 8xlarge  | cache.r7g.8xlarge  | 16    | 105.8 GB |
+| 12xlarge | cache.r7g.12xlarge | 24    | 159.0 GB |
+| 16xlarge | cache.r7g.16xlarge | 32    | 212.2 GB |
 
-## How JetScale Optimizes ElastiCache
+## How Jetscale Optimizes ElastiCache
 
 ### 1. Data Collection
 
-JetScale analyzes multiple data sources:
+Jetscale analyzes multiple data sources:
 
 **CloudWatch Metrics** (14-day rolling window):
 
-**Redis Metrics:**
+#### Redis Metrics:
+
 - `CPUUtilization` - Node CPU usage
 - `DatabaseMemoryUsagePercentage` - Memory used for data
 - `BytesUsedForCache` - Actual cache data size
@@ -150,7 +179,8 @@ JetScale analyzes multiple data sources:
 - `Evictions` - Items evicted due to memory pressure
 - `ReplicationLag` - Replica lag time
 
-**Memcached Metrics:**
+##### Memcached Metrics:
+
 - `CPUUtilization` - Node CPU usage
 - `BytesUsedForCacheItems` - Memory used for items
 - `FreeableMemory` - Available memory
@@ -160,7 +190,8 @@ JetScale analyzes multiple data sources:
 - `GetHits` / `GetMisses` - Cache efficiency
 - `BytesReadIntoMemcached` / `BytesWrittenOutFromMemcached`
 
-**ElastiCache API Data:**
+##### ElastiCache API Data:
+
 - Node type and engine version
 - Number of nodes/shards
 - Multi-AZ status
@@ -168,12 +199,14 @@ JetScale analyzes multiple data sources:
 - Parameter group configuration
 - Maintenance window settings
 
-**Cost Explorer Data:**
+##### Cost Explorer Data:
+
 - Current monthly spend per cluster
 - Historical cost trends
 - Reserved node utilization
 
 **AWS Compute Optimizer** (if enabled):
+
 - AWS-generated right-sizing recommendations
 - Performance risk assessments
 
@@ -181,33 +214,38 @@ JetScale analyzes multiple data sources:
 
 Our AI agents perform deep analysis:
 
-**Memory Utilization:**
+#### Memory Utilization:
+
 - Peak vs. average memory usage
 - Eviction patterns (indicates memory pressure)
 - Swap usage (critical indicator - should be zero)
 - Memory fragmentation patterns
 - Headroom calculation for safe downsizing
 
-**CPU Utilization:**
+##### CPU Utilization:
+
 - Engine CPU vs. total CPU (Redis)
 - Peak vs. average CPU usage
 - CPU credit balance (T-family instances)
 - Time-of-day patterns
 
-**Cache Performance:**
+##### Cache Performance:
+
 - Cache hit rate (target: >95% for healthy cache)
 - Eviction rate (indicates insufficient memory)
 - Connection patterns
 - Network saturation points
 
-**Cost Modeling:**
+##### Cost Modeling:
+
 - Current cost breakdown (compute, data transfer)
 - Projected cost for alternative configurations
 - Reserved node opportunities
 - Multi-AZ premium analysis
 - Graviton migration savings
 
-**Risk Evaluation:**
+##### Risk Evaluation:
+
 - Headroom calculation (20% buffer above peak recommended)
 - Performance degradation probability
 - Availability impact assessment
@@ -215,12 +253,13 @@ Our AI agents perform deep analysis:
 
 ### 3. Recommendations
 
-JetScale generates specific, actionable recommendations:
+Jetscale generates specific, actionable recommendations:
 
 #### Node Type Right-Sizing
 
-**Example Recommendation:**
-```
+##### Example Recommendation:
+
+```text
 Resource: production-redis-cache
 Current: 2x cache.r5.xlarge (13.1 GB RAM each, 4 vCPUs)
 Recommended: 2x cache.r5.large (6.4 GB RAM each, 2 vCPUs)
@@ -243,8 +282,9 @@ Risk: Low - Adequate headroom maintained, no memory pressure
 
 #### Graviton Migration (Redis)
 
-**Example Recommendation:**
-```
+##### Example Recommendation:
+
+```text
 Resource: api-cache-cluster
 Current: 3x cache.r5.large (Intel-based)
 Recommended: 3x cache.r6g.large (Graviton2-based)
@@ -267,8 +307,9 @@ Note: Requires engine version 5.0.6+ for Graviton support
 
 #### Multi-AZ Optimization
 
-**Example Recommendation:**
-```
+##### Example Recommendation:
+
+```text
 Resource: staging-memcached-cluster
 Current: 4x cache.m5.large with Multi-AZ enabled
 Recommended: 4x cache.m5.large with Multi-AZ disabled
@@ -291,8 +332,9 @@ Note: Multi-AZ provides automatic failover within minutes
 
 #### Engine Version Upgrade
 
-**Example Recommendation:**
-```
+##### Example Recommendation:
+
+```text
 Resource: legacy-redis-cache
 Current: 3x cache.r5.large, Redis 5.0.6
 Recommended: 3x cache.r5.large, Redis 7.0
@@ -315,8 +357,9 @@ Note: Review Redis 7.0 breaking changes documentation
 
 #### Reserved Node Recommendations
 
-**Example Recommendation:**
-```
+##### Example Recommendation:
+
+```text
 Resource: production-redis-primary
 Current: 2x cache.r6g.xlarge, On-Demand pricing
 Recommended: 2x cache.r6g.xlarge, 1-Year Reserved (No Upfront)
@@ -339,8 +382,9 @@ Note: 3-Year Reserved offers 55% savings ($270/month, $390/month savings)
 
 #### Memcached Node Count Optimization
 
-**Example Recommendation:**
-```
+##### Example Recommendation:
+
+```text
 Resource: session-cache-memcached
 Current: 6x cache.m5.large (16 GB total capacity)
 Recommended: 4x cache.m5.large (16 GB total capacity by using larger nodes)
@@ -364,13 +408,13 @@ Note: Test connection pooling with fewer nodes
 
 ### 4. Terraform Generation
 
-For each recommendation, JetScale generates production-ready Terraform code:
+For each recommendation, Jetscale generates production-ready Terraform code:
 
-**Example: Redis Right-Sizing**
+#### Example: Redis Right-Sizing
 
 ```hcl
 # ElastiCache Redis Optimization
-# Generated by JetScale on 2024-01-15
+# Generated by Jetscale on 2024-01-15
 # Recommendation ID: rec_elasticache_001
 
 resource "aws_elasticache_replication_group" "production_redis" {
@@ -434,11 +478,11 @@ resource "aws_elasticache_replication_group" "production_redis" {
 }
 ```
 
-**Example: Graviton Migration**
+## Example: Graviton Migration
 
 ```hcl
 # ElastiCache Graviton Migration
-# Generated by JetScale on 2024-01-15
+# Generated by Jetscale on 2024-01-15
 
 resource "aws_elasticache_replication_group" "api_cache_graviton" {
   replication_group_id       = "api-cache-cluster"
@@ -489,11 +533,11 @@ resource "aws_elasticache_replication_group" "api_cache_graviton" {
 }
 ```
 
-**Example: Memcached Optimization**
+## Example: Memcached Optimization
 
 ```hcl
 # ElastiCache Memcached Optimization
-# Generated by JetScale on 2024-01-15
+# Generated by Jetscale on 2024-01-15
 
 resource "aws_elasticache_cluster" "session_cache" {
   cluster_id = "session-cache-memcached"
@@ -537,9 +581,10 @@ resource "aws_elasticache_cluster" "session_cache" {
 
 ### Monitoring After Changes
 
-After applying JetScale recommendations:
+After applying Jetscale recommendations:
 
 1. **First 24 Hours**: Monitor key metrics closely
+
    - Memory utilization and eviction rate
    - CPU utilization (especially EngineCPU for Redis)
    - Cache hit rate (should remain stable)
@@ -547,6 +592,7 @@ After applying JetScale recommendations:
    - Connection count and latency
 
 2. **Week 1**: Validate performance
+
    - Application response times
    - Cache miss rate (should not increase)
    - No evictions under normal load
@@ -560,35 +606,41 @@ After applying JetScale recommendations:
 
 ### Testing Strategy
 
-**Pre-Production Testing:**
+#### Pre-Production Testing:
+
 1. Apply changes to dev/staging environment first
 2. Run load tests simulating peak traffic
 3. Monitor for 48-72 hours under realistic load
 4. Validate cache performance metrics
 5. Test failover scenarios (Redis Multi-AZ)
 
-**Production Rollout:**
+##### Production Rollout:
+
 1. Schedule changes during maintenance windows
-2. Use blue/green deployments for zero-downtime (create new cluster, switch traffic)
+2. Use blue/green deployments for zero-downtime (create new cluster, switch
+   traffic)
 3. Have rollback plan ready
 4. Monitor actively during and after change
 5. Keep old cluster running for 24 hours before terminating
 
 ### Reserved Nodes & Cost Optimization
 
-**When to Purchase Reserved Nodes:**
+#### When to Purchase Reserved Nodes:
+
 - Stable, long-running caches (>1 year expected lifetime)
 - After right-sizing (don't reserve oversized nodes)
 - When commitment savings > opportunity cost
 
-**JetScale Recommendations:**
+##### Jetscale Recommendations:
+
 - We analyze reserved node utilization and suggest optimal purchases
 - Consider 1-year over 3-year for flexibility
 - No Upfront option provides monthly savings with zero upfront cost
 - Partial Upfront offers slightly better savings
 - All Upfront offers maximum savings (55% for 3-year Redis)
 
-**Reserved Node Savings:**
+##### Reserved Node Savings:
+
 - 1-Year No Upfront: ~30% savings
 - 1-Year All Upfront: ~35% savings
 - 3-Year No Upfront: ~50% savings
@@ -599,12 +651,14 @@ After applying JetScale recommendations:
 ### Pattern 1: Over-Provisioned Redis Cluster
 
 **Symptoms:**
+
 - Memory utilization < 50% consistently
 - CPU utilization < 30%
 - No evictions
 - Cache hit rate >95%
 
-**JetScale Recommendation:**
+#### Jetscale Recommendation:
+
 - Downsize node type by 1-2 sizes
 - Typical savings: 50-66%
 - Risk: Low (maintain 20%+ headroom)
@@ -612,11 +666,13 @@ After applying JetScale recommendations:
 ### Pattern 2: Missed Graviton Opportunities
 
 **Symptoms:**
+
 - Using Intel-based instances (r5, m5, r6i)
 - Redis 5.0.6+ or Memcached 1.5.16+
 - No ARM-specific dependencies
 
-**JetScale Recommendation:**
+#### Jetscale Recommendation:
+
 - Migrate to Graviton instances (r5 → r6g, m5 → m6g, or latest r7g/m7g)
 - Typical savings: 20-40% with same or better performance
 - Requirements: Verify engine version compatibility
@@ -625,11 +681,13 @@ After applying JetScale recommendations:
 ### Pattern 3: Non-Production Multi-AZ
 
 **Symptoms:**
+
 - Dev/staging/test caches with Multi-AZ enabled
 - High availability not required for non-production
 - Acceptable downtime tolerance
 
-**JetScale Recommendation:**
+#### Jetscale Recommendation:
+
 - Disable Multi-AZ and automatic failover
 - Typical savings: 50% on node costs
 - Trade-off: Manual recovery vs. automatic failover
@@ -638,11 +696,13 @@ After applying JetScale recommendations:
 ### Pattern 4: Legacy Engine Versions
 
 **Symptoms:**
+
 - Running Redis 5.x or older
 - Running Memcached 1.5.x or older
 - Missing performance improvements and features
 
-**JetScale Recommendation:**
+#### Jetscale Recommendation:
+
 - Upgrade to latest engine version (Redis 7.x, Memcached 1.6.x)
 - Typical savings: 5-10% memory efficiency improvement
 - Additional benefits: Security patches, new features, better performance
@@ -651,47 +711,54 @@ After applying JetScale recommendations:
 ### Pattern 5: High Eviction Rate
 
 **Symptoms:**
+
 - Evictions > 0 consistently
 - Memory utilization at 100%
 - Cache hit rate declining
 - SwapUsage > 0 (critical indicator)
 
-**JetScale Recommendation:**
+#### Jetscale Recommendation:
+
 - Upsize to larger node type (more memory)
 - Alternative: Add more nodes (Memcached) or shards (Redis Cluster Mode)
 - Typical cost increase: 50-100% BUT necessary for performance
 - Risk: High if not addressed (cache thrashing, poor performance)
 
-**Important:** This is a case where JetScale recommends spending MORE to improve performance and prevent cache failures.
+**Important:** This is a case where Jetscale recommends spending MORE to improve
+performance and prevent cache failures.
 
 ## Troubleshooting
 
 ### Recommendation Concerns
 
-**Q: Will downsizing impact cache hit rates?**
+#### Q: Will downsizing impact cache hit rates?
 
-A: JetScale maintains 20%+ headroom above peak memory usage. We analyze:
+A: Jetscale maintains 20%+ headroom above peak memory usage. We analyze:
+
 - 99th percentile memory utilization over 14 days
 - Eviction patterns
 - Cache hit/miss ratios
 - SwapUsage (critical indicator of memory pressure)
 
 Recommendations only proceed if:
+
 - No evictions detected in baseline period
 - SwapUsage is zero
 - Performance risk is Low or Very Low
 
-**Q: What about sudden traffic spikes?**
+##### Q: What about sudden traffic spikes?
 
 A: Our analysis includes:
+
 - P99 (99th percentile) metrics, not just averages
 - 20% buffer above peak for unexpected spikes
 - Historical spike patterns
 - Headroom for growth
 
-**Q: How do I test Graviton migration?**
+##### Q: How do I test Graviton migration?
 
 A: Recommended approach:
+
 1. Create new Graviton-based cluster in staging
 2. Configure application to use both clusters (A/B test)
 3. Compare performance metrics for 48-72 hours
@@ -700,55 +767,64 @@ A: Recommended approach:
 
 ### Performance Issues After Optimization
 
-**Symptom: Increased cache miss rate**
+#### Symptom: Increased cache miss rate
 
 Possible causes:
+
 - Insufficient memory (too aggressive downsizing)
 - Evictions occurring
 - Key distribution issues (Redis Cluster Mode)
 
 **Resolution:**
+
 1. Check `Evictions` metric (should be zero)
 2. Check `DatabaseMemoryUsagePercentage` (should be <80%)
 3. Increase node size if memory pressure detected
 4. Review key expiration policies
 
-**Symptom: High CPU utilization**
+##### Symptom: High CPU utilization
 
 Possible causes:
+
 - Insufficient CPU for command processing
 - Inefficient cache access patterns
 - Large key operations
 
 **Resolution:**
+
 1. Check `EngineCPUUtilization` (Redis) or `CPUUtilization` (Memcached)
 2. Review slow log for expensive operations
 3. Increase node size if CPU consistently >70%
 4. Optimize application cache access patterns
 
-**Symptom: SwapUsage > 0**
+##### Symptom: SwapUsage > 0
 
 **CRITICAL ISSUE** - Memory pressure detected
 
 Possible causes:
+
 - Node type has insufficient memory
 - Memory leak in application
 - Key sizes larger than expected
 
 **Resolution:**
-1. Immediately increase node size (memory pressure causes severe performance degradation)
+
+1. Immediately increase node size (memory pressure causes severe performance
+   degradation)
 2. Review `BytesUsedForCache` growth trends
 3. Check for memory leaks
 4. Implement key eviction policies if appropriate
 
-**Symptom: Replication lag increasing (Redis)**
+##### Symptom: Replication lag increasing (Redis)
 
 Possible causes:
+
 - High write volume
 - Network saturation
 - Undersized replicas
 
 **Resolution:**
+
 1. Check `ReplicationLag` metric
 2. Verify network throughput (`NetworkBytesOut` from primary)
 3. Increase node size if replicas can't keep up
@@ -758,7 +834,8 @@ Possible causes:
 
 ### Encryption
 
-JetScale recommendations preserve existing encryption settings:
+Jetscale recommendations preserve existing encryption settings:
+
 - At-rest encryption state maintained
 - Transit encryption (TLS) state maintained
 - Auth tokens preserved (Redis)
@@ -767,6 +844,7 @@ JetScale recommendations preserve existing encryption settings:
 ### Network Security
 
 Configuration preserved:
+
 - VPC and subnet group associations
 - Security group rules unchanged
 - Private subnet isolation maintained
@@ -783,12 +861,14 @@ Configuration preserved:
 
 ### Redis Graviton Support
 
-**Minimum versions for Graviton:**
+#### Minimum versions for Graviton:
+
 - Redis 5.0.6+: Supports r6g, m6g (Graviton2)
 - Redis 6.2+: Recommended for Graviton2
 - Redis 7.0+: Full Graviton3 support (r7g, m7g)
 
-**Feature compatibility:**
+##### Feature compatibility:
+
 - All Redis features supported on Graviton
 - Same clustering capabilities
 - Same replication and persistence
@@ -796,31 +876,35 @@ Configuration preserved:
 
 ### Memcached Graviton Support
 
-**Minimum versions:**
+#### Minimum versions:
+
 - Memcached 1.5.16+: Supports m6g (Graviton2)
 - Memcached 1.6.6+: Recommended for Graviton2
 
-**Feature compatibility:**
+##### Feature compatibility:
+
 - All Memcached features supported
 - Same protocol and commands
 - No application changes required
 
 ## Limitations
 
-**Not Currently Supported:**
+### Not Currently Supported:
+
 - Global Datastore optimization (Redis)
 - Backup and restore cost optimization
 - Data tiering recommendations (Redis)
 - Outpost deployments
 
-**Cluster Mode Enabled Limitations:**
+#### Cluster Mode Enabled Limitations:
+
 - Cannot change number of shards without data migration
 - Resharding is complex and must be planned separately
-- JetScale optimizes node types but not shard topology
+- Jetscale optimizes node types but not shard topology
 
 ## API Integration
 
-JetScale provides API access for programmatic optimization:
+Jetscale provides API access for programmatic optimization:
 
 ```bash
 # List ElastiCache recommendations
@@ -840,9 +924,10 @@ See our [API Documentation](../api-reference.md) for complete reference.
 
 ## IAM Permissions Required
 
-JetScale requires the following IAM permissions for ElastiCache optimization:
+Jetscale requires the following IAM permissions for ElastiCache optimization:
 
-**Read permissions (for analysis):**
+### Read permissions (for analysis):
+
 ```json
 {
   "Version": "2012-10-17",
@@ -865,7 +950,9 @@ JetScale requires the following IAM permissions for ElastiCache optimization:
 }
 ```
 
-**Note:** JetScale does not require write permissions. All changes are implemented via generated Terraform code that you review and apply through your existing deployment processes.
+**Note:** Jetscale does not require write permissions. All changes are
+implemented via generated Terraform code that you review and apply through your
+existing deployment processes.
 
 ## Support
 
@@ -873,11 +960,13 @@ Need help with ElastiCache optimization?
 
 - **Email**: [support@jetscale.ai](mailto:support@jetscale.ai)
 - **Documentation**: [FAQ](../faq.md)
-- **GitHub Issues**: [Report a problem](https://github.com/Jetscale-ai/jetscale-docs/issues)
+- **GitHub Issues**:
+  [Report a problem](https://github.com/Jetscale-AI/jetscale-docs/issues)
 
 ---
 
-**Related Documentation:**
+### Related Documentation:
+
 - [RDS Optimization](rds.md)
 - [EC2 Optimization](ec2.md)
 - [EBS Optimization](ebs.md)

@@ -1,41 +1,49 @@
 # AI-Powered Analysis
 
-> How JetScale's AI generates cost optimization recommendations while maintaining performance and reliability
+> How Jetscale's AI generates cost optimization recommendations while
+> maintaining performance and reliability
 
 ## Overview
 
-JetScale uses advanced AI to analyze your cloud infrastructure and generate safe, validated recommendations. Our AI doesn't just identify cost savings. It ensures those savings maintain performance, availability, and reliability.
+Jetscale uses advanced AI to analyze your cloud infrastructure and generate
+safe, validated recommendations. Our AI doesn't just identify cost savings. It
+ensures those savings maintain performance, availability, and reliability.
 
-**This is what sets JetScale apart from generic cost reports.**
+### This is what sets Jetscale apart from generic cost reports.
 
 ---
 
-## What Makes JetScale's AI Different
+## What Makes Jetscale's AI Different
 
 ### Service-Specific Intelligence
 
-Unlike generic cloud cost tools that provide simple alerts ("Your CPU is low, downsize!"), JetScale's AI understands the nuances of each cloud service:
+Unlike generic cloud cost tools that provide simple alerts ("Your CPU is low,
+downsize!"), Jetscale's AI understands the nuances of each cloud service:
 
-**For RDS/Azure SQL Databases:**
+#### For RDS/Azure SQL Databases:
+
 - Multi-AZ failover patterns and capacity headroom
 - Read replica lag tolerances and replication overhead
 - Connection pooling behavior and max connections limits
 - Query workload characteristics (OLTP vs OLAP)
 - Backup window impact and maintenance considerations
 
-**For EC2/Azure VMs:**
+##### For EC2/Azure VMs:
+
 - Burstable instance credit balance patterns (T3/T4g)
 - Auto Scaling Group headroom requirements for scale events
 - Spot instance interruption tolerance and fallback strategies
 - Load balancer health check thresholds and timing
 
-**For EBS/Azure Disks:**
+##### For EBS/Azure Disks:
+
 - IOPS burst patterns vs sustained requirements
 - Throughput needs compared to provisioned capacity
 - Snapshot strategies and retention policies
 - Volume type performance characteristics across workloads
 
-**For ElastiCache/Azure Cache:**
+##### For ElastiCache/Azure Cache:
+
 - Eviction rates indicating memory pressure
 - Connection counts and client connection patterns
 - Replication lag in clustered configurations
@@ -47,7 +55,8 @@ Unlike generic cloud cost tools that provide simple alerts ("Your CPU is low, do
 
 ### 1. Comprehensive Data Collection
 
-**Performance Metrics:**
+#### Performance Metrics:
+
 - CPU utilization (average, p50, p95, p99, max)
 - Memory utilization and swap/paging pressure
 - Network throughput, packet rates, and bandwidth patterns
@@ -55,13 +64,15 @@ Unlike generic cloud cost tools that provide simple alerts ("Your CPU is low, do
 - Database connections, active queries, and deadlocks
 - Cache hit/miss ratios and eviction rates
 
-**Cost Data:**
+##### Cost Data:
+
 - Current spend per resource (hourly granularity)
 - Reserved Instance utilization and coverage gaps
 - Savings Plan coverage and commitment utilization
 - On-demand vs committed pricing comparisons
 
-**Configuration Data:**
+##### Configuration Data:
+
 - Instance types, sizes, and generation
 - Volume types, IOPS settings, and throughput limits
 - Database engine versions and parameter groups
@@ -72,19 +83,19 @@ Unlike generic cloud cost tools that provide simple alerts ("Your CPU is low, do
 
 ### 2. Intelligent Workload Classification
 
-JetScale's AI categorizes your resources into optimization patterns:
+Jetscale's AI categorizes your resources into optimization patterns:
 
-| Pattern | Characteristics | Optimization Strategy | Example |
-|---------|-----------------|----------------------|---------|
-| **Steady-State** | Consistent utilization, predictable traffic | Reserved Instances, right-sizing | Production API servers |
-| **Bursty** | Low average, high peak spikes | Burstable instances (T3/T4g), auto-scaling | Background job processors |
-| **Scheduled** | Regular on/off patterns (business hours) | Scheduling, serverless alternatives | Development environments |
-| **Idle** | Minimal or zero utilization | Shutdown or significant downsize | Forgotten test instances |
-| **Over-Provisioned** | High capacity, consistently low usage | Right-sizing with safety margin | Over-spec'd databases |
+| Pattern              | Characteristics                             | Optimization Strategy                      | Example                   |
+| -------------------- | ------------------------------------------- | ------------------------------------------ | ------------------------- |
+| **Steady-State**     | Consistent utilization, predictable traffic | Reserved Instances, right-sizing           | Production API servers    |
+| **Bursty**           | Low average, high peak spikes               | Burstable instances (T3/T4g), auto-scaling | Background job processors |
+| **Scheduled**        | Regular on/off patterns (business hours)    | Scheduling, serverless alternatives        | Development environments  |
+| **Idle**             | Minimal or zero utilization                 | Shutdown or significant downsize           | Forgotten test instances  |
+| **Over-Provisioned** | High capacity, consistently low usage       | Right-sizing with safety margin            | Over-spec'd databases     |
 
-**Real Example Analysis:**
+#### Real Example Analysis:
 
-```
+```text
 Resource: web-server-prod-01 (t3.2xlarge)
 Pattern: Over-Provisioned Steady-State
 
@@ -106,29 +117,34 @@ AI Recommendation:
 
 ### 3. Multi-Layered Safety Validation
 
-**Before recommending ANY change, JetScale's AI validates:**
+#### Before recommending ANY change, Jetscale's AI validates:
 
-**CPU Headroom:**
+##### CPU Headroom:
+
 - **Minimum 20% buffer** above historical peak usage
 - Burst capacity analysis for unexpected traffic spikes
 - Growth trend analysis (increasing usage requires larger buffer)
 
-**Memory Headroom:**
+##### Memory Headroom:
+
 - **Minimum 15% buffer** above peak memory usage
 - Swap/paging risk assessment to avoid OOM conditions
 - Memory leak detection and trend analysis
 
-**I/O Capacity:**
+##### I/O Capacity:
+
 - IOPS: Sustained vs burst analysis
 - Throughput: Requirements vs volume limits
 - Queue depth and latency patterns under load
 
-**Network Capacity:**
+##### Network Capacity:
+
 - Bandwidth utilization trends and peak analysis
 - Packet rate limitations for instance size
 - Network performance class suitability (up to 100 Gbps)
 
-**High Availability:**
+##### High Availability:
+
 - Multi-AZ requirements preserved for production workloads
 - Failover capacity validated (can survive AZ failure)
 - Replication lag impact assessed across zones
@@ -137,19 +153,20 @@ AI Recommendation:
 
 ### 4. Cost-Performance Trade-off Analysis
 
-JetScale's AI evaluates multiple alternatives and selects the optimal balance:
+Jetscale's AI evaluates multiple alternatives and selects the optimal balance:
 
-**Example: RDS db.r5.2xlarge Database**
+#### Example: RDS db.r5.2xlarge Database
 
-| Option | Monthly Cost | Performance Impact | Risk Level | AI Score |
-|--------|--------------|-------------------|------------|----------|
-| db.r5.2xlarge (current) | $1,180 | Baseline | - | - |
-| db.r5.xlarge | $590 | -5% query latency | Medium | 6.8/10 |
-| db.r6i.xlarge | $540 | Same/better, newer gen | Low | **9.2/10** ✓ |
-| db.t3.2xlarge | $350 | CPU credit risk on spikes | High | 3.5/10 |
-| db.r6g.xlarge (Graviton) | $475 | Same/better, ARM-based | Medium | 8.5/10 |
+| Option                   | Monthly Cost | Performance Impact        | Risk Level | AI Score     |
+| ------------------------ | ------------ | ------------------------- | ---------- | ------------ |
+| db.r5.2xlarge (current)  | $1,180       | Baseline                  | -          | -            |
+| db.r5.xlarge             | $590         | -5% query latency         | Medium     | 6.8/10       |
+| db.r6i.xlarge            | $540         | Same/better, newer gen    | Low        | **9.2/10** ✓ |
+| db.t3.2xlarge            | $350         | CPU credit risk on spikes | High       | 3.5/10       |
+| db.r6g.xlarge (Graviton) | $475         | Same/better, ARM-based    | Medium     | 8.5/10       |
 
-**AI selects db.r6i.xlarge because:**
+##### AI selects db.r6i.xlarge because:
+
 - **54% cost reduction** ($640/month savings)
 - **Zero performance degradation** (same memory, improved CPU)
 - **Low implementation risk** (in-place modification supported)
@@ -159,27 +176,31 @@ JetScale's AI evaluates multiple alternatives and selects the optimal balance:
 
 ### 5. Evidence-Based Recommendations
 
-Every JetScale recommendation is backed by transparent evidence:
+Every Jetscale recommendation is backed by transparent evidence:
 
-**Usage Charts:**
+#### Usage Charts:
+
 - Historical CPU utilization graph with percentile bands
 - Historical memory utilization graph showing peaks
 - Peak vs average comparison with trend lines
 - Percentile analysis (p50, p95, p99) for capacity planning
 
-**Cost Analysis:**
+##### Cost Analysis:
+
 - Current monthly cost (itemized by component)
 - Projected monthly cost after change
 - Annual savings projection with confidence interval
 - Break-even timeline (for Reserved Instance purchases)
 
-**Configuration Comparison:**
+##### Configuration Comparison:
+
 - Side-by-side current vs recommended settings
 - Highlighted changes with explanations
 - Performance impact notes and mitigation strategies
 - Compatibility checks (OS, app requirements)
 
-**Implementation Risk Assessment:**
+##### Implementation Risk Assessment:
+
 - **Risk level**: Low, Medium, or High with justification
 - **Specific risks identified**: CPU pressure, memory constraints
 - **Mitigation strategies**: Gradual rollout, canary deployments
@@ -191,17 +212,19 @@ Every JetScale recommendation is backed by transparent evidence:
 
 ### 1. Right-Sizing Analysis
 
-**What It Does:**
-Determines optimal instance size based on actual usage patterns and workload characteristics.
+**What It Does:** Determines optimal instance size based on actual usage
+patterns and workload characteristics.
 
-**AI Factors Considered:**
+#### AI Factors Considered:
+
 - Utilization trends over extended period (not just averages)
 - Traffic pattern classification (steady, bursty, scheduled)
 - Growth rate analysis (10% YoY growth requires bigger buffer)
 - Seasonal variation detection (holiday spikes, end-of-quarter)
 
-**Example Recommendation:**
-```
+##### Example Recommendation:
+
+```text
 Current: t3.xlarge (4 vCPU, 16 GB RAM) = $730/month
 Recommended: t3.large (2 vCPU, 8 GB RAM) = $482/month
 
@@ -219,17 +242,19 @@ Rollback: Switch back in-place if needed
 
 ### 2. Reserved Instance Analysis
 
-**What It Does:**
-Identifies resources suitable for 1-year or 3-year commitments to unlock 40-60% discounts.
+**What It Does:** Identifies resources suitable for 1-year or 3-year commitments
+to unlock 40-60% discounts.
 
-**AI Factors Considered:**
+#### AI Factors Considered:
+
 - Uptime patterns (must be predictable 24/7 or scheduled)
 - Instance type stability (no recent size changes)
 - Workload criticality (production gets higher priority)
 - Flexibility requirements (can you commit for 1-3 years?)
 
-**Example Recommendation:**
-```
+##### Example Recommendation:
+
+```text
 Current: 5x m5.large on-demand ($438/month each)
 Total: $2,190/month | $26,280/year
 
@@ -247,17 +272,19 @@ Commitment: 1 year, flexible across AZs
 
 ### 3. Graviton Migration Analysis
 
-**What It Does:**
-Identifies workloads that can benefit from 30-40% savings on ARM-based AWS Graviton instances.
+**What It Does:** Identifies workloads that can benefit from 30-40% savings on
+ARM-based AWS Graviton instances.
 
-**AI Factors Considered:**
+#### AI Factors Considered:
+
 - Application compatibility (containerized workloads ideal)
 - Performance profile (Graviton3 excels at web, databases, caching)
 - Cost-performance ratio (price/performance advantage)
 - Migration effort vs savings (ROI calculation)
 
-**Example Recommendation:**
-```
+##### Example Recommendation:
+
+```text
 Current: 10x m5.2xlarge ($1,752/month each)
 Total: $17,520/month | $210,240/year
 
@@ -276,17 +303,19 @@ Rollback: Switch back to x86 instances if issues arise
 
 ### 4. Storage Optimization Analysis
 
-**What It Does:**
-Optimizes EBS volume types (gp2→gp3) and adjusts IOPS/throughput for actual needs.
+**What It Does:** Optimizes EBS volume types (gp2→gp3) and adjusts
+IOPS/throughput for actual needs.
 
-**AI Factors Considered:**
+#### AI Factors Considered:
+
 - IOPS usage patterns (provisioned vs actual utilization)
 - Throughput requirements (sustained vs burst)
 - Burst vs sustained performance needs
 - Cost per IOPS across volume types (gp3 is 20% cheaper)
 
-**Example Recommendation:**
-```
+##### Example Recommendation:
+
+```text
 Current: 50x gp2 volumes (500 GB each, 1500 IOPS baseline)
 Cost: $50/month each | $2,500/month total
 
@@ -306,21 +335,24 @@ Implementation: Modify volumes during maintenance window
 
 ### Feedback Loop
 
-JetScale's AI improves over time by learning from outcomes:
+Jetscale's AI improves over time by learning from outcomes:
 
-**Tracking Outcomes:**
+#### Tracking Outcomes:
+
 - **Actual savings vs projected**: 98% accuracy within ±5%
 - **Performance impact post-deployment**: Monitoring for degradation
 - **Rollback frequency and reasons**: Learning from issues
 - **Customer acceptance rates**: Understanding preferences
 
-**Refining Models:**
+##### Refining Models:
+
 - Adjusting safety margins based on real-world outcomes
 - Improving workload classification accuracy
 - Better prediction of seasonal patterns and growth
 - Enhanced risk scoring based on deployment results
 
-**Incorporating Feedback:**
+##### Incorporating Feedback:
+
 - Learn from rejected recommendations (too aggressive? wrong timing?)
 - Adjust for organization-specific preferences (conservative vs aggressive)
 - Respect manual overrides and exceptions (don't re-suggest)
@@ -332,13 +364,15 @@ JetScale's AI improves over time by learning from outcomes:
 
 ### Understanding Every Recommendation
 
-**Every recommendation includes:**
+#### Every recommendation includes:
+
 - **Why this change is suggested**: Specific usage patterns and inefficiencies
 - **What data supports it**: Historical metrics and charts
 - **What risks exist**: Honest assessment of potential issues
 - **How to roll back if needed**: Step-by-step instructions
 
-**You always have control:**
+##### You always have control:
+
 - Accept, reject, or defer any recommendation
 - Provide feedback on accuracy and outcomes
 - Set custom policies (e.g., "never touch production databases")
@@ -346,13 +380,15 @@ JetScale's AI improves over time by learning from outcomes:
 
 ### Safety Guarantees
 
-**JetScale's AI never recommends changes that:**
+#### Jetscale's AI never recommends changes that:
+
 - Eliminate high-availability configurations (multi-AZ, replicas)
 - Risk SLA violations or performance degradation
 - Require migrations without sufficient validation data
 - Can't be easily rolled back if issues occur
 
-**Red flags that prevent recommendations:**
+##### Red flags that prevent recommendations:
+
 - Insufficient usage data (minimal historical metrics)
 - High variability in workload patterns (unpredictable)
 - Recent instance size changes (let it stabilize first)
@@ -364,18 +400,19 @@ JetScale's AI improves over time by learning from outcomes:
 
 ## Related Documentation
 
-- [How JetScale Works](how-it-works.md) - Overall platform workflow
+- [How Jetscale Works](how-it-works.md) - Overall platform workflow
 - [AWS Account Setup](aws-setup.md) - Connect your AWS account
 - [Azure Account Setup](azure-setup.md) - Connect your Azure account
-- [Supported Services](services/README.md) - What JetScale optimizes
+- [Supported Services](services/README.md) - What Jetscale optimizes
 - [FAQ](faq.md) - Common questions answered
 
 ---
 
-**Questions about AI safety or validation?**
+### Questions about AI safety or validation?
+
 - Email: [support@jetscale.ai](mailto:support@jetscale.ai)
 - [Schedule Technical Deep Dive](https://jetscale.ai/demo)
 
 ---
 
-*Last Updated: January 29, 2025*
+Last Updated: January 29, 2025

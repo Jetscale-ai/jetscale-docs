@@ -1,24 +1,28 @@
-# Getting Started with JetScale
+# Getting Started with Jetscale
 
 > Start saving on cloud costs in 5 minutes
 
 ## Overview
 
-JetScale is a SaaS platform that automatically discovers cost-saving opportunities in your cloud infrastructure. This guide will walk you through connecting your first cloud account and reviewing your first recommendations.
+Jetscale is a SaaS platform that automatically discovers cost-saving
+opportunities in your cloud infrastructure. This guide will walk you through
+connecting your first cloud account and reviewing your first recommendations.
 
 **Time to first savings: 5 minutes** ⏱️
 
 ---
 
-## Step 1: Sign Up for JetScale
+## Step 1: Sign Up for Jetscale
 
-**Create Your Account:**
+### Create Your Account:
+
 1. Visit [app.jetscale.ai/signup](https://app.jetscale.ai/signup)
 2. Enter your email and create a password
 3. Verify your email address
 4. Complete your profile (company name, role)
 
-**Free Trial:**
+#### Free Trial:
+
 - Full platform access
 - Up to $10,000 in identified savings
 - No credit card required
@@ -32,11 +36,12 @@ Choose your cloud provider and follow the setup guide:
 
 ### AWS (5 minutes)
 
-**Quick Steps:**
+#### Quick Steps:
+
 1. Log in to your AWS account
-2. Create a cross-account IAM role for JetScale
+2. Create a cross-account IAM role for Jetscale
 3. Copy the Role ARN and External ID
-4. Paste into JetScale dashboard
+4. Paste into Jetscale dashboard
 5. Click "Connect" and verify access
 
 [Detailed AWS Setup Guide →](aws-setup.md)
@@ -47,29 +52,33 @@ Choose your cloud provider and follow the setup guide:
 
 ### Azure (5 minutes)
 
-**Quick Steps:**
+#### Quick Steps:
+
 1. Log in to Azure portal
-2. Create a Service Principal for JetScale
+2. Create a Service Principal for Jetscale
 3. Assign Reader role to your subscription
 4. Copy Tenant ID, Subscription ID, and credentials
-5. Paste into JetScale dashboard
+5. Paste into Jetscale dashboard
 6. Click "Connect" and verify access
 
 [Detailed Azure Setup Guide →](azure-setup.md)
 
-**Permissions:** Read-only access to Virtual Machines, SQL, Disks, Cache, Cost Management
+**Permissions:** Read-only access to Virtual Machines, SQL, Disks, Cache, Cost
+Management
 
 ---
 
 ## Step 3: Wait for Discovery (2-5 minutes)
 
-**What's Happening:**
-- JetScale scans all regions in your account
+### What's Happening:
+
+- Jetscale scans all regions in your account
 - Catalogs compute, database, storage, and caching resources
 - Pulls historical usage metrics from CloudWatch/Azure Monitor
 - AI analyzes usage patterns and identifies opportunities
 
-**Progress indicators:**
+#### Progress indicators:
+
 - **Discovering resources** → Finding all cloud resources
 - **Analyzing usage** → Collecting historical metrics
 - **Generating recommendations** → AI validation in progress
@@ -79,22 +88,25 @@ Choose your cloud provider and follow the setup guide:
 
 ## Step 4: Review Recommendations
 
-**Dashboard Overview:**
+### Dashboard Overview:
 
 You'll see recommendations organized by:
+
 - **Potential savings** (highest to lowest)
 - **Risk level** (Low, Medium, High)
 - **Resource type** (EC2, RDS, EBS, etc.)
 
-**Recommendation Card:**
+#### Recommendation Card:
 
 Each card shows:
+
 - **Resource name** and type
 - **Estimated monthly savings**
 - **Risk level** with color coding
 - **Quick summary** of the change
 
-**Clicking "View Details" shows:**
+##### Clicking "View Details" shows:
+
 - Historical usage charts (CPU, memory, network)
 - Current vs recommended configuration
 - Detailed savings calculation
@@ -105,13 +117,15 @@ Each card shows:
 
 ## Step 5: Approve Recommendations
 
-**Select Recommendations:**
+### Select Recommendations:
+
 1. Review low-risk recommendations first (green badges)
 2. Check usage charts to validate AI analysis
 3. Select recommendations you want to implement
 4. Click "Approve Selected" button
 
-**Bulk Approval:**
+#### Bulk Approval:
+
 - Use filters to find specific types (e.g., "EC2 right-sizing")
 - Select multiple recommendations at once
 - Preview combined monthly savings
@@ -121,17 +135,19 @@ Each card shows:
 
 ## Step 6: Deploy Changes
 
-**Choose Your Integration:**
+### Choose Your Integration:
 
 ### Option 1: GitHub Pull Request (Recommended)
 
-**Setup (one-time):**
+#### Setup (one-time):
+
 1. Connect your GitHub account in Settings
 2. Select target repository for Terraform code
 3. Configure branch name and reviewers
 
-**Deployment:**
-1. JetScale creates a new branch
+##### Deployment:
+
+1. Jetscale creates a new branch
 2. Commits Terraform code for approved recommendations
 3. Opens pull request with full documentation
 4. Your team reviews and approves
@@ -151,7 +167,8 @@ Same workflow as GitHub, but for Bitbucket repositories.
 
 ### Option 3: Manual Download
 
-**Download Terraform files:**
+#### Download Terraform files:
+
 1. Click "Download Terraform" button
 2. Receive ZIP file with all configurations
 3. Extract and review files locally
@@ -170,16 +187,18 @@ terraform apply
 
 ## Step 7: Track Savings
 
-**Savings Dashboard:**
+### Savings Dashboard:
 
 After deployment, monitor:
+
 - **Actual savings** vs projected savings
 - **Cumulative savings** over time
 - **Performance metrics** post-change
 - **ROI calculations** for executive reporting
 
-**Continuous Discovery:**
-- JetScale scans daily for new opportunities
+#### Continuous Discovery:
+
+- Jetscale scans daily for new opportunities
 - Alerts when high-value recommendations appear
 - Tracks usage trends to identify growing waste
 - Suggests optimizations as your infrastructure evolves
@@ -190,10 +209,11 @@ After deployment, monitor:
 
 ### Jira Integration
 
-**Automatic ticket creation:**
+#### Automatic ticket creation:
+
 - Creates Jira tickets for each recommendation batch
 - Tracks savings and implementation status
-- Links to pull requests and JetScale dashboard
+- Links to pull requests and Jetscale dashboard
 - Updates status when PRs are merged
 
 [Jira Integration Guide →](integrations/jira.md)
@@ -202,7 +222,8 @@ After deployment, monitor:
 
 ### Slack Integration
 
-**Real-time notifications:**
+#### Real-time notifications:
+
 - New recommendations available
 - Savings milestones reached
 - Deployment status updates
@@ -214,7 +235,8 @@ After deployment, monitor:
 
 ## Team Setup (Optional)
 
-**Invite Team Members:**
+### Invite Team Members:
+
 1. Go to Settings → Team
 2. Click "Invite Member"
 3. Enter email and select role:
@@ -222,39 +244,44 @@ After deployment, monitor:
    - **Editor**: Can review and approve recommendations
    - **Viewer**: Read-only access to dashboard
 
-**Role Permissions:**
+#### Role Permissions:
 
-| Permission | Admin | Editor | Viewer |
-|------------|-------|--------|--------|
-| View recommendations | ✓ | ✓ | ✓ |
-| Approve recommendations | ✓ | ✓ | - |
-| Configure integrations | ✓ | - | - |
-| Manage team members | ✓ | - | - |
-| Connect cloud accounts | ✓ | - | - |
+| Permission              | Admin | Editor | Viewer |
+| ----------------------- | ----- | ------ | ------ |
+| View recommendations    | ✓     | ✓      | ✓      |
+| Approve recommendations | ✓     | ✓      | -      |
+| Configure integrations  | ✓     | -      | -      |
+| Manage team members     | ✓     | -      | -      |
+| Connect cloud accounts  | ✓     | -      | -      |
 
 ---
 
 ## Settings & Preferences
 
-**Customize JetScale:**
+### Customize Jetscale:
 
-**Notification Settings:**
+#### Notification Settings:
+
 - Email frequency (daily, weekly, monthly)
 - Slack channel for notifications
 - Savings threshold for alerts ($100, $500, $1000)
 
-**Risk Tolerance:**
+##### Risk Tolerance:
+
 - **Conservative**: Only show low-risk recommendations
 - **Balanced**: Show low and medium-risk (default)
 - **Aggressive**: Show all recommendations including high-risk
 
-**Approval Workflow:**
+##### Approval Workflow:
+
 - **Manual approval**: Review each recommendation individually
 - **Auto-approve low-risk**: Automatically approve recommendations < $100/month
-- **Custom rules**: Define approval criteria (e.g., "auto-approve EC2 right-sizing")
+- **Custom rules**: Define approval criteria (e.g., "auto-approve EC2
+  right-sizing")
 
-**Exclusions:**
-- Exclude specific resources by tag (e.g., "JetScaleIgnore=true")
+##### Exclusions:
+
+- Exclude specific resources by tag (e.g., "JetscaleIgnore=true")
 - Exclude resource types (e.g., "never touch production RDS")
 - Exclude entire accounts or regions
 
@@ -265,23 +292,27 @@ After deployment, monitor:
 ### Start with Low-Risk Recommendations
 
 **Week 1:** Approve low-risk, high-savings recommendations:
+
 - Storage optimization (gp2→gp3 migrations)
 - Cleanup unused snapshots and volumes
 - Right-size obviously over-provisioned resources
 
 **Week 2-4:** Expand to medium-risk recommendations:
+
 - EC2 instance right-sizing with proper headroom
 - Reserved Instance purchases for stable workloads
 - Database instance optimization
 
 **Month 2+:** Consider higher-risk optimizations:
+
 - Graviton migrations (requires testing)
 - Scheduled shutdown of non-production resources
 - Auto Scaling Group optimizations
 
 ### Test in Non-Production First
 
-**Safe rollout strategy:**
+#### Safe rollout strategy:
+
 1. Test recommendations in dev/staging environments first
 2. Monitor performance for 1-2 weeks
 3. Apply same optimizations to production
@@ -289,16 +320,18 @@ After deployment, monitor:
 
 ### Monitor Performance Post-Deployment
 
-**Key metrics to watch:**
+#### Key metrics to watch:
+
 - CPU and memory utilization (should stay below 80%)
 - Response times and latency (should remain stable)
 - Error rates (should not increase)
 - Application logs (watch for resource constraints)
 
-**If issues arise:**
+##### If issues arise:
+
 - Rollback using provided Terraform instructions
 - Contact support: [support@jetscale.ai](mailto:support@jetscale.ai)
-- JetScale tracks outcomes to improve future recommendations
+- Jetscale tracks outcomes to improve future recommendations
 
 ---
 
@@ -306,32 +339,37 @@ After deployment, monitor:
 
 ### How long until I see savings?
 
-**Immediate savings:**
+#### Immediate savings:
+
 - Storage optimizations apply within hours
 - Instance right-sizing takes 5-10 minutes (create-before-destroy)
 
-**Savings on next bill:**
+##### Savings on next bill:
+
 - Most optimizations reduce your next monthly bill
 - Reserved Instances show savings immediately after purchase
 
 ### What if I don't like a recommendation?
 
-**You're in control:**
+#### You're in control:
+
 - Reject any recommendation (won't be shown again)
 - Defer recommendations for later review
 - Provide feedback to improve future suggestions
 
 ### Can I undo changes?
 
-**Yes, easily:**
+#### Yes, easily:
+
 - All Terraform code includes rollback instructions
 - Most changes can be reverted in-place
-- JetScale provides step-by-step rollback guides
+- Jetscale provides step-by-step rollback guides
 - Support team available to assist
 
 ### How accurate are savings estimates?
 
-**Very accurate:**
+#### Very accurate:
+
 - 98% accuracy within ±5% variance
 - Based on historical actual usage data
 - Includes all cost factors (compute, storage, data transfer)
@@ -341,13 +379,15 @@ After deployment, monitor:
 
 ## Need Help?
 
-**Support Channels:**
+### Support Channels:
+
 - **Email**: [support@jetscale.ai](mailto:support@jetscale.ai)
 - **Live Chat**: Available in dashboard (bottom-right corner)
 - **Documentation**: [docs.jetscale.ai](https://docs.jetscale.ai)
 - **Schedule Demo**: [jetscale.ai/demo](https://jetscale.ai/demo)
 
-**Response Times:**
+#### Response Times:
+
 - **Free Trial**: 24-hour response
 - **Pro Plan**: 8-hour response
 - **Enterprise**: 2-hour response with dedicated support
@@ -356,16 +396,18 @@ After deployment, monitor:
 
 ## Next Steps
 
-**Learn More:**
-- [How JetScale Works](how-it-works.md) - Deep dive into the platform
+### Learn More:
+
+- [How Jetscale Works](how-it-works.md) - Deep dive into the platform
 - [AI Analysis](ai-analysis.md) - How our AI validates safety
-- [Supported Services](services/README.md) - What JetScale optimizes
+- [Supported Services](services/README.md) - What Jetscale optimizes
 - [FAQ](faq.md) - Common questions answered
 
-**Ready to save?**
+#### Ready to save?
+
 - [Start Free Trial →](https://app.jetscale.ai/signup)
 - [Schedule Demo →](https://jetscale.ai/demo)
 
 ---
 
-*Last Updated: January 29, 2025*
+Last Updated: January 29, 2025

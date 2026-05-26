@@ -1,10 +1,12 @@
 # GitHub Integration
 
-JetScale integrates with GitHub to automatically create pull requests containing production-ready Terraform code for your cost optimization recommendations.
+Jetscale integrates with GitHub to automatically create pull requests containing
+production-ready Terraform code for your cost optimization recommendations.
 
 ## Overview
 
-The GitHub integration allows JetScale to:
+The GitHub integration allows Jetscale to:
+
 - Push generated Terraform code to your repositories
 - Create pull requests with detailed optimization recommendations
 - Integrate seamlessly with your existing code review workflow
@@ -25,53 +27,63 @@ Before connecting GitHub, you'll need:
 
 ### Step 1: Create a GitHub Personal Access Token
 
-1. Navigate to [GitHub Settings → Developer settings → Personal access tokens](https://github.com/settings/tokens)
+1. Navigate to
+   [GitHub Settings → Developer settings → Personal access tokens](https://github.com/settings/tokens)
 2. Click **Generate new token** → **Generate new token (classic)**
-3. Give your token a descriptive name (e.g., "JetScale Integration")
+3. Give your token a descriptive name (e.g., "Jetscale Integration")
 4. Select the required scopes:
    - ✓ `repo` (Full control of private repositories)
    - ✓ `read:org` (Read org and team membership)
    - ✓ `user:email` (Access user email addresses)
 5. Click **Generate token**
-6. **Important**: Copy your token immediately - you won't be able to see it again
+6. **Important**: Copy your token immediately - you won't be able to see it
+   again
 
-> **Security Note**: Store your token securely. JetScale encrypts tokens at rest and never logs or exposes them.
+> **Security Note**: Store your token securely. Jetscale encrypts tokens at rest
+> and never logs or exposes them.
 
-### Step 2: Connect GitHub in JetScale
+### Step 2: Connect GitHub in Jetscale
 
-1. Navigate to **Settings** → **Integrations** in JetScale
+1. Navigate to **Settings** → **Integrations** in Jetscale
 2. Click **Connect GitHub**
 3. Paste your Personal Access Token
 4. Click **Verify and Connect**
 
-JetScale will verify your token and display your GitHub account information.
+Jetscale will verify your token and display your GitHub account information.
 
 ### Step 3: Select Your Repository
 
-1. From the **Repository** dropdown, select your Terraform infrastructure repository
-2. JetScale will verify you have push access
+1. From the **Repository** dropdown, select your Terraform infrastructure
+   repository
+2. Jetscale will verify you have push access
 3. The selected repository will be used for all future pull requests
 
-You can change the selected repository at any time from the integrations settings.
+You can change the selected repository at any time from the integrations
+settings.
 
 ## How It Works
 
 ### Pull Request Creation
 
-When you approve a cost optimization recommendation in JetScale:
+When you approve a cost optimization recommendation in Jetscale:
 
-1. **Branch Creation**: JetScale creates a new feature branch from your default branch
+1. **Branch Creation**: Jetscale creates a new feature branch from your default
+   branch
+
    - Branch naming format: `jetscale/optimization-{resource-type}-{date}`
    - Example: `jetscale/optimization-rds-2024-01-15`
 
-2. **File Push**: Generated Terraform files are pushed to the `terraform/` directory
+2. **File Push**: Generated Terraform files are pushed to the `terraform/`
+   directory
+
    - Files include all necessary resource definitions
    - Comments explain the optimization rationale
    - Variables are extracted where appropriate
 
 3. **Pull Request**: A PR is automatically created with:
    - **Title**: Descriptive optimization summary
-   - **Description**: Detailed cost impact analysis, performance considerations, and implementation notes
+   - **Description**: Detailed cost impact analysis, performance considerations,
+     and implementation notes
    - **Labels**: Automatically tagged with `jetscale` and resource type
 
 ### Pull Request Structure
@@ -80,32 +92,38 @@ When you approve a cost optimization recommendation in JetScale:
 ## Cost Optimization: RDS Instance Right-Sizing
 
 ### Summary
+
 Downgrade RDS instance `production-db` from db.r5.2xlarge to db.r5.xlarge
 
 ### Cost Impact
+
 - **Current Monthly Cost**: $730.00
 - **Projected Monthly Cost**: $365.00
 - **Monthly Savings**: $365.00 (50% reduction)
 - **Annual Savings**: $4,380.00
 
 ### Performance Analysis
+
 - Current CPU utilization: 15-25% average
 - Current memory utilization: 30-40% average
 - Recommended instance provides 2x current peak usage
 - No performance degradation expected
 
 ### Files Changed
+
 - `terraform/rds_production_db.tf` - Updated instance class
 - `terraform/variables.tf` - Added instance_class variable
 
 ### Testing Recommendations
+
 1. Apply changes in staging environment first
 2. Monitor performance metrics for 48 hours
 3. Verify application response times remain consistent
 4. Check CloudWatch alarms are properly configured
 
 ---
-🤖 Generated by [JetScale](https://jetscale.ai)
+
+🤖 Generated by [Jetscale](https://jetscale.ai)
 ```
 
 ### Terraform Code Example
@@ -131,27 +149,25 @@ resource "aws_db_instance" "production_db" {
 
 ## Repository Permissions
 
-JetScale requires **push** access to your repository to create branches and pull requests. The integration will:
+Jetscale requires **push** access to your repository to create branches and pull
+requests. The integration will:
 
-✓ Create feature branches
-✓ Push Terraform files
-✓ Create pull requests
-✓ Read repository metadata
+✓ Create feature branches ✓ Push Terraform files ✓ Create pull requests ✓ Read
+repository metadata
 
-✗ Cannot merge pull requests
-✗ Cannot delete branches
-✗ Cannot modify existing files outside of created PRs
-✗ Cannot access repository secrets
+✗ Cannot merge pull requests ✗ Cannot delete branches ✗ Cannot modify existing
+files outside of created PRs ✗ Cannot access repository secrets
 
 ## Managing the Integration
 
 ### View Integration Status
 
 From **Settings** → **Integrations** → **GitHub**, you can view:
+
 - Connected GitHub account
 - Selected repository
 - Last verification time
-- Recent pull requests created by JetScale
+- Recent pull requests created by Jetscale
 
 ### Change Repository
 
@@ -169,7 +185,8 @@ To remove the GitHub integration:
 3. Confirm disconnection
 
 **Important**: Disconnecting will:
-- Remove your stored access token from JetScale
+
+- Remove your stored access token from Jetscale
 - Stop automatic PR creation for new recommendations
 - Preserve existing pull requests (they remain open in GitHub)
 
@@ -182,6 +199,7 @@ You can reconnect at any time using a new or existing Personal Access Token.
 **Problem**: "Invalid GitHub Token" error when connecting
 
 **Solutions**:
+
 - Verify all required scopes are selected (`repo`, `read:org`, `user:email`)
 - Check the token hasn't expired
 - Ensure you copied the complete token without extra spaces
@@ -192,8 +210,10 @@ You can reconnect at any time using a new or existing Personal Access Token.
 **Problem**: Can't find your repository in the selection dropdown
 
 **Solutions**:
+
 - Verify you have push access to the repository
-- Check if the repository belongs to an organization - ensure your token has `read:org` scope
+- Check if the repository belongs to an organization - ensure your token has
+  `read:org` scope
 - Try reconnecting with a new token
 - Confirm the repository exists and isn't archived
 
@@ -202,25 +222,30 @@ You can reconnect at any time using a new or existing Personal Access Token.
 **Problem**: Recommendation approved but PR wasn't created
 
 **Solutions**:
+
 - Verify branch doesn't already exist with the same name
 - Check you still have push access to the repository
 - Ensure the default branch hasn't been deleted or renamed
-- Review GitHub's [rate limits](https://docs.github.com/en/rest/overview/resources-in-the-rest-api#rate-limiting) - you may need to wait briefly
+- Review GitHub's
+  [rate limits](https://docs.github.com/en/rest/overview/resources-in-the-rest-api#rate-limiting) -
+  you may need to wait briefly
 
 ### Branch Already Exists
 
 **Problem**: "Branch already exists" error when creating PR
 
 **Solutions**:
+
 - Delete or rename the existing branch in GitHub
-- Retry the optimization recommendation - JetScale will generate a new branch name with timestamp
+- Retry the optimization recommendation - Jetscale will generate a new branch
+  name with timestamp
 - Merge or close the existing PR if it's from a previous recommendation
 
 ## Best Practices
 
 ### Token Management
 
-- **Create a dedicated token** for JetScale instead of reusing tokens
+- **Create a dedicated token** for Jetscale instead of reusing tokens
 - **Set an expiration date** and renew before expiry
 - **Use fine-grained permissions** when they become available for your org
 - **Rotate tokens regularly** (every 90 days recommended)
@@ -243,34 +268,39 @@ You can reconnect at any time using a new or existing Personal Access Token.
 
 ### Token Security
 
-- JetScale encrypts Personal Access Tokens at rest using AES-256
+- Jetscale encrypts Personal Access Tokens at rest using AES-256
 - Tokens are never logged or exposed in API responses
 - All API calls to GitHub use HTTPS with TLS 1.2+
 - Tokens are stored separately from user data with restricted access
 
 ### Audit Trail
 
-Every action taken by JetScale is recorded:
+Every action taken by Jetscale is recorded:
+
 - All GitHub API calls are logged
 - Pull request creation is tracked per recommendation
 - Failed attempts are captured with error details
-- Audit logs are available in your JetScale dashboard
+- Audit logs are available in your Jetscale dashboard
 
 ### Revoking Access
 
-To immediately revoke JetScale's access:
+To immediately revoke Jetscale's access:
 
-1. **In GitHub**: Navigate to [Settings → Applications → Personal access tokens](https://github.com/settings/tokens)
-2. Click **Delete** next to the JetScale token
-3. **In JetScale**: Navigate to Settings → Integrations → GitHub and click **Disconnect**
+1. **In GitHub**: Navigate to
+   [Settings → Applications → Personal access tokens](https://github.com/settings/tokens)
+2. Click **Delete** next to the Jetscale token
+3. **In Jetscale**: Navigate to Settings → Integrations → GitHub and click
+   **Disconnect**
 
-Once revoked, JetScale immediately loses all access to your repositories.
+Once revoked, Jetscale immediately loses all access to your repositories.
 
 ## API Reference
 
-For programmatic access to the GitHub integration, see our [API Documentation](../api-reference.md#github-integration).
+For programmatic access to the GitHub integration, see our
+[API Documentation](../api-reference.md#github-integration).
 
 Key endpoints:
+
 - `POST /api/v1/github/action/connect` - Connect GitHub account
 - `POST /api/v1/github/action/select-repo` - Select repository
 - `GET /api/v1/github/repos` - List accessible repositories
@@ -283,4 +313,5 @@ Need help with GitHub integration?
 
 - **Email**: [support@jetscale.ai](mailto:support@jetscale.ai)
 - **Documentation**: [FAQ](../faq.md)
-- **GitHub Issues**: [Report a problem](https://github.com/Jetscale-ai/jetscale-docs/issues)
+- **GitHub Issues**:
+  [Report a problem](https://github.com/Jetscale-AI/jetscale-docs/issues)

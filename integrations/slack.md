@@ -1,10 +1,13 @@
 # Slack Integration
 
-JetScale integrates with Slack to deliver real-time cost optimization notifications directly to your team channels, keeping everyone informed about new recommendations, deployment status, and cost savings opportunities.
+Jetscale integrates with Slack to deliver real-time cost optimization
+notifications directly to your team channels, keeping everyone informed about
+new recommendations, deployment status, and cost savings opportunities.
 
 ## Overview
 
-The Slack integration allows JetScale to:
+The Slack integration allows Jetscale to:
+
 - Post notifications for new cost optimization recommendations
 - Alert teams about significant savings opportunities
 - Notify on deployment status updates
@@ -16,7 +19,7 @@ The Slack integration allows JetScale to:
 Before connecting Slack, you'll need:
 
 1. **Slack Workspace** with admin or app installation permissions
-2. **Channel Access** to receive JetScale notifications
+2. **Channel Access** to receive Jetscale notifications
 3. **Workspace Permissions** to install apps
 
 ### Supported Workspace Types
@@ -28,37 +31,38 @@ Before connecting Slack, you'll need:
 
 ## Setup Guide
 
-### Step 1: Connect Slack in JetScale
+### Step 1: Connect Slack in Jetscale
 
-![Slack Connection Screen](#)
-*Screenshot placeholder: JetScale Slack integration page*
+![Slack Connection Screen](#) _Screenshot placeholder: Jetscale Slack
+integration page_
 
-1. Navigate to **Settings** → **Integrations** in JetScale
+1. Navigate to **Settings** → **Integrations** in Jetscale
 2. Click **Connect Slack**
 3. You'll be redirected to Slack's authorization page
 4. Select your workspace from the dropdown
 5. Click **Allow** to grant permissions
 
-JetScale will request the following permissions:
+Jetscale will request the following permissions:
+
 - **Send messages**: Post notifications to channels
 - **View channel information**: List available channels
 - **Upload files**: Share detailed reports (optional)
 
 ### Step 2: Select Notification Channel
 
-![Channel Selection Screen](#)
-*Screenshot placeholder: Slack channel configuration*
+![Channel Selection Screen](#) _Screenshot placeholder: Slack channel
+configuration_
 
-1. After authorization, you'll return to JetScale
+1. After authorization, you'll return to Jetscale
 2. Select your **default notification channel** from the dropdown
 3. Click **Save Channel**
 
-You can change the channel at any time or configure multiple channels for different notification types.
+You can change the channel at any time or configure multiple channels for
+different notification types.
 
 ### Step 3: Configure Notification Preferences
 
-![Notification Preferences](#)
-*Screenshot placeholder: Notification settings*
+![Notification Preferences](#) _Screenshot placeholder: Notification settings_
 
 Customize what gets sent to Slack:
 
@@ -74,9 +78,9 @@ Customize what gets sent to Slack:
 
 #### New Recommendation Alerts
 
-When JetScale identifies a cost optimization opportunity:
+When Jetscale identifies a cost optimization opportunity:
 
-```
+```text
 💰 New Cost Optimization Recommendation
 
 Resource: production-postgres-db
@@ -90,14 +94,14 @@ Annual Savings: $4,380
 Performance Impact: Low Risk
 ✅ 2x headroom above peak usage maintained
 
-[View in JetScale] [View Terraform]
+[View in Jetscale] [View Terraform]
 ```
 
 #### High-Value Opportunities
 
 For recommendations exceeding your configured savings threshold:
 
-```
+```text
 🎯 High-Value Optimization Detected!
 
 Resource: customer-aurora-cluster
@@ -119,7 +123,7 @@ Quick Stats:
 
 When you implement a recommendation:
 
-```
+```text
 ✅ Optimization Deployed Successfully
 
 Resource: api-server-prod
@@ -139,7 +143,7 @@ Expected Annual Savings: $1,680
 
 Every Monday morning (configurable):
 
-```
+```text
 📊 Weekly Cost Optimization Summary
 
 Total Savings Identified: $2,450/month
@@ -162,7 +166,7 @@ New Recommendations: 7
 
 First day of each month:
 
-```
+```text
 📊 Monthly Cloud Cost Report - January 2024
 
 Total Cloud Spend: $28,450
@@ -187,13 +191,13 @@ Year-to-Date Savings: $12,600
 
 Control how often you receive notifications:
 
-| Notification Type | Frequency Options |
-|-------------------|-------------------|
-| New Recommendations | Real-time, Daily digest, Weekly digest |
-| High-Value Opportunities | Real-time (recommended) |
-| Deployment Status | Real-time |
-| Savings Summary | Weekly, Bi-weekly |
-| Cost Reports | Monthly, Quarterly |
+| Notification Type        | Frequency Options                      |
+| ------------------------ | -------------------------------------- |
+| New Recommendations      | Real-time, Daily digest, Weekly digest |
+| High-Value Opportunities | Real-time (recommended)                |
+| Deployment Status        | Real-time                              |
+| Savings Summary          | Weekly, Bi-weekly                      |
+| Cost Reports             | Monthly, Quarterly                     |
 
 ### Threshold Configuration
 
@@ -207,8 +211,9 @@ Set minimum savings thresholds to reduce noise:
 
 Route different notification types to different channels:
 
-**Example Configuration:**
-```
+#### Example Configuration:
+
+```text
 #cloud-costs → All recommendations and reports
 #engineering-alerts → High-value opportunities only
 #devops → Deployment status updates
@@ -217,22 +222,24 @@ Route different notification types to different channels:
 
 ## Slash Commands (Optional)
 
-JetScale provides optional slash commands for interactive queries:
+Jetscale provides optional slash commands for interactive queries:
 
-| Command | Description | Example |
-|---------|-------------|---------|
-| `/jetscale summary` | Current month savings summary | `/jetscale summary` |
-| `/jetscale recommendations` | List top 5 recommendations | `/jetscale recommendations` |
-| `/jetscale report` | Generate cost report | `/jetscale report last-month` |
-| `/jetscale help` | Show available commands | `/jetscale help` |
+| Command                     | Description                   | Example                       |
+| --------------------------- | ----------------------------- | ----------------------------- |
+| `/jetscale summary`         | Current month savings summary | `/jetscale summary`           |
+| `/jetscale recommendations` | List top 5 recommendations    | `/jetscale recommendations`   |
+| `/jetscale report`          | Generate cost report          | `/jetscale report last-month` |
+| `/jetscale help`            | Show available commands       | `/jetscale help`              |
 
-**Note**: Slash commands require additional permissions during setup. They are entirely optional and can be enabled/disabled independently of notifications.
+**Note**: Slash commands require additional permissions during setup. They are
+entirely optional and can be enabled/disabled independently of notifications.
 
 ## Managing the Integration
 
 ### View Integration Status
 
 From **Settings** → **Integrations** → **Slack**, you can view:
+
 - Connected workspace name
 - Active notification channels
 - Recent notifications sent
@@ -256,7 +263,8 @@ To route notifications to a different channel:
 3. Select a new channel from the dropdown
 4. Click **Update**
 
-**Important**: You must invite `@JetScale` bot to private channels before they appear in the selection dropdown.
+**Important**: You must invite `@Jetscale` bot to private channels before they
+appear in the selection dropdown.
 
 ### Update Preferences
 
@@ -278,9 +286,10 @@ To remove the Slack integration:
 3. Confirm disconnection
 
 **Important**: Disconnecting will:
+
 - Stop all notifications to Slack
-- Remove the JetScale bot from your workspace
-- Preserve notification history in JetScale dashboard
+- Remove the Jetscale bot from your workspace
+- Preserve notification history in Jetscale dashboard
 - Disable slash commands (if enabled)
 
 You can reconnect at any time by repeating the setup process.
@@ -292,6 +301,7 @@ You can reconnect at any time by repeating the setup process.
 **Problem**: "Unable to connect to Slack" error
 
 **Solutions**:
+
 - Verify you have permissions to install apps in your workspace
 - Check if your organization requires admin approval for new apps
 - Ensure you selected the correct workspace during authorization
@@ -302,7 +312,8 @@ You can reconnect at any time by repeating the setup process.
 **Problem**: Notifications aren't appearing in Slack channel
 
 **Solutions**:
-- Verify the JetScale bot is a member of the channel (invite `@JetScale`)
+
+- Verify the Jetscale bot is a member of the channel (invite `@Jetscale`)
 - Check notification preferences are enabled
 - Confirm savings thresholds aren't filtering all recommendations
 - Send a test message to verify connection
@@ -313,16 +324,18 @@ You can reconnect at any time by repeating the setup process.
 **Problem**: Target channel doesn't appear in dropdown
 
 **Solutions**:
+
 - Public channels appear automatically
-- Private channels require you to invite `@JetScale` first
-- Type `/invite @JetScale` in the target channel
-- Refresh the JetScale integration page after inviting
+- Private channels require you to invite `@Jetscale` first
+- Type `/invite @Jetscale` in the target channel
+- Refresh the Jetscale integration page after inviting
 
 ### Duplicate Notifications
 
 **Problem**: Receiving the same notification multiple times
 
 **Solutions**:
+
 - Check if multiple team members connected separate integrations
 - Review notification preferences for duplicate settings
 - Verify you didn't configure multiple notification channels for the same type
@@ -333,6 +346,7 @@ You can reconnect at any time by repeating the setup process.
 **Problem**: `/jetscale` commands return error
 
 **Solutions**:
+
 - Verify slash commands are enabled in integration settings
 - Re-authorize the Slack integration to grant command permissions
 - Check command syntax (use `/jetscale help` for reference)
@@ -342,7 +356,8 @@ You can reconnect at any time by repeating the setup process.
 
 ### Channel Organization
 
-**Recommended channel structure:**
+#### Recommended channel structure:
+
 - **#cloud-costs**: Primary channel for all cost-related notifications
 - **#engineering-alerts**: High-priority recommendations for immediate action
 - **#devops-deploy**: Deployment status and implementation tracking
@@ -350,17 +365,20 @@ You can reconnect at any time by repeating the setup process.
 
 ### Notification Strategy
 
-**For small teams (< 20 people):**
+#### For small teams (< 20 people):
+
 - Single channel for all notifications
 - Real-time alerts for high-value opportunities
 - Weekly digest for routine recommendations
 
-**For medium teams (20-100 people):**
+##### For medium teams (20-100 people):
+
 - Separate channels by notification type
 - Real-time for deployments and high-value
 - Daily digest for new recommendations
 
-**For large teams (100+ people):**
+##### For large teams (100+ people):
+
 - Role-based channel routing
 - Aggressive threshold filtering
 - Weekly digests preferred
@@ -368,14 +386,16 @@ You can reconnect at any time by repeating the setup process.
 
 ### Integration with Workflows
 
-**Recommendation approval workflow:**
-1. JetScale posts recommendation to `#cloud-costs`
+#### Recommendation approval workflow:
+
+1. Jetscale posts recommendation to `#cloud-costs`
 2. Team discusses in thread
 3. DevOps uses 👍 reaction to indicate approval
-4. Engineer implements via JetScale dashboard
+4. Engineer implements via Jetscale dashboard
 5. Status update posted automatically
 
-**Use Slack reactions for tracking:**
+##### Use Slack reactions for tracking:
+
 - 👀 = Under review
 - 👍 = Approved for implementation
 - 🚀 = Deployed to staging
@@ -385,16 +405,19 @@ You can reconnect at any time by repeating the setup process.
 ### Alerting Thresholds
 
 **Conservative approach** (less noise):
+
 - Minimum savings: $500/month
 - High-value threshold: $1000/month
 - Weekly digests for routine recommendations
 
 **Aggressive approach** (catch everything):
+
 - Minimum savings: $50/month
 - High-value threshold: $500/month
 - Real-time notifications for all recommendations
 
-**Recommended starting point:**
+#### Recommended starting point:
+
 - Minimum savings: $100/month (monthly recurring)
 - High-value threshold: $500/month
 - Daily digest for new recommendations
@@ -404,12 +427,14 @@ You can reconnect at any time by repeating the setup process.
 
 ### Permissions
 
-JetScale requests only the minimum required Slack permissions:
+Jetscale requests only the minimum required Slack permissions:
+
 - **Post messages**: Required for all notifications
 - **Read channel information**: Required to list available channels
 - **Upload files**: Optional, for detailed reports
 
-JetScale cannot:
+Jetscale cannot:
+
 - Read messages from your channels
 - Access private messages or DMs
 - Modify channel settings
@@ -420,26 +445,30 @@ JetScale cannot:
 
 - Slack notifications contain only summary information
 - Sensitive credentials never included in messages
-- Detailed data available only via authenticated JetScale dashboard links
-- All links require active JetScale session
+- Detailed data available only via authenticated Jetscale dashboard links
+- All links require active Jetscale session
 
 ### Audit Trail
 
 Every notification sent is recorded:
+
 - Timestamp and recipient channel
 - Notification type and content
 - User who configured the integration
-- Audit logs available in your JetScale dashboard
+- Audit logs available in your Jetscale dashboard
 
 ## API Reference
 
-For programmatic access to the Slack integration, see our [API Documentation](../api-reference.md#slack-integration).
+For programmatic access to the Slack integration, see our
+[API Documentation](../api-reference.md#slack-integration).
 
 Key endpoints:
+
 - `POST /api/v2/integrations/slack/me/action/connect` - Initiate OAuth flow
 - `GET /api/v2/integrations/slack/channels` - List available channels
 - `POST /api/v2/integrations/slack/me/action/configure` - Update preferences
-- `POST /api/v2/integrations/slack/notifications/action/send-test` - Send test message
+- `POST /api/v2/integrations/slack/notifications/action/send-test` - Send test
+  message
 - `POST /api/v2/integrations/slack/me/action/disconnect` - Remove integration
 
 ## Support
@@ -448,4 +477,5 @@ Need help with Slack integration?
 
 - **Email**: [support@jetscale.ai](mailto:support@jetscale.ai)
 - **Documentation**: [FAQ](../faq.md)
-- **GitHub Issues**: [Report a problem](https://github.com/Jetscale-ai/jetscale-docs/issues)
+- **GitHub Issues**:
+  [Report a problem](https://github.com/Jetscale-AI/jetscale-docs/issues)
