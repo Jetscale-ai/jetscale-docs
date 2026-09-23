@@ -112,14 +112,52 @@
     window.addEventListener('hashchange', detectLanguage);
     window.addEventListener('load', detectLanguage);
 
+    // Old top-level sections are unpublished. Send those routes, and both
+    // language homes, to the Product landing before Docsify fetches a page.
+    (function () {
+      var EN_HOME = '#/product/';
+      var FR_HOME = '#/fr/product/';
+      var REMOVED = /^(?:(?:getting-started|aws-setup|azure-setup|how-it-works|ai-analysis|recommendation-workflow|api-reference|v2-endpoints|faq)(?:\.md)?|integrations(?:\.md)?(?:\/.*)?|services(?:\.md)?(?:\/.*)?)(?:\?.*)?$/;
+      var REMOVED_FR = /^fr\/(?:(?:getting-started|aws-setup|azure-setup|how-it-works|ai-analysis|recommendation-workflow|api-reference|v2-endpoints|faq)(?:\.md)?|integrations(?:\.md)?(?:\/.*)?|services(?:\.md)?(?:\/.*)?)(?:\?.*)?$/;
+
+      function currentPath() {
+        var hash = location.hash || '';
+        if (hash.charAt(0) === '#') hash = hash.slice(1);
+        if (hash.charAt(0) === '/') hash = hash.slice(1);
+        var query = hash.indexOf('?');
+        if (query !== -1) hash = hash.slice(0, query);
+        return hash.replace(/\/+$/, '');
+      }
+
+      function redirectLegacy() {
+        var path = currentPath();
+        var target = '';
+        if (path === '' || path === 'README' || path === 'README.md') {
+          target = EN_HOME;
+        } else if (path === 'fr' || path === 'fr/README' || path === 'fr/README.md') {
+          target = FR_HOME;
+        } else if (REMOVED.test(path)) {
+          target = EN_HOME;
+        } else if (REMOVED_FR.test(path)) {
+          target = FR_HOME;
+        }
+        if (target && location.hash !== target) {
+          location.replace(target);
+        }
+      }
+
+      redirectLegacy();
+      window.addEventListener('hashchange', redirectLegacy);
+    })();
+
     window.$docsify = {
       name: '<img src="logo.svg" alt="JetScale" style="height: 28px; margin-top: 8px;">',
-      nameLink: '/',
+      nameLink: '#/product/',
       repo: 'https://github.com/Jetscale-ai/jetscale-docs',
       loadSidebar: true,
       subMaxLevel: 2,
       auto2top: true,
-      homepage: 'README.md',
+      homepage: 'product/README.md',
       search: {
         placeholder: 'Search...',
         noData: 'No results found',
@@ -133,9 +171,18 @@
       formatUpdated: '{MM}/{DD} {HH}:{mm}',
       fallbackLanguages: ['en'],
       alias: {
-        '/fr/_sidebar.md': '/fr/_sidebar.md',
-        '/.*/_sidebar.md': '/_sidebar.md'
-      }
+        '/fr/(.*)_sidebar.md': '/fr/_sidebar.md',
+        '/.*/_sidebar.md': '/_sidebar.md',
+        '/README.md': '/product/README.md',
+        '/fr/README.md': '/fr/product/README.md',
+        '/(getting-started|aws-setup|azure-setup|how-it-works|ai-analysis|recommendation-workflow|api-reference|v2-endpoints|faq)(\\.md)?': '/product/README.md',
+        '/integrations(.*)': '/product/README.md',
+        '/services(.*)': '/product/README.md',
+        '/fr/(getting-started|aws-setup|azure-setup|how-it-works|ai-analysis|recommendation-workflow|api-reference|v2-endpoints|faq)(\\.md)?': '/fr/product/README.md',
+        '/fr/integrations(.*)': '/fr/product/README.md',
+        '/fr/services(.*)': '/fr/product/README.md'
+      },
+      notFoundPage: 'product/README.md'
     }
   </script>
   <!-- Docsify v4 -->

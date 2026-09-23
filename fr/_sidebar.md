@@ -1,34 +1,31 @@
-- Démarrage
-  - [Aperçu](/fr/)
-  - [Guide de Démarrage](/fr/getting-started)
-  - [Configuration AWS](/fr/aws-setup)
-  - [Configuration Azure](/fr/azure-setup)
-
-- Comment Ça Marche
-  - [Fonctionnement de JetScale](/fr/how-it-works)
-  - [Analyse IA](/fr/ai-analysis)
-  - [Flux de Recommandations](/fr/recommendation-workflow)
-
-- Intégrations
-  - [Aperçu](/fr/integrations/)
-  - [GitHub](/fr/integrations/github)
-  - [Jira](/fr/integrations/jira)
-  - [Slack](/fr/integrations/slack)
-  - [Bitbucket](/fr/integrations/bitbucket)
-
-- Services Supportés
-  - [Aperçu](/fr/services/)
-  - AWS
-    - [EBS](/fr/services/ebs)
-    - [EC2](/fr/services/ec2)
-    - [EKS](/fr/services/eks)
-    - [ElastiCache](/fr/services/elasticache)
-    - [RDS](/fr/services/rds)
-    - [S3](/fr/services/s3)
-  - Azure
-    - [Azure SQL](/fr/services/azure-sql)
-    - [Machines Virtuelles](/fr/services/azure-vm)
-
-- Référence
-  - [Référence API](/fr/api-reference)
-  - [FAQ](/fr/faq)
+- Produit
+  - [Produit](/fr/product/)
+  - [Aperçu](/fr/product/overview)
+  - Entreprise
+    - [Entreprise](/fr/product/company/)
+    - [Unités d'affaires](/fr/product/company/business-units)
+    - [Paramètres généraux](/fr/product/company/settings-general)
+    - [Utilisateurs](/fr/product/company/users)
+    - [Rôles](/fr/product/company/roles)
+    - [Paramètres système](/fr/product/company/system-settings)
+    - [Indicateurs de fonctionnalité](/fr/product/company/feature-flags)
+    - [Profil](/fr/product/company/profile)
+  - Espace de travail
+    - [Espace de travail](/fr/product/main/)
+    - [Tableau de bord](/fr/product/main/dashboard)
+    - [Comptes infonuagiques](/fr/product/main/cloud-accounts)
+    - [Lier un compte infonuagique](/fr/product/main/link-cloud-account)
+    - [Applications et intégrations](/fr/product/main/apps-and-integrations)
+    - [Paramètres de l'unité](/fr/product/main/business-unit-settings)
+    - [Aperçu et gouvernance](/fr/product/main/overview-and-governance)
+    - [Répartition des coûts](/fr/product/main/cost-breakdown)
+    - [Ressources](/fr/product/main/resources)
+    - [Recommandations](/fr/product/main/recommendations)
+    - [Activité et statut](/fr/product/main/recommendation-activity-and-status)
+    - [Générer un plan de remédiation](/fr/product/main/generate-remediation)
+    - [Sessions de remédiation et clavardage](/fr/product/main/remediation-sessions-and-agent-chat)
+    - [Paramètres du compte et FOCUS](/fr/product/main/cloud-account-settings-and-focus)
+    - [Profil et changement d'unité](/fr/product/main/profile-and-business-unit-switch)
+  - Flux
+    - [Boucle d'économies et de remédiation](/fr/product/flows/savings-and-remediation-loop)
+  - [Notes d'environnement](/fr/product/gaps-and-environment-notes)

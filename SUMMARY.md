@@ -1,32 +1,5 @@
 # Table of Contents
 
-* [Introduction](README.md)
-
-## Getting Started
-
-* [Getting Started Guide](getting-started.md)
-* [AWS Setup](aws-setup.md)
-* [Azure Setup](azure-setup.md)
-
-## How It Works
-
-* [How JetScale Works](how-it-works.md)
-* [AI-Powered Analysis](ai-analysis.md)
-* [Recommendation Workflow](recommendation-workflow.md)
-
-## Supported Services
-
-* [RDS Optimization](services/rds.md)
-* [EC2 Optimization](services/ec2.md)
-* [EBS Optimization](services/ebs.md)
-* [ElastiCache Optimization](services/elasticache.md)
-
-## Integration
-
-* [GitHub Integration](integrations/github.md)
-* [Jira Integration](integrations/jira.md)
-* [Bitbucket Integration](integrations/bitbucket.md)
-
 ## Product
 
 * [Product](product/README.md)
@@ -56,9 +29,3 @@
 * [Profile and business unit switch](product/main/profile-and-business-unit-switch.md)
 * [Savings and remediation loop](product/flows/savings-and-remediation-loop.md)
 * [Environment notes](product/gaps-and-environment-notes.md)
-
-## Reference
-
-* [API Reference](api-reference.md)
-* [REST API v2](v2-endpoints.md)
-* [FAQ](faq.md)
