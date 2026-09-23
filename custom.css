@@ -372,3 +372,23 @@ body {
   margin-top: 0.75rem;
   margin-bottom: 0;
 }
+
+/* Product screenshots */
+.markdown-section img {
+  max-width: 100%;
+  height: auto;
+  border: 1px solid var(--jetscale-gray-300);
+  border-radius: 6px;
+}
+
+.markdown-section .docs-shot-caption {
+  margin-top: 0.35rem;
+  margin-bottom: 1.25rem;
+  color: var(--jetscale-gray-700);
+  font-size: 0.9rem;
+}
+
+.markdown-section .docs-shot-env {
+  font-weight: 600;
+  color: var(--jetscale-primary-dark);
+}

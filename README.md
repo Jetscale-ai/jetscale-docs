@@ -107,6 +107,13 @@ Lambda/Functions, DynamoDB/Cosmos DB, ECS/AKS, Blob Storage, Load Balancers
 - [AI Analysis](ai-analysis.md) - How our AI generates recommendations
 - [Integration Guide](integrations/README.md) - GitHub, Jira, Slack setup
 
+### Product
+- [Product](product/README.md) - Company portal and workspace
+- [How it fits together](product/overview.md) - How the company portal and the workspace fit together
+- [Company](product/company/README.md) - Business units, users, roles, and company settings
+- [Workspace](product/workspace/README.md) - Business-unit and cloud-account workspace
+- [Savings and remediation loop](product/flows/savings-and-remediation-loop.md) - From spend to a reviewable plan
+
 ### Reference
 - [Supported Services](services/README.md) - Complete list of optimized resources
 - [API Documentation](api-reference.md) - Public API for integrations (Beta)
