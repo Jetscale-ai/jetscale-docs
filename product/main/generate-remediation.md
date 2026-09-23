@@ -15,27 +15,27 @@ Operators who are allowed to start a remediation session.
 1. Open the recommendation and choose **Generate remediation**, **Create remediation plan**, or **View full recommendation**. The label depends on the path.
 2. The gate asks **Would you like to generate the remediation plan?** The choices are **1 Yes, generate the plan** and **2 No, don't generate**.
 
-   ![Yes or no gate before generating a remediation plan](../images/reco/pre-generate-gate.png)
+   ![The question Would you like to generate the remediation plan, with yes and no.](../images/reco/pre-generate-gate.png)
 
-   <p class="docs-shot-caption"><span class="docs-shot-env">Production console</span> · The question Would you like to generate the remediation plan, with yes and no.</p>
+   **Production console**
 
 3. **No** leaves the remediation list empty. The empty copy is **You have no remediation session yet.**
 
-   ![Empty remediation list after choosing no](../images/reco/remediation-empty.png)
+   ![Remediation list after choosing not to generate.](../images/reco/remediation-empty.png)
 
-   <p class="docs-shot-caption"><span class="docs-shot-env">Production console</span> · Remediation list after choosing not to generate.</p>
+   **Production console**
 
 4. **Yes** starts generation. Progress text moves through **Generating remediation plan…**, **Hang tight…**, **Crunching the details…**, and **Working on it…** The plan is ready in about a minute. Changing progress text means generation is still running.
 
-   ![Remediation plan generation in progress](../images/reco/generate-progress.png)
+   ![Generation in progress. The progress text changes for about a minute while the plan is prepared.](../images/reco/generate-progress.png)
 
-   <p class="docs-shot-caption"><span class="docs-shot-env">Production console</span> · Generation in progress. The progress text changes for about a minute while the plan is prepared.</p>
+   **Production console**
 
 5. Read the plan: **Recommendation Summary**, **Why this is safe**, and **Important implementation notes**. Open `clickops-steps.md` with **Open steps** and `terraform-remediation.tf` with **Open code**.
 
-   ![Generated remediation plan](../images/reco/plan.png)
+   ![Generated plan with summary, why this is safe, notes, and the steps and Terraform files.](../images/reco/plan.png)
 
-   <p class="docs-shot-caption"><span class="docs-shot-env">Production console</span> · Generated plan with summary, why this is safe, notes, and the steps and Terraform files.</p>
+   **Production console**
 
 6. The session appears under **Remediation** as a previous remediation session. The recommendation status moves to **In progress**.
 

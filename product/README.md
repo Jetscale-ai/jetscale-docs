@@ -13,6 +13,6 @@ You move through it in this order: company, business units, open a unit, cloud a
 
 - [How it fits together](overview.md) — how the company portal and the workspace fit together.
 - [Company](company/README.md) — business units and company administration.
-- [Workspace](workspace/README.md) — the business-unit and cloud-account workspace.
+- [Workspace](main/README.md) — the business-unit and cloud-account workspace.
 - [Savings and remediation loop](flows/savings-and-remediation-loop.md) — from spend to a reviewable plan.
 - [Environment notes](gaps-and-environment-notes.md) — menu and console differences.

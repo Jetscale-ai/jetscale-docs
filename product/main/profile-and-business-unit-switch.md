@@ -15,9 +15,9 @@ Anyone working in the workspace.
 1. Open the avatar.
 2. Choose **Change business unit**. The current unit is disabled. Other units in this company are listed. A unit from another company is not listed.
 
-   ![Profile menu with Change Business Unit](../images/main/change-business-unit.png)
+   ![Profile menu, Change Business Unit.](../images/main/change-business-unit.png)
 
-   <p class="docs-shot-caption"><span class="docs-shot-env">Production console</span> · Profile menu, Change Business Unit.</p>
+   **Production console**
 
 3. Choose another unit. You land on that unit's cloud accounts. The company stays the same.
 4. **Back to company portal**, when it is offered, leaves the business-unit context and does not edit data.

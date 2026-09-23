@@ -24,15 +24,15 @@ Use the task page for the screen you are on. Use this page when a menu item, a t
 
 **Cost and FOCUS.** Cost breakdown can show spend when FOCUS is **Not configured**. Cost breakdown can also be empty when FOCUS is **Not configured**. An empty cost breakdown does not mean there are no recommendations.
 
-![FOCUS billing export not configured](images/main/focus-not-configured.png)
+![FOCUS billing export set to Not configured.](images/main/focus-not-configured.png)
 
-<p class="docs-shot-caption"><span class="docs-shot-env">Production console</span> · FOCUS billing export set to Not configured.</p>
+**Production console**
 
 **Dashboard range.** Choosing last 30 days moves every panel on the dashboard together. That range can show zeros.
 
-![Dashboard for the last 30 days](images/main/dashboard-last-30-days.png)
+![Dashboard with the last 30 days range selected.](images/main/dashboard-last-30-days.png)
 
-<p class="docs-shot-caption"><span class="docs-shot-env">Production console</span> · Dashboard with the last 30 days range selected.</p>
+**Production console**
 
 **Recommendation status.** Status is a pill, with filters for Discovered, In progress, Completed, Postponed, and Discarded. Generating a plan moves the status to **In progress**. On some consoles, choosing the pill opens **Change recommendation status**. **Cancel** leaves the status unchanged.
 
@@ -40,9 +40,9 @@ Use the task page for the screen you are on. Use this page when a menu item, a t
 
 ## Related screens
 
-- [Dashboard](workspace/dashboard.md)
-- [Cost breakdown](workspace/cost-breakdown.md)
-- [Cloud account settings and FOCUS](workspace/cloud-account-settings-and-focus.md)
+- [Dashboard](main/dashboard.md)
+- [Cost breakdown](main/cost-breakdown.md)
+- [Cloud account settings and FOCUS](main/cloud-account-settings-and-focus.md)
 - [Business units](company/business-units.md)
 
 ## Limits

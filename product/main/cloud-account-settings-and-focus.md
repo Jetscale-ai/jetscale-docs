@@ -15,19 +15,19 @@ Account admins who review how the account was linked and whether a cost export e
 1. Open the account and choose **Settings**.
 2. On account information, read the auth type and identifiers. Identifiers on the screenshot are hidden.
 
-   ![Cloud account settings](../images/main/cloud-settings-account.png)
+   ![Cloud account settings. Subscription, tenant, and client identifiers are blurred.](../images/main/cloud-settings-account.png)
 
-   <p class="docs-shot-caption"><span class="docs-shot-env">Production console</span> · Cloud account settings. Subscription, tenant, and client identifiers are blurred.</p>
+   **Production console**
 
 3. Open **FOCUS billing export**. Note whether it says **Not configured**.
 
-   ![FOCUS billing export settings](../images/main/cloud-settings-focus.png)
+   ![FOCUS billing export settings.](../images/main/cloud-settings-focus.png)
 
-   <p class="docs-shot-caption"><span class="docs-shot-env">Production console</span> · FOCUS billing export settings.</p>
+   **Production console**
 
-   ![FOCUS not configured](../images/main/focus-not-configured.png)
+   ![FOCUS billing export not configured.](../images/main/focus-not-configured.png)
 
-   <p class="docs-shot-caption"><span class="docs-shot-env">Production console</span> · FOCUS billing export not configured.</p>
+   **Production console**
 
 4. Configure an export only when you intend to set one up. Reading this page does not submit a configuration.
 

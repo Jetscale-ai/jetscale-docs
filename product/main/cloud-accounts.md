@@ -14,9 +14,9 @@ Operators choosing which account to open.
 
 1. Open a business unit. Cloud accounts is the landing list.
 
-   ![Cloud accounts table](../images/main/cloud-accounts.png)
+   ![Cloud accounts table.](../images/main/cloud-accounts.png)
 
-   <p class="docs-shot-caption"><span class="docs-shot-env">Production console</span> · Cloud accounts table.</p>
+   **Production console**
 
 1. Search or filter. The row set changes. No account is created.
 1. Open a row to enter that account's overview.
@@ -26,9 +26,9 @@ Operators choosing which account to open.
 
 An empty unit says no cloud account is linked and still offers the link action. Recommendation counts on this table should agree with the account overview.
 
-![Business unit with no linked cloud account](../images/company/nesting-cloud-accounts.png)
+![A business unit with no linked cloud account.](../images/company/nesting-cloud-accounts.png)
 
-<p class="docs-shot-caption"><span class="docs-shot-env">Non-production console</span> · A business unit with no linked cloud account.</p>
+**Non-production console**
 
 ## Related screens
 

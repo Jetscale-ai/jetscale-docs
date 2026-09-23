@@ -15,9 +15,9 @@ Company owners and admins who define access.
 1. Open **Settings**, then **Roles**.
 2. Review each role and its assignment count. A count of zero is still shown.
 
-   ![Company roles](../images/company/roles.png)
+   ![Company roles.](../images/company/roles.png)
 
-   <p class="docs-shot-caption"><span class="docs-shot-env">Non-production console</span> · Company roles.</p>
+   **Non-production console**
 
 3. Open **Role details** for a role to see grouped switches, including business-unit access, dashboard, cost, cloud accounts, and remediation.
 4. Change a switch only when you intend to save it. Closing or cancelling discards unsaved changes.
@@ -29,9 +29,9 @@ A missing permission hides or denies the matching surface in the workspace. A ro
 
 ## Related screens
 
-- [Recommendations](../workspace/recommendations.md)
-- [Generate a remediation plan](../workspace/generate-remediation.md)
-- [Remediation sessions and agent chat](../workspace/remediation-sessions-and-agent-chat.md)
+- [Recommendations](../main/recommendations.md)
+- [Generate a remediation plan](../main/generate-remediation.md)
+- [Remediation sessions and agent chat](../main/remediation-sessions-and-agent-chat.md)
 
 ## Limits
 

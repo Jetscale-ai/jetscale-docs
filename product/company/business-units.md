@@ -15,16 +15,16 @@ Company owners and admins who organize work by business unit.
 1. Open the company portal. The header marks **Business Units** as the current page.
 2. Read each card: name, cloud-account count, and user count.
 
-   ![Company business units](../images/company/business-units.png)
+   ![Business units in the company portal.](../images/company/business-units.png)
 
-   <p class="docs-shot-caption"><span class="docs-shot-env">Non-production console</span> · Business units in the company portal.</p>
+   **Non-production console**
 
 3. To inspect create without saving, choose **Add Business Unit**. The dialog is **Create a new business unit**, with name, description, owner, and an optional logo. Choose **Cancel** or the close control. The list does not change.
 4. Choose a card to open that unit's cloud accounts in the workspace.
 
-   ![Business unit with no linked cloud account](../images/company/nesting-cloud-accounts.png)
+   ![A business unit with no linked cloud account.](../images/company/nesting-cloud-accounts.png)
 
-   <p class="docs-shot-caption"><span class="docs-shot-env">Non-production console</span> · A business unit with no linked cloud account.</p>
+   **Non-production console**
 
 **Cancel** closes the dialog and does not add a business unit.
 
@@ -36,8 +36,8 @@ An empty company still offers **Add Business Unit**.
 
 ## Related screens
 
-- [Cloud accounts](../workspace/cloud-accounts.md) after you open a unit.
-- [Profile and business unit switch](../workspace/profile-and-business-unit-switch.md) to move between units later.
+- [Cloud accounts](../main/cloud-accounts.md) after you open a unit.
+- [Profile and business unit switch](../main/profile-and-business-unit-switch.md) to move between units later.
 
 ## Limits
 

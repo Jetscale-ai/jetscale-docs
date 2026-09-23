@@ -16,9 +16,9 @@ Operators who want the unit-level picture before they open one account.
 2. Choose **Dashboard** when it is in the sidebar.
 3. Read the tiles and chart for the active date range. Switching bar and line keeps that range.
 
-   ![Business-unit dashboard](../images/main/dashboard.png)
+   ![Business-unit dashboard.](../images/main/dashboard.png)
 
-   <p class="docs-shot-caption"><span class="docs-shot-env">Production console</span> · Business-unit dashboard.</p>
+   **Production console**
 
 4. Use a date preset, including last 30 days, to move every panel on the page together.
 

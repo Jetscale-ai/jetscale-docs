@@ -14,24 +14,24 @@ Anyone working the savings loop. Opening the list requires permission to view re
 
 1. Open the account and choose **Recommendations**. On production the heading is often **Recommendations & Resources**.
 
-   ![Recommendations table with filters](../images/main/recommendations.png)
+   ![Recommendations table with category filters.](../images/main/recommendations.png)
 
-   <p class="docs-shot-caption"><span class="docs-shot-env">Production console</span> · Recommendations table with category filters.</p>
+   **Production console**
 
 1. On a build with category tabs, the tabs are **Compute**, **Storage**, **Database**, and **Inference**. There is no Network tab.
 
-   ![Recommendations on the Compute tab](../images/main/recommendations-local-compute.png)
+   ![Recommendations on the Compute tab. The tabs are Compute, Storage, Database, and Inference.](../images/main/recommendations-local-compute.png)
 
-   <p class="docs-shot-caption"><span class="docs-shot-env">Non-production console</span> · Recommendations on the Compute tab. The tabs are Compute, Storage, Database, and Inference.</p>
+   **Non-production console**
 
 1. On a single-table build, use search, the columns menu, the filter drawer, sortable headers, and page size. Observed page sizes include 10, 25, and 50.
 1. Open a row for detail. Continue with [Activity and status](recommendation-activity-and-status.md).
 
 **Network** is one of the resource categories inside the filter drawer, together with Compute, Storage, Database, Inference, Reserved Instance, Savings Plan, Analytics, Integration, Monitoring, Security, Management, and Developer Tools. The drawer's **Apply** only applies those filters. It does not apply a change to the cloud.
 
-![Recommendations filter drawer including Network](../images/main/recommendations-filters.png)
+![Recommendations filter drawer. Network is a filter category, not a recommendations tab.](../images/main/recommendations-filters.png)
 
-<p class="docs-shot-caption"><span class="docs-shot-env">Production console</span> · Recommendations filter drawer. Network is a filter category, not a recommendations tab.</p>
+**Production console**
 
 ## What to expect
 

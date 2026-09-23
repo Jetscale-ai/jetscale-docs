@@ -111,7 +111,7 @@ Lambda/Functions, DynamoDB/Cosmos DB, ECS/AKS, Blob Storage, Load Balancers
 - [Product](product/README.md) - Company portal and workspace
 - [How it fits together](product/overview.md) - How the company portal and the workspace fit together
 - [Company](product/company/README.md) - Business units, users, roles, and company settings
-- [Workspace](product/workspace/README.md) - Business-unit and cloud-account workspace
+- [Workspace](product/main/README.md) - Business-unit and cloud-account workspace
 - [Savings and remediation loop](product/flows/savings-and-remediation-loop.md) - From spend to a reviewable plan
 
 ### Reference

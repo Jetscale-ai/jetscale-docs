@@ -16,9 +16,9 @@ Company owners and admins who maintain the tenant profile.
 2. Select **General**.
 3. Read the fields. Use **Edit** only when you intend to change a value.
 
-   ![Company general settings](../images/company/general.png)
+   ![Company general settings.](../images/company/general.png)
 
-   <p class="docs-shot-caption"><span class="docs-shot-env">Non-production console</span> · Company general settings.</p>
+   **Non-production console**
 
 4. Save only when you mean to keep the change.
 

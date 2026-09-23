@@ -15,9 +15,9 @@ People who administer one business unit.
 1. In the workspace, open **Settings** for the business unit.
 2. **General** shows the unit name, description, and owner.
 
-   ![Business-unit general information](../images/main/bu-settings.png)
+   ![Business-unit general information.](../images/main/bu-settings.png)
 
-   <p class="docs-shot-caption"><span class="docs-shot-env">Production console</span> · Business-unit general information.</p>
+   **Production console**
 
 3. **User management** lists people on this unit. It can be empty. Creating a user here is not the same as [company users](../company/users.md).
 4. **System** is the unit's own settings list.

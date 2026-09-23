@@ -15,9 +15,9 @@ Operators checking whether a repository connection exists before they expect a p
 1. Open **Apps & Integrations** when it is in the business-unit sidebar.
 2. Read the GitHub card: connected or not, and the connected organization when one is shown.
 
-   ![Apps and integrations GitHub connection](../images/main/apps.png)
+   ![Apps and integrations, GitHub connection.](../images/main/apps.png)
 
-   <p class="docs-shot-caption"><span class="docs-shot-env">Production console</span> · Apps and integrations, GitHub connection.</p>
+   **Production console**
 
 3. Leave **Disconnect** unused unless you intend to remove the connection.
 

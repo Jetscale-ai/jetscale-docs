@@ -17,15 +17,15 @@ Operators checking discovery when the menu item is there.
 3. Use search, filter, and refresh. Read last-seen or updated time when it is shown.
 4. Read the table: name or id, resource ARN, type, region, status, and version.
 
-   ![Resources inventory on the Compute category](../images/main/resources-compute.png)
+   ![Resources inventory on the Compute category. The table is the normal resource list.](../images/main/resources-compute.png)
 
-   <p class="docs-shot-caption"><span class="docs-shot-env">Non-production console</span> · Resources inventory on the Compute category. The table is the normal resource list.</p>
+   **Non-production console**
 
 5. An empty account says nothing has been discovered yet.
 
-   ![Resources empty state](../images/main/resources-empty.png)
+   ![Resources empty state when nothing has been discovered yet.](../images/main/resources-empty.png)
 
-   <p class="docs-shot-caption"><span class="docs-shot-env">Non-production console</span> · Resources empty state when nothing has been discovered yet.</p>
+   **Non-production console**
 
 ## What to expect
 

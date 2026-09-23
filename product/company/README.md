@@ -16,4 +16,4 @@ Company settings are for administrators. A role without that access does not see
 - [Feature flags](feature-flags.md) — company overrides.
 - [Profile](profile.md) — the avatar menu in the company portal.
 
-Opening a business-unit card enters the [workspace](../workspace/README.md).
+Opening a business-unit card enters the [workspace](../main/README.md).

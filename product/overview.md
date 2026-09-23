@@ -13,7 +13,7 @@ Clients, operators, and support staff who need a map of the console before they 
 ## How to use it
 
 1. Open [Company](company/README.md) for business units, users, roles, and company settings.
-2. Open a business unit to enter the [workspace](workspace/README.md).
+2. Open a business unit to enter the [workspace](main/README.md).
 3. Open a cloud account for overview, cost, recommendations, and remediation.
 
 ## What to expect
@@ -25,8 +25,8 @@ Company settings are for administrators.
 ## Related screens
 
 - [Business units](company/business-units.md)
-- [Cloud accounts](workspace/cloud-accounts.md)
-- [Recommendations](workspace/recommendations.md)
+- [Cloud accounts](main/cloud-accounts.md)
+- [Recommendations](main/recommendations.md)
 
 ## Limits
 

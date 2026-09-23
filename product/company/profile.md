@@ -16,9 +16,9 @@ Anyone signed into the company portal.
 2. **Manage my profile** opens identity fields. Save only when you mean to keep a change.
 3. **Sign out** ends the session. Use it only when you mean to leave.
 
-   ![Company profile menu](../images/company/profile-menu.png)
+   ![Company profile menu, with Manage my profile and Sign out.](../images/company/profile-menu.png)
 
-   <p class="docs-shot-caption"><span class="docs-shot-env">Non-production console</span> · Company profile menu, with Manage my profile and Sign out.</p>
+   **Non-production console**
 
 ## What to expect
 
@@ -26,7 +26,7 @@ Opening the menu does not change company data. Version labels may appear for sup
 
 ## Related screens
 
-- [Profile and business unit switch](../workspace/profile-and-business-unit-switch.md) for the same menu inside the workspace.
+- [Profile and business unit switch](../main/profile-and-business-unit-switch.md) for the same menu inside the workspace.
 - [Business units](business-units.md)
 
 ## Limits

@@ -19,23 +19,23 @@ Operators deciding whether to act, postpone, complete, or discard.
    - **Send comment** stays disabled until there is text. Typing a character enables it. Clearing the text disables it again.
    - When events exist, they are append-only: who, when, and what status changed.
 
-   ![Recommendation activity log](../images/reco/activity-log.png)
+   ![Recommendation activity log.](../images/reco/activity-log.png)
 
-   <p class="docs-shot-caption"><span class="docs-shot-env">Production console</span> · Recommendation activity log.</p>
+   **Production console**
 
 4. Status is a pill. Filters list Discovered, In progress, Completed, Postponed, and Discarded. Generating a plan moves the status to **In progress**. On some consoles, choosing the pill opens **Change recommendation status**. **Cancel** leaves the status unchanged.
 
-   ![Recommendation status](../images/reco/status.png)
+   ![Recommendation status.](../images/reco/status.png)
 
-   <p class="docs-shot-caption"><span class="docs-shot-env">Production console</span> · Recommendation status.</p>
+   **Production console**
 
 ## What to expect
 
 Opening a recommendation does not change the cloud provider. Chat messages are not copied into the activity log. A changelog can say that no field-level changes were recorded.
 
-![Activity log after a chat, without the chat text](../images/reco/activity-not-chat.png)
+![Activity log after agent chat. The log shows status and session events, not the chat.](../images/reco/activity-not-chat.png)
 
-<p class="docs-shot-caption"><span class="docs-shot-env">Production console</span> · Activity log after agent chat. The log shows status and session events, not the chat.</p>
+**Production console**
 
 ## Related screens
 

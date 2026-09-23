@@ -14,24 +14,24 @@ Operators reviewing a plan. Sending a chat message requires permission to send r
 
 1. Open **Remediation** in the account menu when it is there. You can also open the plan from the recommendation.
 
-   ![Remediation session list](../images/main/remediation.png)
+   ![Remediation session list.](../images/main/remediation.png)
 
-   <p class="docs-shot-caption"><span class="docs-shot-env">Production console</span> · Remediation session list.</p>
+   **Production console**
 
 1. After a successful generate, **Previous remediation session** lists the resource and the date.
 1. Open the session and read the summary, why it is safe, the notes, and the steps and Terraform files.
 1. At the bottom of the plan, the agent chat composer stays disabled until there is text.
 1. A documented question was: Summarize the main risks of applying this remediation. The reply listed risks and an overall assessment. That question does not apply the change.
 
-   ![Agent chat reply on a remediation plan](../images/reco/agent-chat-reply.png)
+   ![Agent chat reply. This thread is not the activity log.](../images/reco/agent-chat-reply.png)
 
-   <p class="docs-shot-caption"><span class="docs-shot-env">Production console</span> · Agent chat reply. This thread is not the activity log.</p>
+   **Production console**
 
 1. Reopen **Activity**. Expect status and session-started events only, for example a status move from Discovered to In progress because a plan was created. The chat question and reply are not in that log.
 
-   ![Activity log without the chat transcript](../images/reco/activity-not-chat.png)
+   ![Activity log after chat. Status and session events only.](../images/reco/activity-not-chat.png)
 
-   <p class="docs-shot-caption"><span class="docs-shot-env">Production console</span> · Activity log after chat. Status and session events only.</p>
+   **Production console**
 
 ## What to expect
 

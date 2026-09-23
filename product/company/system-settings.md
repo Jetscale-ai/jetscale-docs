@@ -20,14 +20,14 @@ Company admins who review or add company-level settings.
 
 **Cancel** closes the dialog and leaves the list unchanged. The form does not show cloud-account recommendation metrics. The screenshot hides the organization identifier value. The setting name stays visible.
 
-![Company system settings](../images/company/system-settings.png)
+![Company system settings. The organization identifier value is blurred.](../images/company/system-settings.png)
 
-<p class="docs-shot-caption"><span class="docs-shot-env">Non-production console</span> · Company system settings. The organization identifier value is blurred.</p>
+**Non-production console**
 
 ## Related screens
 
 - [Feature flags](feature-flags.md) for rollout switches, which are a different list.
-- [Cloud account settings and FOCUS](../workspace/cloud-account-settings-and-focus.md) for one linked account.
+- [Cloud account settings and FOCUS](../main/cloud-account-settings-and-focus.md) for one linked account.
 
 ## Limits
 

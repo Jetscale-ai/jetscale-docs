@@ -15,9 +15,9 @@ Operators who need to see where spend sits before they prioritize recommendation
 1. Open the account and choose **Cost breakdown**.
 2. Read the total and the service rows for the active date range.
 
-   ![Cost breakdown by service](../images/main/cost-breakdown.png)
+   ![Cost breakdown by service.](../images/main/cost-breakdown.png)
 
-   <p class="docs-shot-caption"><span class="docs-shot-env">Production console</span> · Cost breakdown by service.</p>
+   **Production console**
 
 3. Change grouping when the control is offered. The table updates. No export is created by reading it.
 4. If the page says no cost breakdown data is available, check [FOCUS](cloud-account-settings-and-focus.md).
@@ -26,9 +26,9 @@ Operators who need to see where spend sits before they prioritize recommendation
 
 Cost breakdown can show spend when FOCUS is **Not configured**. An empty breakdown does not mean there are no recommendations.
 
-![FOCUS billing export not configured](../images/main/focus-not-configured.png)
+![FOCUS billing export set to Not configured.](../images/main/focus-not-configured.png)
 
-<p class="docs-shot-caption"><span class="docs-shot-env">Production console</span> · FOCUS billing export set to Not configured.</p>
+**Production console**
 
 ## Related screens
 

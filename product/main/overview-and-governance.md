@@ -15,15 +15,15 @@ Account reviewers who need the account picture before they open a recommendation
 1. Open a cloud account.
 2. Read **Overview** for the active date range.
 
-   ![Cloud account overview](../images/main/overview.png)
+   ![Cloud account overview.](../images/main/overview.png)
 
-   <p class="docs-shot-caption"><span class="docs-shot-env">Production console</span> · Cloud account overview.</p>
+   **Production console**
 
 3. Open **Governance** for the finding categories on that account.
 
-   ![Cloud account governance](../images/main/governance.png)
+   ![Cloud account governance.](../images/main/governance.png)
 
-   <p class="docs-shot-caption"><span class="docs-shot-env">Production console</span> · Cloud account governance.</p>
+   **Production console**
 
 4. Use the open-recommendation count as a pointer into [Recommendations](recommendations.md), then confirm the list.
 
