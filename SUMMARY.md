@@ -27,6 +27,36 @@
 * [Jira Integration](integrations/jira.md)
 * [Bitbucket Integration](integrations/bitbucket.md)
 
+## Product
+
+* [Product](product/README.md)
+* [How it fits together](product/overview.md)
+* [Company](product/company/README.md)
+* [Business units](product/company/business-units.md)
+* [General settings](product/company/settings-general.md)
+* [Users](product/company/users.md)
+* [Roles](product/company/roles.md)
+* [System settings](product/company/system-settings.md)
+* [Feature flags](product/company/feature-flags.md)
+* [Profile](product/company/profile.md)
+* [Workspace](product/main/README.md)
+* [Dashboard](product/main/dashboard.md)
+* [Cloud accounts](product/main/cloud-accounts.md)
+* [Link a cloud account](product/main/link-cloud-account.md)
+* [Apps and integrations](product/main/apps-and-integrations.md)
+* [Business unit settings](product/main/business-unit-settings.md)
+* [Overview and governance](product/main/overview-and-governance.md)
+* [Cost breakdown](product/main/cost-breakdown.md)
+* [Resources](product/main/resources.md)
+* [Recommendations](product/main/recommendations.md)
+* [Activity and status](product/main/recommendation-activity-and-status.md)
+* [Generate a remediation plan](product/main/generate-remediation.md)
+* [Remediation sessions and agent chat](product/main/remediation-sessions-and-agent-chat.md)
+* [Cloud account settings and FOCUS](product/main/cloud-account-settings-and-focus.md)
+* [Profile and business unit switch](product/main/profile-and-business-unit-switch.md)
+* [Savings and remediation loop](product/flows/savings-and-remediation-loop.md)
+* [Environment notes](product/gaps-and-environment-notes.md)
+
 ## Reference
 
 * [API Reference](api-reference.md)
