@@ -18,14 +18,14 @@ Anyone working the savings loop. Opening the list requires permission to view re
 
    **Production console**
 
-1. On a build with category tabs, the tabs are **Compute**, **Storage**, **Database**, and **Inference**. There is no Network tab.
+2. On a build with category tabs, the tabs are **Compute**, **Storage**, **Database**, and **Inference**. There is no Network tab.
 
    ![Recommendations on the Compute tab. The tabs are Compute, Storage, Database, and Inference.](../images/main/recommendations-local-compute.png)
 
    **Non-production console**
 
-1. On a single-table build, use search, the columns menu, the filter drawer, sortable headers, and page size. Observed page sizes include 10, 25, and 50.
-1. Open a row for detail. Continue with [Activity and status](recommendation-activity-and-status.md).
+3. On a single-table build, use search, the columns menu, the filter drawer, sortable headers, and page size. Observed page sizes include 10, 25, and 50.
+4. Open a row for detail. Continue with [Activity and status](recommendation-activity-and-status.md).
 
 **Network** is one of the resource categories inside the filter drawer, together with Compute, Storage, Database, Inference, Reserved Instance, Savings Plan, Analytics, Integration, Monitoring, Security, Management, and Developer Tools. The drawer's **Apply** only applies those filters. It does not apply a change to the cloud.
 
