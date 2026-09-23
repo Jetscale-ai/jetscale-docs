@@ -21,9 +21,9 @@ Operators checking discovery when the menu item is there.
 
    **Non-production console**
 
-5. An empty account says nothing has been discovered yet.
+5. An empty account says no discovered resources yet. Run discovery to populate this list.
 
-   ![Resources empty state when nothing has been discovered yet.](../images/main/resources-empty.png)
+   ![Resources empty state. No discovered resources yet. Run discovery to populate this list.](../images/main/resources-empty.png)
 
    **Non-production console**
 
